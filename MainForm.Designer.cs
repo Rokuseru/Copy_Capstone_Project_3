@@ -206,8 +206,8 @@ namespace CapstoneProject_3
             this.btnRecords.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRecords.Size = new System.Drawing.Size(210, 43);
             this.btnRecords.TabIndex = 8;
-            this.btnRecords.Tag = "     Records";
-            this.btnRecords.Text = "     Records";
+            this.btnRecords.Tag = "     Reports";
+            this.btnRecords.Text = "     Reports";
             this.btnRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecords.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRecords.UseVisualStyleBackColor = false;

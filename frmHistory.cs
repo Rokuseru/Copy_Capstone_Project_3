@@ -26,39 +26,79 @@ namespace CapstoneProject_3
         {
             dataGridView.Rows.Clear();
 
-            try
+            if (cbUsers.Text == "All Users")
             {
-                int i = 0;
-                double totalSales = 0;
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
+                try
                 {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
+                    int i = 0;
+                    double totalSales = 0;
+                    using (var connection = new SqlConnection(con))
+                    using (var command = new SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
+                                            FROM tblCart AS c
+                                            INNER JOIN tblProduct AS p ON c.productID = p.productID
+                                            WHERE Status LIKE 'Sold'
+                                            AND sDate BETWEEN @dateFrom AND @dateTo";
+                        command.Parameters.AddWithValue("@dateFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@dateTo", dateTo.Value.ToString("yyyy-MM-dd"));
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                i += 1;
+                                totalSales += double.Parse(reader["Total"].ToString());
+                                dataGridView.Rows.Add(i, reader["cartID"].ToString(), reader["TransactionNo"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(),
+                                                    reader["Price"].ToString(), reader["qty"].ToString(), reader["discount"].ToString(), reader["Total"].ToString());
+                            }
+                        }
+                        lblTotalSales.Text = totalSales.ToString("C", culture);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                try
+                {
+                    int i = 0;
+                    double totalSales = 0;
+                    using (var connection = new SqlConnection(con))
+                    using (var command = new SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
                                             FROM tblCart AS c
                                             INNER JOIN tblProduct AS p ON c.productID = p.productID
                                             WHERE Status LIKE 'Sold'
                                             AND sDate BETWEEN @dateFrom AND @dateTo
                                             AND userID LIKE @uid";
-                    command.Parameters.AddWithValue("dateFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("dateTo", dateTo.Value.ToString("yyyy-MM-dd"));
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@dateFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@dateTo", dateTo.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@uid", uid);
+                        using (var reader = command.ExecuteReader())
                         {
-                            i += 1;
-                            totalSales += double.Parse(reader["Total"].ToString());
-                            dataGridView.Rows.Add(i, reader["cartID"].ToString(), reader["TransactionNo"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(),
-                                                reader["Price"].ToString(), reader["qty"].ToString(), reader["discount"].ToString(), reader["Total"].ToString());
+                            while (reader.Read())
+                            {
+                                i += 1;
+                                totalSales += double.Parse(reader["Total"].ToString());
+                                dataGridView.Rows.Add(i, reader["cartID"].ToString(), reader["TransactionNo"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(),
+                                                    reader["Price"].ToString(), reader["qty"].ToString(), reader["discount"].ToString(), reader["Total"].ToString());
+                            }
                         }
+                        lblTotalSales.Text = totalSales.ToString("C", culture);
                     }
-                    lblTotalSales.Text = totalSales.ToString("C", culture);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         public void loadUsers()
@@ -77,6 +117,7 @@ namespace CapstoneProject_3
                         {
                             cbUsers.Items.Add(reader["Name"].ToString());
                         }
+                        cbUsers.Items.Add("All Users");
                     }
                 }
             }
@@ -89,6 +130,7 @@ namespace CapstoneProject_3
         private void frmSalesHistory_Load(object sender, EventArgs e)
         {
             loadRecord();
+            loadUsers();
         }
 
         private void dateFrom_ValueChanged(object sender, EventArgs e)
@@ -114,13 +156,14 @@ namespace CapstoneProject_3
                     {
                         uid = dr["userID"].ToString();
                     }
-
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            loadRecord();
         }
     }
 }

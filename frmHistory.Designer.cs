@@ -55,6 +55,7 @@ namespace CapstoneProject_3
             this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cancel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPriceHistory = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl1.SuspendLayout();
             this.tabSalesHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -72,6 +73,7 @@ namespace CapstoneProject_3
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.tabSalesHistory);
+            this.metroTabControl1.Controls.Add(this.tabPriceHistory);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 10);
@@ -92,6 +94,7 @@ namespace CapstoneProject_3
             this.tabSalesHistory.Controls.Add(this.dateFrom);
             this.tabSalesHistory.Controls.Add(this.label1);
             this.tabSalesHistory.Controls.Add(this.dataGridView);
+            this.tabSalesHistory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabSalesHistory.HorizontalScrollbarBarColor = true;
             this.tabSalesHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabSalesHistory.HorizontalScrollbarSize = 10;
@@ -122,6 +125,7 @@ namespace CapstoneProject_3
             this.cbUsers.Name = "cbUsers";
             this.cbUsers.Size = new System.Drawing.Size(121, 25);
             this.cbUsers.TabIndex = 26;
+            this.cbUsers.Text = "All Users";
             this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
             // 
             // btnSave
@@ -216,7 +220,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -236,13 +240,13 @@ namespace CapstoneProject_3
             this.TotalPrice,
             this.cancel});
             this.dataGridView.EnableHeadersVisualStyles = false;
-            this.dataGridView.Location = new System.Drawing.Point(-4, 34);
+            this.dataGridView.Location = new System.Drawing.Point(0, 34);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
@@ -253,7 +257,7 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(962, 389);
+            this.dataGridView.Size = new System.Drawing.Size(958, 389);
             this.dataGridView.TabIndex = 19;
             // 
             // Column3
@@ -262,7 +266,7 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 37;
+            this.Column3.Width = 39;
             // 
             // cartID
             // 
@@ -277,7 +281,7 @@ namespace CapstoneProject_3
             this.invoiceNo.HeaderText = "Invoice #";
             this.invoiceNo.Name = "invoiceNo";
             this.invoiceNo.ReadOnly = true;
-            this.invoiceNo.Width = 69;
+            this.invoiceNo.Width = 76;
             // 
             // pcode
             // 
@@ -285,7 +289,7 @@ namespace CapstoneProject_3
             this.pcode.HeaderText = "Product Code";
             this.pcode.Name = "pcode";
             this.pcode.ReadOnly = true;
-            this.pcode.Width = 87;
+            this.pcode.Width = 102;
             // 
             // desc
             // 
@@ -300,7 +304,7 @@ namespace CapstoneProject_3
             this.prodPrice.HeaderText = "Price";
             this.prodPrice.Name = "prodPrice";
             this.prodPrice.ReadOnly = true;
-            this.prodPrice.Width = 54;
+            this.prodPrice.Width = 59;
             // 
             // qty
             // 
@@ -308,7 +312,7 @@ namespace CapstoneProject_3
             this.qty.HeaderText = "Quantity";
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 69;
+            this.qty.Width = 79;
             // 
             // discount
             // 
@@ -316,7 +320,7 @@ namespace CapstoneProject_3
             this.discount.HeaderText = "Discount";
             this.discount.Name = "discount";
             this.discount.ReadOnly = true;
-            this.discount.Width = 72;
+            this.discount.Width = 81;
             // 
             // TotalPrice
             // 
@@ -324,7 +328,7 @@ namespace CapstoneProject_3
             this.TotalPrice.HeaderText = "Total";
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
-            this.TotalPrice.Width = 54;
+            this.TotalPrice.Width = 59;
             // 
             // cancel
             // 
@@ -335,6 +339,20 @@ namespace CapstoneProject_3
             this.cancel.Name = "cancel";
             this.cancel.ReadOnly = true;
             this.cancel.Width = 5;
+            // 
+            // tabPriceHistory
+            // 
+            this.tabPriceHistory.HorizontalScrollbarBarColor = true;
+            this.tabPriceHistory.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPriceHistory.HorizontalScrollbarSize = 10;
+            this.tabPriceHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabPriceHistory.Name = "tabPriceHistory";
+            this.tabPriceHistory.Size = new System.Drawing.Size(958, 423);
+            this.tabPriceHistory.TabIndex = 1;
+            this.tabPriceHistory.Text = "Price History";
+            this.tabPriceHistory.VerticalScrollbarBarColor = true;
+            this.tabPriceHistory.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPriceHistory.VerticalScrollbarSize = 10;
             // 
             // frmHistory
             // 
@@ -380,5 +398,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewImageColumn cancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbUsers;
+        private MetroFramework.Controls.MetroTabPage tabPriceHistory;
     }
 }
