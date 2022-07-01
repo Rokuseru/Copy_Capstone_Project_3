@@ -33,7 +33,7 @@ namespace CapstoneProject_3
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnUserSettings = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.btnSalesHistory = new FontAwesome.Sharp.IconButton();
+            this.btnHistory = new FontAwesome.Sharp.IconButton();
             this.btnRecords = new FontAwesome.Sharp.IconButton();
             this.btnStockIn = new FontAwesome.Sharp.IconButton();
             this.btnProduct = new FontAwesome.Sharp.IconButton();
@@ -67,7 +67,7 @@ namespace CapstoneProject_3
             this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnUserSettings);
             this.panelMenu.Controls.Add(this.iconButton3);
-            this.panelMenu.Controls.Add(this.btnSalesHistory);
+            this.panelMenu.Controls.Add(this.btnHistory);
             this.panelMenu.Controls.Add(this.btnRecords);
             this.panelMenu.Controls.Add(this.btnStockIn);
             this.panelMenu.Controls.Add(this.btnProduct);
@@ -161,30 +161,31 @@ namespace CapstoneProject_3
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
-            // btnSalesHistory
+            // btnHistory
             // 
-            this.btnSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnSalesHistory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSalesHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.btnSalesHistory.FlatAppearance.BorderSize = 0;
-            this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalesHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnSalesHistory.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
-            this.btnSalesHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalesHistory.IconSize = 35;
-            this.btnSalesHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalesHistory.Location = new System.Drawing.Point(0, 438);
-            this.btnSalesHistory.Name = "btnSalesHistory";
-            this.btnSalesHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnSalesHistory.Size = new System.Drawing.Size(210, 43);
-            this.btnSalesHistory.TabIndex = 9;
-            this.btnSalesHistory.Tag = "     Sales History";
-            this.btnSalesHistory.Text = "     Sales History";
-            this.btnSalesHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalesHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.btnHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHistory.IconSize = 35;
+            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.Location = new System.Drawing.Point(0, 438);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistory.Size = new System.Drawing.Size(210, 43);
+            this.btnHistory.TabIndex = 9;
+            this.btnHistory.Tag = "     History";
+            this.btnHistory.Text = "     History";
+            this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // btnRecords
             // 
@@ -619,7 +620,7 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton btnUserSettings;
         private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton btnSalesHistory;
+        private FontAwesome.Sharp.IconButton btnHistory;
     }
 }
 

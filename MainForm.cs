@@ -306,5 +306,11 @@ namespace CapstoneProject_3
             ActivateButton(sender);
             OpenChildForm(new frmAccounts());
         }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmHistory());
+        }
     }
 }

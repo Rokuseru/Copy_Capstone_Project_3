@@ -136,11 +136,11 @@
     <Compile Include="frmRecords.Designer.cs">
       <DependentUpon>frmRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSalesHistory.cs">
+    <Compile Include="frmHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSalesHistory.Designer.cs">
-      <DependentUpon>frmSalesHistory.cs</DependentUpon>
+    <Compile Include="frmHistory.Designer.cs">
+      <DependentUpon>frmHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSearchProducts.cs">
       <SubType>Form</SubType>
@@ -266,8 +266,8 @@
     <EmbeddedResource Include="frmRecords.resx">
       <DependentUpon>frmRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSalesHistory.resx">
-      <DependentUpon>frmSalesHistory.cs</DependentUpon>
+    <EmbeddedResource Include="frmHistory.resx">
+      <DependentUpon>frmHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchProducts.resx">
       <DependentUpon>frmSearchProducts.cs</DependentUpon>
