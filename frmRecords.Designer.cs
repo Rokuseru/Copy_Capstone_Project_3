@@ -137,7 +137,7 @@ namespace CapstoneProject_3
             this.tabControlRecords.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlRecords.Location = new System.Drawing.Point(0, 10);
             this.tabControlRecords.Name = "tabControlRecords";
-            this.tabControlRecords.SelectedIndex = 1;
+            this.tabControlRecords.SelectedIndex = 0;
             this.tabControlRecords.Size = new System.Drawing.Size(911, 482);
             this.tabControlRecords.TabIndex = 4;
             this.tabControlRecords.UseSelectable = true;
@@ -545,6 +545,7 @@ namespace CapstoneProject_3
             this.btnPrintCriticalStock.Text = "Print";
             this.btnPrintCriticalStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrintCriticalStock.UseVisualStyleBackColor = false;
+            this.btnPrintCriticalStock.Click += new System.EventHandler(this.btnPrintCriticalStock_Click);
             // 
             // dataGridView3
             // 

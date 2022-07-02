@@ -254,6 +254,7 @@
       <DependentUpon>frmTopSellingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Datasets\rwCriticalStock.rdlc" />
     <EmbeddedResource Include="Datasets\rwDailySalesReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwInventoryReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwReceipt.rdlc" />

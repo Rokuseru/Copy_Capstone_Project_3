@@ -230,5 +230,12 @@ namespace CapstoneProject_3
             soldItems.loadSoldItems();
             soldItems.ShowDialog();
         }
+
+        private void btnPrintCriticalStock_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport criticalStock = new frmInventoryReport(this);
+            criticalStock.loadCriticalStock();
+            criticalStock.ShowDialog();
+        }
     }
 }
