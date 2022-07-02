@@ -15,12 +15,12 @@ namespace CapstoneProject_3.POS_System
     public partial class frmVoid : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        frmCancelDetails cd;
+        frmRefundDetails cd;
         public int admin = 0;
         public int tid = 0;
         public int pid = 0;
         public int userID = 0;
-        public frmVoid(frmCancelDetails frm)
+        public frmVoid(frmRefundDetails frm)
         {
             InitializeComponent();
             cd = frm;
@@ -94,7 +94,7 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblCancelledOrders (transacID, pid, price, qty, total, sdate, authorizedBy,userID, reason, action)
+                    command.CommandText = @"INSERT INTO tblCancelledOrders (transacID, pid, price, qty, total, sdate, authorizedBy,cashier, reason, action)
                                             VALUES (@tid, @pid, @price, @qty, @total, @sdate, @admin,@user, @reason, @action)";
                     command.Parameters.AddWithValue("@tid", tid);
                     command.Parameters.AddWithValue("@pid", pid);

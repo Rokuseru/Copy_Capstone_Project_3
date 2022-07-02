@@ -1,7 +1,7 @@
 ﻿
 namespace CapstoneProject_3.POS_System
 {
-    partial class frmCancelDetails
+    partial class frmRefundDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,8 @@ namespace CapstoneProject_3.POS_System
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
             this.lblCurrentChildForm = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTransNo = new System.Windows.Forms.TextBox();
@@ -40,26 +42,24 @@ namespace CapstoneProject_3.POS_System
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtQty = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnCancelSales = new RJCodeAdvance.RJControls.RJButton();
+            this.cbAction = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.TextBox();
             this.txtQtyBot = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCashier = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtReason = new System.Windows.Forms.TextBox();
-            this.cbAction = new System.Windows.Forms.ComboBox();
-            this.btnCancelSales = new RJCodeAdvance.RJControls.RJButton();
-            this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,6 +79,53 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Size = new System.Drawing.Size(777, 41);
             this.panelTop.TabIndex = 3;
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.btnExit.IconColor = System.Drawing.Color.White;
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnExit.IconSize = 20;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.Location = new System.Drawing.Point(730, 6);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 29);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Tag = "";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnMinimizeWindow
+            // 
+            this.btnMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnMinimizeWindow.FlatAppearance.BorderSize = 0;
+            this.btnMinimizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizeWindow.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimizeWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(218)))), ((int)(((byte)(226)))));
+            this.btnMinimizeWindow.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMinimizeWindow.IconColor = System.Drawing.Color.White;
+            this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnMinimizeWindow.IconSize = 20;
+            this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMinimizeWindow.Location = new System.Drawing.Point(677, 4);
+            this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMinimizeWindow.Name = "btnMinimizeWindow";
+            this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);
+            this.btnMinimizeWindow.TabIndex = 7;
+            this.btnMinimizeWindow.Tag = "";
+            this.btnMinimizeWindow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMinimizeWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMinimizeWindow.UseVisualStyleBackColor = false;
+            this.btnMinimizeWindow.Click += new System.EventHandler(this.btnMinimizeWindow_Click);
+            // 
             // lblCurrentChildForm
             // 
             this.lblCurrentChildForm.AutoSize = true;
@@ -86,9 +133,9 @@ namespace CapstoneProject_3.POS_System
             this.lblCurrentChildForm.ForeColor = System.Drawing.Color.White;
             this.lblCurrentChildForm.Location = new System.Drawing.Point(3, 9);
             this.lblCurrentChildForm.Name = "lblCurrentChildForm";
-            this.lblCurrentChildForm.Size = new System.Drawing.Size(134, 25);
+            this.lblCurrentChildForm.Size = new System.Drawing.Size(141, 25);
             this.lblCurrentChildForm.TabIndex = 1;
-            this.lblCurrentChildForm.Text = "Cancel Details";
+            this.lblCurrentChildForm.Text = "Refund Details";
             // 
             // label5
             // 
@@ -202,16 +249,27 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Size = new System.Drawing.Size(754, 218);
             this.panel1.TabIndex = 30;
             // 
-            // label7
+            // label13
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 21);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "ITEM";
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(462, 115);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 17);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Discount";
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDiscount.Enabled = false;
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtDiscount.Location = new System.Drawing.Point(540, 112);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(202, 25);
+            this.txtDiscount.TabIndex = 31;
             // 
             // txtTotal
             // 
@@ -257,6 +315,17 @@ namespace CapstoneProject_3.POS_System
             this.txtQty.Size = new System.Drawing.Size(202, 25);
             this.txtQty.TabIndex = 29;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 21);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "ITEM";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -275,16 +344,60 @@ namespace CapstoneProject_3.POS_System
             this.panel2.Size = new System.Drawing.Size(754, 214);
             this.panel2.TabIndex = 31;
             // 
-            // label10
+            // btnCancelSales
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 21);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "CANCEL ITEM(S)";
+            this.btnCancelSales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancelSales.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancelSales.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancelSales.BorderRadius = 5;
+            this.btnCancelSales.BorderSize = 0;
+            this.btnCancelSales.FlatAppearance.BorderSize = 0;
+            this.btnCancelSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelSales.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelSales.ForeColor = System.Drawing.Color.White;
+            this.btnCancelSales.Location = new System.Drawing.Point(608, 162);
+            this.btnCancelSales.Name = "btnCancelSales";
+            this.btnCancelSales.Size = new System.Drawing.Size(134, 32);
+            this.btnCancelSales.TabIndex = 46;
+            this.btnCancelSales.Text = "Cancel Order";
+            this.btnCancelSales.TextColor = System.Drawing.Color.White;
+            this.btnCancelSales.UseVisualStyleBackColor = false;
+            this.btnCancelSales.Click += new System.EventHandler(this.btnCancelSales_Click);
+            // 
+            // cbAction
+            // 
+            this.cbAction.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAction.FormattingEnabled = true;
+            this.cbAction.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.cbAction.Location = new System.Drawing.Point(145, 122);
+            this.cbAction.Name = "cbAction";
+            this.cbAction.Size = new System.Drawing.Size(73, 25);
+            this.cbAction.TabIndex = 45;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(393, 57);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 17);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Reason(s)";
+            // 
+            // txtReason
+            // 
+            this.txtReason.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtReason.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReason.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtReason.Location = new System.Drawing.Point(465, 54);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(277, 93);
+            this.txtReason.TabIndex = 43;
             // 
             // txtQtyBot
             // 
@@ -340,131 +453,18 @@ namespace CapstoneProject_3.POS_System
             this.label11.TabIndex = 36;
             this.label11.Text = "Cashier";
             // 
-            // label12
+            // label10
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(393, 57);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 17);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Reason(s)";
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(10, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 21);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "REFUND ITEM(S)";
             // 
-            // txtReason
-            // 
-            this.txtReason.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtReason.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReason.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtReason.Location = new System.Drawing.Point(465, 54);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(277, 93);
-            this.txtReason.TabIndex = 43;
-            // 
-            // cbAction
-            // 
-            this.cbAction.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAction.FormattingEnabled = true;
-            this.cbAction.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.cbAction.Location = new System.Drawing.Point(145, 122);
-            this.cbAction.Name = "cbAction";
-            this.cbAction.Size = new System.Drawing.Size(73, 25);
-            this.cbAction.TabIndex = 45;
-            // 
-            // btnCancelSales
-            // 
-            this.btnCancelSales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnCancelSales.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnCancelSales.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnCancelSales.BorderRadius = 5;
-            this.btnCancelSales.BorderSize = 0;
-            this.btnCancelSales.FlatAppearance.BorderSize = 0;
-            this.btnCancelSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelSales.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelSales.ForeColor = System.Drawing.Color.White;
-            this.btnCancelSales.Location = new System.Drawing.Point(608, 162);
-            this.btnCancelSales.Name = "btnCancelSales";
-            this.btnCancelSales.Size = new System.Drawing.Size(134, 32);
-            this.btnCancelSales.TabIndex = 46;
-            this.btnCancelSales.Text = "Cancel Order";
-            this.btnCancelSales.TextColor = System.Drawing.Color.White;
-            this.btnCancelSales.UseVisualStyleBackColor = false;
-            this.btnCancelSales.Click += new System.EventHandler(this.btnCancelSales_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnExit.IconColor = System.Drawing.Color.White;
-            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btnExit.IconSize = 20;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(730, 6);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 29);
-            this.btnExit.TabIndex = 9;
-            this.btnExit.Tag = "";
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnMinimizeWindow
-            // 
-            this.btnMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.btnMinimizeWindow.FlatAppearance.BorderSize = 0;
-            this.btnMinimizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizeWindow.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimizeWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(218)))), ((int)(((byte)(226)))));
-            this.btnMinimizeWindow.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMinimizeWindow.IconColor = System.Drawing.Color.White;
-            this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btnMinimizeWindow.IconSize = 20;
-            this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizeWindow.Location = new System.Drawing.Point(677, 4);
-            this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnMinimizeWindow.Name = "btnMinimizeWindow";
-            this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);
-            this.btnMinimizeWindow.TabIndex = 7;
-            this.btnMinimizeWindow.Tag = "";
-            this.btnMinimizeWindow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMinimizeWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMinimizeWindow.UseVisualStyleBackColor = false;
-            this.btnMinimizeWindow.Click += new System.EventHandler(this.btnMinimizeWindow_Click);
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(462, 115);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 17);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "Discount";
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDiscount.Enabled = false;
-            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDiscount.Location = new System.Drawing.Point(540, 112);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(202, 25);
-            this.txtDiscount.TabIndex = 31;
-            // 
-            // frmCancelDetails
+            // frmRefundDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -475,7 +475,7 @@ namespace CapstoneProject_3.POS_System
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "frmCancelDetails";
+            this.Name = "frmRefundDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

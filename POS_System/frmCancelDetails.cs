@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace CapstoneProject_3.POS_System
 {
-    public partial class frmCancelDetails : Form
+    public partial class frmRefundDetails : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmDailySales ds;
-        public frmCancelDetails(frmDailySales fds)
+        public frmRefundDetails(frmDailySales fds)
         {
             ds = fds;
             InitializeComponent();

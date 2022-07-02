@@ -180,47 +180,46 @@ namespace CapstoneProject_3
                 ntf.notificationTimer(timer1, panelNotif1);
             }
         }
-        public void loadHistory()
-        {
-            try
-            {
-                dtgHistory.Rows.Clear();
-                int i = 0;
+        //public void loadHistory()
+        //{
+        //    try
+        //    {
+        //        dtgHistory.Rows.Clear();
+        //        int i = 0;
 
-                string dateB = dtFrom.Value.ToString("yyyy-MM-dd");
-                string dateT = dtTo.Value.ToString("yyyy-MM-dd");
+        //        string dateB = dtFrom.Value.ToString("yyyy-MM-dd");
+        //        string dateT = dtTo.Value.ToString("yyyy-MM-dd");
 
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM viewStockIn WHERE StockInDate BETWEEN @dateb AND @datet AND Status LIKE 'Done'";
-                    command.Parameters.AddWithValue("@dateb", dateB);
-                    command.Parameters.AddWithValue("@datet", dateT);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        i += 1;
-                        while (reader.Read())
-                        {
-                            dtgHistory.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
-                           reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
-                        }
+        //        using (var connection = new SqlConnection(con))
+        //        using (var command = new SqlCommand())
+        //        {
+        //            connection.Open();
+        //            command.Connection = connection;
+        //            command.CommandText = @"SELECT * FROM viewStockIn WHERE StockInDate BETWEEN @dateb AND @datet AND Status LIKE 'Done'";
+        //            command.Parameters.AddWithValue("@dateb", dateB);
+        //            command.Parameters.AddWithValue("@datet", dateT);
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                i += 1;
+        //                while (reader.Read())
+        //                {
+        //                    dtgHistory.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
+        //                   reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
+        //                }
 
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
-            }
-        }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
+        //        ntf.notificationTimer(timer1, panelNotif1);
+        //    }
+        //}
 
         private void frmStockEntry_Load(object sender, EventArgs e)
         {
             loadVendor();
-            loadHistory();
         }
 
         private void btnRefNo_Click(object sender, EventArgs e)
@@ -305,16 +304,6 @@ namespace CapstoneProject_3
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveQty();
-        }
-
-        private void dtFrom_ValueChanged(object sender, EventArgs e)
-        {
-            loadHistory();
-        }
-
-        private void dtTo_ValueChanged(object sender, EventArgs e)
-        {
-            loadHistory();
         }
     }
 }

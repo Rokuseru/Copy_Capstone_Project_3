@@ -126,9 +126,76 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void frmSalesHistory_Load(object sender, EventArgs e)
+        public void loadRefunded()
         {
+            dataGridView.Rows.Clear();
+            int i = 0;
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM viewRefunded WHERE sdate BETWEEN @dateFrom AND @dateTo";
+                    command.Parameters.AddWithValue("@dateFrom", dateFrom3.Value.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@dateTo", dateTo3.Value.ToString("yyyy-MM-dd"));
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i++;
+                            dataGridView3.Rows.Add(i, reader["TransactionNo"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["price"].ToString(),
+                                reader["qty"].ToString(), reader["total"].ToString(), reader["sdate"].ToString(), reader["Store_Owner"].ToString(), reader["cashier"].ToString(), reader["reason"].ToString());
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        public void loadStockInHistory()
+        {
+            try
+            {
+                dataGridView4.Rows.Clear();
+                int i = 0;
+
+                string dateB = dateFrom4.Value.ToString("yyyy-MM-dd");
+                string dateT = dateTo4.Value.ToString("yyyy-MM-dd");
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM viewStockIn WHERE StockInDate BETWEEN @dateb AND @datet AND Status LIKE 'Done'";
+                    command.Parameters.AddWithValue("@dateb", dateB);
+                    command.Parameters.AddWithValue("@datet", dateT);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        i += 1;
+                        while (reader.Read())
+                        {
+                            dataGridView4.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
+                           reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+            private void frmSalesHistory_Load(object sender, EventArgs e)
+        {
+            dateTo.Value = DateTime.Today;
+            dateTo3.Value = DateTime.Today;
+            dateTo4.Value = DateTime.Today;
             loadRecord();
             loadUsers();
         }
@@ -164,6 +231,26 @@ namespace CapstoneProject_3
             }
 
             loadRecord();
+        }
+
+        private void tabControlHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlHistory.SelectedTab == tabControlHistory.TabPages["tabRefundHistory"])
+            {
+                loadRefunded();
+            }
+            else if (tabControlHistory.SelectedTab == tabControlHistory.TabPages["tabSalesHistory"])
+            {
+                loadRecord();
+            }
+            else if (tabControlHistory.SelectedTab == tabControlHistory.TabPages["tabStockInHistory"])
+            {
+                loadStockInHistory();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

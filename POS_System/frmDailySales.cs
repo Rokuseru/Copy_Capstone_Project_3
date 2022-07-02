@@ -229,7 +229,7 @@ namespace CapstoneProject_3.POS_System
             string colname = dataGridView.Columns[e.ColumnIndex].Name;
             if (colname == "cancel")
             {
-                frmCancelDetails cdeets = new frmCancelDetails(this);
+                frmRefundDetails cdeets = new frmRefundDetails(this);
                 cdeets.txtDescription.Text = dataGridView.Rows[e.RowIndex].Cells["desc"].Value.ToString();
                 cdeets.txtPcode.Text = dataGridView.Rows[e.RowIndex].Cells["pcode"].Value.ToString();
                 cdeets.txtPrice.Text = dataGridView.Rows[e.RowIndex].Cells["prodPrice"].Value.ToString();
