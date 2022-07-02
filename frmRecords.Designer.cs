@@ -55,7 +55,7 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlRecords = new MetroFramework.Controls.MetroTabControl();
             this.tabTopSelling = new MetroFramework.Controls.MetroTabPage();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
+            this.btnTopSelling = new FontAwesome.Sharp.IconButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
@@ -66,8 +66,8 @@ namespace CapstoneProject_3
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSoldItems = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintSoldItems = new FontAwesome.Sharp.IconButton();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.btnBack2 = new FontAwesome.Sharp.IconButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTo2 = new System.Windows.Forms.DateTimePicker();
@@ -81,6 +81,7 @@ namespace CapstoneProject_3
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCriticalStock = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintCriticalStock = new FontAwesome.Sharp.IconButton();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,10 +93,8 @@ namespace CapstoneProject_3
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBack3 = new FontAwesome.Sharp.IconButton();
             this.tabInventoryCount = new MetroFramework.Controls.MetroTabPage();
-            this.btnPrint = new FontAwesome.Sharp.IconButton();
-            this.btnBack4 = new FontAwesome.Sharp.IconButton();
+            this.btnPrintInventoryCount = new FontAwesome.Sharp.IconButton();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,7 +137,7 @@ namespace CapstoneProject_3
             this.tabControlRecords.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlRecords.Location = new System.Drawing.Point(0, 10);
             this.tabControlRecords.Name = "tabControlRecords";
-            this.tabControlRecords.SelectedIndex = 3;
+            this.tabControlRecords.SelectedIndex = 1;
             this.tabControlRecords.Size = new System.Drawing.Size(911, 482);
             this.tabControlRecords.TabIndex = 4;
             this.tabControlRecords.UseSelectable = true;
@@ -147,7 +146,7 @@ namespace CapstoneProject_3
             // tabTopSelling
             // 
             this.tabTopSelling.BackColor = System.Drawing.Color.White;
-            this.tabTopSelling.Controls.Add(this.btnBack);
+            this.tabTopSelling.Controls.Add(this.btnTopSelling);
             this.tabTopSelling.Controls.Add(this.metroLabel1);
             this.tabTopSelling.Controls.Add(this.label3);
             this.tabTopSelling.Controls.Add(this.dateTo);
@@ -166,21 +165,24 @@ namespace CapstoneProject_3
             this.tabTopSelling.VerticalScrollbarHighlightOnWheel = false;
             this.tabTopSelling.VerticalScrollbarSize = 10;
             // 
-            // btnBack
+            // btnTopSelling
             // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(856, 402);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 39);
-            this.btnBack.TabIndex = 26;
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnTopSelling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTopSelling.FlatAppearance.BorderSize = 0;
+            this.btnTopSelling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTopSelling.ForeColor = System.Drawing.Color.White;
+            this.btnTopSelling.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnTopSelling.IconColor = System.Drawing.Color.White;
+            this.btnTopSelling.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTopSelling.IconSize = 25;
+            this.btnTopSelling.Location = new System.Drawing.Point(392, 3);
+            this.btnTopSelling.Name = "btnTopSelling";
+            this.btnTopSelling.Size = new System.Drawing.Size(95, 28);
+            this.btnTopSelling.TabIndex = 44;
+            this.btnTopSelling.Text = "Print";
+            this.btnTopSelling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTopSelling.UseVisualStyleBackColor = false;
+            this.btnTopSelling.Click += new System.EventHandler(this.btnTopSelling_Click);
             // 
             // metroLabel1
             // 
@@ -210,7 +212,7 @@ namespace CapstoneProject_3
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(95, 23);
             this.dateTo.TabIndex = 23;
-            this.dateTo.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
+            this.dateTo.Value = new System.DateTime(2022, 7, 2, 0, 0, 0, 0);
             this.dateTo.ValueChanged += new System.EventHandler(this.dateTo_ValueChanged);
             // 
             // dateFrom
@@ -221,7 +223,7 @@ namespace CapstoneProject_3
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(101, 23);
             this.dateFrom.TabIndex = 22;
-            this.dateFrom.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
+            this.dateFrom.Value = new System.DateTime(2022, 7, 2, 0, 0, 0, 0);
             this.dateFrom.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
             // 
             // dataGridView
@@ -270,7 +272,7 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(902, 367);
+            this.dataGridView.Size = new System.Drawing.Size(902, 402);
             this.dataGridView.TabIndex = 13;
             // 
             // Column3
@@ -299,15 +301,15 @@ namespace CapstoneProject_3
             // qty
             // 
             this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.HeaderText = "Quantity";
+            this.qty.HeaderText = "Sold Quantity";
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 84;
+            this.qty.Width = 104;
             // 
             // tabSoldItems
             // 
+            this.tabSoldItems.Controls.Add(this.btnPrintSoldItems);
             this.tabSoldItems.Controls.Add(this.lblTotal);
-            this.tabSoldItems.Controls.Add(this.btnBack2);
             this.tabSoldItems.Controls.Add(this.metroLabel2);
             this.tabSoldItems.Controls.Add(this.label1);
             this.tabSoldItems.Controls.Add(this.dateTo2);
@@ -326,6 +328,26 @@ namespace CapstoneProject_3
             this.tabSoldItems.VerticalScrollbarHighlightOnWheel = false;
             this.tabSoldItems.VerticalScrollbarSize = 10;
             // 
+            // btnPrintSoldItems
+            // 
+            this.btnPrintSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintSoldItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintSoldItems.FlatAppearance.BorderSize = 0;
+            this.btnPrintSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSoldItems.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSoldItems.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintSoldItems.IconColor = System.Drawing.Color.White;
+            this.btnPrintSoldItems.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintSoldItems.IconSize = 25;
+            this.btnPrintSoldItems.Location = new System.Drawing.Point(392, 3);
+            this.btnPrintSoldItems.Name = "btnPrintSoldItems";
+            this.btnPrintSoldItems.Size = new System.Drawing.Size(95, 28);
+            this.btnPrintSoldItems.TabIndex = 43;
+            this.btnPrintSoldItems.Text = "Print";
+            this.btnPrintSoldItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintSoldItems.UseVisualStyleBackColor = false;
+            this.btnPrintSoldItems.Click += new System.EventHandler(this.btnPrintSoldItems_Click);
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -338,22 +360,6 @@ namespace CapstoneProject_3
             this.lblTotal.TabIndex = 33;
             this.lblTotal.Text = "0.00";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnBack2
-            // 
-            this.btnBack2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack2.FlatAppearance.BorderSize = 0;
-            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack2.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack2.IconSize = 35;
-            this.btnBack2.Location = new System.Drawing.Point(856, 402);
-            this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(46, 39);
-            this.btnBack2.TabIndex = 32;
-            this.btnBack2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack2.UseVisualStyleBackColor = true;
             // 
             // metroLabel2
             // 
@@ -446,7 +452,7 @@ namespace CapstoneProject_3
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(902, 367);
+            this.dataGridView2.Size = new System.Drawing.Size(902, 402);
             this.dataGridView2.TabIndex = 27;
             // 
             // dataGridViewTextBoxColumn1
@@ -506,8 +512,8 @@ namespace CapstoneProject_3
             // 
             // tabCriticalStock
             // 
+            this.tabCriticalStock.Controls.Add(this.btnPrintCriticalStock);
             this.tabCriticalStock.Controls.Add(this.dataGridView3);
-            this.tabCriticalStock.Controls.Add(this.btnBack3);
             this.tabCriticalStock.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCriticalStock.HorizontalScrollbarBarColor = true;
             this.tabCriticalStock.HorizontalScrollbarHighlightOnWheel = false;
@@ -520,6 +526,25 @@ namespace CapstoneProject_3
             this.tabCriticalStock.VerticalScrollbarBarColor = true;
             this.tabCriticalStock.VerticalScrollbarHighlightOnWheel = false;
             this.tabCriticalStock.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintCriticalStock
+            // 
+            this.btnPrintCriticalStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintCriticalStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintCriticalStock.FlatAppearance.BorderSize = 0;
+            this.btnPrintCriticalStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintCriticalStock.ForeColor = System.Drawing.Color.White;
+            this.btnPrintCriticalStock.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintCriticalStock.IconColor = System.Drawing.Color.White;
+            this.btnPrintCriticalStock.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintCriticalStock.IconSize = 25;
+            this.btnPrintCriticalStock.Location = new System.Drawing.Point(808, 3);
+            this.btnPrintCriticalStock.Name = "btnPrintCriticalStock";
+            this.btnPrintCriticalStock.Size = new System.Drawing.Size(95, 28);
+            this.btnPrintCriticalStock.TabIndex = 43;
+            this.btnPrintCriticalStock.Text = "Print";
+            this.btnPrintCriticalStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintCriticalStock.UseVisualStyleBackColor = false;
             // 
             // dataGridView3
             // 
@@ -556,7 +581,7 @@ namespace CapstoneProject_3
             this.Column9,
             this.Column10});
             this.dataGridView3.EnableHeadersVisualStyles = false;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 3);
+            this.dataGridView3.Location = new System.Drawing.Point(0, 37);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -572,7 +597,7 @@ namespace CapstoneProject_3
             this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView3.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(903, 393);
+            this.dataGridView3.Size = new System.Drawing.Size(903, 400);
             this.dataGridView3.TabIndex = 39;
             // 
             // dataGridViewTextBoxColumn5
@@ -659,26 +684,9 @@ namespace CapstoneProject_3
             this.Column10.ReadOnly = true;
             this.Column10.Width = 112;
             // 
-            // btnBack3
-            // 
-            this.btnBack3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack3.FlatAppearance.BorderSize = 0;
-            this.btnBack3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack3.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack3.IconSize = 35;
-            this.btnBack3.Location = new System.Drawing.Point(857, 402);
-            this.btnBack3.Name = "btnBack3";
-            this.btnBack3.Size = new System.Drawing.Size(46, 39);
-            this.btnBack3.TabIndex = 38;
-            this.btnBack3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack3.UseVisualStyleBackColor = true;
-            // 
             // tabInventoryCount
             // 
-            this.tabInventoryCount.Controls.Add(this.btnPrint);
-            this.tabInventoryCount.Controls.Add(this.btnBack4);
+            this.tabInventoryCount.Controls.Add(this.btnPrintInventoryCount);
             this.tabInventoryCount.Controls.Add(this.dataGridView4);
             this.tabInventoryCount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabInventoryCount.HorizontalScrollbarBarColor = true;
@@ -688,46 +696,30 @@ namespace CapstoneProject_3
             this.tabInventoryCount.Name = "tabInventoryCount";
             this.tabInventoryCount.Size = new System.Drawing.Size(903, 437);
             this.tabInventoryCount.TabIndex = 3;
-            this.tabInventoryCount.Text = "Inventory Count";
+            this.tabInventoryCount.Text = "Inventory Report";
             this.tabInventoryCount.VerticalScrollbarBarColor = true;
             this.tabInventoryCount.VerticalScrollbarHighlightOnWheel = false;
             this.tabInventoryCount.VerticalScrollbarSize = 10;
             // 
-            // btnPrint
+            // btnPrintInventoryCount
             // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrint.IconColor = System.Drawing.Color.White;
-            this.btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrint.IconSize = 25;
-            this.btnPrint.Location = new System.Drawing.Point(808, 3);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(95, 31);
-            this.btnPrint.TabIndex = 42;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnBack4
-            // 
-            this.btnBack4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack4.FlatAppearance.BorderSize = 0;
-            this.btnBack4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack4.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack4.IconSize = 35;
-            this.btnBack4.Location = new System.Drawing.Point(861, 403);
-            this.btnBack4.Name = "btnBack4";
-            this.btnBack4.Size = new System.Drawing.Size(46, 39);
-            this.btnBack4.TabIndex = 41;
-            this.btnBack4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack4.UseVisualStyleBackColor = true;
+            this.btnPrintInventoryCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintInventoryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintInventoryCount.FlatAppearance.BorderSize = 0;
+            this.btnPrintInventoryCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintInventoryCount.ForeColor = System.Drawing.Color.White;
+            this.btnPrintInventoryCount.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintInventoryCount.IconColor = System.Drawing.Color.White;
+            this.btnPrintInventoryCount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintInventoryCount.IconSize = 25;
+            this.btnPrintInventoryCount.Location = new System.Drawing.Point(808, 3);
+            this.btnPrintInventoryCount.Name = "btnPrintInventoryCount";
+            this.btnPrintInventoryCount.Size = new System.Drawing.Size(95, 28);
+            this.btnPrintInventoryCount.TabIndex = 42;
+            this.btnPrintInventoryCount.Text = "Print";
+            this.btnPrintInventoryCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintInventoryCount.UseVisualStyleBackColor = false;
+            this.btnPrintInventoryCount.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // dataGridView4
             // 
@@ -764,7 +756,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17});
             this.dataGridView4.EnableHeadersVisualStyles = false;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 40);
+            this.dataGridView4.Location = new System.Drawing.Point(0, 37);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -780,7 +772,7 @@ namespace CapstoneProject_3
             this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(903, 357);
+            this.dataGridView4.Size = new System.Drawing.Size(903, 397);
             this.dataGridView4.TabIndex = 40;
             // 
             // dataGridViewTextBoxColumn8
@@ -904,12 +896,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.DateTimePicker dateTo;
         public System.Windows.Forms.DateTimePicker dateFrom;
-        private FontAwesome.Sharp.IconButton btnBack;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private FontAwesome.Sharp.IconButton btnBack2;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DateTimePicker dateTo2;
@@ -924,7 +910,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private MetroFramework.Controls.MetroTabPage tabCriticalStock;
-        private FontAwesome.Sharp.IconButton btnBack3;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -937,7 +922,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private MetroFramework.Controls.MetroTabPage tabInventoryCount;
-        private FontAwesome.Sharp.IconButton btnBack4;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -949,6 +933,13 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private FontAwesome.Sharp.IconButton btnPrint;
+        private FontAwesome.Sharp.IconButton btnPrintInventoryCount;
+        private FontAwesome.Sharp.IconButton btnPrintSoldItems;
+        private FontAwesome.Sharp.IconButton btnPrintCriticalStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private FontAwesome.Sharp.IconButton btnTopSelling;
     }
 }

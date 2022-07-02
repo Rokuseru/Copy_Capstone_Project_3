@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
 using CapstoneProject_3.Report_Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace CapstoneProject_3
 {
@@ -100,6 +101,7 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //Critical Stock Tab
         public void loadCriticalStock()
         {       
             try
@@ -128,6 +130,7 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //Inventory Tab
         public void loadInventory()
         {
             
@@ -185,7 +188,7 @@ namespace CapstoneProject_3
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            frmInventoryReport frm = new frmInventoryReport();
+            frmInventoryReport frm = new frmInventoryReport(this);
             frm.loadInventoryReport();
             frm.ShowDialog();
         }
@@ -212,6 +215,20 @@ namespace CapstoneProject_3
             {
                 return;
             }
+        }
+
+        private void btnTopSelling_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport topselling = new frmInventoryReport(this);
+            topselling.loadTopTen();
+            topselling.ShowDialog();
+        }
+
+        private void btnPrintSoldItems_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport soldItems = new frmInventoryReport(this);
+            soldItems.loadSoldItems();
+            soldItems.ShowDialog();
         }
     }
 }

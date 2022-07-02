@@ -16,9 +16,11 @@ namespace CapstoneProject_3.Report_Forms
     public partial class frmInventoryReport : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        public frmInventoryReport()
+        frmRecords rec;
+        public frmInventoryReport(frmRecords records)
         {
             InitializeComponent();
+            rec = records;
         }
 
         private void frmInventoryReport_Load(object sender, EventArgs e)
@@ -59,6 +61,100 @@ namespace CapstoneProject_3.Report_Forms
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+                            
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //Top Ten Sold
+        public void loadTopTen()
+        {
+            try
+            {
+                ReportDataSource ds;
+
+                this.reportViewer1.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwTopTenSelling.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    DataSetReports top = new DataSetReports();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT TOP 10 ProductCode, Description, SUM(qty) AS qty FROM viewSoldItems 
+                                            WHERE sDate Between @dFrom AND @dTo
+                                            AND Status LIKE 'Sold' 
+                                            GROUP BY Description,ProductCode
+                                            ORDER BY qty DESC", connection);
+                    cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@dTo", rec.dateTo.Value.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(top.Tables["dtTopSelling"]);
+
+                    //Parameters
+                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + rec.dateFrom.Value.ToString("yyyy-MM-dd") + " TO: " + rec.dateTo.Value.ToString("yyyy-MM-dd"));
+                    reportViewer1.LocalReport.SetParameters(pDate);
+
+                    ds = new ReportDataSource("rwTopTenSelling", top.Tables["dtTopSelling"]);
+                    reportViewer1.LocalReport.DataSources.Add(ds);
+                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer1.ZoomMode = ZoomMode.Percent;
+                    reportViewer1.ZoomPercent = 80;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //Sold Items
+        public void loadSoldItems()
+        {
+            try
+            {
+                ReportDataSource ds;
+
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwSoldItems.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    DataSetReports sold = new DataSetReports();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode , p.Description, c.Price, SUM(c.qty) AS total_qty, SUM(c.discount) AS total_discount, SUM(c.Total) AS total FROM tblCart AS c
+                                            INNER JOIN tblProduct AS p
+                                            ON p.productID = c.productID
+                                            WHERE sDate BETWEEN @dFrom AND @dTo
+                                            AND STATUS LIKE 'Sold'
+                                            GROUP BY ProductCode, Description, c.Price", connection);
+                    cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom2.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@dTo", rec.dateTo2.Value.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(sold.Tables["dtSoldItems"]);
+
+                    //Parameters
+                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + rec.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + rec.dateTo2.Value.ToString("yyyy-MM-dd"));
+                    reportViewer1.LocalReport.SetParameters(pDate);
+
+
+                    ds = new ReportDataSource("rwSoldItems", sold.Tables["dtSoldItems"]);
+                    reportViewer1.LocalReport.DataSources.Add(ds);
+                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer1.ZoomMode = ZoomMode.Percent;
+                    reportViewer1.ZoomPercent = 80;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

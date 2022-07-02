@@ -45,8 +45,9 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlHistory = new MetroFramework.Controls.MetroTabControl();
             this.tabSalesHistory = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbUsers = new System.Windows.Forms.ComboBox();
-            this.btnSave = new FontAwesome.Sharp.IconButton();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
@@ -69,8 +70,6 @@ namespace CapstoneProject_3
             this.dateTo3 = new System.Windows.Forms.DateTimePicker();
             this.dateFrom3 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +82,7 @@ namespace CapstoneProject_3
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabStockInHistory = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTo4 = new System.Windows.Forms.DateTimePicker();
             this.dateFrom4 = new System.Windows.Forms.DateTimePicker();
@@ -96,7 +96,9 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.btnPrintStockInHistory = new FontAwesome.Sharp.IconButton();
+            this.btnPrintRefund = new FontAwesome.Sharp.IconButton();
+            this.btnPrintSalesHistory = new FontAwesome.Sharp.IconButton();
             this.tabControlHistory.SuspendLayout();
             this.tabSalesHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -118,14 +120,14 @@ namespace CapstoneProject_3
             // tabControlHistory
             // 
             this.tabControlHistory.Controls.Add(this.tabSalesHistory);
-            this.tabControlHistory.Controls.Add(this.tabPriceHistory);
             this.tabControlHistory.Controls.Add(this.tabRefundHistory);
+            this.tabControlHistory.Controls.Add(this.tabPriceHistory);
             this.tabControlHistory.Controls.Add(this.tabStockInHistory);
             this.tabControlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlHistory.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlHistory.Location = new System.Drawing.Point(0, 10);
             this.tabControlHistory.Name = "tabControlHistory";
-            this.tabControlHistory.SelectedIndex = 3;
+            this.tabControlHistory.SelectedIndex = 0;
             this.tabControlHistory.Size = new System.Drawing.Size(992, 504);
             this.tabControlHistory.TabIndex = 3;
             this.tabControlHistory.UseSelectable = true;
@@ -133,10 +135,10 @@ namespace CapstoneProject_3
             // 
             // tabSalesHistory
             // 
+            this.tabSalesHistory.Controls.Add(this.btnPrintSalesHistory);
             this.tabSalesHistory.Controls.Add(this.metroLabel2);
             this.tabSalesHistory.Controls.Add(this.metroLabel1);
             this.tabSalesHistory.Controls.Add(this.cbUsers);
-            this.tabSalesHistory.Controls.Add(this.btnSave);
             this.tabSalesHistory.Controls.Add(this.lblTotalSales);
             this.tabSalesHistory.Controls.Add(this.label3);
             this.tabSalesHistory.Controls.Add(this.dateTo);
@@ -155,6 +157,26 @@ namespace CapstoneProject_3
             this.tabSalesHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabSalesHistory.VerticalScrollbarSize = 10;
             // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.Location = new System.Drawing.Point(422, 9);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(40, 19);
+            this.metroLabel2.TabIndex = 42;
+            this.metroLabel2.Text = "User:";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(0, 8);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel1.TabIndex = 41;
+            this.metroLabel1.Text = "Filter By Date(From-To):";
+            // 
             // cbUsers
             // 
             this.cbUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,26 +187,6 @@ namespace CapstoneProject_3
             this.cbUsers.TabIndex = 26;
             this.cbUsers.Text = "All Users";
             this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnSave.IconColor = System.Drawing.Color.White;
-            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSave.IconSize = 25;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.Location = new System.Drawing.Point(595, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 27);
-            this.btnSave.TabIndex = 25;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // lblTotalSales
             // 
@@ -384,6 +386,7 @@ namespace CapstoneProject_3
             // 
             // tabRefundHistory
             // 
+            this.tabRefundHistory.Controls.Add(this.btnPrintRefund);
             this.tabRefundHistory.Controls.Add(this.metroLabel3);
             this.tabRefundHistory.Controls.Add(this.label4);
             this.tabRefundHistory.Controls.Add(this.dateTo3);
@@ -499,26 +502,6 @@ namespace CapstoneProject_3
             this.dataGridView3.Size = new System.Drawing.Size(984, 430);
             this.dataGridView3.TabIndex = 36;
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 8);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(154, 19);
-            this.metroLabel1.TabIndex = 41;
-            this.metroLabel1.Text = "Filter By Date(From-To):";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(422, 9);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(40, 19);
-            this.metroLabel2.TabIndex = 42;
-            this.metroLabel2.Text = "User:";
-            // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -607,6 +590,7 @@ namespace CapstoneProject_3
             // 
             // tabStockInHistory
             // 
+            this.tabStockInHistory.Controls.Add(this.btnPrintStockInHistory);
             this.tabStockInHistory.Controls.Add(this.metroLabel4);
             this.tabStockInHistory.Controls.Add(this.label7);
             this.tabStockInHistory.Controls.Add(this.dateTo4);
@@ -624,6 +608,16 @@ namespace CapstoneProject_3
             this.tabStockInHistory.VerticalScrollbarBarColor = true;
             this.tabStockInHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabStockInHistory.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(3, 9);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel4.TabIndex = 41;
+            this.metroLabel4.Text = "Filter By Date(From-To):";
             // 
             // label7
             // 
@@ -790,15 +784,63 @@ namespace CapstoneProject_3
             this.dataGridViewImageColumn2.Visible = false;
             this.dataGridViewImageColumn2.Width = 5;
             // 
-            // metroLabel4
+            // btnPrintStockInHistory
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 9);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(154, 19);
-            this.metroLabel4.TabIndex = 41;
-            this.metroLabel4.Text = "Filter By Date(From-To):";
+            this.btnPrintStockInHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintStockInHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintStockInHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintStockInHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintStockInHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintStockInHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintStockInHistory.IconSize = 25;
+            this.btnPrintStockInHistory.Location = new System.Drawing.Point(395, 2);
+            this.btnPrintStockInHistory.Name = "btnPrintStockInHistory";
+            this.btnPrintStockInHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintStockInHistory.TabIndex = 43;
+            this.btnPrintStockInHistory.Text = "Print";
+            this.btnPrintStockInHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintStockInHistory.UseVisualStyleBackColor = false;
+            // 
+            // btnPrintRefund
+            // 
+            this.btnPrintRefund.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintRefund.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintRefund.FlatAppearance.BorderSize = 0;
+            this.btnPrintRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintRefund.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintRefund.ForeColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintRefund.IconColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintRefund.IconSize = 25;
+            this.btnPrintRefund.Location = new System.Drawing.Point(389, 3);
+            this.btnPrintRefund.Name = "btnPrintRefund";
+            this.btnPrintRefund.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintRefund.TabIndex = 43;
+            this.btnPrintRefund.Text = "Print";
+            this.btnPrintRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintRefund.UseVisualStyleBackColor = false;
+            // 
+            // btnPrintSalesHistory
+            // 
+            this.btnPrintSalesHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintSalesHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSalesHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintSalesHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintSalesHistory.IconSize = 25;
+            this.btnPrintSalesHistory.Location = new System.Drawing.Point(595, 1);
+            this.btnPrintSalesHistory.Name = "btnPrintSalesHistory";
+            this.btnPrintSalesHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintSalesHistory.TabIndex = 43;
+            this.btnPrintSalesHistory.Text = "Print";
+            this.btnPrintSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintSalesHistory.UseVisualStyleBackColor = false;
             // 
             // frmHistory
             // 
@@ -831,7 +873,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroTabControl tabControlHistory;
         private MetroFramework.Controls.MetroTabPage tabSalesHistory;
-        private FontAwesome.Sharp.IconButton btnSave;
         public System.Windows.Forms.Label lblTotalSales;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.DateTimePicker dateTo;
@@ -883,5 +924,8 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private FontAwesome.Sharp.IconButton btnPrintSalesHistory;
+        private FontAwesome.Sharp.IconButton btnPrintRefund;
+        private FontAwesome.Sharp.IconButton btnPrintStockInHistory;
     }
 }

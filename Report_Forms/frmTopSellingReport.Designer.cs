@@ -1,7 +1,7 @@
 ﻿
 namespace CapstoneProject_3.Report_Forms
 {
-    partial class frmInventoryReport
+    partial class frmTopSellingReport
     {
         /// <summary>
         /// Required designer variable.
@@ -50,8 +50,8 @@ namespace CapstoneProject_3.Report_Forms
             this.panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTop.Name = "panelTop";
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelTop.Size = new System.Drawing.Size(997, 41);
-            this.panelTop.TabIndex = 3;
+            this.panelTop.Size = new System.Drawing.Size(981, 41);
+            this.panelTop.TabIndex = 4;
             // 
             // btnExit
             // 
@@ -66,7 +66,7 @@ namespace CapstoneProject_3.Report_Forms
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(950, 6);
+            this.btnExit.Location = new System.Drawing.Point(934, 6);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 29);
@@ -89,7 +89,7 @@ namespace CapstoneProject_3.Report_Forms
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMaximize.IconSize = 20;
             this.btnMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMaximize.Location = new System.Drawing.Point(905, 6);
+            this.btnMaximize.Location = new System.Drawing.Point(889, 6);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(47, 29);
@@ -112,7 +112,7 @@ namespace CapstoneProject_3.Report_Forms
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
             this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizeWindow.Location = new System.Drawing.Point(862, 6);
+            this.btnMinimizeWindow.Location = new System.Drawing.Point(846, 6);
             this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizeWindow.Name = "btnMinimizeWindow";
             this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);
@@ -136,24 +136,24 @@ namespace CapstoneProject_3.Report_Forms
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapstoneProject_3.Datasets.rwTopTenSelling.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 41);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(997, 453);
-            this.reportViewer1.TabIndex = 4;
+            this.reportViewer1.Size = new System.Drawing.Size(981, 414);
+            this.reportViewer1.TabIndex = 5;
             // 
-            // frmInventoryReport
+            // frmTopSellingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 494);
+            this.ClientSize = new System.Drawing.Size(981, 455);
             this.ControlBox = false;
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmInventoryReport";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.frmInventoryReport_Load);
+            this.Name = "frmTopSellingReport";
+            this.Text = "frmTopSellingReport";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
