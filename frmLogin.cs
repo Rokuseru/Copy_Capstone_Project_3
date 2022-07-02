@@ -82,6 +82,8 @@ namespace CapstoneProject_3
                                 MainForm admin = new MainForm();
                                 MessageBox.Show("Login Sucessful. Welcome, " + _Name + "!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 clear();
+                                admin.lblRole.Text = _role;
+                                admin.lblUser.Text = _Name;
                                 this.Hide();
                                 admin.ShowDialog();
                             }

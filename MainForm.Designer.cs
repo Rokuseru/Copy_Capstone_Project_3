@@ -467,6 +467,7 @@ namespace CapstoneProject_3
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panelTitleBar
             // 
@@ -613,14 +614,14 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnCategory;
         private FontAwesome.Sharp.IconButton btnProduct;
         private FontAwesome.Sharp.IconButton btnStockIn;
-        private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblMid;
-        private System.Windows.Forms.Label lblUser;
         private FontAwesome.Sharp.IconButton btnRecords;
         private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton btnUserSettings;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton btnHistory;
+        public System.Windows.Forms.Label lblRole;
+        public System.Windows.Forms.Label lblUser;
     }
 }
 

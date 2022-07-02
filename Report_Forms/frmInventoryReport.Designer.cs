@@ -52,6 +52,7 @@ namespace CapstoneProject_3.Report_Forms
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panelTop.Size = new System.Drawing.Size(997, 41);
             this.panelTop.TabIndex = 3;
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
             // btnExit
             // 

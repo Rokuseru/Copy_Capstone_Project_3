@@ -93,6 +93,26 @@ namespace CapstoneProject_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_exclamation_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_exclamation_45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_exclamation_58 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_exclamation_58", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_left_arrow_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-left-arrow-50", resourceCulture);

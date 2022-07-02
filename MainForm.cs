@@ -9,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using System.Data.SqlClient;
+using Tulpep.NotificationWindow;
 
 namespace CapstoneProject_3
 {
     public partial class MainForm : Form
     {
+        private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         //Fields
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.
@@ -27,6 +30,7 @@ namespace CapstoneProject_3
             CollapseMenu();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color
+            notificationCriticalItems();
         }
         private void ActivateButton(object senderBtn)
         {
@@ -56,6 +60,7 @@ namespace CapstoneProject_3
         private void Reset()
         {
             DisableButton();
+            panelDesktop.Controls.Clear();
         }
         //Form Properties
         //Drag Form
@@ -311,6 +316,45 @@ namespace CapstoneProject_3
         {
             ActivateButton(sender);
             OpenChildForm(new frmHistory());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+        public void notificationCriticalItems()
+        {
+            try
+            {
+                string critical = " ";
+                int i = 0;
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM viewCriticalStock";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i++;
+                            critical += i + ". " + reader["Description"].ToString() + Environment.NewLine;
+                        }
+                    }
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.Image = Properties.Resources.icons8_exclamation_45;
+                    popup.TitleText = "Critical Items";
+                    popup.ContentText = critical;
+                    popup.Popup();
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }
