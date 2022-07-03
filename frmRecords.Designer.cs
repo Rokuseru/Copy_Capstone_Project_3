@@ -119,11 +119,11 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(911, 10);
+            this.panel1.Size = new System.Drawing.Size(911, 1);
             this.panel1.TabIndex = 3;
             // 
             // tabControlRecords
@@ -135,10 +135,10 @@ namespace CapstoneProject_3
             this.tabControlRecords.Controls.Add(this.tabInventoryCount);
             this.tabControlRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlRecords.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
-            this.tabControlRecords.Location = new System.Drawing.Point(0, 10);
+            this.tabControlRecords.Location = new System.Drawing.Point(0, 1);
             this.tabControlRecords.Name = "tabControlRecords";
             this.tabControlRecords.SelectedIndex = 0;
-            this.tabControlRecords.Size = new System.Drawing.Size(911, 482);
+            this.tabControlRecords.Size = new System.Drawing.Size(911, 491);
             this.tabControlRecords.TabIndex = 4;
             this.tabControlRecords.UseSelectable = true;
             this.tabControlRecords.SelectedIndexChanged += new System.EventHandler(this.tabControlRecords_SelectedIndexChanged);
@@ -158,7 +158,7 @@ namespace CapstoneProject_3
             this.tabTopSelling.HorizontalScrollbarSize = 10;
             this.tabTopSelling.Location = new System.Drawing.Point(4, 41);
             this.tabTopSelling.Name = "tabTopSelling";
-            this.tabTopSelling.Size = new System.Drawing.Size(903, 437);
+            this.tabTopSelling.Size = new System.Drawing.Size(903, 446);
             this.tabTopSelling.TabIndex = 0;
             this.tabTopSelling.Text = "Top Selling";
             this.tabTopSelling.VerticalScrollbarBarColor = true;
@@ -272,7 +272,7 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(902, 402);
+            this.dataGridView.Size = new System.Drawing.Size(902, 411);
             this.dataGridView.TabIndex = 13;
             // 
             // Column3
@@ -321,7 +321,7 @@ namespace CapstoneProject_3
             this.tabSoldItems.HorizontalScrollbarSize = 10;
             this.tabSoldItems.Location = new System.Drawing.Point(4, 41);
             this.tabSoldItems.Name = "tabSoldItems";
-            this.tabSoldItems.Size = new System.Drawing.Size(903, 437);
+            this.tabSoldItems.Size = new System.Drawing.Size(903, 446);
             this.tabSoldItems.TabIndex = 1;
             this.tabSoldItems.Text = "Sold Items";
             this.tabSoldItems.VerticalScrollbarBarColor = true;
@@ -520,7 +520,7 @@ namespace CapstoneProject_3
             this.tabCriticalStock.HorizontalScrollbarSize = 10;
             this.tabCriticalStock.Location = new System.Drawing.Point(4, 41);
             this.tabCriticalStock.Name = "tabCriticalStock";
-            this.tabCriticalStock.Size = new System.Drawing.Size(903, 437);
+            this.tabCriticalStock.Size = new System.Drawing.Size(903, 446);
             this.tabCriticalStock.TabIndex = 2;
             this.tabCriticalStock.Text = "Critical Stocks";
             this.tabCriticalStock.VerticalScrollbarBarColor = true;
@@ -695,7 +695,7 @@ namespace CapstoneProject_3
             this.tabInventoryCount.HorizontalScrollbarSize = 10;
             this.tabInventoryCount.Location = new System.Drawing.Point(4, 41);
             this.tabInventoryCount.Name = "tabInventoryCount";
-            this.tabInventoryCount.Size = new System.Drawing.Size(903, 437);
+            this.tabInventoryCount.Size = new System.Drawing.Size(903, 446);
             this.tabInventoryCount.TabIndex = 3;
             this.tabInventoryCount.Text = "Inventory Report";
             this.tabInventoryCount.VerticalScrollbarBarColor = true;

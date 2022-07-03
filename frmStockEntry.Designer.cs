@@ -30,11 +30,11 @@ namespace CapstoneProject_3
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -73,11 +73,11 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 10);
+            this.panel1.Size = new System.Drawing.Size(941, 1);
             this.panel1.TabIndex = 1;
             // 
             // dataGridViewImageColumn1
@@ -108,9 +108,9 @@ namespace CapstoneProject_3
             this.panel2.Controls.Add(this.dataGridViewStockEntry);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 10);
+            this.panel2.Location = new System.Drawing.Point(0, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 495);
+            this.panel2.Size = new System.Drawing.Size(941, 504);
             this.panel2.TabIndex = 2;
             // 
             // panelNotif1
@@ -119,7 +119,7 @@ namespace CapstoneProject_3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif1.Controls.Add(this.labelNotif1);
             this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(0, 455);
+            this.panelNotif1.Location = new System.Drawing.Point(0, 464);
             this.panelNotif1.Name = "panelNotif1";
             this.panelNotif1.Size = new System.Drawing.Size(941, 33);
             this.panelNotif1.TabIndex = 52;
@@ -154,7 +154,7 @@ namespace CapstoneProject_3
             // cbVendor
             // 
             this.cbVendor.FormattingEnabled = true;
-            this.cbVendor.Location = new System.Drawing.Point(121, 84);
+            this.cbVendor.Location = new System.Drawing.Point(121, 87);
             this.cbVendor.Name = "cbVendor";
             this.cbVendor.Size = new System.Drawing.Size(298, 25);
             this.cbVendor.TabIndex = 51;
@@ -170,7 +170,7 @@ namespace CapstoneProject_3
             this.btnProductList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnProductList.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProductList.IconSize = 35;
-            this.btnProductList.Location = new System.Drawing.Point(832, 19);
+            this.btnProductList.Location = new System.Drawing.Point(832, 22);
             this.btnProductList.Name = "btnProductList";
             this.btnProductList.Size = new System.Drawing.Size(97, 69);
             this.btnProductList.TabIndex = 50;
@@ -188,7 +188,7 @@ namespace CapstoneProject_3
             this.btnRefNo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnRefNo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRefNo.IconSize = 29;
-            this.btnRefNo.Location = new System.Drawing.Point(425, 25);
+            this.btnRefNo.Location = new System.Drawing.Point(425, 28);
             this.btnRefNo.Name = "btnRefNo";
             this.btnRefNo.Size = new System.Drawing.Size(26, 26);
             this.btnRefNo.TabIndex = 49;
@@ -197,7 +197,7 @@ namespace CapstoneProject_3
             // 
             // dtStockInDate
             // 
-            this.dtStockInDate.Location = new System.Drawing.Point(121, 115);
+            this.dtStockInDate.Location = new System.Drawing.Point(121, 118);
             this.dtStockInDate.Name = "dtStockInDate";
             this.dtStockInDate.Size = new System.Drawing.Size(211, 25);
             this.dtStockInDate.TabIndex = 48;
@@ -206,7 +206,7 @@ namespace CapstoneProject_3
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 119);
+            this.label6.Location = new System.Drawing.Point(14, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 17);
             this.label6.TabIndex = 47;
@@ -215,7 +215,7 @@ namespace CapstoneProject_3
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 87);
+            this.label5.Location = new System.Drawing.Point(14, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 46;
@@ -224,7 +224,7 @@ namespace CapstoneProject_3
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 56);
+            this.label4.Location = new System.Drawing.Point(14, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 45;
@@ -232,7 +232,7 @@ namespace CapstoneProject_3
             // 
             // txtStockInBy
             // 
-            this.txtStockInBy.Location = new System.Drawing.Point(121, 53);
+            this.txtStockInBy.Location = new System.Drawing.Point(121, 56);
             this.txtStockInBy.Name = "txtStockInBy";
             this.txtStockInBy.Size = new System.Drawing.Size(298, 25);
             this.txtStockInBy.TabIndex = 44;
@@ -240,7 +240,7 @@ namespace CapstoneProject_3
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 25);
+            this.label3.Location = new System.Drawing.Point(14, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 43;
@@ -249,7 +249,7 @@ namespace CapstoneProject_3
             // txtRefNo
             // 
             this.txtRefNo.Enabled = false;
-            this.txtRefNo.Location = new System.Drawing.Point(121, 22);
+            this.txtRefNo.Location = new System.Drawing.Point(121, 25);
             this.txtRefNo.Name = "txtRefNo";
             this.txtRefNo.Size = new System.Drawing.Size(298, 25);
             this.txtRefNo.TabIndex = 42;
@@ -266,7 +266,7 @@ namespace CapstoneProject_3
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(163, 440);
+            this.btnRefresh.Location = new System.Drawing.Point(163, 452);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(134, 32);
             this.btnRefresh.TabIndex = 41;
@@ -285,7 +285,7 @@ namespace CapstoneProject_3
             this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(883, 437);
+            this.btnBack.Location = new System.Drawing.Point(883, 449);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(46, 39);
             this.btnBack.TabIndex = 40;
@@ -304,7 +304,7 @@ namespace CapstoneProject_3
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(23, 440);
+            this.btnSave.Location = new System.Drawing.Point(23, 452);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 32);
             this.btnSave.TabIndex = 39;
@@ -319,21 +319,21 @@ namespace CapstoneProject_3
             this.dataGridViewStockEntry.AllowUserToDeleteRows = false;
             this.dataGridViewStockEntry.AllowUserToResizeColumns = false;
             this.dataGridViewStockEntry.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewStockEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStockEntry.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewStockEntry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewStockEntry.ColumnHeadersHeight = 40;
             this.dataGridViewStockEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewStockEntry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -346,32 +346,32 @@ namespace CapstoneProject_3
             this.qty,
             this.Column4,
             this.Delete});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewStockEntry.EnableHeadersVisualStyles = false;
             this.dataGridViewStockEntry.GridColor = System.Drawing.Color.Black;
-            this.dataGridViewStockEntry.Location = new System.Drawing.Point(12, 146);
+            this.dataGridViewStockEntry.Location = new System.Drawing.Point(12, 149);
             this.dataGridViewStockEntry.Name = "dataGridViewStockEntry";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewStockEntry.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewStockEntry.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewStockEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockEntry.Size = new System.Drawing.Size(917, 288);
+            this.dataGridViewStockEntry.Size = new System.Drawing.Size(917, 297);
             this.dataGridViewStockEntry.TabIndex = 38;
             this.dataGridViewStockEntry.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockEntry_CellContentClick);
             // 

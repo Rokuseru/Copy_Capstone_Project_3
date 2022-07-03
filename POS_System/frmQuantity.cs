@@ -21,7 +21,7 @@ namespace CapstoneProject_3.POS_System
         private double price;
         private string transacno;
         private int qty; 
-        private int userID = 0;
+        public int userID = 0;
         Notification ntf = new Notification();
 
         public frmQuantity(frmPOS pOS)
@@ -57,7 +57,6 @@ namespace CapstoneProject_3.POS_System
                         }
                     }
                 }
-                Console.WriteLine(userID);
             }
             catch (Exception ex)
             {
@@ -109,9 +108,9 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblCart SET qty = qty + @qty WHERE TransactionNo LIKE @trNo";
+                    command.CommandText = @"UPDATE tblCart SET qty = qty + @qty WHERE productID LIKE @pid AND STATUS LIKE 'Pending'";
                     command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                    command.Parameters.AddWithValue("@trNo", ps.lblTransNo.Text);
+                    command.Parameters.AddWithValue("@pid", pid);
                     command.ExecuteNonQuery();
                     ps.txtSearch.Clear();
                     ps.txtSearch.Focus();
@@ -146,8 +145,8 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCart WHERE TransactionNo = @trano";
-                    command.Parameters.AddWithValue("trano", ps.lblTransNo.Text);
+                    command.CommandText = @"SELECT * FROM tblCart WHERE productID = @pid AND Status LIKE 'Pending'";
+                    command.Parameters.AddWithValue("@pid", pid);
                     using (var reader = command.ExecuteReader())
                     {
                         reader.Read();
@@ -169,17 +168,18 @@ namespace CapstoneProject_3.POS_System
                     }
                     else
                     {
-                        if (found == true)
-                        {
-                            addToCartQuantity();
-                            ps.loadCart();
-                        }
-                        else
+                        if (found == false)
                         {
                             addToCart();
                             ps.loadCart();
                         }
+                        else
+                        {
+                            addToCartQuantity();
+                            ps.loadCart();
+                        }
                     }
+                    Console.WriteLine(found);
                 }       
             }
         }

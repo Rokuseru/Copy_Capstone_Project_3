@@ -45,6 +45,7 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlHistory = new MetroFramework.Controls.MetroTabControl();
             this.tabSalesHistory = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintSalesHistory = new FontAwesome.Sharp.IconButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbUsers = new System.Windows.Forms.ComboBox();
@@ -63,8 +64,8 @@ namespace CapstoneProject_3
             this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cancel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tabPriceHistory = new MetroFramework.Controls.MetroTabPage();
             this.tabRefundHistory = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintRefund = new FontAwesome.Sharp.IconButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTo3 = new System.Windows.Forms.DateTimePicker();
@@ -81,7 +82,9 @@ namespace CapstoneProject_3
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPriceHistory = new MetroFramework.Controls.MetroTabPage();
             this.tabStockInHistory = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintStockInHistory = new FontAwesome.Sharp.IconButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTo4 = new System.Windows.Forms.DateTimePicker();
@@ -96,9 +99,6 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnPrintStockInHistory = new FontAwesome.Sharp.IconButton();
-            this.btnPrintRefund = new FontAwesome.Sharp.IconButton();
-            this.btnPrintSalesHistory = new FontAwesome.Sharp.IconButton();
             this.tabControlHistory.SuspendLayout();
             this.tabSalesHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -110,11 +110,11 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(992, 10);
+            this.panel1.Size = new System.Drawing.Size(992, 1);
             this.panel1.TabIndex = 2;
             // 
             // tabControlHistory
@@ -125,10 +125,10 @@ namespace CapstoneProject_3
             this.tabControlHistory.Controls.Add(this.tabStockInHistory);
             this.tabControlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlHistory.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
-            this.tabControlHistory.Location = new System.Drawing.Point(0, 10);
+            this.tabControlHistory.Location = new System.Drawing.Point(0, 1);
             this.tabControlHistory.Name = "tabControlHistory";
             this.tabControlHistory.SelectedIndex = 0;
-            this.tabControlHistory.Size = new System.Drawing.Size(992, 504);
+            this.tabControlHistory.Size = new System.Drawing.Size(992, 513);
             this.tabControlHistory.TabIndex = 3;
             this.tabControlHistory.UseSelectable = true;
             this.tabControlHistory.SelectedIndexChanged += new System.EventHandler(this.tabControlHistory_SelectedIndexChanged);
@@ -150,12 +150,31 @@ namespace CapstoneProject_3
             this.tabSalesHistory.HorizontalScrollbarSize = 10;
             this.tabSalesHistory.Location = new System.Drawing.Point(4, 38);
             this.tabSalesHistory.Name = "tabSalesHistory";
-            this.tabSalesHistory.Size = new System.Drawing.Size(984, 462);
+            this.tabSalesHistory.Size = new System.Drawing.Size(984, 471);
             this.tabSalesHistory.TabIndex = 0;
             this.tabSalesHistory.Text = "Sales History";
             this.tabSalesHistory.VerticalScrollbarBarColor = true;
             this.tabSalesHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabSalesHistory.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintSalesHistory
+            // 
+            this.btnPrintSalesHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintSalesHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSalesHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintSalesHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintSalesHistory.IconSize = 25;
+            this.btnPrintSalesHistory.Location = new System.Drawing.Point(595, 1);
+            this.btnPrintSalesHistory.Name = "btnPrintSalesHistory";
+            this.btnPrintSalesHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintSalesHistory.TabIndex = 43;
+            this.btnPrintSalesHistory.Text = "Print";
+            this.btnPrintSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintSalesHistory.UseVisualStyleBackColor = false;
             // 
             // metroLabel2
             // 
@@ -287,7 +306,7 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(984, 428);
+            this.dataGridView.Size = new System.Drawing.Size(984, 437);
             this.dataGridView.TabIndex = 19;
             // 
             // Column3
@@ -370,20 +389,6 @@ namespace CapstoneProject_3
             this.cancel.ReadOnly = true;
             this.cancel.Width = 5;
             // 
-            // tabPriceHistory
-            // 
-            this.tabPriceHistory.HorizontalScrollbarBarColor = true;
-            this.tabPriceHistory.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPriceHistory.HorizontalScrollbarSize = 10;
-            this.tabPriceHistory.Location = new System.Drawing.Point(4, 38);
-            this.tabPriceHistory.Name = "tabPriceHistory";
-            this.tabPriceHistory.Size = new System.Drawing.Size(984, 462);
-            this.tabPriceHistory.TabIndex = 1;
-            this.tabPriceHistory.Text = "Price History";
-            this.tabPriceHistory.VerticalScrollbarBarColor = true;
-            this.tabPriceHistory.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPriceHistory.VerticalScrollbarSize = 10;
-            // 
             // tabRefundHistory
             // 
             this.tabRefundHistory.Controls.Add(this.btnPrintRefund);
@@ -404,6 +409,26 @@ namespace CapstoneProject_3
             this.tabRefundHistory.VerticalScrollbarBarColor = true;
             this.tabRefundHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabRefundHistory.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintRefund
+            // 
+            this.btnPrintRefund.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintRefund.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintRefund.FlatAppearance.BorderSize = 0;
+            this.btnPrintRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintRefund.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintRefund.ForeColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintRefund.IconColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintRefund.IconSize = 25;
+            this.btnPrintRefund.Location = new System.Drawing.Point(389, 3);
+            this.btnPrintRefund.Name = "btnPrintRefund";
+            this.btnPrintRefund.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintRefund.TabIndex = 43;
+            this.btnPrintRefund.Text = "Print";
+            this.btnPrintRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintRefund.UseVisualStyleBackColor = false;
             // 
             // metroLabel3
             // 
@@ -588,6 +613,20 @@ namespace CapstoneProject_3
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
             // 
+            // tabPriceHistory
+            // 
+            this.tabPriceHistory.HorizontalScrollbarBarColor = true;
+            this.tabPriceHistory.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPriceHistory.HorizontalScrollbarSize = 10;
+            this.tabPriceHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabPriceHistory.Name = "tabPriceHistory";
+            this.tabPriceHistory.Size = new System.Drawing.Size(984, 462);
+            this.tabPriceHistory.TabIndex = 1;
+            this.tabPriceHistory.Text = "Price History";
+            this.tabPriceHistory.VerticalScrollbarBarColor = true;
+            this.tabPriceHistory.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPriceHistory.VerticalScrollbarSize = 10;
+            // 
             // tabStockInHistory
             // 
             this.tabStockInHistory.Controls.Add(this.btnPrintStockInHistory);
@@ -608,6 +647,25 @@ namespace CapstoneProject_3
             this.tabStockInHistory.VerticalScrollbarBarColor = true;
             this.tabStockInHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabStockInHistory.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintStockInHistory
+            // 
+            this.btnPrintStockInHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintStockInHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintStockInHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintStockInHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintStockInHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintStockInHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintStockInHistory.IconSize = 25;
+            this.btnPrintStockInHistory.Location = new System.Drawing.Point(395, 2);
+            this.btnPrintStockInHistory.Name = "btnPrintStockInHistory";
+            this.btnPrintStockInHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintStockInHistory.TabIndex = 43;
+            this.btnPrintStockInHistory.Text = "Print";
+            this.btnPrintStockInHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintStockInHistory.UseVisualStyleBackColor = false;
             // 
             // metroLabel4
             // 
@@ -783,64 +841,6 @@ namespace CapstoneProject_3
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
             this.dataGridViewImageColumn2.Width = 5;
-            // 
-            // btnPrintStockInHistory
-            // 
-            this.btnPrintStockInHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintStockInHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintStockInHistory.FlatAppearance.BorderSize = 0;
-            this.btnPrintStockInHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintStockInHistory.ForeColor = System.Drawing.Color.White;
-            this.btnPrintStockInHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintStockInHistory.IconColor = System.Drawing.Color.White;
-            this.btnPrintStockInHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintStockInHistory.IconSize = 25;
-            this.btnPrintStockInHistory.Location = new System.Drawing.Point(395, 2);
-            this.btnPrintStockInHistory.Name = "btnPrintStockInHistory";
-            this.btnPrintStockInHistory.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintStockInHistory.TabIndex = 43;
-            this.btnPrintStockInHistory.Text = "Print";
-            this.btnPrintStockInHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintStockInHistory.UseVisualStyleBackColor = false;
-            // 
-            // btnPrintRefund
-            // 
-            this.btnPrintRefund.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintRefund.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintRefund.FlatAppearance.BorderSize = 0;
-            this.btnPrintRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintRefund.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintRefund.ForeColor = System.Drawing.Color.White;
-            this.btnPrintRefund.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintRefund.IconColor = System.Drawing.Color.White;
-            this.btnPrintRefund.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintRefund.IconSize = 25;
-            this.btnPrintRefund.Location = new System.Drawing.Point(389, 3);
-            this.btnPrintRefund.Name = "btnPrintRefund";
-            this.btnPrintRefund.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintRefund.TabIndex = 43;
-            this.btnPrintRefund.Text = "Print";
-            this.btnPrintRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintRefund.UseVisualStyleBackColor = false;
-            // 
-            // btnPrintSalesHistory
-            // 
-            this.btnPrintSalesHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintSalesHistory.FlatAppearance.BorderSize = 0;
-            this.btnPrintSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintSalesHistory.ForeColor = System.Drawing.Color.White;
-            this.btnPrintSalesHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintSalesHistory.IconColor = System.Drawing.Color.White;
-            this.btnPrintSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintSalesHistory.IconSize = 25;
-            this.btnPrintSalesHistory.Location = new System.Drawing.Point(595, 1);
-            this.btnPrintSalesHistory.Name = "btnPrintSalesHistory";
-            this.btnPrintSalesHistory.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintSalesHistory.TabIndex = 43;
-            this.btnPrintSalesHistory.Text = "Print";
-            this.btnPrintSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintSalesHistory.UseVisualStyleBackColor = false;
             // 
             // frmHistory
             // 

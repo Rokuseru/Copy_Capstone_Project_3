@@ -30,15 +30,14 @@ namespace CapstoneProject_3
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabBrandList = new MetroFramework.Controls.MetroTabPage();
-            this.tabManage = new MetroFramework.Controls.MetroTabPage();
             this.panelNotif1 = new System.Windows.Forms.Panel();
             this.labelNotif1 = new System.Windows.Forms.Label();
             this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
@@ -52,6 +51,7 @@ namespace CapstoneProject_3
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabManage = new MetroFramework.Controls.MetroTabPage();
             this.panelNotif2 = new System.Windows.Forms.Panel();
             this.labelNotif2 = new System.Windows.Forms.Label();
             this.iconNotif2 = new FontAwesome.Sharp.IconPictureBox();
@@ -65,21 +65,21 @@ namespace CapstoneProject_3
             this.btnBack2 = new FontAwesome.Sharp.IconButton();
             this.tabControl.SuspendLayout();
             this.tabBrandList.SuspendLayout();
-            this.tabManage.SuspendLayout();
             this.panelNotif1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.tabManage.SuspendLayout();
             this.panelNotif2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 10);
+            this.panel1.Size = new System.Drawing.Size(800, 1);
             this.panel1.TabIndex = 0;
             // 
             // tabControl
@@ -88,10 +88,10 @@ namespace CapstoneProject_3
             this.tabControl.Controls.Add(this.tabManage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
-            this.tabControl.Location = new System.Drawing.Point(0, 10);
+            this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 1;
-            this.tabControl.Size = new System.Drawing.Size(800, 433);
+            this.tabControl.Size = new System.Drawing.Size(800, 442);
             this.tabControl.TabIndex = 1;
             this.tabControl.UseSelectable = true;
             // 
@@ -117,30 +117,6 @@ namespace CapstoneProject_3
             this.tabBrandList.VerticalScrollbarBarColor = true;
             this.tabBrandList.VerticalScrollbarHighlightOnWheel = false;
             this.tabBrandList.VerticalScrollbarSize = 10;
-            // 
-            // tabManage
-            // 
-            this.tabManage.BackColor = System.Drawing.Color.White;
-            this.tabManage.Controls.Add(this.panelNotif2);
-            this.tabManage.Controls.Add(this.label2);
-            this.tabManage.Controls.Add(this.txtBrandID);
-            this.tabManage.Controls.Add(this.btnSaveUpdate);
-            this.tabManage.Controls.Add(this.btnCancel);
-            this.tabManage.Controls.Add(this.btnSave);
-            this.tabManage.Controls.Add(this.label1);
-            this.tabManage.Controls.Add(this.txtBrandName);
-            this.tabManage.Controls.Add(this.btnBack2);
-            this.tabManage.HorizontalScrollbarBarColor = true;
-            this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabManage.HorizontalScrollbarSize = 10;
-            this.tabManage.Location = new System.Drawing.Point(4, 38);
-            this.tabManage.Name = "tabManage";
-            this.tabManage.Size = new System.Drawing.Size(792, 391);
-            this.tabManage.TabIndex = 1;
-            this.tabManage.Text = "Manage Brand";
-            this.tabManage.VerticalScrollbarBarColor = true;
-            this.tabManage.VerticalScrollbarHighlightOnWheel = false;
-            this.tabManage.VerticalScrollbarSize = 10;
             // 
             // panelNotif1
             // 
@@ -297,21 +273,21 @@ namespace CapstoneProject_3
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -323,17 +299,17 @@ namespace CapstoneProject_3
             this.dataGridView.Location = new System.Drawing.Point(23, 50);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(604, 323);
@@ -345,7 +321,7 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
+            this.Column3.Width = 37;
             // 
             // Column1
             // 
@@ -361,13 +337,37 @@ namespace CapstoneProject_3
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // tabManage
+            // 
+            this.tabManage.BackColor = System.Drawing.Color.White;
+            this.tabManage.Controls.Add(this.panelNotif2);
+            this.tabManage.Controls.Add(this.label2);
+            this.tabManage.Controls.Add(this.txtBrandID);
+            this.tabManage.Controls.Add(this.btnSaveUpdate);
+            this.tabManage.Controls.Add(this.btnCancel);
+            this.tabManage.Controls.Add(this.btnSave);
+            this.tabManage.Controls.Add(this.label1);
+            this.tabManage.Controls.Add(this.txtBrandName);
+            this.tabManage.Controls.Add(this.btnBack2);
+            this.tabManage.HorizontalScrollbarBarColor = true;
+            this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabManage.HorizontalScrollbarSize = 10;
+            this.tabManage.Location = new System.Drawing.Point(4, 38);
+            this.tabManage.Name = "tabManage";
+            this.tabManage.Size = new System.Drawing.Size(792, 400);
+            this.tabManage.TabIndex = 1;
+            this.tabManage.Text = "Manage Brand";
+            this.tabManage.VerticalScrollbarBarColor = true;
+            this.tabManage.VerticalScrollbarHighlightOnWheel = false;
+            this.tabManage.VerticalScrollbarSize = 10;
+            // 
             // panelNotif2
             // 
             this.panelNotif2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif2.Controls.Add(this.labelNotif2);
             this.panelNotif2.Controls.Add(this.iconNotif2);
-            this.panelNotif2.Location = new System.Drawing.Point(-8, 362);
+            this.panelNotif2.Location = new System.Drawing.Point(-8, 371);
             this.panelNotif2.Name = "panelNotif2";
             this.panelNotif2.Size = new System.Drawing.Size(808, 29);
             this.panelNotif2.TabIndex = 22;
@@ -404,7 +404,7 @@ namespace CapstoneProject_3
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(214, 59);
+            this.label2.Location = new System.Drawing.Point(214, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 21;
@@ -416,7 +416,7 @@ namespace CapstoneProject_3
             this.txtBrandID.Enabled = false;
             this.txtBrandID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBrandID.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtBrandID.Location = new System.Drawing.Point(217, 93);
+            this.txtBrandID.Location = new System.Drawing.Point(217, 98);
             this.txtBrandID.Name = "txtBrandID";
             this.txtBrandID.Size = new System.Drawing.Size(379, 25);
             this.txtBrandID.TabIndex = 20;
@@ -434,7 +434,7 @@ namespace CapstoneProject_3
             this.btnSaveUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(347, 219);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(347, 224);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(120, 32);
             this.btnSaveUpdate.TabIndex = 19;
@@ -455,7 +455,7 @@ namespace CapstoneProject_3
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(476, 219);
+            this.btnCancel.Location = new System.Drawing.Point(476, 224);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 32);
             this.btnCancel.TabIndex = 17;
@@ -476,7 +476,7 @@ namespace CapstoneProject_3
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(217, 219);
+            this.btnSave.Location = new System.Drawing.Point(217, 224);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 32);
             this.btnSave.TabIndex = 16;
@@ -490,7 +490,7 @@ namespace CapstoneProject_3
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(214, 132);
+            this.label1.Location = new System.Drawing.Point(214, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 15;
@@ -499,7 +499,7 @@ namespace CapstoneProject_3
             // txtBrandName
             // 
             this.txtBrandName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBrandName.Location = new System.Drawing.Point(217, 166);
+            this.txtBrandName.Location = new System.Drawing.Point(217, 171);
             this.txtBrandName.Name = "txtBrandName";
             this.txtBrandName.Size = new System.Drawing.Size(379, 20);
             this.txtBrandName.TabIndex = 14;
@@ -513,7 +513,7 @@ namespace CapstoneProject_3
             this.btnBack2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack2.IconSize = 35;
-            this.btnBack2.Location = new System.Drawing.Point(733, 346);
+            this.btnBack2.Location = new System.Drawing.Point(733, 355);
             this.btnBack2.Name = "btnBack2";
             this.btnBack2.Size = new System.Drawing.Size(46, 39);
             this.btnBack2.TabIndex = 18;
@@ -534,12 +534,12 @@ namespace CapstoneProject_3
             this.tabControl.ResumeLayout(false);
             this.tabBrandList.ResumeLayout(false);
             this.tabBrandList.PerformLayout();
-            this.tabManage.ResumeLayout(false);
-            this.tabManage.PerformLayout();
             this.panelNotif1.ResumeLayout(false);
             this.panelNotif1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.tabManage.ResumeLayout(false);
+            this.tabManage.PerformLayout();
             this.panelNotif2.ResumeLayout(false);
             this.panelNotif2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).EndInit();

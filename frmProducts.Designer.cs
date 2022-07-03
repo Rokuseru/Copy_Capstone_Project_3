@@ -51,7 +51,18 @@ namespace CapstoneProject_3
             this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnAddNew = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabManage = new MetroFramework.Controls.MetroTabPage();
+            this.txtReorder = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.panelNotif2 = new System.Windows.Forms.Panel();
             this.labelNotif2 = new System.Windows.Forms.Label();
@@ -71,17 +82,6 @@ namespace CapstoneProject_3
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProdCode = new System.Windows.Forms.TextBox();
-            this.txtReorder = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabProductList.SuspendLayout();
             this.panelNotif1.SuspendLayout();
@@ -94,11 +94,11 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 10);
+            this.panel1.Size = new System.Drawing.Size(917, 1);
             this.panel1.TabIndex = 4;
             // 
             // tabControl
@@ -107,10 +107,10 @@ namespace CapstoneProject_3
             this.tabControl.Controls.Add(this.tabManage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
-            this.tabControl.Location = new System.Drawing.Point(0, 10);
+            this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(917, 486);
+            this.tabControl.Size = new System.Drawing.Size(917, 495);
             this.tabControl.TabIndex = 5;
             this.tabControl.UseSelectable = true;
             // 
@@ -131,7 +131,7 @@ namespace CapstoneProject_3
             this.tabProductList.HorizontalScrollbarSize = 10;
             this.tabProductList.Location = new System.Drawing.Point(4, 38);
             this.tabProductList.Name = "tabProductList";
-            this.tabProductList.Size = new System.Drawing.Size(909, 444);
+            this.tabProductList.Size = new System.Drawing.Size(909, 453);
             this.tabProductList.TabIndex = 0;
             this.tabProductList.Text = "Product List";
             this.tabProductList.VerticalScrollbarBarColor = true;
@@ -144,7 +144,7 @@ namespace CapstoneProject_3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif1.Controls.Add(this.labelNotif1);
             this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(-8, 415);
+            this.panelNotif1.Location = new System.Drawing.Point(-8, 424);
             this.panelNotif1.Name = "panelNotif1";
             this.panelNotif1.Size = new System.Drawing.Size(925, 29);
             this.panelNotif1.TabIndex = 21;
@@ -257,7 +257,7 @@ namespace CapstoneProject_3
             this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(806, 387);
+            this.btnBack.Location = new System.Drawing.Point(806, 396);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(46, 39);
             this.btnBack.TabIndex = 16;
@@ -336,8 +336,84 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(721, 376);
+            this.dataGridView.Size = new System.Drawing.Size(721, 385);
             this.dataGridView.TabIndex = 14;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 39;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "productID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column2.HeaderText = "Product Code";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 102;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column8.HeaderText = "Barcode";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 79;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Description";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Brand";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 65;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "Category";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 84;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "Price";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 59;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column9.HeaderText = "Re-Order";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 86;
             // 
             // tabManage
             // 
@@ -371,6 +447,26 @@ namespace CapstoneProject_3
             this.tabManage.VerticalScrollbarBarColor = true;
             this.tabManage.VerticalScrollbarHighlightOnWheel = false;
             this.tabManage.VerticalScrollbarSize = 10;
+            // 
+            // txtReorder
+            // 
+            this.txtReorder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtReorder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReorder.Location = new System.Drawing.Point(275, 365);
+            this.txtReorder.Name = "txtReorder";
+            this.txtReorder.Size = new System.Drawing.Size(379, 23);
+            this.txtReorder.TabIndex = 42;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(272, 345);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 17);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Re-Order";
             // 
             // txtPrice
             // 
@@ -616,102 +712,6 @@ namespace CapstoneProject_3
             this.txtProdCode.Name = "txtProdCode";
             this.txtProdCode.Size = new System.Drawing.Size(379, 23);
             this.txtProdCode.TabIndex = 24;
-            // 
-            // txtReorder
-            // 
-            this.txtReorder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtReorder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReorder.Location = new System.Drawing.Point(275, 365);
-            this.txtReorder.Name = "txtReorder";
-            this.txtReorder.Size = new System.Drawing.Size(379, 23);
-            this.txtReorder.TabIndex = 42;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(272, 345);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 17);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Re-Order";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "productID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "Product Code";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 102;
-            // 
-            // Column8
-            // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "Barcode";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 79;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Description";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "Brand";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 65;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Category";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 84;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "Price";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 59;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column9.HeaderText = "Re-Order";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 86;
             // 
             // frmProducts
             // 

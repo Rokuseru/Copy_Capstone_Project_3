@@ -394,6 +394,7 @@ namespace CapstoneProject_3.POS_System
             else if (colname == "adjustQty")
             {
                 frmAdjustQuantity adj = new frmAdjustQuantity(this);
+                adj.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells["pid"].Value.ToString()));
                 adj.txtQty.Focus();
                 adj.ShowDialog();
             }
@@ -492,5 +493,6 @@ namespace CapstoneProject_3.POS_System
                 return;
             }
         }
+        
     }
 }

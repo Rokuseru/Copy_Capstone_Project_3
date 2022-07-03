@@ -44,43 +44,50 @@ namespace CapstoneProject_3.POS_System
 
             try
             {
-                for (int i = 0; i < fpos.dataGridView.Rows.Count; i++)
+
+                //Table Products
+                    using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
                 {
-                    //Table Products
-                    using (var connection = new SqlConnection(con))
-                    using (var command = new SqlCommand())
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblProduct SET quantity = quantity - @qty WHERE productID = @pid";
+                    command.Parameters.Add("@qty", SqlDbType.Int).Value = 0;
+                    command.Parameters.Add("@pid", SqlDbType.Int).Value = 0;
+
+                    foreach (DataGridViewRow row in fpos.dataGridView.Rows)
                     {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandText = @"UPDATE tblProduct SET quantity = quantity - @qty WHERE productID = @pid";
-                        command.Parameters.AddWithValue("@qty", int.Parse(fpos.dataGridView.Rows[i].Cells["qty"].Value.ToString()));
-                        command.Parameters.AddWithValue("@pid", int.Parse(fpos.dataGridView.Rows[i].Cells["pid"].Value.ToString()));
+                        command.Parameters.Clear();
+                        command.Parameters["@qty"].Value = row.Cells["qty"].Value;
+                        command.Parameters["@pid"].Value = row.Cells["pid"].Value;
                         command.ExecuteNonQuery();
                     }
-
-                    //Table Cart
-                    using (var connection = new SqlConnection(con))
-                    using (var command = new SqlCommand())
-                    {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandText = @"UPDATE tblCart SET Status = 'Sold' WHERE cartID = @cid";
-                        command.Parameters.AddWithValue("@cid", int.Parse(fpos.dataGridView.Rows[i].Cells[1].Value.ToString()));
-                        command.ExecuteNonQuery();
-                    }
-                    frmReceipt receipt = new frmReceipt(fpos);
-                    receipt.loadReport();
-                    receipt.ShowDialog();
-
-                    fpos.getTransNumber();
-                    fpos.loadCart();
-                    this.Dispose();
-                    ntf.notificationMessage(fpos.panelNotif1, fpos.labelNotif1, fpos.iconNotif1, "Transaction Successful. Payment Recieved.");
-                    ntf.notificationTimer(fpos.timer1, fpos.panelNotif1);
                 }
+
+                //Table Cart
+                    using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblCart SET Status = 'Sold' WHERE TransactionNo LIKE @trNo";
+                    command.Parameters.AddWithValue("@trNo", fpos.lblTransNo.Text);
+                    command.ExecuteNonQuery();
+                }
+                frmReceipt receipt = new frmReceipt(fpos);
+                receipt.loadReport();
+                receipt.ShowDialog();
+
+                fpos.getTransNumber();
+                fpos.loadCart();
+                this.Dispose();
+                ntf.notificationMessage(fpos.panelNotif1, fpos.labelNotif1, fpos.iconNotif1, "Transaction Successful. Payment Recieved.");
+                ntf.notificationTimer(fpos.timer1, fpos.panelNotif1);
+
             }
             catch (Exception ex)
             {
+             
                 MessageBox.Show(ex.Message);
             }
         }

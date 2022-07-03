@@ -34,23 +34,23 @@ namespace CapstoneProject_3
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDailySales = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblProductLine = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblStockOnHand = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblCriticalStock = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -70,11 +70,11 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 10);
+            this.panel1.Size = new System.Drawing.Size(973, 1);
             this.panel1.TabIndex = 5;
             // 
             // panel2
@@ -82,10 +82,10 @@ namespace CapstoneProject_3
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 10);
+            this.panel2.Location = new System.Drawing.Point(0, 1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10, 25, 10, 10);
-            this.panel2.Size = new System.Drawing.Size(973, 426);
+            this.panel2.Size = new System.Drawing.Size(973, 435);
             this.panel2.TabIndex = 6;
             // 
             // tableLayoutPanel1
@@ -113,7 +113,7 @@ namespace CapstoneProject_3
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblDailySales);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -134,17 +134,17 @@ namespace CapstoneProject_3
             this.label1.Text = "Total Daily Sales\r\nRecorded in the Database";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblDailySales
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 30);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "0.00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDailySales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDailySales.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDailySales.ForeColor = System.Drawing.Color.White;
+            this.lblDailySales.Location = new System.Drawing.Point(72, 34);
+            this.lblDailySales.Name = "lblDailySales";
+            this.lblDailySales.Size = new System.Drawing.Size(157, 30);
+            this.lblDailySales.TabIndex = 7;
+            this.lblDailySales.Text = "0.00";
+            this.lblDailySales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -171,7 +171,7 @@ namespace CapstoneProject_3
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.lblProductLine);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(238, 0);
@@ -200,17 +200,17 @@ namespace CapstoneProject_3
             this.label4.Text = "Total Product Line\r\nRecorded in the Database";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lblProductLine
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(72, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 30);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "0.00";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblProductLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblProductLine.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductLine.ForeColor = System.Drawing.Color.White;
+            this.lblProductLine.Location = new System.Drawing.Point(72, 34);
+            this.lblProductLine.Name = "lblProductLine";
+            this.lblProductLine.Size = new System.Drawing.Size(157, 30);
+            this.lblProductLine.TabIndex = 7;
+            this.lblProductLine.Text = "0.00";
+            this.lblProductLine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -229,7 +229,7 @@ namespace CapstoneProject_3
             this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.lblStockOnHand);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(476, 0);
@@ -258,17 +258,17 @@ namespace CapstoneProject_3
             this.label7.Text = "Total Stock On-Hand\r\nRecorded in the Database";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // lblStockOnHand
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(72, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(157, 30);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "0.00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblStockOnHand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblStockOnHand.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockOnHand.ForeColor = System.Drawing.Color.White;
+            this.lblStockOnHand.Location = new System.Drawing.Point(72, 34);
+            this.lblStockOnHand.Name = "lblStockOnHand";
+            this.lblStockOnHand.Size = new System.Drawing.Size(157, 30);
+            this.lblStockOnHand.TabIndex = 7;
+            this.lblStockOnHand.Text = "0.00";
+            this.lblStockOnHand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -287,7 +287,7 @@ namespace CapstoneProject_3
             this.panel9.Controls.Add(this.pictureBox4);
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.label10);
-            this.panel9.Controls.Add(this.label11);
+            this.panel9.Controls.Add(this.lblCriticalStock);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(714, 0);
@@ -316,17 +316,17 @@ namespace CapstoneProject_3
             this.label10.Text = "Low On Stock Products";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // lblCriticalStock
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(72, 34);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(157, 30);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "0.00";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCriticalStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCriticalStock.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCriticalStock.ForeColor = System.Drawing.Color.White;
+            this.lblCriticalStock.Location = new System.Drawing.Point(72, 34);
+            this.lblCriticalStock.Name = "lblCriticalStock";
+            this.lblCriticalStock.Size = new System.Drawing.Size(157, 30);
+            this.lblCriticalStock.TabIndex = 7;
+            this.lblCriticalStock.Text = "0.00";
+            this.lblCriticalStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -416,25 +416,25 @@ namespace CapstoneProject_3
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDailySales;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblCriticalStock;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblStockOnHand;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblProductLine;
         private System.Windows.Forms.Label label6;
     }
 }

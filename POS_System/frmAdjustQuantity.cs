@@ -18,10 +18,15 @@ namespace CapstoneProject_3.POS_System
         Notification ntf = new Notification();
         frmPOS ps;
         private int _qty;
+        private int pid;
         public frmAdjustQuantity(frmPOS pOS)
         {
             InitializeComponent();
             ps = pOS;
+        }
+        public void productDetails(int pcode)
+        {
+            this.pid = pcode;
         }
         public void loadCurrentQty()
         {
@@ -58,9 +63,9 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblCart SET qty = @qty WHERE TransactionNo LIKE @trNo";
+                    command.CommandText = @"UPDATE tblCart SET qty = @qty WHERE productID LIKE @pid";
                     command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                    command.Parameters.AddWithValue("@trNo", ps.lblTransNo.Text);
+                    command.Parameters.AddWithValue("@pid", pid);
                     command.ExecuteNonQuery();
                 }
             }
@@ -69,22 +74,22 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void addToCurrentQty()
-        {
-            using (var connection = new SqlConnection(con))
-            using (var command = new SqlCommand())
-            {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = @"UPDATE tblCart SET qty = qty + @qty WHERE TransactionNo LIKE @trNo";
-                command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-                command.Parameters.AddWithValue("@trNo", ps.lblTransNo.Text);
-                command.ExecuteNonQuery();
-                ps.txtSearch.Clear();
-                ps.txtSearch.Focus();
-                this.Close();
-            }
-        }
+        //public void addToCurrentQty()
+        //{
+        //    using (var connection = new SqlConnection(con))
+        //    using (var command = new SqlCommand())
+        //    {
+        //        connection.Open();
+        //        command.Connection = connection;
+        //        command.CommandText = @"UPDATE tblCart SET qty = qty + @qty productID LIKE @pid AND STATUS LIKE 'Pending'";
+        //        command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+        //        command.Parameters.AddWithValue("@pid", pid);
+        //        command.ExecuteNonQuery();
+        //        ps.txtSearch.Clear();
+        //        ps.txtSearch.Focus();
+        //        this.Close();
+        //    }
+        //}
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -98,8 +103,8 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCart WHERE TransactionNo = @trano";
-                    command.Parameters.AddWithValue("trano", ps.lblTransNo.Text);
+                    command.CommandText = @"SELECT * FROM tblCart WHERE productID = @pid AND Status LIKE 'Pending'";
+                    command.Parameters.AddWithValue("@pid", pid);
                     using (var reader = command.ExecuteReader())
                     {
                         reader.Read();
