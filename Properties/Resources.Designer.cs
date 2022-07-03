@@ -73,6 +73,26 @@ namespace CapstoneProject_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_analytics_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-analytics-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_boxes_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-boxes-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cancel_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cancel-50", resourceCulture);
@@ -83,9 +103,29 @@ namespace CapstoneProject_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_checklist_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-checklist-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_exclamation_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_exclamation_30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +156,26 @@ namespace CapstoneProject_3.Properties {
         internal static System.Drawing.Bitmap icons8_left_arrow_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-left-arrow-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_peso_symbol_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-peso-symbol-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_peso_symbol_50__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-peso-symbol-50 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

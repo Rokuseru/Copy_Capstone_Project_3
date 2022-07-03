@@ -192,6 +192,8 @@ namespace CapstoneProject_3
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            btnLogout_Click(sender, e);
+
             frmLogin login = new frmLogin();
             login.Show();
             this.Dispose();
@@ -216,7 +218,6 @@ namespace CapstoneProject_3
                     menuButton.Padding = new Padding(0);
                     panelImageContainer.Height = 94;
                     lblRole.Visible = false;
-                    lblMid.Visible = false;
                     lblUser.Visible = false;
                 }
             }
@@ -230,9 +231,8 @@ namespace CapstoneProject_3
                     menuButton.Text = menuButton.Tag.ToString();
                     menuButton.ImageAlign = ContentAlignment.MiddleLeft;
                     menuButton.Padding = new Padding(10, 0, 0, 0);
-                    panelImageContainer.Height = 120;
+                    panelImageContainer.Height = 130;
                     lblRole.Visible = true;
-                    lblMid.Visible = true;
                     lblUser.Visible = true;
                 }
             }
@@ -344,7 +344,7 @@ namespace CapstoneProject_3
                         }
                     }
                     PopupNotifier popup = new PopupNotifier();
-                    popup.Image = Properties.Resources.icons8_exclamation_45;
+                    popup.Image = Properties.Resources.icons8_exclamation_30;
                     popup.TitleText = "Critical Items";
                     popup.ContentText = critical;
                     popup.Popup();
@@ -355,6 +355,17 @@ namespace CapstoneProject_3
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmDashboard());
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmDashboard());
         }
     }
 }
