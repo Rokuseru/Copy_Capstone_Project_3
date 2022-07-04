@@ -71,6 +71,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -431,6 +432,8 @@
     <None Include="Resources\icons8-boxes-50.png" />
     <None Include="Resources\icons8-checklist-50.png" />
     <None Include="Resources\icons8-analytics-50.png" />
+    <None Include="Resources\icons8-user-30.png" />
+    <None Include="Resources\icons8-user-20.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
