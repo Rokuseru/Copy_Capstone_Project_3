@@ -103,7 +103,7 @@ namespace CapstoneProject_3
 
             try
             {
-                if (colname == "Add")
+                if (colname == "add")
                 {
                     if (String.IsNullOrWhiteSpace(stockEntry.txtRefNo.Text) || String.IsNullOrWhiteSpace(stockEntry.txtStockInBy.Text)
                         || stockEntry.cbVendor.SelectedIndex == -1)

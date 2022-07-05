@@ -30,11 +30,11 @@ namespace CapstoneProject_3
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.btnUserSettings = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.btnUsers = new FontAwesome.Sharp.IconButton();
             this.btnHistory = new FontAwesome.Sharp.IconButton();
             this.btnRecords = new FontAwesome.Sharp.IconButton();
+            this.btnLogout = new FontAwesome.Sharp.IconButton();
+            this.btnStockAdjustment = new FontAwesome.Sharp.IconButton();
             this.btnStockIn = new FontAwesome.Sharp.IconButton();
             this.btnProduct = new FontAwesome.Sharp.IconButton();
             this.btnCategory = new FontAwesome.Sharp.IconButton();
@@ -63,11 +63,11 @@ namespace CapstoneProject_3
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.btnUserSettings);
-            this.panelMenu.Controls.Add(this.iconButton3);
+            this.panelMenu.Controls.Add(this.btnUsers);
             this.panelMenu.Controls.Add(this.btnHistory);
             this.panelMenu.Controls.Add(this.btnRecords);
+            this.panelMenu.Controls.Add(this.btnLogout);
+            this.panelMenu.Controls.Add(this.btnStockAdjustment);
             this.panelMenu.Controls.Add(this.btnStockIn);
             this.panelMenu.Controls.Add(this.btnProduct);
             this.panelMenu.Controls.Add(this.btnCategory);
@@ -82,6 +82,84 @@ namespace CapstoneProject_3
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 656);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnUsers.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
+            this.btnUsers.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsers.IconSize = 35;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(0, 522);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUsers.Size = new System.Drawing.Size(220, 43);
+            this.btnUsers.TabIndex = 23;
+            this.btnUsers.Tag = "     Users";
+            this.btnUsers.Text = "     Users";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.btnHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHistory.IconSize = 35;
+            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.Location = new System.Drawing.Point(0, 479);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistory.Size = new System.Drawing.Size(220, 43);
+            this.btnHistory.TabIndex = 21;
+            this.btnHistory.Tag = "     History";
+            this.btnHistory.Text = "     History";
+            this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnRecords
+            // 
+            this.btnRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnRecords.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRecords.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnRecords.FlatAppearance.BorderSize = 0;
+            this.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnRecords.IconChar = FontAwesome.Sharp.IconChar.FileContract;
+            this.btnRecords.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnRecords.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRecords.IconSize = 35;
+            this.btnRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecords.Location = new System.Drawing.Point(0, 436);
+            this.btnRecords.Name = "btnRecords";
+            this.btnRecords.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRecords.Size = new System.Drawing.Size(220, 43);
+            this.btnRecords.TabIndex = 22;
+            this.btnRecords.Tag = "     Reports";
+            this.btnRecords.Text = "     Reports";
+            this.btnRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecords.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRecords.UseVisualStyleBackColor = false;
+            this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
             // 
             // btnLogout
             // 
@@ -109,108 +187,31 @@ namespace CapstoneProject_3
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnUserSettings
+            // btnStockAdjustment
             // 
-            this.btnUserSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnUserSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUserSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.btnUserSettings.FlatAppearance.BorderSize = 0;
-            this.btnUserSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnUserSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
-            this.btnUserSettings.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnUserSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUserSettings.IconSize = 35;
-            this.btnUserSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUserSettings.Location = new System.Drawing.Point(0, 519);
-            this.btnUserSettings.Name = "btnUserSettings";
-            this.btnUserSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnUserSettings.Size = new System.Drawing.Size(220, 43);
-            this.btnUserSettings.TabIndex = 11;
-            this.btnUserSettings.Tag = "     Users";
-            this.btnUserSettings.Text = "     Users";
-            this.btnUserSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUserSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUserSettings.UseVisualStyleBackColor = false;
-            this.btnUserSettings.Click += new System.EventHandler(this.btnUserSettings_Click_1);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 35;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 476);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(220, 43);
-            this.iconButton3.TabIndex = 10;
-            this.iconButton3.Tag = "     tbd";
-            this.iconButton3.Text = "     tbd";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.btnHistory.FlatAppearance.BorderSize = 0;
-            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
-            this.btnHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHistory.IconSize = 35;
-            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistory.Location = new System.Drawing.Point(0, 433);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHistory.Size = new System.Drawing.Size(220, 43);
-            this.btnHistory.TabIndex = 9;
-            this.btnHistory.Tag = "     History";
-            this.btnHistory.Text = "     History";
-            this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHistory.UseVisualStyleBackColor = false;
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
-            // 
-            // btnRecords
-            // 
-            this.btnRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnRecords.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRecords.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.btnRecords.FlatAppearance.BorderSize = 0;
-            this.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnRecords.IconChar = FontAwesome.Sharp.IconChar.FileContract;
-            this.btnRecords.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnRecords.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRecords.IconSize = 35;
-            this.btnRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecords.Location = new System.Drawing.Point(0, 390);
-            this.btnRecords.Name = "btnRecords";
-            this.btnRecords.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRecords.Size = new System.Drawing.Size(220, 43);
-            this.btnRecords.TabIndex = 8;
-            this.btnRecords.Tag = "     Reports";
-            this.btnRecords.Text = "     Reports";
-            this.btnRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecords.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRecords.UseVisualStyleBackColor = false;
-            this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
+            this.btnStockAdjustment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnStockAdjustment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStockAdjustment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnStockAdjustment.FlatAppearance.BorderSize = 0;
+            this.btnStockAdjustment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockAdjustment.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockAdjustment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnStockAdjustment.IconChar = FontAwesome.Sharp.IconChar.SlidersH;
+            this.btnStockAdjustment.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnStockAdjustment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStockAdjustment.IconSize = 35;
+            this.btnStockAdjustment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStockAdjustment.Location = new System.Drawing.Point(0, 393);
+            this.btnStockAdjustment.Name = "btnStockAdjustment";
+            this.btnStockAdjustment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnStockAdjustment.Size = new System.Drawing.Size(220, 43);
+            this.btnStockAdjustment.TabIndex = 8;
+            this.btnStockAdjustment.Tag = "     Stock Adjustment";
+            this.btnStockAdjustment.Text = "     Stock Adjustment";
+            this.btnStockAdjustment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStockAdjustment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStockAdjustment.UseVisualStyleBackColor = false;
+            this.btnStockAdjustment.Click += new System.EventHandler(this.btnStockAdjustment_Click);
             // 
             // btnStockIn
             // 
@@ -226,7 +227,7 @@ namespace CapstoneProject_3
             this.btnStockIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStockIn.IconSize = 35;
             this.btnStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockIn.Location = new System.Drawing.Point(0, 347);
+            this.btnStockIn.Location = new System.Drawing.Point(0, 350);
             this.btnStockIn.Name = "btnStockIn";
             this.btnStockIn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnStockIn.Size = new System.Drawing.Size(220, 43);
@@ -252,7 +253,7 @@ namespace CapstoneProject_3
             this.btnProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProduct.IconSize = 35;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(0, 304);
+            this.btnProduct.Location = new System.Drawing.Point(0, 307);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProduct.Size = new System.Drawing.Size(220, 43);
@@ -278,7 +279,7 @@ namespace CapstoneProject_3
             this.btnCategory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCategory.IconSize = 35;
             this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategory.Location = new System.Drawing.Point(0, 261);
+            this.btnCategory.Location = new System.Drawing.Point(0, 264);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCategory.Size = new System.Drawing.Size(220, 43);
@@ -304,7 +305,7 @@ namespace CapstoneProject_3
             this.btnBrand.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBrand.IconSize = 35;
             this.btnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrand.Location = new System.Drawing.Point(0, 218);
+            this.btnBrand.Location = new System.Drawing.Point(0, 221);
             this.btnBrand.Name = "btnBrand";
             this.btnBrand.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBrand.Size = new System.Drawing.Size(220, 43);
@@ -330,7 +331,7 @@ namespace CapstoneProject_3
             this.btnVendor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVendor.IconSize = 35;
             this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.Location = new System.Drawing.Point(0, 175);
+            this.btnVendor.Location = new System.Drawing.Point(0, 178);
             this.btnVendor.Name = "btnVendor";
             this.btnVendor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVendor.Size = new System.Drawing.Size(220, 43);
@@ -356,7 +357,7 @@ namespace CapstoneProject_3
             this.btnPOS.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPOS.IconSize = 35;
             this.btnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPOS.Location = new System.Drawing.Point(0, 132);
+            this.btnPOS.Location = new System.Drawing.Point(0, 135);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPOS.Size = new System.Drawing.Size(220, 43);
@@ -381,7 +382,7 @@ namespace CapstoneProject_3
             this.btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDashboard.IconSize = 35;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 89);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 92);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(220, 43);
@@ -402,7 +403,7 @@ namespace CapstoneProject_3
             this.panelImageContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelImageContainer.Location = new System.Drawing.Point(0, 0);
             this.panelImageContainer.Name = "panelImageContainer";
-            this.panelImageContainer.Size = new System.Drawing.Size(220, 89);
+            this.panelImageContainer.Size = new System.Drawing.Size(220, 92);
             this.panelImageContainer.TabIndex = 0;
             // 
             // lblRole
@@ -424,7 +425,6 @@ namespace CapstoneProject_3
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(204, 22);
             this.lblUser.TabIndex = 6;
-            this.lblUser.Text = "User";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMenu
@@ -602,13 +602,13 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnCategory;
         private FontAwesome.Sharp.IconButton btnProduct;
         private FontAwesome.Sharp.IconButton btnStockIn;
-        private FontAwesome.Sharp.IconButton btnRecords;
         private FontAwesome.Sharp.IconButton btnLogout;
-        private FontAwesome.Sharp.IconButton btnUserSettings;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton btnHistory;
+        private FontAwesome.Sharp.IconButton btnStockAdjustment;
         public System.Windows.Forms.Label lblRole;
         public System.Windows.Forms.Label lblUser;
+        private FontAwesome.Sharp.IconButton btnUsers;
+        private FontAwesome.Sharp.IconButton btnHistory;
+        private FontAwesome.Sharp.IconButton btnRecords;
     }
 }
 

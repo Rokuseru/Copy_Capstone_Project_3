@@ -17,6 +17,7 @@ namespace CapstoneProject_3
 {
     public partial class MainForm : Form
     {
+        public string nameOfUser = " ";
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         //Fields
         private int borderSize = 2;
@@ -301,22 +302,10 @@ namespace CapstoneProject_3
             }
         }
 
-        private void btnRecords_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmRecords());
-        }
-
         private void btnUserSettings_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender);
             OpenChildForm(new frmAccounts());
-        }
-
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmHistory());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -357,16 +346,45 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+        public void loadName()
+        {
+            nameOfUser = lblUser.Text;
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             OpenChildForm(new frmDashboard());
+            loadName();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
             OpenChildForm(new frmDashboard());
+        }
+
+        private void btnRecords_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmRecords());
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmHistory());
+        }
+
+        private void btnStockAdjustment_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmStockAdjustment(this));
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmAccounts());
         }
     }
 }

@@ -164,6 +164,12 @@
     <Compile Include="frmProducts.Designer.cs">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStockAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockAdjustment.Designer.cs">
+      <DependentUpon>frmStockAdjustment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStockEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducts.resx">
       <DependentUpon>frmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockAdjustment.resx">
+      <DependentUpon>frmStockAdjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStockEntry.resx">
       <DependentUpon>frmStockEntry.cs</DependentUpon>
@@ -434,6 +443,9 @@
     <None Include="Resources\icons8-analytics-50.png" />
     <None Include="Resources\icons8-user-30.png" />
     <None Include="Resources\icons8-user-20.png" />
+    <None Include="Resources\icons8-edit-50.png" />
+    <None Include="Resources\icons8-curved-arrow-50.png" />
+    <None Include="Resources\icons8-arrow-50.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

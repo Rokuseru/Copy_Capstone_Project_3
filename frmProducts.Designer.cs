@@ -144,9 +144,9 @@ namespace CapstoneProject_3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif1.Controls.Add(this.labelNotif1);
             this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(-8, 424);
+            this.panelNotif1.Location = new System.Drawing.Point(0, 420);
             this.panelNotif1.Name = "panelNotif1";
-            this.panelNotif1.Size = new System.Drawing.Size(925, 29);
+            this.panelNotif1.Size = new System.Drawing.Size(906, 29);
             this.panelNotif1.TabIndex = 21;
             this.panelNotif1.Visible = false;
             // 
@@ -441,7 +441,7 @@ namespace CapstoneProject_3
             this.tabManage.HorizontalScrollbarSize = 10;
             this.tabManage.Location = new System.Drawing.Point(4, 38);
             this.tabManage.Name = "tabManage";
-            this.tabManage.Size = new System.Drawing.Size(909, 444);
+            this.tabManage.Size = new System.Drawing.Size(909, 453);
             this.tabManage.TabIndex = 1;
             this.tabManage.Text = "Manage Product";
             this.tabManage.VerticalScrollbarBarColor = true;
@@ -483,9 +483,9 @@ namespace CapstoneProject_3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelNotif2.Controls.Add(this.labelNotif2);
             this.panelNotif2.Controls.Add(this.iconNotif2);
-            this.panelNotif2.Location = new System.Drawing.Point(-8, 415);
+            this.panelNotif2.Location = new System.Drawing.Point(3, 413);
             this.panelNotif2.Name = "panelNotif2";
-            this.panelNotif2.Size = new System.Drawing.Size(925, 29);
+            this.panelNotif2.Size = new System.Drawing.Size(903, 29);
             this.panelNotif2.TabIndex = 39;
             this.panelNotif2.Visible = false;
             // 

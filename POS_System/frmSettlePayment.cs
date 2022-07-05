@@ -44,9 +44,8 @@ namespace CapstoneProject_3.POS_System
 
             try
             {
-
                 //Table Products
-                    using (var connection = new SqlConnection(con))
+                using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
                     connection.Open();
@@ -65,7 +64,7 @@ namespace CapstoneProject_3.POS_System
                 }
 
                 //Table Cart
-                    using (var connection = new SqlConnection(con))
+                using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
                     connection.Open();
