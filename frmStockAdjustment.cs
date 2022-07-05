@@ -15,12 +15,24 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         private int userID = 0;
+        private int _qty = 0;
+        private int pid = 0;
         MainForm frm;
         public frmStockAdjustment(MainForm form)
         {
             InitializeComponent();
             frm = form;
         }
+        public void clear()
+        {
+            txtDescription.Clear();
+            txtProductCode.Clear();
+            txtQty.Clear();
+            txtRefNo.Clear();
+            txtRemarks.Clear();
+            cbCommand.Text = " ";
+        }
+
         public void getuserID()
         {
             try
@@ -122,9 +134,101 @@ namespace CapstoneProject_3
                 Console.WriteLine(ex.Source);
             }
         }
+        public void getProductID()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblProduct WHERE ProductCode LIKE @pcode";
+                    command.Parameters.AddWithValue("@pcode", txtProductCode.Text);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            pid = int.Parse(reader["productID"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+            }
+        }
+        //This will remove
+        public void removeFromInventory()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblProduct SET quantity = (quantity - @qty) WHERE ProductCode LIKE @pcode";
+                    command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+                    command.Parameters.AddWithValue("@pcode", txtProductCode.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+            }
+        }
+        //This will add
+        public void addToInventory()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblProduct SET quantity = (quantity + @qty) WHERE ProductCode LIKE @pcode";
+                    command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+                    command.Parameters.AddWithValue("@pcode", txtProductCode.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+            }
+        }
+        public void insertToAdjustmentTable()
+        {
+            using (var connection = new SqlConnection(con))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"INSERT INTO tblAdjustment (RefCode, productID, qty, action, remarks, aDate, adjustedBy) 
+                                        VALUES (@rcode, @pid, @qty, @action, @remarks, @aDate, @adjustedBy)";
+                command.Parameters.AddWithValue("@rcode", txtRefNo.Text);
+                command.Parameters.AddWithValue("@pid", pid);
+                command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
+                command.Parameters.AddWithValue("@action", cbCommand.Text);
+                command.Parameters.AddWithValue("@remarks", txtRemarks.Text);
+                command.Parameters.AddWithValue("aDate", DateTime.Now.ToString("yyyy-dd-MM"));
+                command.Parameters.AddWithValue("@adjustedBy", userID);
+                command.ExecuteNonQuery();
+            }
+        }
+
         private void frmStockAdjustment_Load(object sender, EventArgs e)
         {
-            getuserID();
             loadProducts();
             txtUser.Text =  frm.nameOfUser;
         }
@@ -138,6 +242,67 @@ namespace CapstoneProject_3
         {
             string colname = dataGridView.Columns[e.ColumnIndex].Name;
 
+            if(colname == "select")
+            {
+                txtProductCode.Text = dataGridView.Rows[e.RowIndex].Cells["pcode"].Value.ToString();
+                txtDescription.Text = dataGridView.Rows[e.RowIndex].Cells["desc"].Value.ToString();
+                _qty = int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString());
+
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                getProductID();
+                getuserID();
+                if (string.IsNullOrWhiteSpace(txtRefNo.Text))
+                {
+                    MessageBox.Show("Reference Code is Empty. Please Generate A Reference Code to Continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnGenerateRef.Focus();
+                }
+                else
+                {
+                    if (int.Parse(txtQty.Text) > _qty)
+                    {
+                        MessageBox.Show("New Quantiy Should Not be Greater Than Adjustment Quantity.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        if (cbCommand.Text == "Remove From Inventory")
+                        {
+                            removeFromInventory();
+                        }
+                        else if (cbCommand.Text == "Add To Invendory")
+                        {
+                            addToInventory();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Command is Empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            cbCommand.Focus();
+                        }
+                        insertToAdjustmentTable();
+                        clear();
+                        loadProducts();
+                    }
+                   
+                }
+                //Remove From Inventory
+                //Add To Invendory
+            }   
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+            }
+        }
+
+        private void btnGenerateRef_Click(object sender, EventArgs e)
+        {
+            generateRefNo();
         }
     }
 }
