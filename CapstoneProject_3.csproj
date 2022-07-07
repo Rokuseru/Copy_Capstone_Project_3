@@ -447,6 +447,8 @@
     <None Include="Resources\icons8-curved-arrow-50.png" />
     <None Include="Resources\icons8-arrow-50.png" />
     <None Include="Resources\icons8-chevron-right-50.png" />
+    <None Include="Resources\icons8-lock-50.png" />
+    <None Include="Resources\icons8-lock-20.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
