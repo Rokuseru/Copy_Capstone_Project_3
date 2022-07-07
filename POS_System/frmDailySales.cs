@@ -28,7 +28,7 @@ namespace CapstoneProject_3.POS_System
         {
             InitializeComponent();
             this.Padding = new Padding(borderSize);//Border size
-            this.BackColor = Color.FromArgb(255, 255, 255);//Border color
+            this.BackColor = Color.FromArgb(30, 39, 46);//Border color
             fpos = pos;
         }
         //Form Properties

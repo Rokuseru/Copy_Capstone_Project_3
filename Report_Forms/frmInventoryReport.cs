@@ -18,7 +18,7 @@ namespace CapstoneProject_3.Report_Forms
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmRecords rec;
-
+        frmHistory his;
         //Fields
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.
@@ -233,7 +233,7 @@ namespace CapstoneProject_3.Report_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void panelTop_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

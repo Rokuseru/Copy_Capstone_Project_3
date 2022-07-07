@@ -31,15 +31,16 @@ namespace CapstoneProject_3
         {
             this.titleAndImageHolder = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new RJCodeAdvance.RJControls.RJButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
             this.txtUsername = new MetroFramework.Controls.MetroTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
             this.titleAndImageHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -54,7 +55,8 @@ namespace CapstoneProject_3
             this.titleAndImageHolder.Dock = System.Windows.Forms.DockStyle.Left;
             this.titleAndImageHolder.Location = new System.Drawing.Point(0, 0);
             this.titleAndImageHolder.Name = "titleAndImageHolder";
-            this.titleAndImageHolder.Size = new System.Drawing.Size(316, 331);
+            this.titleAndImageHolder.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.titleAndImageHolder.Size = new System.Drawing.Size(316, 385);
             this.titleAndImageHolder.TabIndex = 0;
             // 
             // label1
@@ -62,12 +64,23 @@ namespace CapstoneProject_3
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 229);
+            this.label1.Location = new System.Drawing.Point(26, 253);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(290, 64);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome to the Sales and \r\nInventory System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::CapstoneProject_3.Properties.Resources._20220410_064910;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(316, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
@@ -80,9 +93,9 @@ namespace CapstoneProject_3
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(360, 216);
+            this.btnLogin.Location = new System.Drawing.Point(355, 232);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(275, 32);
+            this.btnLogin.Size = new System.Drawing.Size(280, 32);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.TextColor = System.Drawing.Color.White;
@@ -117,7 +130,7 @@ namespace CapstoneProject_3
             // 
             // 
             this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(251, 1);
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(256, 1);
             this.txtPassword.CustomButton.Name = "";
             this.txtPassword.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -127,7 +140,7 @@ namespace CapstoneProject_3
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.Icon = global::CapstoneProject_3.Properties.Resources.icons8_lock_20;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(360, 173);
+            this.txtPassword.Location = new System.Drawing.Point(355, 189);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -137,7 +150,7 @@ namespace CapstoneProject_3
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(275, 25);
+            this.txtPassword.Size = new System.Drawing.Size(280, 25);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSelectable = true;
             this.txtPassword.UseSystemPasswordChar = true;
@@ -174,7 +187,7 @@ namespace CapstoneProject_3
             // 
             // 
             this.txtUsername.CustomButton.Image = null;
-            this.txtUsername.CustomButton.Location = new System.Drawing.Point(251, 1);
+            this.txtUsername.CustomButton.Location = new System.Drawing.Point(256, 1);
             this.txtUsername.CustomButton.Name = "";
             this.txtUsername.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.txtUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -184,7 +197,7 @@ namespace CapstoneProject_3
             this.txtUsername.CustomButton.Visible = false;
             this.txtUsername.Icon = global::CapstoneProject_3.Properties.Resources.icons8_user_20;
             this.txtUsername.Lines = new string[0];
-            this.txtUsername.Location = new System.Drawing.Point(360, 142);
+            this.txtUsername.Location = new System.Drawing.Point(355, 156);
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -194,23 +207,12 @@ namespace CapstoneProject_3
             this.txtUsername.SelectionLength = 0;
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
-            this.txtUsername.Size = new System.Drawing.Size(275, 25);
+            this.txtUsername.Size = new System.Drawing.Size(280, 25);
             this.txtUsername.TabIndex = 4;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.WaterMark = "Username";
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::CapstoneProject_3.Properties.Resources._20220410_064910;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(316, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // iconPictureBox1
             // 
@@ -220,7 +222,7 @@ namespace CapstoneProject_3
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 25;
-            this.iconPictureBox1.Location = new System.Drawing.Point(322, 144);
+            this.iconPictureBox1.Location = new System.Drawing.Point(322, 158);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 25);
             this.iconPictureBox1.TabIndex = 9;
@@ -234,7 +236,7 @@ namespace CapstoneProject_3
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 25;
-            this.iconPictureBox2.Location = new System.Drawing.Point(322, 173);
+            this.iconPictureBox2.Location = new System.Drawing.Point(322, 189);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(32, 25);
             this.iconPictureBox2.TabIndex = 10;
@@ -244,19 +246,39 @@ namespace CapstoneProject_3
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(322, 75);
+            this.label2.Location = new System.Drawing.Point(354, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 64);
+            this.label2.Size = new System.Drawing.Size(291, 64);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Log in to your account";
+            this.label2.Text = "Log In to your Account";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancel.BorderRadius = 5;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(355, 270);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(280, 32);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(647, 331);
+            this.ClientSize = new System.Drawing.Size(647, 385);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.iconPictureBox1);
@@ -293,5 +315,6 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.Label label2;
+        private RJCodeAdvance.RJControls.RJButton btnCancel;
     }
 }

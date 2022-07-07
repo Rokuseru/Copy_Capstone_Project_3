@@ -67,7 +67,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panelTop.Controls.Add(this.btnExit);
             this.panelTop.Controls.Add(this.btnMinimizeWindow);
             this.panelTop.Controls.Add(this.lblCurrentChildForm);
@@ -82,7 +82,7 @@ namespace CapstoneProject_3.POS_System
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,7 +92,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(730, 6);
+            this.btnExit.Location = new System.Drawing.Point(730, 5);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 29);
@@ -105,7 +105,7 @@ namespace CapstoneProject_3.POS_System
             // btnMinimizeWindow
             // 
             this.btnMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnMinimizeWindow.FlatAppearance.BorderSize = 0;
             this.btnMinimizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeWindow.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,7 +115,7 @@ namespace CapstoneProject_3.POS_System
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
             this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizeWindow.Location = new System.Drawing.Point(677, 4);
+            this.btnMinimizeWindow.Location = new System.Drawing.Point(677, 3);
             this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizeWindow.Name = "btnMinimizeWindow";
             this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);

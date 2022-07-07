@@ -459,7 +459,7 @@ namespace CapstoneProject_3
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panelTitleBar.Controls.Add(this.btnExit);
             this.panelTitleBar.Controls.Add(this.btnMaximize);
             this.panelTitleBar.Controls.Add(this.btnMinimizeWindow);
@@ -474,13 +474,13 @@ namespace CapstoneProject_3
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(27)))), ((int)(((byte)(24)))));
+            this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -496,13 +496,13 @@ namespace CapstoneProject_3
             // btnMaximize
             // 
             this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.btnMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(218)))), ((int)(((byte)(226)))));
             this.btnMaximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btnMaximize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(27)))), ((int)(((byte)(24)))));
+            this.btnMaximize.IconColor = System.Drawing.Color.White;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMaximize.IconSize = 20;
             this.btnMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -519,13 +519,13 @@ namespace CapstoneProject_3
             // btnMinimizeWindow
             // 
             this.btnMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.btnMinimizeWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnMinimizeWindow.FlatAppearance.BorderSize = 0;
             this.btnMinimizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizeWindow.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizeWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(218)))), ((int)(((byte)(226)))));
             this.btnMinimizeWindow.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMinimizeWindow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(27)))), ((int)(((byte)(24)))));
+            this.btnMinimizeWindow.IconColor = System.Drawing.Color.White;
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
             this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -543,7 +543,7 @@ namespace CapstoneProject_3
             // 
             this.lblCurrentChildForm.AutoSize = true;
             this.lblCurrentChildForm.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(27)))), ((int)(((byte)(24)))));
+            this.lblCurrentChildForm.ForeColor = System.Drawing.Color.White;
             this.lblCurrentChildForm.Location = new System.Drawing.Point(6, 9);
             this.lblCurrentChildForm.Name = "lblCurrentChildForm";
             this.lblCurrentChildForm.Size = new System.Drawing.Size(166, 40);
@@ -552,7 +552,7 @@ namespace CapstoneProject_3
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.panelDesktop.BackColor = System.Drawing.Color.White;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 56);
             this.panelDesktop.Name = "panelDesktop";

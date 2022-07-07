@@ -102,7 +102,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panelTop.Controls.Add(this.lblRole);
             this.panelTop.Controls.Add(this.lblUser);
             this.panelTop.Controls.Add(this.lblTopTotal);
@@ -155,7 +155,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(140, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 45);

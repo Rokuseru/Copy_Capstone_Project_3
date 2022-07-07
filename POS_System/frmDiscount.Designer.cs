@@ -46,13 +46,13 @@ namespace CapstoneProject_3.POS_System
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
+            this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -67,7 +67,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;

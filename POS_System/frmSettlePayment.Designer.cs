@@ -31,6 +31,7 @@ namespace CapstoneProject_3.POS_System
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
             this.txtChange = new System.Windows.Forms.TextBox();
             this.txtPayment = new System.Windows.Forms.TextBox();
             this.txtBill = new System.Windows.Forms.TextBox();
@@ -44,13 +45,12 @@ namespace CapstoneProject_3.POS_System
             this.btn5 = new RJCodeAdvance.RJControls.RJButton();
             this.btn10 = new RJCodeAdvance.RJControls.RJButton();
             this.btnBspace = new RJCodeAdvance.RJControls.RJButton();
-            this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -69,6 +69,28 @@ namespace CapstoneProject_3.POS_System
             this.label4.Size = new System.Drawing.Size(120, 21);
             this.label4.TabIndex = 15;
             this.label4.Text = "Settle Payment";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btnExit.IconSize = 25;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.Location = new System.Drawing.Point(276, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(40, 30);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Tag = "";
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // txtChange
             // 
@@ -307,32 +329,11 @@ namespace CapstoneProject_3.POS_System
             this.btnBspace.UseVisualStyleBackColor = false;
             this.btnBspace.Click += new System.EventHandler(this.btnBspace_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
-            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btnExit.IconSize = 25;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(276, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 30);
-            this.btnExit.TabIndex = 7;
-            this.btnExit.Tag = "";
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // frmSettlePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(316, 333);
             this.ControlBox = false;
             this.Controls.Add(this.btn5);
@@ -350,7 +351,7 @@ namespace CapstoneProject_3.POS_System
             this.Controls.Add(this.txtBill);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmSettlePayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);

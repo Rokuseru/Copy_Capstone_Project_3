@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Data.SqlClient;
+using CapstoneProject_3.Report_Forms;
 
 namespace CapstoneProject_3
 {
@@ -191,7 +192,7 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-            private void frmSalesHistory_Load(object sender, EventArgs e)
+        private void frmSalesHistory_Load(object sender, EventArgs e)
         {
             dateTo.Value = DateTime.Today;
             dateTo3.Value = DateTime.Today;
@@ -251,6 +252,23 @@ namespace CapstoneProject_3
             {
                 return;
             }
+        }
+
+        private void btnPrintStockInHistory_Click(object sender, EventArgs e)
+        {
+            frmHistoryReport history = new frmHistoryReport(this);
+            history.loadStockIn();
+            history.ShowDialog();
+        }
+
+        private void dateTo4_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockInHistory();
+        }
+
+        private void dateFrom4_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockInHistory();
         }
     }
 }

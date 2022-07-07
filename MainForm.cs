@@ -12,6 +12,7 @@ using FontAwesome.Sharp;
 using System.Data.SqlClient;
 using Tulpep.NotificationWindow;
 using System.Globalization;
+using CapstoneProject_3.POS_System;
 
 namespace CapstoneProject_3
 {
@@ -385,6 +386,14 @@ namespace CapstoneProject_3
         {
             ActivateButton(sender);
             OpenChildForm(new frmAccounts());
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            frmPOS pos = new frmPOS();
+            pos.lblRole.Text = lblRole.Text;
+            pos.lblUser.Text = lblUser.Text;
+            pos.Show();
         }
     }
 }
