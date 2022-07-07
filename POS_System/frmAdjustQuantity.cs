@@ -67,6 +67,8 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
                     command.Parameters.AddWithValue("@pid", pid);
                     command.ExecuteNonQuery();
+
+                    this.Dispose();
                 }
             }
             catch (Exception ex)
@@ -74,22 +76,6 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //public void addToCurrentQty()
-        //{
-        //    using (var connection = new SqlConnection(con))
-        //    using (var command = new SqlCommand())
-        //    {
-        //        connection.Open();
-        //        command.Connection = connection;
-        //        command.CommandText = @"UPDATE tblCart SET qty = qty + @qty productID LIKE @pid AND STATUS LIKE 'Pending'";
-        //        command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
-        //        command.Parameters.AddWithValue("@pid", pid);
-        //        command.ExecuteNonQuery();
-        //        ps.txtSearch.Clear();
-        //        ps.txtSearch.Focus();
-        //        this.Close();
-        //    }
-        //}
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -86,7 +86,7 @@ namespace CapstoneProject_3.POS_System
             this.txtQty.Location = new System.Drawing.Point(0, 40);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(300, 90);
+            this.txtQty.Size = new System.Drawing.Size(300, 88);
             this.txtQty.TabIndex = 13;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);

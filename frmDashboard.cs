@@ -33,6 +33,7 @@ namespace CapstoneProject_3
             loadStockOnhand();
             loadCriticalStock();
             loadYearlyChart();
+            loadTopSellingChart();
             lblDailySales.Text = dailySales.ToString("C", culture);
             lblProductLine.Text = productLine.ToString();
             lblStockOnHand.Text = stockOnHand.ToString();
@@ -103,17 +104,22 @@ namespace CapstoneProject_3
                 using (var connection = new SqlConnection(con))
                 {
                     connection.Open();
-                    DataSet ds = new DataSet();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
                     SqlCommand cmd = new SqlCommand(@"SELECT YEAR(sDate) AS Yearly_Sales, ISNULL(SUM(Total), 0.00) AS Total_Sales FROM tblCart GROUP BY YEAR(sDate)", connection);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.SelectCommand = cmd;
+                    DataSet ds = new DataSet();
+
                     adapter.Fill(ds);
 
-                    chart1.DataSource = ds;
-
-                    chart1.Series["Series1"].XValueMember = "Yearly_Sales";
-                    chart1.Series["Series1"].YValueMembers = "Total_Sales";
-                    chart1.Series["Series1"].ChartType = SeriesChartType.Doughnut;
-                    chart1.Titles.Add("Yearly Sales");
+                    this.chart1.DataSource = ds.Tables[0];
+                    //X-Value
+                    this.chart1.Series[0].XValueMember = "Yearly_Sales";
+                    //Y-Value
+                    this.chart1.Series[0].YValueMembers = "Total_Sales";
+                    //Chart Properties
+                    this.chart1.Series[0].IsValueShownAsLabel = true;
+                 
+                    this.chart1.DataBind();
                 }
             }
             catch (Exception ex)
@@ -122,6 +128,38 @@ namespace CapstoneProject_3
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
                 Console.WriteLine(ex.Source, ex.GetType());
+            }
+        }
+        public void loadTopSellingChart()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand(@"SELECT Description, SUM(qty) AS qty, ISNULL(SUM(Total), 0.00) AS Total FROM viewSoldItems
+                                                      WHERE Status LIKE 'Sold'
+                                                     GROUP BY Description
+                                                     ORDER BY qty DESC", connection);
+                    adapter.SelectCommand = cmd;
+                    DataSet ds = new DataSet();
+
+                    adapter.Fill(ds);
+                    this.chart2.DataSource = ds.Tables[0];
+                    //X-Value
+                    this.chart2.Series[0].XValueMember = "Description";
+                    //Y-Value
+                    this.chart2.Series[0].YValueMembers = "qty";
+                    //Chart Properties
+                    this.chart2.Series[0].IsValueShownAsLabel = true;
+                    this.chart2.Series[0].ChartType = SeriesChartType.Doughnut;
+                    this.chart2.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

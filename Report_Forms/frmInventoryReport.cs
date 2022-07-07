@@ -98,28 +98,54 @@ namespace CapstoneProject_3.Report_Forms
                 using (var connection = new SqlConnection(con))
                 {
                     connection.Open();
-                    DataSetReports top = new DataSetReports();
 
-                    SqlCommand cmd = new SqlCommand(@"SELECT TOP 10 ProductCode, Description, SUM(qty) AS qty FROM viewSoldItems 
+                    if (rec.cbSortBy.Text == "Sort By Quantity")
+                    {
+                        DataSetReports top = new DataSetReports();
+                        SqlCommand cmd = new SqlCommand(@"SELECT TOP 10 ProductCode, Description, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(Total),0.00) AS Total FROM viewSoldItems 
                                             WHERE sDate Between @dFrom AND @dTo
                                             AND Status LIKE 'Sold' 
                                             GROUP BY Description,ProductCode
                                             ORDER BY qty DESC", connection);
-                    cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom.Value.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@dTo", rec.dateTo.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@dTo", rec.dateTo.Value.ToString("yyyy-MM-dd"));
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(top.Tables["dtTopSelling"]);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(top.Tables["dtTopSelling"]);
 
-                    //Parameters
-                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + rec.dateFrom.Value.ToString("yyyy-MM-dd") + " TO: " + rec.dateTo.Value.ToString("yyyy-MM-dd"));
-                    reportViewer1.LocalReport.SetParameters(pDate);
+                        //Parameters
+                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + rec.dateFrom.Value.ToString("yyyy-MM-dd") + " TO: " + rec.dateTo.Value.ToString("yyyy-MM-dd"));
+                        reportViewer1.LocalReport.SetParameters(pDate);
 
-                    ds = new ReportDataSource("rwTopTenSelling", top.Tables["dtTopSelling"]);
-                    reportViewer1.LocalReport.DataSources.Add(ds);
-                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                    reportViewer1.ZoomMode = ZoomMode.Percent;
-                    reportViewer1.ZoomPercent = 80;
+                        ds = new ReportDataSource("rwTopTenSelling", top.Tables["dtTopSelling"]);
+                        reportViewer1.LocalReport.DataSources.Add(ds);
+                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                        reportViewer1.ZoomMode = ZoomMode.Percent;
+                        reportViewer1.ZoomPercent = 80; 
+                    }else if (rec.cbSortBy.Text == "Sort By Total Amount")
+                    {
+                        DataSetReports top = new DataSetReports();
+                        SqlCommand cmd = new SqlCommand(@"SELECT TOP 10 ProductCode, Description, ISNULL(SUM(qty),0) AS qty, ISNULL(SUM(Total),0.00) AS Total FROM viewSoldItems 
+                                            WHERE sDate Between @dFrom AND @dTo
+                                            AND Status LIKE 'Sold' 
+                                            GROUP BY Description,ProductCode
+                                            ORDER BY Total DESC", connection);
+                        cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@dTo", rec.dateTo.Value.ToString("yyyy-MM-dd"));
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(top.Tables["dtTopSelling"]);
+
+                        //Parameters
+                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + rec.dateFrom.Value.ToString("yyyy-MM-dd") + " TO: " + rec.dateTo.Value.ToString("yyyy-MM-dd"));
+                        reportViewer1.LocalReport.SetParameters(pDate);
+
+                        ds = new ReportDataSource("rwTopTenSelling", top.Tables["dtTopSelling"]);
+                        reportViewer1.LocalReport.DataSources.Add(ds);
+                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                        reportViewer1.ZoomMode = ZoomMode.Percent;
+                        reportViewer1.ZoomPercent = 80;
+                    }
                 }
             }
             catch(Exception ex)

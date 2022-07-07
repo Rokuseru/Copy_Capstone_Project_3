@@ -55,6 +55,7 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlRecords = new MetroFramework.Controls.MetroTabControl();
             this.tabTopSelling = new MetroFramework.Controls.MetroTabPage();
+            this.cbSortBy = new System.Windows.Forms.ComboBox();
             this.btnTopSelling = new FontAwesome.Sharp.IconButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@ namespace CapstoneProject_3
             this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSoldItems = new MetroFramework.Controls.MetroTabPage();
             this.btnPrintSoldItems = new FontAwesome.Sharp.IconButton();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -146,6 +148,7 @@ namespace CapstoneProject_3
             // tabTopSelling
             // 
             this.tabTopSelling.BackColor = System.Drawing.Color.White;
+            this.tabTopSelling.Controls.Add(this.cbSortBy);
             this.tabTopSelling.Controls.Add(this.btnTopSelling);
             this.tabTopSelling.Controls.Add(this.metroLabel1);
             this.tabTopSelling.Controls.Add(this.label3);
@@ -165,6 +168,19 @@ namespace CapstoneProject_3
             this.tabTopSelling.VerticalScrollbarHighlightOnWheel = false;
             this.tabTopSelling.VerticalScrollbarSize = 10;
             // 
+            // cbSortBy
+            // 
+            this.cbSortBy.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSortBy.FormattingEnabled = true;
+            this.cbSortBy.Items.AddRange(new object[] {
+            "Sort By Quantity",
+            "Sort By Total Amount"});
+            this.cbSortBy.Location = new System.Drawing.Point(392, 6);
+            this.cbSortBy.Name = "cbSortBy";
+            this.cbSortBy.Size = new System.Drawing.Size(162, 23);
+            this.cbSortBy.TabIndex = 45;
+            this.cbSortBy.SelectedIndexChanged += new System.EventHandler(this.cbSortBy_SelectedIndexChanged);
+            // 
             // btnTopSelling
             // 
             this.btnTopSelling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
@@ -175,7 +191,7 @@ namespace CapstoneProject_3
             this.btnTopSelling.IconColor = System.Drawing.Color.White;
             this.btnTopSelling.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTopSelling.IconSize = 25;
-            this.btnTopSelling.Location = new System.Drawing.Point(392, 3);
+            this.btnTopSelling.Location = new System.Drawing.Point(562, 3);
             this.btnTopSelling.Name = "btnTopSelling";
             this.btnTopSelling.Size = new System.Drawing.Size(95, 28);
             this.btnTopSelling.TabIndex = 44;
@@ -188,11 +204,11 @@ namespace CapstoneProject_3
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(6, 8);
+            this.metroLabel1.Location = new System.Drawing.Point(8, 9);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(154, 19);
             this.metroLabel1.TabIndex = 25;
-            this.metroLabel1.Text = "Filter By Date(From-To):";
+            this.metroLabel1.Text = "Filter by Date(From-To):";
             // 
             // label3
             // 
@@ -208,7 +224,7 @@ namespace CapstoneProject_3
             // 
             this.dateTo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo.Location = new System.Drawing.Point(291, 5);
+            this.dateTo.Location = new System.Drawing.Point(291, 6);
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(95, 23);
             this.dateTo.TabIndex = 23;
@@ -253,7 +269,8 @@ namespace CapstoneProject_3
             this.Column3,
             this.pcode,
             this.description,
-            this.qty});
+            this.qty,
+            this.Column11});
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(0, 35);
@@ -305,6 +322,14 @@ namespace CapstoneProject_3
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
             this.qty.Width = 104;
+            // 
+            // Column11
+            // 
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column11.HeaderText = "Total Sales";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 86;
             // 
             // tabSoldItems
             // 
@@ -871,6 +896,7 @@ namespace CapstoneProject_3
             this.Controls.Add(this.panel1);
             this.Name = "frmRecords";
             this.Text = "Records";
+            this.Load += new System.EventHandler(this.frmRecords_Load);
             this.tabControlRecords.ResumeLayout(false);
             this.tabTopSelling.ResumeLayout(false);
             this.tabTopSelling.PerformLayout();
@@ -937,10 +963,12 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnPrintInventoryCount;
         private FontAwesome.Sharp.IconButton btnPrintSoldItems;
         private FontAwesome.Sharp.IconButton btnPrintCriticalStock;
+        private FontAwesome.Sharp.IconButton btnTopSelling;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private FontAwesome.Sharp.IconButton btnTopSelling;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        public System.Windows.Forms.ComboBox cbSortBy;
     }
 }

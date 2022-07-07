@@ -45,24 +45,19 @@ namespace CapstoneProject_3.POS_System
             try
             {
                 //Table Products
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
+                for (int items = 0; items < fpos.dataGridView.Rows.Count; items++)
                 {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"UPDATE tblProduct SET quantity = quantity - @qty WHERE productID = @pid";
-                    command.Parameters.Add("@qty", SqlDbType.Int).Value = 0;
-                    command.Parameters.Add("@pid", SqlDbType.Int).Value = 0;
-
-                    foreach (DataGridViewRow row in fpos.dataGridView.Rows)
+                    using (var connection = new SqlConnection(con))
+                    using (var command = new SqlCommand())
                     {
-                        command.Parameters.Clear();
-                        command.Parameters["@qty"].Value = row.Cells["qty"].Value;
-                        command.Parameters["@pid"].Value = row.Cells["pid"].Value;
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"UPDATE tblProduct SET quantity = quantity - @qty WHERE productID = @pid";
+                        command.Parameters.AddWithValue("@qty", int.Parse(fpos.dataGridView.Rows[items].Cells["qty"].Value.ToString()));
+                        command.Parameters.AddWithValue("@pid", int.Parse(fpos.dataGridView.Rows[items].Cells["pid"].Value.ToString()));
                         command.ExecuteNonQuery();
-                    }
+                    } 
                 }
-
                 //Table Cart
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
@@ -82,11 +77,9 @@ namespace CapstoneProject_3.POS_System
                 this.Dispose();
                 ntf.notificationMessage(fpos.panelNotif1, fpos.labelNotif1, fpos.iconNotif1, "Transaction Successful. Payment Recieved.");
                 ntf.notificationTimer(fpos.timer1, fpos.panelNotif1);
-
             }
             catch (Exception ex)
-            {
-             
+            {     
                 MessageBox.Show(ex.Message);
             }
         }

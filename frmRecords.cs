@@ -33,21 +33,43 @@ namespace CapstoneProject_3
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT TOP 10 ProductCode, Description, SUM(qty) AS qty FROM viewSoldItems 
+                    if (cbSortBy.Text == "Sort By Quantity")
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"SELECT TOP 10 ProductCode, Description, SUM(qty) AS qty, ISNULL(SUM(Total),0.00) AS Total FROM viewSoldItems 
                                             WHERE sDate Between @dFrom AND @dTo
                                             AND Status LIKE 'Sold' 
                                             GROUP BY Description,ProductCode
                                             ORDER BY qty DESC";
-                    command.Parameters.AddWithValue("@dFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@dTo", dateTo.Value.ToString("yyyy-MM-dd"));
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@dFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@dTo", dateTo.Value.ToString("yyyy-MM-dd"));
+                        using (var reader = command.ExecuteReader())
                         {
-                            i++;
-                            dataGridView.Rows.Add(i,reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["qty"].ToString());
+                            while (reader.Read())
+                            {
+                                i++;
+                                dataGridView.Rows.Add(i, reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["qty"].ToString(), double.Parse(reader["Total"].ToString()).ToString("C", culture));
+                            }
+                        } 
+                    }else if(cbSortBy.Text == "Sort By Total Amount")
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"SELECT TOP 10 ProductCode, Description, SUM(qty) AS qty, ISNULL(SUM(Total),0.00) AS Total FROM viewSoldItems 
+                                            WHERE sDate Between @dFrom AND @dTo
+                                            AND Status LIKE 'Sold' 
+                                            GROUP BY Description,ProductCode
+                                            ORDER BY Total DESC";
+                        command.Parameters.AddWithValue("@dFrom", dateFrom.Value.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@dTo", dateTo.Value.ToString("yyyy-MM-dd"));
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                i++;
+                                dataGridView.Rows.Add(i, reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["qty"].ToString(), double.Parse(reader["Total"].ToString()).ToString("C", culture));
+                            }
                         }
                     }
                 }
@@ -236,6 +258,16 @@ namespace CapstoneProject_3
             frmInventoryReport criticalStock = new frmInventoryReport(this);
             criticalStock.loadCriticalStock();
             criticalStock.ShowDialog();
+        }
+
+        private void cbSortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadTopTen();
+        }
+
+        private void frmRecords_Load(object sender, EventArgs e)
+        {
+            cbSortBy.SelectedText = "Sort By Quantity";
         }
     }
 }
