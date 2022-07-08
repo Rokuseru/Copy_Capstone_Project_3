@@ -229,9 +229,9 @@ namespace CapstoneProject_3
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(108, 103);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.Size = new System.Drawing.Size(35, 17);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Username";
+            this.label6.Text = "User";
             // 
             // txtPassword2
             // 
@@ -546,9 +546,6 @@ namespace CapstoneProject_3
             this.cbUsers2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbUsers2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsers2.FormattingEnabled = true;
-            this.cbUsers2.Items.AddRange(new object[] {
-            "Admin",
-            "Cashier"});
             this.cbUsers2.Location = new System.Drawing.Point(232, 100);
             this.cbUsers2.Name = "cbUsers2";
             this.cbUsers2.Size = new System.Drawing.Size(433, 23);

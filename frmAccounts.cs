@@ -55,6 +55,30 @@ namespace CapstoneProject_3
             }
 
         }
+        public void loadUser()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT userID, Name FROM tblusers";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cbUsers2.Items.Add(reader["Name"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             clear();
@@ -63,7 +87,7 @@ namespace CapstoneProject_3
 
         private void frmAccounts_Load(object sender, EventArgs e)
         {
-
+            loadUser();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
