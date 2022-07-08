@@ -147,7 +147,7 @@ namespace CapstoneProject_3
                         {
                             i++;
                             dataGridView3.Rows.Add(i, reader["TransactionNo"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["price"].ToString(),
-                                reader["qty"].ToString(), reader["total"].ToString(), reader["sdate"].ToString(), reader["Store_Owner"].ToString(), reader["cashier"].ToString(), reader["reason"].ToString());
+                                reader["qty"].ToString(), reader["total"].ToString(), Convert.ToDateTime(reader["sdate"]).ToString("yyyy/MM/dd"), reader["Store_Owner"].ToString(), reader["cashier"].ToString(), reader["reason"].ToString());
                         }
                     }
                 }
@@ -181,7 +181,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             dataGridView4.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
-                           reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
+                           reader["Vendor"].ToString(), reader["qty"].ToString(), Convert.ToDateTime(reader["StockInDate"]).ToString("yyyy/MM/dd"));
                         }
 
                     }
@@ -269,6 +269,13 @@ namespace CapstoneProject_3
         private void dateFrom4_ValueChanged(object sender, EventArgs e)
         {
             loadStockInHistory();
+        }
+
+        private void btnPrintRefund_Click(object sender, EventArgs e)
+        {
+            frmHistoryReport history = new frmHistoryReport(this);
+            history.loadRefunds();
+            history.ShowDialog();
         }
     }
 }

@@ -60,6 +60,42 @@ namespace CapstoneProject_3.Report_Forms
                 MessageBox.Show(ex.Message);
             }
         }
+        public void loadRefunds()
+        {
+            try
+            {
+                ReportDataSource ds;
+                his = new frmHistory();
+
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwRefunds.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    DataSetReports refunds = new DataSetReports();
+                    SqlCommand cmd = new SqlCommand(@"SELECT TransactionNo, ProductCode, Description, price, qty, total, sdate, Store_Owner, Cashier, reason 
+                                                      FROM viewRefunded", connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(refunds.Tables["dtRefunded"]);
+
+                    //Parameters
+                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom3.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo3.Value.ToString("yyyy-MM-dd"));
+                    reportViewer1.LocalReport.SetParameters(pDate);
+
+                    ds = new ReportDataSource("rwRefunds", refunds.Tables["dtRefunded"]);
+                    reportViewer1.LocalReport.DataSources.Add(ds);
+                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer1.ZoomMode = ZoomMode.Percent;
+                    reportViewer1.ZoomPercent = 80;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {

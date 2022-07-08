@@ -280,6 +280,7 @@
     <EmbeddedResource Include="Datasets\rwDailySalesReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwInventoryReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwReceipt.rdlc" />
+    <EmbeddedResource Include="Datasets\rwRefunds.rdlc" />
     <EmbeddedResource Include="Datasets\rwSoldItems.rdlc" />
     <EmbeddedResource Include="Datasets\rwStockIn.rdlc" />
     <EmbeddedResource Include="Datasets\rwTopTenSelling.rdlc" />
@@ -459,6 +460,7 @@
     <None Include="Resources\icons8-chevron-right-50.png" />
     <None Include="Resources\icons8-lock-50.png" />
     <None Include="Resources\icons8-lock-20.png" />
+    <None Include="Resources\icons8-user-minus-50.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
