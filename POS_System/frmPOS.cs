@@ -551,14 +551,15 @@ namespace CapstoneProject_3.POS_System
                     command.CommandText = @"INSERT INTO tblAttendance (userID, aDate, Time_In)
                                             VALUES (@uid, @date, @timeIn)";
                     command.Parameters.AddWithValue("@uid", uid);
-                    command.Parameters.AddWithValue("@aDate", lblDate.Text);
-                    command.Parameters.AddWithValue("@Time_In", lblTime.Text);
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyyMMdd"));
+                    command.Parameters.AddWithValue("@timeIn", DateTime.Now.ToString("hh:mm:ss"));
                     command.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
@@ -571,10 +572,10 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblAttendance SET Time_Out = @timeout WHERE userID = @uid AND aDate = @date";
-                    command.Parameters.AddWithValue("@timeout", lblTime.Text);
+                    command.CommandText = @"UPDATE tblAttendance SET Time_Out = @out WHERE userID = @uid AND aDate = @date";
+                    command.Parameters.AddWithValue("@out", DateTime.Now.ToString("hh:mm:ss"));
                     command.Parameters.AddWithValue("@uid", uid);
-                    command.Parameters.AddWithValue("@date", lblDate.Text);
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                     command.ExecuteNonQuery();
                 }
             }

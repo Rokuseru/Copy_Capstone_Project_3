@@ -75,13 +75,14 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblCart (TransactionNo, productID, Price, qty, sDate, userID)
-                                            VALUES (@transno, @pid, @price, @qty, @date, @cashier)";
+                    command.CommandText = @"INSERT INTO tblCart (TransactionNo, productID, Price, qty, sDate, sTime, userID)
+                                            VALUES (@transno, @pid, @price, @qty, @date,@time, @cashier)";
                     command.Parameters.AddWithValue("@transno", transacno);
                     command.Parameters.AddWithValue("@pid", pid);
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text));
                     command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyyMMdd"));
+                    command.Parameters.AddWithValue("@time", DateTime.Now.ToString("hh:mm:ss"));
                     command.Parameters.AddWithValue("cashier", userID);
                     command.ExecuteNonQuery();
 

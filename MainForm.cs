@@ -286,7 +286,7 @@ namespace CapstoneProject_3
         private void btnStockIn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmStockEntry());
+            OpenChildForm(new frmStockEntry(this));
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -16,10 +16,12 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         Notification ntf = new Notification();
+        MainForm mf;
         public string vendorID;
-        public frmStockEntry()
+        public frmStockEntry(MainForm main)
         {
             InitializeComponent();
+            mf = main;
         }
         public void clear()
         {
@@ -109,7 +111,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT stockEntryID, RefNumber, p.Description, RecievedBy, StockInDate, v.Vendor, qty, StockInDate FROM tblStockEntry
+                    command.CommandText = @"SELECT stockEntryID, RefNumber, p.productID ,p.Description, RecievedBy, StockInDate, v.Vendor, qty, StockInDate FROM tblStockEntry
                                             INNER JOIN tblProduct AS p 
                                             ON tblStockEntry.productID = p.productID
                                             INNER JOIN tblVendor AS v
@@ -120,7 +122,7 @@ namespace CapstoneProject_3
                         i += 1;
                         while (reader.Read())
                         {
-                            dataGridViewStockEntry.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
+                            dataGridViewStockEntry.Rows.Add(i, reader["stockEntryID"].ToString(), reader["productID"].ToString(),reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
                            reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
                         }
                        
@@ -149,9 +151,11 @@ namespace CapstoneProject_3
                             {
                                 connection.Open();
                                 command.Connection = connection;
-                                command.CommandText = @"UPDATE tblProduct SET quantity=quantity +" + int.Parse(dataGridViewStockEntry.Rows[i].Cells[6].Value.ToString()) +" WHERE Description LIKE @pdesc";
-                                command.Parameters.AddWithValue("@pdesc", dataGridViewStockEntry.Rows[i].Cells[3].Value.ToString());
+                                command.CommandText = @"UPDATE tblProduct SET quantity=quantity + @qty  WHERE productID LIKE @pid";
+                                command.Parameters.AddWithValue("@pid", int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
+                                command.Parameters.AddWithValue("@qty", int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()));
                                 command.ExecuteNonQuery();
+                                Console.WriteLine(int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
                             }
                             //for tblStockEntry
                             using (var connection = new SqlConnection(con))
@@ -159,7 +163,7 @@ namespace CapstoneProject_3
                             {
                                 connection.Open();
                                 command.Connection = connection;
-                                command.CommandText = @"UPDATE tblStockEntry SET qty = "+ int.Parse(dataGridViewStockEntry.Rows[i].Cells[6].Value.ToString()) + ", Status='Done'WHERE stockEntryID LIKE @id";
+                                command.CommandText = @"UPDATE tblStockEntry SET qty = "+ int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()) + ", Status='Done'WHERE stockEntryID LIKE @id";
                                 command.Parameters.AddWithValue("id", dataGridViewStockEntry.Rows[i].Cells[1].Value.ToString());
                                 command.ExecuteNonQuery();
                             }
@@ -178,47 +182,13 @@ namespace CapstoneProject_3
             {
                 ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
                 ntf.notificationTimer(timer1, panelNotif1);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
-        //public void loadHistory()
-        //{
-        //    try
-        //    {
-        //        dtgHistory.Rows.Clear();
-        //        int i = 0;
-
-        //        string dateB = dtFrom.Value.ToString("yyyy-MM-dd");
-        //        string dateT = dtTo.Value.ToString("yyyy-MM-dd");
-
-        //        using (var connection = new SqlConnection(con))
-        //        using (var command = new SqlCommand())
-        //        {
-        //            connection.Open();
-        //            command.Connection = connection;
-        //            command.CommandText = @"SELECT * FROM viewStockIn WHERE StockInDate BETWEEN @dateb AND @datet AND Status LIKE 'Done'";
-        //            command.Parameters.AddWithValue("@dateb", dateB);
-        //            command.Parameters.AddWithValue("@datet", dateT);
-        //            using (var reader = command.ExecuteReader())
-        //            {
-        //                i += 1;
-        //                while (reader.Read())
-        //                {
-        //                    dtgHistory.Rows.Add(i, reader["stockEntryID"].ToString(), reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
-        //                   reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
-        //                }
-
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-        //        ntf.notificationTimer(timer1, panelNotif1);
-        //    }
-        //}
-
         private void frmStockEntry_Load(object sender, EventArgs e)
         {
+            this.txtStockInBy.Text = mf.lblUser.Text;
             loadVendor();
         }
 

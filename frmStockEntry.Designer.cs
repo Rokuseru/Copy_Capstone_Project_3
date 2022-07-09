@@ -58,8 +58,9 @@ namespace CapstoneProject_3
             this.dataGridViewStockEntry = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -339,8 +340,9 @@ namespace CapstoneProject_3
             this.dataGridViewStockEntry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column1,
+            this.pid,
             this.Column7,
-            this.Column2,
+            this.desc,
             this.Column5,
             this.Column6,
             this.qty,
@@ -390,7 +392,13 @@ namespace CapstoneProject_3
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
-            this.Column1.Width = 44;
+            this.Column1.Width = 42;
+            // 
+            // pid
+            // 
+            this.pid.HeaderText = "pid";
+            this.pid.Name = "pid";
+            this.pid.Visible = false;
             // 
             // Column7
             // 
@@ -400,12 +408,12 @@ namespace CapstoneProject_3
             this.Column7.ReadOnly = true;
             this.Column7.Width = 105;
             // 
-            // Column2
+            // desc
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Desciption";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc.HeaderText = "Desciption";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
             // 
             // Column5
             // 
@@ -492,8 +500,9 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridView dataGridViewStockEntry;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
