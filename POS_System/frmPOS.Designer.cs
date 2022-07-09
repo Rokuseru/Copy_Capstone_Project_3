@@ -30,10 +30,10 @@ namespace CapstoneProject_3.POS_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -89,6 +89,11 @@ namespace CapstoneProject_3.POS_System
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnTimeIn = new RJCodeAdvance.RJControls.RJButton();
+            this.btnTimeOut = new RJCodeAdvance.RJControls.RJButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelButtons.SuspendLayout();
@@ -187,6 +192,7 @@ namespace CapstoneProject_3.POS_System
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelButtons.Location = new System.Drawing.Point(1054, 100);
             this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.panelButtons.Size = new System.Drawing.Size(230, 649);
             this.panelButtons.TabIndex = 1;
             // 
@@ -207,9 +213,9 @@ namespace CapstoneProject_3.POS_System
             this.panelBillInfo.Controls.Add(this.lblTotal);
             this.panelBillInfo.Controls.Add(this.panel2);
             this.panelBillInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBillInfo.Location = new System.Drawing.Point(0, 350);
+            this.panelBillInfo.Location = new System.Drawing.Point(0, 353);
             this.panelBillInfo.Name = "panelBillInfo";
-            this.panelBillInfo.Size = new System.Drawing.Size(230, 299);
+            this.panelBillInfo.Size = new System.Drawing.Size(230, 296);
             this.panelBillInfo.TabIndex = 7;
             // 
             // label10
@@ -217,7 +223,7 @@ namespace CapstoneProject_3.POS_System
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 247);
+            this.label10.Location = new System.Drawing.Point(6, 244);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 30);
             this.label10.TabIndex = 21;
@@ -228,7 +234,7 @@ namespace CapstoneProject_3.POS_System
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 204);
+            this.label9.Location = new System.Drawing.Point(6, 201);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 30);
             this.label9.TabIndex = 20;
@@ -239,7 +245,7 @@ namespace CapstoneProject_3.POS_System
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 162);
+            this.label8.Location = new System.Drawing.Point(3, 159);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 30);
             this.label8.TabIndex = 19;
@@ -250,7 +256,7 @@ namespace CapstoneProject_3.POS_System
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 120);
+            this.label7.Location = new System.Drawing.Point(3, 117);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 30);
             this.label7.TabIndex = 18;
@@ -261,7 +267,7 @@ namespace CapstoneProject_3.POS_System
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 78);
+            this.label6.Location = new System.Drawing.Point(3, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 30);
             this.label6.TabIndex = 17;
@@ -272,7 +278,7 @@ namespace CapstoneProject_3.POS_System
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 36);
+            this.label4.Location = new System.Drawing.Point(3, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 30);
             this.label4.TabIndex = 16;
@@ -282,7 +288,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblVatable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVatable.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVatable.Location = new System.Drawing.Point(110, 118);
+            this.lblVatable.Location = new System.Drawing.Point(110, 115);
             this.lblVatable.Name = "lblVatable";
             this.lblVatable.Size = new System.Drawing.Size(108, 32);
             this.lblVatable.TabIndex = 11;
@@ -293,7 +299,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCash.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCash.Location = new System.Drawing.Point(110, 202);
+            this.lblCash.Location = new System.Drawing.Point(110, 199);
             this.lblCash.Name = "lblCash";
             this.lblCash.Size = new System.Drawing.Size(108, 32);
             this.lblCash.TabIndex = 12;
@@ -304,7 +310,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblChange.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.Location = new System.Drawing.Point(110, 245);
+            this.lblChange.Location = new System.Drawing.Point(110, 242);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(108, 32);
             this.lblChange.TabIndex = 13;
@@ -315,7 +321,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblVat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVat.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVat.Location = new System.Drawing.Point(110, 76);
+            this.lblVat.Location = new System.Drawing.Point(110, 73);
             this.lblVat.Name = "lblVat";
             this.lblVat.Size = new System.Drawing.Size(108, 32);
             this.lblVat.TabIndex = 14;
@@ -326,7 +332,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(104, 34);
+            this.lblDiscount.Location = new System.Drawing.Point(104, 31);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(114, 32);
             this.lblDiscount.TabIndex = 15;
@@ -337,7 +343,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(110, 160);
+            this.lblTotal.Location = new System.Drawing.Point(110, 157);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(108, 32);
             this.lblTotal.TabIndex = 10;
@@ -366,7 +372,7 @@ namespace CapstoneProject_3.POS_System
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 40;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 300);
+            this.btnLogout.Location = new System.Drawing.Point(0, 303);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(230, 50);
             this.btnLogout.TabIndex = 6;
@@ -388,7 +394,7 @@ namespace CapstoneProject_3.POS_System
             this.btnDailySales.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDailySales.IconSize = 40;
             this.btnDailySales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDailySales.Location = new System.Drawing.Point(0, 250);
+            this.btnDailySales.Location = new System.Drawing.Point(0, 253);
             this.btnDailySales.Name = "btnDailySales";
             this.btnDailySales.Size = new System.Drawing.Size(230, 50);
             this.btnDailySales.TabIndex = 5;
@@ -410,7 +416,7 @@ namespace CapstoneProject_3.POS_System
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 40;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(0, 200);
+            this.btnCancel.Location = new System.Drawing.Point(0, 203);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(230, 50);
             this.btnCancel.TabIndex = 4;
@@ -433,7 +439,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSettle.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSettle.IconSize = 40;
             this.btnSettle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettle.Location = new System.Drawing.Point(0, 150);
+            this.btnSettle.Location = new System.Drawing.Point(0, 153);
             this.btnSettle.Name = "btnSettle";
             this.btnSettle.Size = new System.Drawing.Size(230, 50);
             this.btnSettle.TabIndex = 3;
@@ -456,7 +462,7 @@ namespace CapstoneProject_3.POS_System
             this.btnAddDisc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddDisc.IconSize = 40;
             this.btnAddDisc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddDisc.Location = new System.Drawing.Point(0, 100);
+            this.btnAddDisc.Location = new System.Drawing.Point(0, 103);
             this.btnAddDisc.Name = "btnAddDisc";
             this.btnAddDisc.Size = new System.Drawing.Size(230, 50);
             this.btnAddDisc.TabIndex = 2;
@@ -479,7 +485,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSearchProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearchProd.IconSize = 40;
             this.btnSearchProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchProd.Location = new System.Drawing.Point(0, 50);
+            this.btnSearchProd.Location = new System.Drawing.Point(0, 53);
             this.btnSearchProd.Name = "btnSearchProd";
             this.btnSearchProd.Size = new System.Drawing.Size(230, 50);
             this.btnSearchProd.TabIndex = 1;
@@ -501,7 +507,7 @@ namespace CapstoneProject_3.POS_System
             this.btnNewTrans.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNewTrans.IconSize = 40;
             this.btnNewTrans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewTrans.Location = new System.Drawing.Point(0, 0);
+            this.btnNewTrans.Location = new System.Drawing.Point(0, 3);
             this.btnNewTrans.Name = "btnNewTrans";
             this.btnNewTrans.Size = new System.Drawing.Size(230, 50);
             this.btnNewTrans.TabIndex = 0;
@@ -513,8 +519,12 @@ namespace CapstoneProject_3.POS_System
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.White;
+            this.panelBottom.Controls.Add(this.panel4);
+            this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.panelNotif1);
             this.panelBottom.Controls.Add(this.lblTime);
+            this.panelBottom.Controls.Add(this.btnTimeIn);
+            this.panelBottom.Controls.Add(this.btnTimeOut);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 668);
             this.panelBottom.Name = "panelBottom";
@@ -573,6 +583,7 @@ namespace CapstoneProject_3.POS_System
             // panelDgv
             // 
             this.panelDgv.BackColor = System.Drawing.Color.White;
+            this.panelDgv.Controls.Add(this.panel3);
             this.panelDgv.Controls.Add(this.label3);
             this.panelDgv.Controls.Add(this.txtSearch);
             this.panelDgv.Controls.Add(this.lblDate);
@@ -605,7 +616,7 @@ namespace CapstoneProject_3.POS_System
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(448, 23);
             this.txtSearch.TabIndex = 14;
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // lblDate
             // 
@@ -653,22 +664,22 @@ namespace CapstoneProject_3.POS_System
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -687,19 +698,19 @@ namespace CapstoneProject_3.POS_System
             this.dataGridView.Location = new System.Drawing.Point(0, 89);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(1054, 479);
@@ -824,6 +835,75 @@ namespace CapstoneProject_3.POS_System
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // btnTimeIn
+            // 
+            this.btnTimeIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimeIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeIn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeIn.BorderRadius = 5;
+            this.btnTimeIn.BorderSize = 0;
+            this.btnTimeIn.FlatAppearance.BorderSize = 0;
+            this.btnTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimeIn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimeIn.ForeColor = System.Drawing.Color.White;
+            this.btnTimeIn.Location = new System.Drawing.Point(849, 6);
+            this.btnTimeIn.Name = "btnTimeIn";
+            this.btnTimeIn.Size = new System.Drawing.Size(96, 69);
+            this.btnTimeIn.TabIndex = 17;
+            this.btnTimeIn.Text = "Time In";
+            this.btnTimeIn.TextColor = System.Drawing.Color.White;
+            this.btnTimeIn.UseVisualStyleBackColor = false;
+            this.btnTimeIn.Click += new System.EventHandler(this.btnTimeIn_Click);
+            // 
+            // btnTimeOut
+            // 
+            this.btnTimeOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimeOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeOut.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnTimeOut.BorderRadius = 5;
+            this.btnTimeOut.BorderSize = 0;
+            this.btnTimeOut.FlatAppearance.BorderSize = 0;
+            this.btnTimeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimeOut.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimeOut.ForeColor = System.Drawing.Color.White;
+            this.btnTimeOut.Location = new System.Drawing.Point(951, 6);
+            this.btnTimeOut.Name = "btnTimeOut";
+            this.btnTimeOut.Size = new System.Drawing.Size(96, 69);
+            this.btnTimeOut.TabIndex = 18;
+            this.btnTimeOut.Text = "Time Out";
+            this.btnTimeOut.TextColor = System.Drawing.Color.White;
+            this.btnTimeOut.UseVisualStyleBackColor = false;
+            this.btnTimeOut.Click += new System.EventHandler(this.btnTimeOut_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1054, 1);
+            this.panel1.TabIndex = 19;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1053, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1, 568);
+            this.panel3.TabIndex = 16;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(1053, 1);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1, 80);
+            this.panel4.TabIndex = 20;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -917,5 +997,10 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
+        private RJCodeAdvance.RJControls.RJButton btnTimeIn;
+        private RJCodeAdvance.RJControls.RJButton btnTimeOut;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

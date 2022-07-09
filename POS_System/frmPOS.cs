@@ -20,6 +20,7 @@ namespace CapstoneProject_3.POS_System
         string id;
         public double price;
         public double taxVat;
+        private int uid = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         //Fields
@@ -312,6 +313,28 @@ namespace CapstoneProject_3.POS_System
             lblVat.Text = vat.ToString("P", CultureInfo.InvariantCulture);
             lblVatable.Text = vatable.ToString();
         }
+        private void loadSearch()
+        {
+            var itemCollection = new AutoCompleteStringCollection();
+
+            using (var connection = new SqlConnection(con))
+            {
+                connection.Open();
+                var command = new SqlCommand(@"SELECT * FROM tblProduct WHERE Description LIKE '%" + txtSearch.Text + "%'", connection);
+                SqlDataReader dr = command.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        itemCollection.Add(dr["Description"].ToString());
+                    }
+                }
+                txtSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtSearch.AutoCompleteCustomSource = itemCollection;
+            }
+        }
         public void reset()
         {
             txtSearch.Enabled = false;
@@ -344,14 +367,6 @@ namespace CapstoneProject_3.POS_System
             else
             {
                 return;
-            }
-        }
-
-        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                searchProducts();
             }
         }
 
@@ -431,6 +446,8 @@ namespace CapstoneProject_3.POS_System
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            checkDataGridView();
+            loadSearch();
             timer1.Start();
         }
 
@@ -494,5 +511,114 @@ namespace CapstoneProject_3.POS_System
             }
         }
         
+        //For the Attendance Methods---
+        private void loadUsers()
+        {
+            try
+            {
+                //Load user ID
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblUsers WHERE Name LIKE @name";
+                    command.Parameters.AddWithValue("@name", lblUser.Text);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            uid = int.Parse(reader["userID"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        private void timeIn()
+        {
+            loadUsers();
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"INSERT INTO tblAttendance (userID, aDate, Time_In)
+                                            VALUES (@uid, @date, @timeIn)";
+                    command.Parameters.AddWithValue("@uid", uid);
+                    command.Parameters.AddWithValue("@aDate", lblDate.Text);
+                    command.Parameters.AddWithValue("@Time_In", lblTime.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        public void timeOut()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblAttendance SET Time_Out = @timeout WHERE userID = @uid AND aDate = @date";
+                    command.Parameters.AddWithValue("@timeout", lblTime.Text);
+                    command.Parameters.AddWithValue("@uid", uid);
+                    command.Parameters.AddWithValue("@date", lblDate.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void btnTimeIn_Click(object sender, EventArgs e)
+        {
+            timeIn();
+            ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Timed In Successfully!");
+            ntf.notificationTimer(timer1, panelNotif1);
+        }
+
+        private void btnTimeOut_Click(object sender, EventArgs e)
+        {
+            timeOut();
+            ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Timed Out Successfully! Have A Nice Day!");
+            ntf.notificationTimer(timer1, panelNotif1);
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchProducts();
+            }
+        }
+        //---Attendance Methods.
+        private void checkDataGridView()
+        {
+            if (dataGridView.Rows.Count > 0)
+            {
+
+                btnSettle.Enabled = true;
+                btnAddDisc.Enabled = true;
+            }
+            else
+            {
+                btnSettle.Enabled = false;
+                btnAddDisc.Enabled = false;
+            }
+        }
     }
 }
