@@ -102,7 +102,7 @@ namespace CapstoneProject_3
             this.btnContainer4.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContainer4.Location = new System.Drawing.Point(0, 717);
             this.btnContainer4.Name = "btnContainer4";
-            this.btnContainer4.Size = new System.Drawing.Size(203, 106);
+            this.btnContainer4.Size = new System.Drawing.Size(203, 100);
             this.btnContainer4.TabIndex = 45;
             // 
             // btnHistory
@@ -117,7 +117,7 @@ namespace CapstoneProject_3
             this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
             this.btnHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHistory.IconSize = 35;
+            this.btnHistory.IconSize = 30;
             this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistory.Location = new System.Drawing.Point(0, 43);
             this.btnHistory.Name = "btnHistory";
@@ -142,7 +142,7 @@ namespace CapstoneProject_3
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileContract;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
+            this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(0, 0);
             this.iconButton1.Name = "iconButton1";
@@ -179,6 +179,7 @@ namespace CapstoneProject_3
             this.btnRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecords.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRecords.UseVisualStyleBackColor = false;
+            this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
             // 
             // btnContainer3
             // 
@@ -202,7 +203,7 @@ namespace CapstoneProject_3
             this.btnVendor.IconChar = FontAwesome.Sharp.IconChar.PeopleCarry;
             this.btnVendor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnVendor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendor.IconSize = 35;
+            this.btnVendor.IconSize = 30;
             this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVendor.Location = new System.Drawing.Point(0, 43);
             this.btnVendor.Name = "btnVendor";
@@ -227,7 +228,7 @@ namespace CapstoneProject_3
             this.btnUsers.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.btnUsers.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsers.IconSize = 35;
+            this.btnUsers.IconSize = 30;
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.Location = new System.Drawing.Point(0, 0);
             this.btnUsers.Name = "btnUsers";
@@ -289,7 +290,7 @@ namespace CapstoneProject_3
             this.btnStockAdjustment.IconChar = FontAwesome.Sharp.IconChar.SlidersH;
             this.btnStockAdjustment.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnStockAdjustment.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnStockAdjustment.IconSize = 35;
+            this.btnStockAdjustment.IconSize = 30;
             this.btnStockAdjustment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockAdjustment.Location = new System.Drawing.Point(0, 86);
             this.btnStockAdjustment.Name = "btnStockAdjustment";
@@ -314,7 +315,7 @@ namespace CapstoneProject_3
             this.btnStockIn.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
             this.btnStockIn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnStockIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnStockIn.IconSize = 35;
+            this.btnStockIn.IconSize = 30;
             this.btnStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockIn.Location = new System.Drawing.Point(0, 43);
             this.btnStockIn.Name = "btnStockIn";
@@ -339,7 +340,7 @@ namespace CapstoneProject_3
             this.btnPurchaseOrder.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
             this.btnPurchaseOrder.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnPurchaseOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPurchaseOrder.IconSize = 35;
+            this.btnPurchaseOrder.IconSize = 30;
             this.btnPurchaseOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPurchaseOrder.Location = new System.Drawing.Point(0, 0);
             this.btnPurchaseOrder.Name = "btnPurchaseOrder";
@@ -401,7 +402,7 @@ namespace CapstoneProject_3
             this.btnProduct.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
             this.btnProduct.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProduct.IconSize = 35;
+            this.btnProduct.IconSize = 30;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.Location = new System.Drawing.Point(0, 86);
             this.btnProduct.Name = "btnProduct";
@@ -413,6 +414,7 @@ namespace CapstoneProject_3
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = false;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnCategory
             // 
@@ -426,7 +428,7 @@ namespace CapstoneProject_3
             this.btnCategory.IconChar = FontAwesome.Sharp.IconChar.Box;
             this.btnCategory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnCategory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCategory.IconSize = 35;
+            this.btnCategory.IconSize = 30;
             this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategory.Location = new System.Drawing.Point(0, 43);
             this.btnCategory.Name = "btnCategory";
@@ -438,6 +440,7 @@ namespace CapstoneProject_3
             this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnBrand
             // 
@@ -451,7 +454,7 @@ namespace CapstoneProject_3
             this.btnBrand.IconChar = FontAwesome.Sharp.IconChar.Copyright;
             this.btnBrand.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
             this.btnBrand.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBrand.IconSize = 35;
+            this.btnBrand.IconSize = 30;
             this.btnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrand.Location = new System.Drawing.Point(0, 0);
             this.btnBrand.Name = "btnBrand";
@@ -463,6 +466,7 @@ namespace CapstoneProject_3
             this.btnBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBrand.UseVisualStyleBackColor = false;
+            this.btnBrand.Click += new System.EventHandler(this.btnBrand_Click);
             // 
             // btnDropDownProducts
             // 
@@ -504,7 +508,7 @@ namespace CapstoneProject_3
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 35;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 823);
+            this.btnLogout.Location = new System.Drawing.Point(0, 817);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(203, 43);

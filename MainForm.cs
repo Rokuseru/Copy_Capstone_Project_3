@@ -37,6 +37,8 @@ namespace CapstoneProject_3
             notificationCriticalItems();
             collapseDropDownHeight(btnContainer1);
             collapseDropDownHeight(btnContainer2);
+            CollapseDropDownForRecords();
+            CollapseDropDownForSU();
         }
         private void ActivateButton(object senderBtn)
         {
@@ -407,7 +409,7 @@ namespace CapstoneProject_3
             collapseDropDownHeight(btnContainer2);
         }
 
-        private void btnSuppliersAndUsers_Click(object sender, EventArgs e)
+        private void CollapseDropDownForSU()
         {
             if (this.btnContainer3.Height > 50)//Collapse
             {
@@ -431,6 +433,57 @@ namespace CapstoneProject_3
                     button.Padding = new Padding(25, 0, 0, 0);
                 }
             }
+        }
+        private void btnSuppliersAndUsers_Click(object sender, EventArgs e)
+        {
+            CollapseDropDownForSU();
+        }
+        private void CollapseDropDownForRecords()
+        {
+            if (this.btnContainer4.Height > 50)//Collapse
+            {
+                this.btnContainer4.Visible = false;
+                this.btnContainer4.Height = 43;
+
+                foreach (IconButton button in this.btnContainer4.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                this.btnContainer4.Visible = true;
+                this.btnContainer4.Height = 100;
+                foreach (IconButton button in this.btnContainer4.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
+        }
+        private void btnRecords_Click(object sender, EventArgs e)
+        {
+            CollapseDropDownForRecords();
+        }
+
+        private void btnBrand_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmBrand());
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmCategory());
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmProducts());
         }
     }
 }
