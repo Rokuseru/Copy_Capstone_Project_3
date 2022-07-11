@@ -32,7 +32,7 @@ namespace CapstoneProject_3
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnContainer4 = new System.Windows.Forms.Panel();
             this.btnHistory = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnReports = new FontAwesome.Sharp.IconButton();
             this.btnRecords = new FontAwesome.Sharp.IconButton();
             this.btnContainer3 = new System.Windows.Forms.Panel();
             this.btnVendor = new FontAwesome.Sharp.IconButton();
@@ -98,7 +98,7 @@ namespace CapstoneProject_3
             // btnContainer4
             // 
             this.btnContainer4.Controls.Add(this.btnHistory);
-            this.btnContainer4.Controls.Add(this.iconButton1);
+            this.btnContainer4.Controls.Add(this.btnReports);
             this.btnContainer4.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContainer4.Location = new System.Drawing.Point(0, 717);
             this.btnContainer4.Name = "btnContainer4";
@@ -129,31 +129,33 @@ namespace CapstoneProject_3
             this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
-            // iconButton1
+            // btnReports
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileContract;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(203, 43);
-            this.iconButton1.TabIndex = 39;
-            this.iconButton1.Tag = "     Reports";
-            this.iconButton1.Text = "     Reports";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnReports.IconChar = FontAwesome.Sharp.IconChar.FileContract;
+            this.btnReports.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnReports.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReports.IconSize = 30;
+            this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.Location = new System.Drawing.Point(0, 0);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(203, 43);
+            this.btnReports.TabIndex = 39;
+            this.btnReports.Tag = "     Reports";
+            this.btnReports.Text = "     Reports";
+            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnRecords
             // 
@@ -215,6 +217,7 @@ namespace CapstoneProject_3
             this.btnVendor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVendor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVendor.UseVisualStyleBackColor = false;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // btnUsers
             // 
@@ -240,6 +243,7 @@ namespace CapstoneProject_3
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnSuppliersAndUsers
             // 
@@ -302,6 +306,7 @@ namespace CapstoneProject_3
             this.btnStockAdjustment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockAdjustment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStockAdjustment.UseVisualStyleBackColor = false;
+            this.btnStockAdjustment.Click += new System.EventHandler(this.btnStockAdjustment_Click);
             // 
             // btnStockIn
             // 
@@ -327,6 +332,7 @@ namespace CapstoneProject_3
             this.btnStockIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStockIn.UseVisualStyleBackColor = false;
+            this.btnStockIn.Click += new System.EventHandler(this.btnStockIn_Click);
             // 
             // btnPurchaseOrder
             // 
@@ -352,6 +358,7 @@ namespace CapstoneProject_3
             this.btnPurchaseOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPurchaseOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPurchaseOrder.UseVisualStyleBackColor = false;
+            this.btnPurchaseOrder.Click += new System.EventHandler(this.btnPurchaseOrder_Click);
             // 
             // btnInventory
             // 
@@ -799,7 +806,7 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnVendor;
         private FontAwesome.Sharp.IconButton btnUsers;
         private FontAwesome.Sharp.IconButton btnHistory;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnReports;
     }
 }
 

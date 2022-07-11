@@ -485,5 +485,46 @@ namespace CapstoneProject_3
             ActivateButton(sender);
             OpenChildForm(new frmProducts());
         }
+
+        private void btnPurchaseOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStockIn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmStockEntry(this));
+        }
+
+        private void btnStockAdjustment_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmStockAdjustment(this));
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmAccounts());
+        }
+
+        private void btnVendor_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmVendor());
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmHistory());
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmRecords());
+        }
     }
 }
