@@ -453,7 +453,7 @@ namespace CapstoneProject_3
             else
             {
                 this.btnContainer4.Visible = true;
-                this.btnContainer4.Height = 100;
+                this.btnContainer4.Height = 143;
                 foreach (IconButton button in this.btnContainer4.Controls.OfType<IconButton>())
                 {
                     button.Visible = true;

@@ -62,6 +62,7 @@ namespace CapstoneProject_3
             this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
             this.lblCurrentChildForm = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.btnActivityLog = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.btnContainer4.SuspendLayout();
             this.btnContainer3.SuspendLayout();
@@ -97,12 +98,13 @@ namespace CapstoneProject_3
             // 
             // btnContainer4
             // 
+            this.btnContainer4.Controls.Add(this.btnActivityLog);
             this.btnContainer4.Controls.Add(this.btnHistory);
             this.btnContainer4.Controls.Add(this.btnReports);
             this.btnContainer4.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContainer4.Location = new System.Drawing.Point(0, 717);
             this.btnContainer4.Name = "btnContainer4";
-            this.btnContainer4.Size = new System.Drawing.Size(203, 100);
+            this.btnContainer4.Size = new System.Drawing.Size(203, 143);
             this.btnContainer4.TabIndex = 45;
             // 
             // btnHistory
@@ -515,7 +517,7 @@ namespace CapstoneProject_3
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 35;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 817);
+            this.btnLogout.Location = new System.Drawing.Point(0, 860);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(203, 43);
@@ -744,6 +746,31 @@ namespace CapstoneProject_3
             this.panelDesktop.Size = new System.Drawing.Size(843, 600);
             this.panelDesktop.TabIndex = 2;
             // 
+            // btnActivityLog
+            // 
+            this.btnActivityLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnActivityLog.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnActivityLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnActivityLog.FlatAppearance.BorderSize = 0;
+            this.btnActivityLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivityLog.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivityLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnActivityLog.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.btnActivityLog.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnActivityLog.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnActivityLog.IconSize = 30;
+            this.btnActivityLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivityLog.Location = new System.Drawing.Point(0, 86);
+            this.btnActivityLog.Name = "btnActivityLog";
+            this.btnActivityLog.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnActivityLog.Size = new System.Drawing.Size(203, 43);
+            this.btnActivityLog.TabIndex = 40;
+            this.btnActivityLog.Tag = "     Activity Logs";
+            this.btnActivityLog.Text = "     Activity Logs";
+            this.btnActivityLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivityLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnActivityLog.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,6 +834,7 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnUsers;
         private FontAwesome.Sharp.IconButton btnHistory;
         private FontAwesome.Sharp.IconButton btnReports;
+        private FontAwesome.Sharp.IconButton btnActivityLog;
     }
 }
 
