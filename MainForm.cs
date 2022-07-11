@@ -31,9 +31,12 @@ namespace CapstoneProject_3
         {
             InitializeComponent();
             CollapseMenu();
+            CollapseAllDropDown();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color
             notificationCriticalItems();
+            collapseDropDownHeight(btnContainer1);
+            collapseDropDownHeight(btnContainer2);
         }
         private void ActivateButton(object senderBtn)
         {
@@ -205,6 +208,7 @@ namespace CapstoneProject_3
         private void btnMenu_Click(object sender, EventArgs e)
         {
             CollapseMenu();
+            CollapseAllDropDown();
         }
 
         private void CollapseMenu()
@@ -214,7 +218,7 @@ namespace CapstoneProject_3
                 panelMenu.Width = 100;
                 pictureBox1.Visible = false;
                 btnMenu.Dock = DockStyle.Top;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+                foreach (IconButton menuButton in panelMenu.Controls.OfType<IconButton>())
                 {
                     menuButton.Text = "";
                     menuButton.ImageAlign = ContentAlignment.MiddleCenter;
@@ -229,7 +233,7 @@ namespace CapstoneProject_3
                 panelMenu.Width = 210;
                 pictureBox1.Visible = true;
                 btnMenu.Dock = DockStyle.None;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>())
+                foreach (IconButton menuButton in panelMenu.Controls.OfType<IconButton>())
                 {
                     menuButton.Text = menuButton.Tag.ToString();
                     menuButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -237,6 +241,61 @@ namespace CapstoneProject_3
                     panelImageContainer.Height = 130;
                     lblRole.Visible = true;
                     lblUser.Visible = true;
+                }
+            }
+        }
+        private void CollapseAllDropDown()
+        {
+            CollapseDropDownWidth(btnContainer1);
+            CollapseDropDownWidth(btnContainer2);
+            CollapseDropDownWidth(btnContainer3);
+            CollapseDropDownWidth(btnContainer4);
+        }
+        private void collapseDropDownHeight(Panel btnContainer)
+        {
+            if (btnContainer.Height > 100)//Collapse
+            {
+                btnContainer.Visible = false;
+                btnContainer.Height = 43;
+
+                foreach(IconButton button in btnContainer.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                btnContainer.Visible = true;
+                btnContainer.Height = 140;
+                foreach (IconButton button in btnContainer.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
+        }
+        private void CollapseDropDownWidth(Panel btnContainer)
+        {
+            if (this.panelMenu.Width < 150) //Collapse menu
+            {
+                btnContainer.Width = 100;
+                foreach (IconButton menuButton in btnContainer.Controls.OfType<IconButton>())
+                {
+                    menuButton.Text = "";
+                    menuButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    menuButton.Padding = new Padding(0);
+                }
+            }
+            else
+            { //Expand menu
+                btnContainer.Width = 210;
+                foreach (IconButton menuButton in btnContainer.Controls.OfType<IconButton>())
+                {
+                    menuButton.Text = menuButton.Tag.ToString();
+                    menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    menuButton.Padding = new Padding(25, 0, 0, 0);
                 }
             }
         }
@@ -259,36 +318,7 @@ namespace CapstoneProject_3
             childForm.Show();
             lblCurrentChildForm.Text = childForm.Text;
         }
-        private void btnBrand_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmBrand());
-        }
-
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmCategory());
-        }
-
-        private void btnProduct_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmProducts());
-        }
-
-        private void btnVendor_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmVendor());
-        }
-
-        private void btnStockIn_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmStockEntry(this));
-        }
-
+        
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
@@ -303,11 +333,6 @@ namespace CapstoneProject_3
             }
         }
 
-        private void btnUserSettings_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmAccounts());
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -363,37 +388,49 @@ namespace CapstoneProject_3
             ActivateButton(sender);
             OpenChildForm(new frmDashboard());
         }
-
-        private void btnRecords_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmRecords());
-        }
-
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmHistory());
-        }
-
-        private void btnStockAdjustment_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmStockAdjustment(this));
-        }
-
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new frmAccounts());
-        }
-
-        private void btnPOS_Click(object sender, EventArgs e)
+      
+        private void btnPOS_Click_1(object sender, EventArgs e)
         {
             frmPOS pos = new frmPOS();
             pos.lblRole.Text = lblRole.Text;
             pos.lblUser.Text = lblUser.Text;
             pos.Show();
+        }
+
+        private void btnDropDownProducts_Click(object sender, EventArgs e)
+        {
+            collapseDropDownHeight(btnContainer1);
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            collapseDropDownHeight(btnContainer2);
+        }
+
+        private void btnSuppliersAndUsers_Click(object sender, EventArgs e)
+        {
+            if (this.btnContainer3.Height > 50)//Collapse
+            {
+                this.btnContainer3.Visible = false;
+                this.btnContainer3.Height = 43;
+
+                foreach (IconButton button in this.btnContainer3.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                this.btnContainer3.Visible = true;
+                this.btnContainer3.Height = 93;
+                foreach (IconButton button in this.btnContainer3.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
         }
     }
 }
