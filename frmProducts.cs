@@ -15,13 +15,14 @@ namespace CapstoneProject_3
     public partial class frmProducts : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        Notification ntf = new Notification();
+        showToast toast = new showToast();
         public string bid;
         public string cid;
         public frmProducts()
         {
             InitializeComponent();
         }
+
         public void clear()
         {
             txtBarcode.Clear();
@@ -52,8 +53,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadCategory()
@@ -76,8 +76,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //Load Products Into Table
@@ -112,8 +111,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void insertProduct()
@@ -136,11 +134,10 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@reorder", txtReorder.Text);
                         command.ExecuteNonQuery();
                 }
-                }
+            }
                 catch (Exception ex)
-                {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }      
         }
 
@@ -162,19 +159,12 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@reorder",txtReorder.Text);
                     command.ExecuteReader();
                 }
-                ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Updated Sucessfully");
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Updated Sucessfully");
-                ntf.notificationTimer(timer1, panelNotif2);
-
+                toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadProducts();
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                ntf.notificationTimer(timer1, panelNotif2);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void searchProduct()
@@ -207,8 +197,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -270,19 +259,13 @@ namespace CapstoneProject_3
                             int i = ds.Tables[0].Rows.Count;
                             if (i > 0)
                             {
-                                ntf.errorMessage(panelNotif1, labelNotif1, iconNotif1, "Product Already Exists");
-                                ntf.notificationTimer(timer1, panelNotif1);
-                                ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "Product Already Exists");
-                                ntf.notificationTimer(timer1, panelNotif2);
+                                toast.showToastNotif(new ToastNotification("Product Already Exists.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabManage);
                                 return;
                             }
                             else
                             {
                                 insertProduct();
-                                ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Product Added Successfully");
-                                ntf.notificationTimer(timer1, panelNotif1);
-                                ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Product Added Successfully");
-                                ntf.notificationTimer(timer1, panelNotif2);
+                                toast.showToastNotif(new ToastNotification("Product Added Successfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                                 clear();
                             }
 
@@ -290,16 +273,13 @@ namespace CapstoneProject_3
                     }
                     catch (Exception ex)
                     {
-                        ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                        ntf.notificationTimer(timer1, panelNotif1);
+                        MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
+                    toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabManage);
                 }
             }
         }
@@ -321,8 +301,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -343,8 +322,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }     
         }
 
@@ -365,19 +343,16 @@ namespace CapstoneProject_3
                     }
                     loadProducts();
 
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Deleted Successfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("Product Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabProductList);
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
             }
         }
 
@@ -406,29 +381,21 @@ namespace CapstoneProject_3
             if (MessageBox.Show("Update Brand?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 updateProduct();
-                ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Updated Successfully");
-                ntf.notificationTimer(timer1, panelNotif2);
-                ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Updated Successfully");
-                ntf.notificationTimer(timer1, panelNotif1);
                 clear();
             }
             else
             {
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-                ntf.notificationTimer(timer1, panelNotif2);
                 clear();
                 tabControl.TabPages.Add(tabProductList);
                 tabControl.TabPages.Remove(tabManage);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clear();
-            ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-            ntf.notificationTimer(timer1, panelNotif1);
+            toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
             tabControl.TabPages.Add(tabProductList);
             tabControl.TabPages.Remove(tabManage);
         }

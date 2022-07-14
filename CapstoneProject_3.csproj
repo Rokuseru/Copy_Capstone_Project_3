@@ -189,6 +189,13 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Notifications\Notifications.cs" />
+    <Compile Include="Notifications\showToast.cs" />
+    <Compile Include="Notifications\ToastNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notifications\ToastNotification.Designer.cs">
+      <DependentUpon>ToastNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="POS_System\frmAdjustQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifications\ToastNotification.resx">
+      <DependentUpon>ToastNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS_System\frmAdjustQuantity.resx">
       <DependentUpon>frmAdjustQuantity.cs</DependentUpon>

@@ -15,7 +15,7 @@ namespace CapstoneProject_3
     public partial class frmStockEntry : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        Notification ntf = new Notification();
+        showToast toast = new showToast();
         MainForm mf;
         public string vendorID;
         public frmStockEntry(MainForm main)
@@ -53,8 +53,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void generateRefNo()
@@ -94,8 +93,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -131,8 +129,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void saveQty()
@@ -168,22 +165,18 @@ namespace CapstoneProject_3
                                 command.ExecuteNonQuery();
                             }
                         }
-                        ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Stock In Successfully");
+                        toast.showToastNotifInPanel(new ToastNotification("Stock In Successful", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panel2);
                         clear();
                     }
                     else
                     {
-                        ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                        ntf.notificationTimer(timer1, panelNotif1);
+                        toast.showToastNotifInPanel(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), panel2);
                     }
                 }
             } 
             catch(Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void frmStockEntry_Load(object sender, EventArgs e)
@@ -225,8 +218,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -260,10 +252,7 @@ namespace CapstoneProject_3
 
                     }
                 }
-                else
-                {
-
-                }
+               
             }
             catch (Exception ex)
             {

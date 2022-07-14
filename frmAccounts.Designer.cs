@@ -29,7 +29,6 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,11 +36,8 @@ namespace CapstoneProject_3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tab = new MetroFramework.Controls.MetroTabControl();
             this.tabAdd = new MetroFramework.Controls.MetroTabPage();
-            this.tabUpdate = new MetroFramework.Controls.MetroTabPage();
-            this.tabManage = new MetroFramework.Controls.MetroTabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.txtConfirmPw = new System.Windows.Forms.TextBox();
             this.txtFname = new System.Windows.Forms.TextBox();
@@ -53,9 +49,9 @@ namespace CapstoneProject_3
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panelNotif1 = new System.Windows.Forms.Panel();
-            this.labelNotif1 = new System.Windows.Forms.Label();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnAddNew = new RJCodeAdvance.RJControls.RJButton();
+            this.tabUpdate = new MetroFramework.Controls.MetroTabPage();
             this.cbUsers2 = new System.Windows.Forms.ComboBox();
             this.txtOldPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,36 +60,23 @@ namespace CapstoneProject_3
             this.txtPassword2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panelNotif2 = new System.Windows.Forms.Panel();
-            this.labelNotif2 = new System.Windows.Forms.Label();
             this.btnSaveUpdate = new RJCodeAdvance.RJControls.RJButton();
             this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
+            this.btnBack2 = new FontAwesome.Sharp.IconButton();
+            this.tabManage = new MetroFramework.Controls.MetroTabPage();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
-            this.iconNotif2 = new FontAwesome.Sharp.IconPictureBox();
-            this.btnBack2 = new FontAwesome.Sharp.IconButton();
             this.disable = new System.Windows.Forms.DataGridViewImageColumn();
-            this.notifPanel3 = new System.Windows.Forms.Panel();
-            this.lblNotif3 = new System.Windows.Forms.Label();
-            this.notifIcon3 = new FontAwesome.Sharp.IconPictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tab.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabUpdate.SuspendLayout();
             this.tabManage.SuspendLayout();
-            this.panelNotif1.SuspendLayout();
-            this.panelNotif2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).BeginInit();
-            this.notifPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notifIcon3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,7 +116,6 @@ namespace CapstoneProject_3
             this.tabAdd.Controls.Add(this.label5);
             this.tabAdd.Controls.Add(this.label4);
             this.tabAdd.Controls.Add(this.label3);
-            this.tabAdd.Controls.Add(this.panelNotif1);
             this.tabAdd.Controls.Add(this.btnBack);
             this.tabAdd.Controls.Add(this.btnAddNew);
             this.tabAdd.HorizontalScrollbarBarColor = true;
@@ -147,51 +129,6 @@ namespace CapstoneProject_3
             this.tabAdd.VerticalScrollbarBarColor = true;
             this.tabAdd.VerticalScrollbarHighlightOnWheel = false;
             this.tabAdd.VerticalScrollbarSize = 10;
-            // 
-            // tabUpdate
-            // 
-            this.tabUpdate.BackColor = System.Drawing.Color.White;
-            this.tabUpdate.Controls.Add(this.cbUsers2);
-            this.tabUpdate.Controls.Add(this.txtOldPassword);
-            this.tabUpdate.Controls.Add(this.label9);
-            this.tabUpdate.Controls.Add(this.label1);
-            this.tabUpdate.Controls.Add(this.txtConfPassword2);
-            this.tabUpdate.Controls.Add(this.txtPassword2);
-            this.tabUpdate.Controls.Add(this.label2);
-            this.tabUpdate.Controls.Add(this.label6);
-            this.tabUpdate.Controls.Add(this.panelNotif2);
-            this.tabUpdate.Controls.Add(this.btnSaveUpdate);
-            this.tabUpdate.Controls.Add(this.btnCancel);
-            this.tabUpdate.Controls.Add(this.btnBack2);
-            this.tabUpdate.HorizontalScrollbarBarColor = true;
-            this.tabUpdate.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabUpdate.HorizontalScrollbarSize = 10;
-            this.tabUpdate.Location = new System.Drawing.Point(4, 38);
-            this.tabUpdate.Name = "tabUpdate";
-            this.tabUpdate.Size = new System.Drawing.Size(792, 407);
-            this.tabUpdate.TabIndex = 1;
-            this.tabUpdate.Text = "Update User";
-            this.tabUpdate.VerticalScrollbarBarColor = true;
-            this.tabUpdate.VerticalScrollbarHighlightOnWheel = false;
-            this.tabUpdate.VerticalScrollbarSize = 10;
-            // 
-            // tabManage
-            // 
-            this.tabManage.BackColor = System.Drawing.Color.White;
-            this.tabManage.Controls.Add(this.notifPanel3);
-            this.tabManage.Controls.Add(this.dataGridView);
-            this.tabManage.HorizontalScrollbarBarColor = true;
-            this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabManage.HorizontalScrollbarSize = 10;
-            this.tabManage.Location = new System.Drawing.Point(4, 38);
-            this.tabManage.Name = "tabManage";
-            this.tabManage.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
-            this.tabManage.Size = new System.Drawing.Size(792, 407);
-            this.tabManage.TabIndex = 2;
-            this.tabManage.Text = "Manage Users";
-            this.tabManage.VerticalScrollbarBarColor = true;
-            this.tabManage.VerticalScrollbarHighlightOnWheel = false;
-            this.tabManage.VerticalScrollbarSize = 10;
             // 
             // label8
             // 
@@ -322,29 +259,22 @@ namespace CapstoneProject_3
             this.label3.TabIndex = 29;
             this.label3.Text = "Username";
             // 
-            // panelNotif1
+            // btnBack
             // 
-            this.panelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif1.Controls.Add(this.labelNotif1);
-            this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(0, 376);
-            this.panelNotif1.Name = "panelNotif1";
-            this.panelNotif1.Size = new System.Drawing.Size(792, 29);
-            this.panelNotif1.TabIndex = 27;
-            this.panelNotif1.Visible = false;
-            // 
-            // labelNotif1
-            // 
-            this.labelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif1.AutoSize = true;
-            this.labelNotif1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif1.Location = new System.Drawing.Point(45, 6);
-            this.labelNotif1.Name = "labelNotif1";
-            this.labelNotif1.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif1.TabIndex = 1;
-            this.labelNotif1.Text = "label3";
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 35;
+            this.btnBack.Location = new System.Drawing.Point(743, 366);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(46, 39);
+            this.btnBack.TabIndex = 25;
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnAddNew
             // 
@@ -366,6 +296,32 @@ namespace CapstoneProject_3
             this.btnAddNew.TextColor = System.Drawing.Color.White;
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // tabUpdate
+            // 
+            this.tabUpdate.BackColor = System.Drawing.Color.White;
+            this.tabUpdate.Controls.Add(this.cbUsers2);
+            this.tabUpdate.Controls.Add(this.txtOldPassword);
+            this.tabUpdate.Controls.Add(this.label9);
+            this.tabUpdate.Controls.Add(this.label1);
+            this.tabUpdate.Controls.Add(this.txtConfPassword2);
+            this.tabUpdate.Controls.Add(this.txtPassword2);
+            this.tabUpdate.Controls.Add(this.label2);
+            this.tabUpdate.Controls.Add(this.label6);
+            this.tabUpdate.Controls.Add(this.btnSaveUpdate);
+            this.tabUpdate.Controls.Add(this.btnCancel);
+            this.tabUpdate.Controls.Add(this.btnBack2);
+            this.tabUpdate.HorizontalScrollbarBarColor = true;
+            this.tabUpdate.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabUpdate.HorizontalScrollbarSize = 10;
+            this.tabUpdate.Location = new System.Drawing.Point(4, 38);
+            this.tabUpdate.Name = "tabUpdate";
+            this.tabUpdate.Size = new System.Drawing.Size(792, 407);
+            this.tabUpdate.TabIndex = 1;
+            this.tabUpdate.Text = "Update User";
+            this.tabUpdate.VerticalScrollbarBarColor = true;
+            this.tabUpdate.VerticalScrollbarHighlightOnWheel = false;
+            this.tabUpdate.VerticalScrollbarSize = 10;
             // 
             // cbUsers2
             // 
@@ -458,30 +414,6 @@ namespace CapstoneProject_3
             this.label6.TabIndex = 37;
             this.label6.Text = "User";
             // 
-            // panelNotif2
-            // 
-            this.panelNotif2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif2.Controls.Add(this.labelNotif2);
-            this.panelNotif2.Controls.Add(this.iconNotif2);
-            this.panelNotif2.Location = new System.Drawing.Point(3, 377);
-            this.panelNotif2.Name = "panelNotif2";
-            this.panelNotif2.Size = new System.Drawing.Size(786, 29);
-            this.panelNotif2.TabIndex = 36;
-            this.panelNotif2.Visible = false;
-            // 
-            // labelNotif2
-            // 
-            this.labelNotif2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif2.AutoSize = true;
-            this.labelNotif2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif2.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif2.Location = new System.Drawing.Point(45, 6);
-            this.labelNotif2.Name = "labelNotif2";
-            this.labelNotif2.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif2.TabIndex = 1;
-            this.labelNotif2.Text = "label3";
-            // 
             // btnSaveUpdate
             // 
             this.btnSaveUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -523,6 +455,39 @@ namespace CapstoneProject_3
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
+            // btnBack2
+            // 
+            this.btnBack2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack2.FlatAppearance.BorderSize = 0;
+            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack2.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnBack2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnBack2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack2.IconSize = 35;
+            this.btnBack2.Location = new System.Drawing.Point(740, 364);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(46, 39);
+            this.btnBack2.TabIndex = 34;
+            this.btnBack2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBack2.UseVisualStyleBackColor = true;
+            // 
+            // tabManage
+            // 
+            this.tabManage.BackColor = System.Drawing.Color.White;
+            this.tabManage.Controls.Add(this.dataGridView);
+            this.tabManage.HorizontalScrollbarBarColor = true;
+            this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabManage.HorizontalScrollbarSize = 10;
+            this.tabManage.Location = new System.Drawing.Point(4, 38);
+            this.tabManage.Name = "tabManage";
+            this.tabManage.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.tabManage.Size = new System.Drawing.Size(792, 407);
+            this.tabManage.TabIndex = 2;
+            this.tabManage.Text = "Manage Users";
+            this.tabManage.VerticalScrollbarBarColor = true;
+            this.tabManage.VerticalScrollbarHighlightOnWheel = false;
+            this.tabManage.VerticalScrollbarSize = 10;
+            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -535,7 +500,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -565,7 +530,7 @@ namespace CapstoneProject_3
             this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
@@ -586,7 +551,7 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
+            this.Column3.Width = 37;
             // 
             // userID
             // 
@@ -610,7 +575,7 @@ namespace CapstoneProject_3
             this.role.HeaderText = "Role";
             this.role.Name = "role";
             this.role.ReadOnly = true;
-            this.role.Width = 57;
+            this.role.Width = 52;
             // 
             // status
             // 
@@ -618,77 +583,7 @@ namespace CapstoneProject_3
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
-            this.status.Width = 69;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_user_minus_50;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 5;
-            // 
-            // iconNotif1
-            // 
-            this.iconNotif1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif1.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif1.IconSize = 26;
-            this.iconNotif1.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif1.Name = "iconNotif1";
-            this.iconNotif1.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif1.TabIndex = 0;
-            this.iconNotif1.TabStop = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(743, 366);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 39);
-            this.btnBack.TabIndex = 25;
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // iconNotif2
-            // 
-            this.iconNotif2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif2.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif2.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif2.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif2.IconSize = 26;
-            this.iconNotif2.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif2.Name = "iconNotif2";
-            this.iconNotif2.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif2.TabIndex = 0;
-            this.iconNotif2.TabStop = false;
-            // 
-            // btnBack2
-            // 
-            this.btnBack2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack2.FlatAppearance.BorderSize = 0;
-            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack2.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack2.IconSize = 35;
-            this.btnBack2.Location = new System.Drawing.Point(740, 364);
-            this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(46, 39);
-            this.btnBack2.TabIndex = 34;
-            this.btnBack2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack2.UseVisualStyleBackColor = true;
+            this.status.Width = 60;
             // 
             // disable
             // 
@@ -700,43 +595,13 @@ namespace CapstoneProject_3
             this.disable.ReadOnly = true;
             this.disable.Width = 5;
             // 
-            // notifPanel3
+            // dataGridViewImageColumn1
             // 
-            this.notifPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notifPanel3.Controls.Add(this.lblNotif3);
-            this.notifPanel3.Controls.Add(this.notifIcon3);
-            this.notifPanel3.Location = new System.Drawing.Point(-4, 370);
-            this.notifPanel3.Name = "notifPanel3";
-            this.notifPanel3.Size = new System.Drawing.Size(796, 29);
-            this.notifPanel3.TabIndex = 37;
-            this.notifPanel3.Visible = false;
-            // 
-            // lblNotif3
-            // 
-            this.lblNotif3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblNotif3.AutoSize = true;
-            this.lblNotif3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotif3.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblNotif3.Location = new System.Drawing.Point(45, 6);
-            this.lblNotif3.Name = "lblNotif3";
-            this.lblNotif3.Size = new System.Drawing.Size(43, 17);
-            this.lblNotif3.TabIndex = 1;
-            this.lblNotif3.Text = "label3";
-            // 
-            // notifIcon3
-            // 
-            this.notifIcon3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.notifIcon3.ForeColor = System.Drawing.SystemColors.Info;
-            this.notifIcon3.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.notifIcon3.IconColor = System.Drawing.SystemColors.Info;
-            this.notifIcon3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.notifIcon3.IconSize = 26;
-            this.notifIcon3.Location = new System.Drawing.Point(14, 3);
-            this.notifIcon3.Name = "notifIcon3";
-            this.notifIcon3.Size = new System.Drawing.Size(32, 26);
-            this.notifIcon3.TabIndex = 0;
-            this.notifIcon3.TabStop = false;
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_user_minus_50;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // frmAccounts
             // 
@@ -754,16 +619,7 @@ namespace CapstoneProject_3
             this.tabUpdate.ResumeLayout(false);
             this.tabUpdate.PerformLayout();
             this.tabManage.ResumeLayout(false);
-            this.panelNotif1.ResumeLayout(false);
-            this.panelNotif1.PerformLayout();
-            this.panelNotif2.ResumeLayout(false);
-            this.panelNotif2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).EndInit();
-            this.notifPanel3.ResumeLayout(false);
-            this.notifPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notifIcon3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -771,7 +627,6 @@ namespace CapstoneProject_3
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Timer timer1;
         private MetroFramework.Controls.MetroTabControl tab;
         private MetroFramework.Controls.MetroTabPage tabAdd;
         private MetroFramework.Controls.MetroTabPage tabUpdate;
@@ -787,9 +642,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panelNotif1;
-        private System.Windows.Forms.Label labelNotif1;
-        private FontAwesome.Sharp.IconPictureBox iconNotif1;
         private FontAwesome.Sharp.IconButton btnBack;
         private RJCodeAdvance.RJControls.RJButton btnAddNew;
         private System.Windows.Forms.ComboBox cbUsers2;
@@ -800,9 +652,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.TextBox txtPassword2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panelNotif2;
-        private System.Windows.Forms.Label labelNotif2;
-        private FontAwesome.Sharp.IconPictureBox iconNotif2;
         private RJCodeAdvance.RJControls.RJButton btnSaveUpdate;
         private RJCodeAdvance.RJControls.RJButton btnCancel;
         private FontAwesome.Sharp.IconButton btnBack2;
@@ -814,8 +663,5 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewImageColumn disable;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.Panel notifPanel3;
-        private System.Windows.Forms.Label lblNotif3;
-        private FontAwesome.Sharp.IconPictureBox notifIcon3;
     }
 }

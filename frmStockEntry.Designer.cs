@@ -29,7 +29,6 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,11 +36,7 @@ namespace CapstoneProject_3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelNotif1 = new System.Windows.Forms.Panel();
-            this.labelNotif1 = new System.Windows.Forms.Label();
-            this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
             this.cbVendor = new System.Windows.Forms.ComboBox();
             this.btnProductList = new FontAwesome.Sharp.IconButton();
             this.btnRefNo = new FontAwesome.Sharp.IconButton();
@@ -67,8 +62,6 @@ namespace CapstoneProject_3
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
-            this.panelNotif1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockEntry)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +85,6 @@ namespace CapstoneProject_3
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.panelNotif1);
             this.panel2.Controls.Add(this.cbVendor);
             this.panel2.Controls.Add(this.btnProductList);
             this.panel2.Controls.Add(this.btnRefNo);
@@ -113,44 +105,6 @@ namespace CapstoneProject_3
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(941, 504);
             this.panel2.TabIndex = 2;
-            // 
-            // panelNotif1
-            // 
-            this.panelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif1.Controls.Add(this.labelNotif1);
-            this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(0, 464);
-            this.panelNotif1.Name = "panelNotif1";
-            this.panelNotif1.Size = new System.Drawing.Size(941, 33);
-            this.panelNotif1.TabIndex = 52;
-            this.panelNotif1.Visible = false;
-            // 
-            // labelNotif1
-            // 
-            this.labelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif1.AutoSize = true;
-            this.labelNotif1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif1.Location = new System.Drawing.Point(45, 10);
-            this.labelNotif1.Name = "labelNotif1";
-            this.labelNotif1.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif1.TabIndex = 1;
-            this.labelNotif1.Text = "label3";
-            // 
-            // iconNotif1
-            // 
-            this.iconNotif1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif1.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif1.IconSize = 26;
-            this.iconNotif1.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif1.Name = "iconNotif1";
-            this.iconNotif1.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif1.TabIndex = 0;
-            this.iconNotif1.TabStop = false;
             // 
             // cbVendor
             // 
@@ -286,7 +240,7 @@ namespace CapstoneProject_3
             this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(883, 449);
+            this.btnBack.Location = new System.Drawing.Point(892, 462);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(46, 39);
             this.btnBack.TabIndex = 40;
@@ -392,7 +346,7 @@ namespace CapstoneProject_3
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
-            this.Column1.Width = 42;
+            this.Column1.Width = 44;
             // 
             // pid
             // 
@@ -467,9 +421,6 @@ namespace CapstoneProject_3
             this.Load += new System.EventHandler(this.frmStockEntry_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panelNotif1.ResumeLayout(false);
-            this.panelNotif1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockEntry)).EndInit();
             this.ResumeLayout(false);
 
@@ -479,11 +430,7 @@ namespace CapstoneProject_3
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panelNotif1;
-        private System.Windows.Forms.Label labelNotif1;
-        private FontAwesome.Sharp.IconPictureBox iconNotif1;
         public System.Windows.Forms.ComboBox cbVendor;
         private FontAwesome.Sharp.IconButton btnProductList;
         public FontAwesome.Sharp.IconButton btnRefNo;

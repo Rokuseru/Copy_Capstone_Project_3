@@ -14,7 +14,7 @@ namespace CapstoneProject_3
 {
     public partial class frmCategory : Form
     {
-        Notification ntf = new Notification(); 
+        showToast toast = new showToast();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         public frmCategory()
         {
@@ -36,25 +36,18 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@category", txtCategoryName.Text);
                         command.ExecuteNonQuery();
                     }
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Category Added Successfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
-
+                    toast.showToastNotif(new ToastNotification("Category Added Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 txtCategoryName.Clear();
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-                ntf.notificationTimer(timer1, panelNotif2);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabManage);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabCategoryList);
             }
         }
         //Update Category
@@ -72,18 +65,12 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@category", txtCategoryName.Text);
                     command.ExecuteReader();
                 }
-                ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Updated Sucessfully");
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Updated Sucessfully");
-                ntf.notificationTimer(timer1, panelNotif2);
+                toast.showToastNotif(new ToastNotification("Category Updated Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadAllCategory();
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                ntf.notificationTimer(timer1, panelNotif2);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,8 +99,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void searchCategory()
@@ -141,8 +127,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void deleteCategory()
@@ -161,24 +146,20 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
                         command.ExecuteReader();
                     }
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Deleted Successfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
 
                     loadAllCategory();
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }
             else
             {
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-                ntf.notificationTimer(timer1, panelNotif2);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabManage);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabCategoryList);
                 return;
             }
         }
@@ -219,8 +200,7 @@ namespace CapstoneProject_3
 
                         if (i > 0)
                         {
-                            ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "Category Already Exists");
-                            ntf.notificationTimer(timer1, panelNotif2);
+                            toast.showToastNotif(new ToastNotification("Category Already Exists.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabManage);
                             return;
                         }
                         else
@@ -236,18 +216,13 @@ namespace CapstoneProject_3
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-            ntf.notificationTimer(timer1, panelNotif1);
             tabControl.TabPages.Remove(tabManage);
             tabControl.TabPages.Add(tabCategoryList);
             btnSave.Enabled = true;
@@ -289,8 +264,7 @@ namespace CapstoneProject_3
                 tabControl.TabPages.Add(tabCategoryList);
                 tabControl.TabPages.Remove(tabManage);
                 loadAllCategory();
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabCategoryList);
             }
         }
 

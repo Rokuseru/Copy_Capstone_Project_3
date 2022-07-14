@@ -360,9 +360,18 @@ namespace CapstoneProject_3.POS_System
         {
             if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
             {
-                frmLogin login = new frmLogin();
-                login.Show();
-                this.Close();
+                if (this.lblRole.Text == "Admin")
+                {
+                    MainForm main = new MainForm();
+                    main.Show();
+                    this.Close();
+                }
+                else
+                {
+                    frmLogin login = new frmLogin();
+                    login.Show();
+                    this.Close();
+                }
             }
             else
             {

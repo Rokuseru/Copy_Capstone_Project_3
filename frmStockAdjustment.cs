@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapstoneProject_3.Notifications;
 
 namespace CapstoneProject_3
 {
     public partial class frmStockAdjustment : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+        showToast toast = new showToast();
         private int userID = 0;
         private int _qty = 0;
         private int pid = 0;
@@ -55,9 +57,7 @@ namespace CapstoneProject_3
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void generateRefNo()
@@ -95,9 +95,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadProducts()
@@ -129,9 +127,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void getProductID()
@@ -156,9 +152,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //This will remove
@@ -179,9 +173,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //This will add

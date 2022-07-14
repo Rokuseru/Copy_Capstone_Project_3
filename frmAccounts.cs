@@ -15,7 +15,7 @@ namespace CapstoneProject_3
     public partial class frmAccounts : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        Notification ntf = new Notification();
+        showToast toast = new showToast();
         private int uid = 0;
         private string pw = " ";
         public frmAccounts()
@@ -54,8 +54,7 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@role", cbRole.Text);
                     command.ExecuteNonQuery();
 
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "User Added.");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("User Added Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabAdd);
                 }
             }
             catch (Exception ex)
@@ -85,7 +84,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loaduserID()
@@ -111,7 +110,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void updatePassword()
@@ -120,18 +119,15 @@ namespace CapstoneProject_3
             {
                 if (txtOldPassword.Text != pw)
                 {
-                    ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "Old Password Incorrect!");
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    toast.showToastNotif(new ToastNotification("Old Password is Incorrect.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabUpdate);
                 }
                 else if (txtPassword2.Text != txtConfPassword2.Text)
                 {
-                    ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "Passwords Does Not Match!");
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    toast.showToastNotif(new ToastNotification("Passwords Does Not Match.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabUpdate);
                 }
                 else if (txtConfPassword2.Text == " " || txtConfPassword2.Text == " ")
                 {
-                    ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "A Field Is Empty!");
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    toast.showToastNotif(new ToastNotification("A Field is Empty.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabUpdate);
                 }
                 else
                 {
@@ -147,8 +143,7 @@ namespace CapstoneProject_3
                         command.Parameters["@uid"].Value = uid;
                         command.ExecuteNonQuery();
 
-                        ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Updated Sucessfully");
-                        ntf.notificationTimer(timer1, panelNotif2);
+                        toast.showToastNotif(new ToastNotification("Password Updated Successfully.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabUpdate);
                         clearTab2();
                     }
                 }
@@ -192,11 +187,13 @@ namespace CapstoneProject_3
                     command.Parameters.Add("@uid", SqlDbType.Int);
                     command.Parameters["@uid"].Value = int.Parse(dataGridView.Rows[0].Cells["userID"].Value.ToString());
                     command.ExecuteNonQuery();
+
+                    toast.showToastNotif(new ToastNotification("User Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -217,20 +214,17 @@ namespace CapstoneProject_3
             {
                 if (txtPassword.Text != txtConfirmPw.Text)
                 {
-                    ntf.errorMessage(panelNotif1, labelNotif1, iconNotif1, "Password Did Not Match.");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("Password Does Not Match.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabAdd);
                 }
                 else
                 {
                     addUser();
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "User Added Sucessfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
                     clear();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -253,8 +247,6 @@ namespace CapstoneProject_3
                 if (MessageBox.Show("Disable User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 {
                     disableUser();
-                    ntf.notificationMessage(notifPanel3, lblNotif3, notifIcon3, "User Disabled Sucessfully");
-                    ntf.notificationTimer(timer1, notifPanel3);
                 }
                 else
                 {

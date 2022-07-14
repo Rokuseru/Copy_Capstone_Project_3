@@ -14,7 +14,7 @@ namespace CapstoneProject_3
 {
     public partial class frmBrand : Form
     {
-        Notification ntf = new Notification();
+        showToast toast = new showToast();
         public frmBrand()
         {
             InitializeComponent();
@@ -47,8 +47,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void searchBrand()
@@ -77,8 +76,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void insertBrand()
@@ -98,23 +96,17 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@brand", txtBrandName.Text);
                         command.ExecuteNonQuery();
                     }
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1,"Brand Added Successfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("Brand Added Successfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
+                    txtBrandName.Clear();
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
-                ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-                ntf.notificationTimer(timer1, panelNotif2);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabBrandList);
                 txtBrandName.Clear();
             }
         }
@@ -135,17 +127,11 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@brand", txtBrandName.Text);
                         command.ExecuteReader();
                     }
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Updated Sucessfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.notificationMessage(panelNotif2, labelNotif2, iconNotif2, "Updated Sucessfully");
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    toast.showToastNotif(new ToastNotification("Brand Updated Successfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
-                    ntf.exceptionMessage(panelNotif2, labelNotif2, iconNotif2, ex);
-                    ntf.notificationTimer(timer1, panelNotif2);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -154,8 +140,7 @@ namespace CapstoneProject_3
                 tabControl.TabPages.Add(tabBrandList);
                 tabControl.TabPages.Remove(tabManage);
                 loadAllBrands();
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
+                toast.showToastNotif(new ToastNotification("Operation Cancelled", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabManage);
             }
         }
         private void frmBrand_Load(object sender, EventArgs e)
@@ -179,12 +164,9 @@ namespace CapstoneProject_3
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-            ntf.notificationTimer(timer1, panelNotif1);
-            ntf.cancelMessage(panelNotif2, labelNotif2, iconNotif2);
-            ntf.notificationTimer(timer1, panelNotif2);
             tabControl.TabPages.Remove(tabManage);
             tabControl.TabPages.Add(tabBrandList);
+            toast.showToastNotif(new ToastNotification("Operation Cancelled", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabBrandList);
             btnSave.Enabled = true;
             btnSaveUpdate.Enabled = true;
             loadAllBrands();
@@ -214,26 +196,20 @@ namespace CapstoneProject_3
 
                         if (i > 0)
                         {
-                            ntf.errorMessage(panelNotif1, labelNotif1, iconNotif1, "Brand Already Exists");
-                            ntf.notificationTimer(timer1, panelNotif1);
-                            ntf.errorMessage(panelNotif2, labelNotif2, iconNotif2, "Brand Already Exists");
-                            ntf.notificationTimer(timer1, panelNotif2);
+                            MessageBox.Show("Failed to Add Brand. Brand Already Exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             return;
                         }
                         else
                         {
                             insertBrand();
                             loadAllBrands();
-                            tabControl.TabPages.Remove(tabManage);
-                            tabControl.TabPages.Add(tabBrandList);
                             btnSaveUpdate.Enabled = true;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -278,21 +254,16 @@ namespace CapstoneProject_3
                         command.ExecuteReader();
                     }
                     loadAllBrands();
-
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Deleted Successfully");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabBrandList);
                 }
                 catch (Exception ex)
                 {
-                    ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else
             {
-                ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                ntf.notificationTimer(timer1, panelNotif1);
                 return;
             }
         }

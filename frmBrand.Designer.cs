@@ -29,32 +29,24 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabBrandList = new MetroFramework.Controls.MetroTabPage();
-            this.panelNotif1 = new System.Windows.Forms.Panel();
-            this.labelNotif1 = new System.Windows.Forms.Label();
-            this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
             this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
             this.btnUpdate = new RJCodeAdvance.RJControls.RJButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnAddNew = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.tabManage = new MetroFramework.Controls.MetroTabPage();
-            this.panelNotif2 = new System.Windows.Forms.Panel();
-            this.labelNotif2 = new System.Windows.Forms.Label();
-            this.iconNotif2 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBrandID = new System.Windows.Forms.TextBox();
             this.btnSaveUpdate = new RJCodeAdvance.RJControls.RJButton();
@@ -65,12 +57,8 @@ namespace CapstoneProject_3
             this.btnBack2 = new FontAwesome.Sharp.IconButton();
             this.tabControl.SuspendLayout();
             this.tabBrandList.SuspendLayout();
-            this.panelNotif1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tabManage.SuspendLayout();
-            this.panelNotif2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,63 +86,24 @@ namespace CapstoneProject_3
             // tabBrandList
             // 
             this.tabBrandList.BackColor = System.Drawing.Color.White;
-            this.tabBrandList.Controls.Add(this.panelNotif1);
             this.tabBrandList.Controls.Add(this.btnDelete);
             this.tabBrandList.Controls.Add(this.btnUpdate);
             this.tabBrandList.Controls.Add(this.btnSearch);
             this.tabBrandList.Controls.Add(this.txtSearch);
-            this.tabBrandList.Controls.Add(this.btnBack);
             this.tabBrandList.Controls.Add(this.btnAddNew);
             this.tabBrandList.Controls.Add(this.dataGridView);
+            this.tabBrandList.Controls.Add(this.btnBack);
             this.tabBrandList.HorizontalScrollbarBarColor = true;
             this.tabBrandList.HorizontalScrollbarHighlightOnWheel = false;
             this.tabBrandList.HorizontalScrollbarSize = 10;
             this.tabBrandList.Location = new System.Drawing.Point(4, 38);
             this.tabBrandList.Name = "tabBrandList";
-            this.tabBrandList.Size = new System.Drawing.Size(792, 391);
+            this.tabBrandList.Size = new System.Drawing.Size(792, 400);
             this.tabBrandList.TabIndex = 0;
             this.tabBrandList.Text = "Brand List";
             this.tabBrandList.VerticalScrollbarBarColor = true;
             this.tabBrandList.VerticalScrollbarHighlightOnWheel = false;
             this.tabBrandList.VerticalScrollbarSize = 10;
-            // 
-            // panelNotif1
-            // 
-            this.panelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif1.Controls.Add(this.labelNotif1);
-            this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(-8, 362);
-            this.panelNotif1.Name = "panelNotif1";
-            this.panelNotif1.Size = new System.Drawing.Size(808, 29);
-            this.panelNotif1.TabIndex = 19;
-            this.panelNotif1.Visible = false;
-            // 
-            // labelNotif1
-            // 
-            this.labelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif1.AutoSize = true;
-            this.labelNotif1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif1.Location = new System.Drawing.Point(45, 6);
-            this.labelNotif1.Name = "labelNotif1";
-            this.labelNotif1.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif1.TabIndex = 1;
-            this.labelNotif1.Text = "label3";
-            // 
-            // iconNotif1
-            // 
-            this.iconNotif1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif1.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif1.IconSize = 26;
-            this.iconNotif1.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif1.Name = "iconNotif1";
-            this.iconNotif1.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif1.TabIndex = 0;
-            this.iconNotif1.TabStop = false;
             // 
             // btnDelete
             // 
@@ -228,23 +177,6 @@ namespace CapstoneProject_3
             this.txtSearch.Size = new System.Drawing.Size(518, 20);
             this.txtSearch.TabIndex = 15;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(689, 334);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 39);
-            this.btnBack.TabIndex = 14;
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnAddNew
             // 
@@ -337,10 +269,26 @@ namespace CapstoneProject_3
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 35;
+            this.btnBack.Location = new System.Drawing.Point(732, 353);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(46, 39);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // tabManage
             // 
             this.tabManage.BackColor = System.Drawing.Color.White;
-            this.tabManage.Controls.Add(this.panelNotif2);
             this.tabManage.Controls.Add(this.label2);
             this.tabManage.Controls.Add(this.txtBrandID);
             this.tabManage.Controls.Add(this.btnSaveUpdate);
@@ -360,44 +308,6 @@ namespace CapstoneProject_3
             this.tabManage.VerticalScrollbarBarColor = true;
             this.tabManage.VerticalScrollbarHighlightOnWheel = false;
             this.tabManage.VerticalScrollbarSize = 10;
-            // 
-            // panelNotif2
-            // 
-            this.panelNotif2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif2.Controls.Add(this.labelNotif2);
-            this.panelNotif2.Controls.Add(this.iconNotif2);
-            this.panelNotif2.Location = new System.Drawing.Point(-8, 371);
-            this.panelNotif2.Name = "panelNotif2";
-            this.panelNotif2.Size = new System.Drawing.Size(808, 29);
-            this.panelNotif2.TabIndex = 22;
-            this.panelNotif2.Visible = false;
-            // 
-            // labelNotif2
-            // 
-            this.labelNotif2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif2.AutoSize = true;
-            this.labelNotif2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif2.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif2.Location = new System.Drawing.Point(45, 6);
-            this.labelNotif2.Name = "labelNotif2";
-            this.labelNotif2.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif2.TabIndex = 1;
-            this.labelNotif2.Text = "label3";
-            // 
-            // iconNotif2
-            // 
-            this.iconNotif2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif2.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif2.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif2.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif2.IconSize = 26;
-            this.iconNotif2.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif2.Name = "iconNotif2";
-            this.iconNotif2.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif2.TabIndex = 0;
-            this.iconNotif2.TabStop = false;
             // 
             // label2
             // 
@@ -534,15 +444,9 @@ namespace CapstoneProject_3
             this.tabControl.ResumeLayout(false);
             this.tabBrandList.ResumeLayout(false);
             this.tabBrandList.PerformLayout();
-            this.panelNotif1.ResumeLayout(false);
-            this.panelNotif1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tabManage.ResumeLayout(false);
             this.tabManage.PerformLayout();
-            this.panelNotif2.ResumeLayout(false);
-            this.panelNotif2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconNotif2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,13 +454,9 @@ namespace CapstoneProject_3
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Timer timer1;
         private MetroFramework.Controls.MetroTabControl tabControl;
         private MetroFramework.Controls.MetroTabPage tabBrandList;
         private MetroFramework.Controls.MetroTabPage tabManage;
-        private System.Windows.Forms.Panel panelNotif1;
-        private System.Windows.Forms.Label labelNotif1;
-        private FontAwesome.Sharp.IconPictureBox iconNotif1;
         private RJCodeAdvance.RJControls.RJButton btnDelete;
         private RJCodeAdvance.RJControls.RJButton btnUpdate;
         private FontAwesome.Sharp.IconButton btnSearch;
@@ -567,9 +467,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Panel panelNotif2;
-        private System.Windows.Forms.Label labelNotif2;
-        private FontAwesome.Sharp.IconPictureBox iconNotif2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBrandID;
         private RJCodeAdvance.RJControls.RJButton btnSaveUpdate;
