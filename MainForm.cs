@@ -30,7 +30,7 @@ namespace CapstoneProject_3
         public MainForm()
         {
             InitializeComponent();
-            CollapseMenu();
+            //CollapseMenu();
             CollapseAllDropDown();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color

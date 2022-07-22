@@ -96,7 +96,115 @@ namespace CapstoneProject_3.Report_Forms
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+        public void loadHistoryPrice()
+        {
+            try
+            {
+                ReportDataSource ds;
+                his = new frmHistory();
 
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwPriceHistory.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    DataSetReports priceHistory = new DataSetReports();
+                    SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode, p.Description, price.salesPrice, price.date FROM tblPrice AS price
+                                                      INNER JOIN tblProduct AS p ON price.productID=p.productID", connection);
+                    //cmd.Parameters.AddWithValue("@dateFrom", his.dateFrom2.Value.ToString("yyyy-MM-dd"));
+                    //cmd.Parameters.AddWithValue("@dateTo", his.dateTo2.Value.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(priceHistory.Tables["dtPriceHistory"]);
+
+                    //Report Parameters
+                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo2.Value.ToString("yyyy-MM-dd"));
+                    reportViewer1.LocalReport.SetParameters(pDate);
+
+                    ds = new ReportDataSource("rwPriceHistory", priceHistory.Tables["dtPriceHistory"]);
+                    reportViewer1.LocalReport.DataSources.Add(ds);
+                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer1.ZoomMode = ZoomMode.Percent;
+                    reportViewer1.ZoomPercent = 80;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void loadSalesHistory()
+        {
+            try
+            {
+                ReportDataSource ds;
+                his = new frmHistory();
+
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwSalesHistory.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+
+                DataSetReports salesHistory = new DataSetReports();
+
+                if (his.cbUsers.Text == "All Users")
+                {
+                    using (var connection = new SqlConnection(con))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(@"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
+                                                      FROM tblCart AS c
+                                                      INNER JOIN tblProduct AS p ON c.productID = p.productID
+                                                      WHERE Status LIKE 'Sold' AND sDate BETWEEN '"+ his.dateFrom2.Value.ToString("yyyy-MM-dd") +"' AND '"+ his.dateTo2.Value.ToString("yyyy-MM-dd") + "'", connection);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(salesHistory.Tables["dtSalesHistory"]);
+
+                        //Report Parameters
+                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo2.Value.ToString("yyyy-MM-dd"));
+                        ReportParameter pCashier = new ReportParameter(his.cbUsers.Text);
+                        reportViewer1.LocalReport.SetParameters(pDate);
+                        reportViewer1.LocalReport.SetParameters(pCashier);
+
+                        ds = new ReportDataSource("rwSalesHistory", salesHistory.Tables["dtSalesHistory"]);
+                        reportViewer1.LocalReport.DataSources.Add(ds);
+                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                        reportViewer1.ZoomMode = ZoomMode.Percent;
+                        reportViewer1.ZoomPercent = 80;
+                    }
+                }
+                else
+                {
+                    using (var connection = new SqlConnection(con))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(@"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
+                                                      FROM tblCart AS c
+                                                      INNER JOIN tblProduct AS p ON c.productID = p.productID
+                                                      WHERE Status LIKE 'Sold' 
+                                                      AND sDate BETWEEN '"+his.dateFrom2.Value.ToString("yyyy-MM-dd")+"' and '"+his.dateTo2.Value.ToString("yyyy-MM-dd")+"' AND userID LIKE '"+his.uid+"'", connection);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(salesHistory.Tables["dtSalesHistory"]);
+
+                        //Report Parameters
+                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo2.Value.ToString("yyyy-MM-dd"));
+                        ReportParameter pCashier = new ReportParameter(his.cbUsers.Text);
+                        reportViewer1.LocalReport.SetParameters(pDate);
+                        reportViewer1.LocalReport.SetParameters(pCashier);
+
+                        ds = new ReportDataSource("rwSalesHistory", salesHistory.Tables["dtSalesHistory"]);
+                        reportViewer1.LocalReport.DataSources.Add(ds);
+                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                        reportViewer1.ZoomMode = ZoomMode.Percent;
+                        reportViewer1.ZoomPercent = 80;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();

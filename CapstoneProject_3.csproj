@@ -286,8 +286,10 @@
     <EmbeddedResource Include="Datasets\rwCriticalStock.rdlc" />
     <EmbeddedResource Include="Datasets\rwDailySalesReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwInventoryReport.rdlc" />
+    <EmbeddedResource Include="Datasets\rwPriceHistory.rdlc" />
     <EmbeddedResource Include="Datasets\rwReceipt.rdlc" />
     <EmbeddedResource Include="Datasets\rwRefunds.rdlc" />
+    <EmbeddedResource Include="Datasets\rwSalesHistory.rdlc" />
     <EmbeddedResource Include="Datasets\rwSoldItems.rdlc" />
     <EmbeddedResource Include="Datasets\rwStockIn.rdlc" />
     <EmbeddedResource Include="Datasets\rwTopTenSelling.rdlc" />

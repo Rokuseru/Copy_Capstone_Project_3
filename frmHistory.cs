@@ -192,6 +192,42 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+        public void loadPriceHistory()
+        {
+            try
+            {
+                btnPrintPriceHistory.Rows.Clear();
+                int i = 0;
+
+                string dateF = dateFrom2.Value.ToString("yyyy-MM-dd");
+                string dateT = dateTo2.Value.ToString("yyyy-MM-dd");
+
+                using (var connection = new SqlConnection(con))
+                using (var command =  new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT p.ProductCode, p.Description, price.salesPrice, price.date FROM tblPrice AS price
+                                            INNER JOIN tblProduct AS p ON price.productID=p.productID
+                                            WHERE date BETWEEN @dateFrom2 AND @dateTo2
+                                            ORDER BY date DESC";
+                    command.Parameters.AddWithValue("@dateFrom2", dateF);
+                    command.Parameters.AddWithValue("@dateTo2", dateT);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i++;
+                            btnPrintPriceHistory.Rows.Add(i, reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["salesPrice"].ToString(), Convert.ToDateTime(reader["date"]).ToString("yyyy/MM/dd"));
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmSalesHistory_Load(object sender, EventArgs e)
         {
             dateTo.Value = DateTime.Today;
@@ -248,6 +284,10 @@ namespace CapstoneProject_3
             {
                 loadStockInHistory();
             }
+            else if (tabControlHistory.SelectedTab == tabControlHistory.TabPages["tabPriceHistory"])
+            {
+                loadPriceHistory();
+            }
             else
             {
                 return;
@@ -275,6 +315,30 @@ namespace CapstoneProject_3
         {
             frmHistoryReport history = new frmHistoryReport(this);
             history.loadRefunds();
+            history.ShowDialog();
+        }
+
+        private void btnPriceHistory_Click(object sender, EventArgs e)
+        {
+            frmHistoryReport history = new frmHistoryReport(this);
+            history.loadHistoryPrice();
+            history.ShowDialog();
+        }
+
+        private void dateFrom2_ValueChanged(object sender, EventArgs e)
+        {
+            loadPriceHistory();
+        }
+
+        private void dateTo2_ValueChanged(object sender, EventArgs e)
+        {
+            loadPriceHistory();
+        }
+
+        private void btnPrintSalesHistory_Click(object sender, EventArgs e)
+        {
+            frmHistoryReport history = new frmHistoryReport(this);
+            history.loadSalesHistory();
             history.ShowDialog();
         }
     }
