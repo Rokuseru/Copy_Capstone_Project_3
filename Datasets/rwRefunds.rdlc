@@ -1493,7 +1493,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.84396cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox21">
                         <CanGrow>true</CanGrow>
@@ -1502,7 +1502,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Transaction No</Value>
+                                <Value>Transaction #</Value>
                                 <Style>
                                   <FontSize>11pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -1553,7 +1553,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.84396cm</Size>
                     <CellContents>
                       <Textbox Name="TransactionNo">
                         <CanGrow>true</CanGrow>
@@ -1602,7 +1602,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.84396cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox41">
                         <CanGrow>true</CanGrow>
@@ -1645,7 +1645,7 @@
             <DataSetName>rwRefunds</DataSetName>
             <Top>0.17639cm</Top>
             <Height>2.4cm</Height>
-            <Width>21.5075cm</Width>
+            <Width>21.85147cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1656,7 +1656,7 @@
         <Height>1.32292in</Height>
         <Style />
       </Body>
-      <Width>8.49877in</Width>
+      <Width>8.60294in</Width>
       <Page>
         <PageHeader>
           <Height>3.99521cm</Height>

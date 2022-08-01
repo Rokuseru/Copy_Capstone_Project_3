@@ -39,6 +39,7 @@ namespace CapstoneProject_3
             collapseDropDownHeight(btnContainer2);
             CollapseDropDownForRecords();
             CollapseDropDownForSU();
+            this.WindowState = FormWindowState.Maximized;
         }
         private void ActivateButton(object senderBtn)
         {
@@ -201,10 +202,6 @@ namespace CapstoneProject_3
         private void btnExit_Click(object sender, EventArgs e)
         {
             btnLogout_Click(sender, e);
-
-            frmLogin login = new frmLogin();
-            login.Show();
-            this.Dispose();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -326,16 +323,10 @@ namespace CapstoneProject_3
             if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
             {
                 frmLogin login = new frmLogin();
-                login.Show();
                 this.Close();
-            }
-            else
-            {
-                return;
+                login.Show();
             }
         }
-
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Reset();
@@ -396,6 +387,7 @@ namespace CapstoneProject_3
             frmPOS pos = new frmPOS();
             pos.lblRole.Text = lblRole.Text;
             pos.lblUser.Text = lblUser.Text;
+            this.Close();
             pos.Show();
         }
 
@@ -488,7 +480,8 @@ namespace CapstoneProject_3
 
         private void btnPurchaseOrder_Click(object sender, EventArgs e)
         {
-
+            ActivateButton(sender);
+            OpenChildForm(new frmPurchaseOrder());
         }
 
         private void btnStockIn_Click(object sender, EventArgs e)

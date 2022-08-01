@@ -113,8 +113,6 @@ namespace CapstoneProject_3.Report_Forms
                     DataSetReports priceHistory = new DataSetReports();
                     SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode, p.Description, price.salesPrice, price.date FROM tblPrice AS price
                                                       INNER JOIN tblProduct AS p ON price.productID=p.productID", connection);
-                    //cmd.Parameters.AddWithValue("@dateFrom", his.dateFrom2.Value.ToString("yyyy-MM-dd"));
-                    //cmd.Parameters.AddWithValue("@dateTo", his.dateTo2.Value.ToString("yyyy-MM-dd"));
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(priceHistory.Tables["dtPriceHistory"]);
@@ -139,68 +137,42 @@ namespace CapstoneProject_3.Report_Forms
         {
             try
             {
-                ReportDataSource ds;
-                his = new frmHistory();
-
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwSalesHistory.rdlc";
                 this.reportViewer1.LocalReport.DataSources.Clear();
 
-                DataSetReports salesHistory = new DataSetReports();
-
-                if (his.cbUsers.Text == "All Users")
+                ReportDataSource rds;
+                using (var connection = new SqlConnection(con))
                 {
-                    using (var connection = new SqlConnection(con))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(@"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
-                                                      FROM tblCart AS c
-                                                      INNER JOIN tblProduct AS p ON c.productID = p.productID
-                                                      WHERE Status LIKE 'Sold' AND sDate BETWEEN '"+ his.dateFrom2.Value.ToString("yyyy-MM-dd") +"' AND '"+ his.dateTo2.Value.ToString("yyyy-MM-dd") + "'", connection);
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(salesHistory.Tables["dtSalesHistory"]);
+                    connection.Open();
+                    DataSetReports sales = new DataSetReports();
 
-                        //Report Parameters
-                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo2.Value.ToString("yyyy-MM-dd"));
-                        ReportParameter pCashier = new ReportParameter(his.cbUsers.Text);
-                        reportViewer1.LocalReport.SetParameters(pDate);
-                        reportViewer1.LocalReport.SetParameters(pCashier);
+                    SqlCommand cmd = new SqlCommand(@"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
+                                            FROM tblCart AS c
+                                            INNER JOIN tblProduct AS p ON c.productID = p.productID
+                                            WHERE Status LIKE 'Sold'
+                                            AND sDate BETWEEN @dateFrom AND @dateTo
+                                            AND userID LIKE @uid", connection);
+                    cmd.Parameters.AddWithValue("@dateFrom", his.dateFrom.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@dateTo", his.dateTo.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@uid", his.uid);
 
-                        ds = new ReportDataSource("rwSalesHistory", salesHistory.Tables["dtSalesHistory"]);
-                        reportViewer1.LocalReport.DataSources.Add(ds);
-                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                        reportViewer1.ZoomMode = ZoomMode.Percent;
-                        reportViewer1.ZoomPercent = 80;
-                    }
-                }
-                else
-                {
-                    using (var connection = new SqlConnection(con))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(@"SELECT c.cartID, c.TransactionNo, p.Description, p.ProductCode, c.Price, c.qty, c.discount, c.Total 
-                                                      FROM tblCart AS c
-                                                      INNER JOIN tblProduct AS p ON c.productID = p.productID
-                                                      WHERE Status LIKE 'Sold' 
-                                                      AND sDate BETWEEN '"+his.dateFrom2.Value.ToString("yyyy-MM-dd")+"' and '"+his.dateTo2.Value.ToString("yyyy-MM-dd")+"' AND userID LIKE '"+his.uid+"'", connection);
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(salesHistory.Tables["dtSalesHistory"]);
+                    ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo.Value.ToString("yyyy-MM-dd"));
+                    ReportParameter pCashier = new ReportParameter("pCashier", his.cbUsers.Text);
+                    reportViewer1.LocalReport.SetParameters(pDate);
+                    reportViewer1.LocalReport.SetParameters(pCashier);
 
-                        //Report Parameters
-                        ReportParameter pDate = new ReportParameter("pDate", "DATE FROM: " + his.dateFrom2.Value.ToString("yyyy-MM-dd") + " TO: " + his.dateTo2.Value.ToString("yyyy-MM-dd"));
-                        ReportParameter pCashier = new ReportParameter(his.cbUsers.Text);
-                        reportViewer1.LocalReport.SetParameters(pDate);
-                        reportViewer1.LocalReport.SetParameters(pCashier);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(sales.Tables["dtSalesHistory"]);
 
-                        ds = new ReportDataSource("rwSalesHistory", salesHistory.Tables["dtSalesHistory"]);
-                        reportViewer1.LocalReport.DataSources.Add(ds);
-                        reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                        reportViewer1.ZoomMode = ZoomMode.Percent;
-                        reportViewer1.ZoomPercent = 80;
-                    }
+                    rds = new ReportDataSource("rwSalesHistory", sales.Tables["dtSalesHistory"]);
+                    reportViewer1.LocalReport.DataSources.Add(rds);
+                    reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer1.ZoomMode = ZoomMode.Percent;
+                    reportViewer1.ZoomPercent = 80;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

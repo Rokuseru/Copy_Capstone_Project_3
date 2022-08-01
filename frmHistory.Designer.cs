@@ -150,7 +150,7 @@ namespace CapstoneProject_3
             this.tabControlHistory.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlHistory.Location = new System.Drawing.Point(0, 1);
             this.tabControlHistory.Name = "tabControlHistory";
-            this.tabControlHistory.SelectedIndex = 3;
+            this.tabControlHistory.SelectedIndex = 0;
             this.tabControlHistory.Size = new System.Drawing.Size(992, 513);
             this.tabControlHistory.TabIndex = 3;
             this.tabControlHistory.UseSelectable = true;

@@ -55,7 +55,6 @@ namespace CapstoneProject_3.Report_Forms
                     cmd.Parameters.AddWithValue("@dateFrom", fds.dateFrom.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@dateTo", fds.dateTo.Value.ToString("yyyy-MM-dd"));
 
-
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(ds.Tables["dtDailySalesReport"]);
       

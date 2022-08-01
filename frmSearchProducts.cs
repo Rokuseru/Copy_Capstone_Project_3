@@ -52,8 +52,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadProducts()
@@ -87,8 +86,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -129,8 +127,6 @@ namespace CapstoneProject_3
                                 command.Parameters.AddWithValue("@date", stockEntry.dtStockInDate.Value.Date);
                                 command.ExecuteNonQuery();
 
-                                ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Item Added");
-                                ntf.notificationTimer(timer1, panelNotif1);
                                 stockEntry.loadProducts();
                             }
                         }
@@ -144,8 +140,7 @@ namespace CapstoneProject_3
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
