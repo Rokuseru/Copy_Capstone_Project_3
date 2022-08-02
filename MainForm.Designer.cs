@@ -102,7 +102,7 @@ namespace CapstoneProject_3
             this.btnContainer4.Controls.Add(this.btnHistory);
             this.btnContainer4.Controls.Add(this.btnReports);
             this.btnContainer4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer4.Location = new System.Drawing.Point(0, 717);
+            this.btnContainer4.Location = new System.Drawing.Point(0, 760);
             this.btnContainer4.Name = "btnContainer4";
             this.btnContainer4.Size = new System.Drawing.Size(203, 143);
             this.btnContainer4.TabIndex = 45;
@@ -198,7 +198,7 @@ namespace CapstoneProject_3
             this.btnRecords.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRecords.IconSize = 35;
             this.btnRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecords.Location = new System.Drawing.Point(0, 674);
+            this.btnRecords.Location = new System.Drawing.Point(0, 717);
             this.btnRecords.Name = "btnRecords";
             this.btnRecords.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRecords.Size = new System.Drawing.Size(203, 43);
@@ -215,7 +215,7 @@ namespace CapstoneProject_3
             this.btnContainer3.Controls.Add(this.btnVendor);
             this.btnContainer3.Controls.Add(this.btnUsers);
             this.btnContainer3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer3.Location = new System.Drawing.Point(0, 581);
+            this.btnContainer3.Location = new System.Drawing.Point(0, 624);
             this.btnContainer3.Name = "btnContainer3";
             this.btnContainer3.Size = new System.Drawing.Size(203, 93);
             this.btnContainer3.TabIndex = 43;
@@ -286,7 +286,7 @@ namespace CapstoneProject_3
             this.btnSuppliersAndUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSuppliersAndUsers.IconSize = 35;
             this.btnSuppliersAndUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuppliersAndUsers.Location = new System.Drawing.Point(0, 538);
+            this.btnSuppliersAndUsers.Location = new System.Drawing.Point(0, 581);
             this.btnSuppliersAndUsers.Name = "btnSuppliersAndUsers";
             this.btnSuppliersAndUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSuppliersAndUsers.Size = new System.Drawing.Size(203, 43);
@@ -304,7 +304,7 @@ namespace CapstoneProject_3
             this.btnContainer2.Controls.Add(this.btnStockIn);
             this.btnContainer2.Controls.Add(this.btnPurchaseOrder);
             this.btnContainer2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer2.Location = new System.Drawing.Point(0, 402);
+            this.btnContainer2.Location = new System.Drawing.Point(0, 445);
             this.btnContainer2.Name = "btnContainer2";
             this.btnContainer2.Size = new System.Drawing.Size(203, 136);
             this.btnContainer2.TabIndex = 41;
@@ -401,7 +401,7 @@ namespace CapstoneProject_3
             this.btnInventory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInventory.IconSize = 35;
             this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventory.Location = new System.Drawing.Point(0, 359);
+            this.btnInventory.Location = new System.Drawing.Point(0, 402);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnInventory.Size = new System.Drawing.Size(203, 43);
@@ -419,7 +419,7 @@ namespace CapstoneProject_3
             this.btnContainer1.Controls.Add(this.btnCategory);
             this.btnContainer1.Controls.Add(this.btnBrand);
             this.btnContainer1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer1.Location = new System.Drawing.Point(0, 221);
+            this.btnContainer1.Location = new System.Drawing.Point(0, 264);
             this.btnContainer1.Name = "btnContainer1";
             this.btnContainer1.Size = new System.Drawing.Size(203, 138);
             this.btnContainer1.TabIndex = 16;
@@ -516,7 +516,7 @@ namespace CapstoneProject_3
             this.btnDropDownProducts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDropDownProducts.IconSize = 35;
             this.btnDropDownProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDropDownProducts.Location = new System.Drawing.Point(0, 178);
+            this.btnDropDownProducts.Location = new System.Drawing.Point(0, 221);
             this.btnDropDownProducts.Name = "btnDropDownProducts";
             this.btnDropDownProducts.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDropDownProducts.Size = new System.Drawing.Size(203, 43);
@@ -542,7 +542,7 @@ namespace CapstoneProject_3
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 35;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 860);
+            this.btnLogout.Location = new System.Drawing.Point(0, 903);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(203, 43);
@@ -568,7 +568,7 @@ namespace CapstoneProject_3
             this.btnPOS.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPOS.IconSize = 35;
             this.btnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPOS.Location = new System.Drawing.Point(0, 135);
+            this.btnPOS.Location = new System.Drawing.Point(0, 178);
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPOS.Size = new System.Drawing.Size(203, 43);
@@ -594,7 +594,7 @@ namespace CapstoneProject_3
             this.btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDashboard.IconSize = 35;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 92);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 135);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(203, 43);
@@ -615,14 +615,14 @@ namespace CapstoneProject_3
             this.panelImageContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelImageContainer.Location = new System.Drawing.Point(0, 0);
             this.panelImageContainer.Name = "panelImageContainer";
-            this.panelImageContainer.Size = new System.Drawing.Size(203, 92);
+            this.panelImageContainer.Size = new System.Drawing.Size(203, 135);
             this.panelImageContainer.TabIndex = 0;
             // 
             // lblRole
             // 
             this.lblRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.ForeColor = System.Drawing.Color.White;
-            this.lblRole.Location = new System.Drawing.Point(3, 87);
+            this.lblRole.Location = new System.Drawing.Point(2, 88);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(201, 25);
             this.lblRole.TabIndex = 8;
@@ -633,7 +633,7 @@ namespace CapstoneProject_3
             // 
             this.lblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(0, 104);
+            this.lblUser.Location = new System.Drawing.Point(2, 110);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(204, 22);
             this.lblUser.TabIndex = 6;

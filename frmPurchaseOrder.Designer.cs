@@ -59,19 +59,20 @@ namespace CapstoneProject_3
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.btnTimeIn = new RJCodeAdvance.RJControls.RJButton();
+            this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
+            this.btnCreatePo = new RJCodeAdvance.RJControls.RJButton();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -103,8 +104,8 @@ namespace CapstoneProject_3
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.rjButton1);
-            this.panel1.Controls.Add(this.btnTimeIn);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnCreatePo);
             this.panel1.Controls.Add(this.txtRemarks);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -160,6 +161,7 @@ namespace CapstoneProject_3
             this.lbluserID.Size = new System.Drawing.Size(62, 17);
             this.lbluserID.TabIndex = 58;
             this.lbluserID.Text = "Order By";
+            this.lbluserID.Visible = false;
             // 
             // txtBeforeDisc
             // 
@@ -366,45 +368,46 @@ namespace CapstoneProject_3
             this.label5.TabIndex = 22;
             this.label5.Text = "Vendor";
             // 
-            // rjButton1
+            // btnCancel
             // 
-            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rjButton1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.rjButton1.BorderRadius = 5;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(124, 454);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(102, 28);
-            this.rjButton1.TabIndex = 19;
-            this.rjButton1.Text = "Cancel";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancel.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCancel.BorderRadius = 5;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(124, 454);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(102, 28);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // btnTimeIn
+            // btnCreatePo
             // 
-            this.btnTimeIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimeIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnTimeIn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnTimeIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnTimeIn.BorderRadius = 5;
-            this.btnTimeIn.BorderSize = 0;
-            this.btnTimeIn.FlatAppearance.BorderSize = 0;
-            this.btnTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimeIn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimeIn.ForeColor = System.Drawing.Color.White;
-            this.btnTimeIn.Location = new System.Drawing.Point(16, 454);
-            this.btnTimeIn.Name = "btnTimeIn";
-            this.btnTimeIn.Size = new System.Drawing.Size(102, 28);
-            this.btnTimeIn.TabIndex = 18;
-            this.btnTimeIn.Text = "Create PO";
-            this.btnTimeIn.TextColor = System.Drawing.Color.White;
-            this.btnTimeIn.UseVisualStyleBackColor = false;
+            this.btnCreatePo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCreatePo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCreatePo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCreatePo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnCreatePo.BorderRadius = 5;
+            this.btnCreatePo.BorderSize = 0;
+            this.btnCreatePo.FlatAppearance.BorderSize = 0;
+            this.btnCreatePo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreatePo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreatePo.ForeColor = System.Drawing.Color.White;
+            this.btnCreatePo.Location = new System.Drawing.Point(16, 454);
+            this.btnCreatePo.Name = "btnCreatePo";
+            this.btnCreatePo.Size = new System.Drawing.Size(102, 28);
+            this.btnCreatePo.TabIndex = 18;
+            this.btnCreatePo.Text = "Create PO";
+            this.btnCreatePo.TextColor = System.Drawing.Color.White;
+            this.btnCreatePo.UseVisualStyleBackColor = false;
+            this.btnCreatePo.Click += new System.EventHandler(this.btnCreatePo_Click);
             // 
             // txtRemarks
             // 
@@ -459,17 +462,17 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
-            this.Column1,
+            this.poID,
+            this.pid,
+            this.refcode,
             this.Column2,
             this.Column4,
             this.Column5,
-            this.Column6,
-            this.Column7});
+            this.total});
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(16, 145);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -479,7 +482,7 @@ namespace CapstoneProject_3
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -491,15 +494,25 @@ namespace CapstoneProject_3
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             this.Column3.Width = 37;
             // 
-            // Column1
+            // poID
             // 
-            this.Column1.HeaderText = "productID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
+            this.poID.HeaderText = "poID";
+            this.poID.Name = "poID";
+            this.poID.Visible = false;
+            // 
+            // pid
+            // 
+            this.pid.HeaderText = "productID";
+            this.pid.Name = "pid";
+            this.pid.Visible = false;
+            // 
+            // refcode
+            // 
+            this.refcode.HeaderText = "referenceCode";
+            this.refcode.Name = "refcode";
+            this.refcode.Visible = false;
             // 
             // Column2
             // 
@@ -519,26 +532,17 @@ namespace CapstoneProject_3
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "QTY";
+            this.Column5.HeaderText = "QTY (Carton)";
             this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 52;
+            this.Column5.Width = 90;
             // 
-            // Column6
+            // total
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Discount";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 78;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "Total";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 56;
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
             // 
             // frmPurchaseOrder
             // 
@@ -576,17 +580,10 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJButton btnTimeIn;
+        private RJCodeAdvance.RJControls.RJButton btnCancel;
+        private RJCodeAdvance.RJControls.RJButton btnCreatePo;
         private System.Windows.Forms.ComboBox cbOrderBy;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.TextBox txtPaymentDue;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
@@ -600,5 +597,13 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.LinkLabel linkAddProducts;
         public System.Windows.Forms.TextBox txtReferenceCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }

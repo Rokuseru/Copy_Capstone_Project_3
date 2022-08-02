@@ -99,6 +99,8 @@ namespace CapstoneProject_3
                             command.Parameters.AddWithValue("@productID", int.Parse(dataGridView.Rows[e.RowIndex].Cells["pid"].Value.ToString()));
                             command.Parameters.AddWithValue("@price", double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()));
                             command.ExecuteNonQuery();
+
+                            po.loadPO();
                         }
                     }
                 }

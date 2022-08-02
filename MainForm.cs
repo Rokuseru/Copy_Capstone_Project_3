@@ -31,6 +31,8 @@ namespace CapstoneProject_3
         {
             InitializeComponent();
             //CollapseMenu();
+            lblRole.Visible = true;
+            lblUser.Visible = true;
             CollapseAllDropDown();
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color
