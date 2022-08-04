@@ -226,6 +226,7 @@ namespace CapstoneProject_3
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"SELECT referenceCode, SUM(qty) AS Total_Items, oDate, oDeliveryDate, paymentDue FROM tblPurchaseOrder
+                                            WHERE Status = 'Pending'
                                             GROUP BY referenceCode,oDate, oDeliveryDate, paymentDue";
 
                     using (var reader = command.ExecuteReader())
