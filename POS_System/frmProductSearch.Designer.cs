@@ -310,7 +310,7 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewImageColumn Select;
+        new private System.Windows.Forms.DataGridViewImageColumn Select;
         public System.Windows.Forms.DataGridView dataGridView;
     }
 }

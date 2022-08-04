@@ -17,9 +17,9 @@ namespace CapstoneProject_3
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         private int borderSize = 2;
         frmPurchaseOrder po;
-        public frmPOProducts(frmPurchaseOrder purchaseOrder)
+        public frmPOProducts(frmPurchaseOrder order)
         {
-            po = purchaseOrder;
+            po = order;
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color
             InitializeComponent();
@@ -84,25 +84,10 @@ namespace CapstoneProject_3
             {
                 if (colname == "add")
                 {
-                    if (MessageBox.Show("Add Item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        using (var connection = new SqlConnection(con))
-                        using (var command = new SqlCommand())
-                        {
-                            connection.Open();
-                            command.Connection = connection;
-                            command.CommandText = @"INSERT INTO tblPurchaseOrder (referenceCode, vendorID, userID, productID, price)
-                                                    VALUES (@refCode, @vendorID, @userID, @productID, @price)";
-                            command.Parameters.AddWithValue("@refCode", po.txtReferenceCode.Text);
-                            command.Parameters.AddWithValue("@vendorID", po.vendorID);
-                            command.Parameters.AddWithValue("@userID", po.userID);
-                            command.Parameters.AddWithValue("@productID", int.Parse(dataGridView.Rows[e.RowIndex].Cells["pid"].Value.ToString()));
-                            command.Parameters.AddWithValue("@price", double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()));
-                            command.ExecuteNonQuery();
-
-                            po.loadPO();
-                        }
-                    }
+                    frmPurchaseOrderQuantity qty = new frmPurchaseOrderQuantity(po);
+                    qty.productDetails(po.vendorID, int.Parse(dataGridView.Rows[e.RowIndex].Cells["pid"].Value.ToString()), po.userID, double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()), po.txtReferenceCode.Text);
+                    qty.txtQty.Focus();
+                    qty.ShowDialog();
                 }
             }
             catch(Exception ex)

@@ -18,13 +18,11 @@ namespace CapstoneProject_3
         public int vendorID = 0;
         public int userID = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
+
+        double disc = 0;
         public frmPurchaseOrder()
         {
             InitializeComponent();
-
-
-            MainForm form = new MainForm();
-            cbOrderBy.Text = form.lblUser.Text;
         }
         private void generateRefCode()
         {
@@ -115,66 +113,12 @@ namespace CapstoneProject_3
             }
         }
 
-        private void cbVendor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblVendor 
-                                            WHERE Vendor LIKE @vendor";
-                    command.Parameters.AddWithValue("@vendor", cbVendor.Text);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            vendorID = int.Parse(reader["vendorID"].ToString());
-                            txtContactPerson.Text = reader["ContactPerson"].ToString();
-                            txtEmail.Text = reader["Email"].ToString();
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cbOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblUsers 
-                                            WHERE Name LIKE @user";
-                    command.Parameters.AddWithValue("@user", cbOrderBy.Text);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            userID = int.Parse(reader["userID"].ToString());                 
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
+            metroTabControl.SelectedTab = tabPageCreate;
             loadVendor();
             loadUser();
+            generateRefCode();
         }
         public void loadPO()
         {
@@ -207,6 +151,7 @@ namespace CapstoneProject_3
                             total += double.Parse(reader["total"].ToString()); 
                         }
                         txtBeforeDisc.Text = total.ToString("C", culture);
+                        calculateDiscount();
                     }
                 }
             }
@@ -215,16 +160,37 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void linkAddProducts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void calculateDiscount()
         {
-            frmPOProducts products = new frmPOProducts(this);
-            products.ShowDialog();
-        }
+            try
+            {
+                if (String.IsNullOrWhiteSpace(txtDiscPercent.Text))
+                {
+                    txtPaymentDue.Text = txtBeforeDisc.Text;
+                    txtDiscPhp.Clear();
+                }
+                else
+                {
+                    //Variables
+                    double withoutDiscount = Convert.ToDouble(Decimal.Parse(txtBeforeDisc.Text, NumberStyles.Currency));
+                    double discountInput = Convert.ToDouble(Decimal.Parse(txtDiscPercent.Text));
 
-        private void btnRefNo_Click(object sender, EventArgs e)
-        {
-            generateRefCode();
+                    //Whole number to percent
+                    disc = discountInput / 100;
+
+                    //Compute Discount
+                    double discount = disc * withoutDiscount;
+                    double discounted = withoutDiscount - discount;
+
+                    //Display Ammount
+                    txtDiscPhp.Text = discount.ToString("C", culture);
+                    txtPaymentDue.Text = discounted.ToString("C", culture);
+                }                
+            }
+            catch (Exception)
+            {
+                txtDiscPhp.Clear();
+            }
         }
         private void setDate()
         {
@@ -247,20 +213,124 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void saveQty()
+        private void loadPendingOrders()
         {
             try
             {
+                int i = 0;
+                dataGridViewPending.Rows.Clear();
 
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT referenceCode, SUM(qty) AS Total_Items, oDate, oDeliveryDate, paymentDue FROM tblPurchaseOrder
+                                            GROUP BY referenceCode,oDate, oDeliveryDate, paymentDue";
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewPending.Rows.Add(i, reader["referenceCode"].ToString(), reader["Total_Items"].ToString(), Convert.ToDateTime(reader["oDate"]).ToString("yyyy-MM-dd"), Convert.ToDateTime(reader["oDeliveryDate"]).ToString("yyyy-MM-dd"), reader["paymentDue"].ToString());
+                        }
+                    }
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.StackTrace, ex.Message, ex.InnerException);
+            }
+        }
+        private void txtDiscPercent_TextChanged_1(object sender, EventArgs e)
+        {
+            calculateDiscount();
+        }
+
+        private void btnRefNo_Click(object sender, EventArgs e)
+        {
+            generateRefCode();
+        }
+
+        private void linkAddProducts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmPOProducts products = new frmPOProducts(this);
+            products.ShowDialog();
+        }
+
+        private void cbVendor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblVendor 
+                                            WHERE Vendor LIKE @vendor";
+                    command.Parameters.AddWithValue("@vendor", cbVendor.Text);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            vendorID = int.Parse(reader["vendorID"].ToString());
+                            txtContactPerson.Text = reader["ContactPerson"].ToString();
+                            txtEmail.Text = reader["Email"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cbOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblUsers 
+                                            WHERE Name LIKE @user";
+                    command.Parameters.AddWithValue("@user", cbOrderBy.Text);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userID = int.Parse(reader["userID"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void metroTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroTabControl.SelectedTab == metroTabControl.TabPages["tabPagePending"])
+            {
+                loadPendingOrders();
+            }
+        }
+
         private void btnCreatePo_Click(object sender, EventArgs e)
         {
             setDate();
+        }
+        private void createSendPO()
+        {
+
         }
     }
 }
