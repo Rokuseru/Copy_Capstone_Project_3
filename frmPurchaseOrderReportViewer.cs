@@ -20,8 +20,8 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmPurchaseOrder purchaseOrder;
-        private string _sender = "";
-        private string _reciever = "";
+        private string _sender = "roxsyle7@gmail.con";
+        private string _reciever = "barceroxellecleve@gmail.com";
         public frmPurchaseOrderReportViewer(frmPurchaseOrder po)
         {
             purchaseOrder = po;
@@ -30,14 +30,17 @@ namespace CapstoneProject_3
         }
         private void frmPurchaseOrderReportViewer_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
+            this.reportViewer.RefreshReport();         
+        }
+        public void loadPurchaseOrder()
+        {
             try
             {
                 ReportDataSource rds;
 
-                reportViewer1.ProcessingMode = ProcessingMode.Local;
-                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwPurchaseOrder.rdlc";
-                this.reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                this.reportViewer.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwPurchaseOrder.rdlc";
+                this.reportViewer.LocalReport.DataSources.Clear();
 
                 using (var connection = new SqlConnection(con))
                 {
@@ -58,111 +61,80 @@ namespace CapstoneProject_3
                     ReportParameter pPendingPayment = new ReportParameter("pPendingPayment", purchaseOrder.txtPaymentDue.Text);
                     ReportParameter pBillTo = new ReportParameter("pBillTo", purchaseOrder.cbOrderBy.Text);
 
-                    reportViewer1.LocalReport.SetParameters(pRefCode);
-                    reportViewer1.LocalReport.SetParameters(pOrderDate);
-                    reportViewer1.LocalReport.SetParameters(pDeliveryDate);
-                    reportViewer1.LocalReport.SetParameters(pDiscount);
-                    reportViewer1.LocalReport.SetParameters(pPendingPayment);
-                    reportViewer1.LocalReport.SetParameters(pBillTo);
+                    reportViewer.LocalReport.SetParameters(pRefCode);
+                    reportViewer.LocalReport.SetParameters(pOrderDate);
+                    reportViewer.LocalReport.SetParameters(pDeliveryDate);
+                    reportViewer.LocalReport.SetParameters(pDiscount);
+                    reportViewer.LocalReport.SetParameters(pPendingPayment);
+                    reportViewer.LocalReport.SetParameters(pBillTo);
 
                     rds = new ReportDataSource("rwPurchaseOrder", po.Tables["dtPurchaseOrder"]);
-                    reportViewer1.LocalReport.DataSources.Add(rds);
-                }
+                    reportViewer.LocalReport.DataSources.Add(rds);
+                    reportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    reportViewer.ZoomMode = ZoomMode.Percent;
+                    reportViewer.ZoomPercent = 80;
 
-            }catch(Exception)
+                    convertRdlcToPdf();
+                }
+            }
+            catch (Exception)
             {
 
             }
         }
-
-        private string exportReportToPDF(string reportName)
+        public void convertRdlcToPdf()
         {
+            string deviceInfo = "<DeviceInfo>" +
+                    "  <OutputFormat>PDF</OutputFormat>" +
+                    "  <PageWidth>8.27in</PageWidth>" +
+                    "  <PageHeight>11.69in</PageHeight>" +
+                    "  <MarginTop>0.25in</MarginTop>" +
+                    "  <MarginLeft>0.4in</MarginLeft>" +
+                    "  <MarginRight>0in</MarginRight>" +
+                    "  <MarginBottom>0.25in</MarginBottom>" +
+                    "  <EmbedFonts>None</EmbedFonts>" +
+                    "</DeviceInfo>";
+
             Warning[] warnings;
             string[] streamids;
             string mimeType;
             string encoding;
             string filenameExtension;
-            byte[] bytes = reportViewer1.LocalReport.Render("PDF", null, out mimeType, out encoding, 
-                                                             out filenameExtension, out streamids, out warnings);
-            string filename = Path.Combine(Path.GetTempPath(), reportName);
 
-            using (var fs = new FileStream(filename, System.IO.FileMode.Create))
+            byte[] bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out filenameExtension,
+                                                             out streamids, out warnings);
+            using (FileStream fs = new FileStream("output.pdf", FileMode.Create))
             {
                 fs.Write(bytes, 0, bytes.Length);
-                fs.Close();
             }
-            return filename;
         }
 
-        //public void loadPurchaseOrder()
-        //{
-        //    try
-        //    {
-        //        ReportDataSource rds;
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
-        //        reportViewer1.ProcessingMode = ProcessingMode.Local;
-        //        this.reportViewer1.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwPurchaseOrder.rdlc";
-        //        this.reportViewer1.LocalReport.DataSources.Clear();
-
-        //        using (var connection = new SqlConnection(con))
-        //        {
-        //            connection.Open();
-        //            DataSetPurchaseOrder po = new DataSetPurchaseOrder();
-        //            SqlCommand cmd = new SqlCommand(@"SELECT Description, price, qty,total FROM viewPurchaseOrder
-        //                                              WHERE referenceCode LIKE @refCode", connection);
-        //            cmd.Parameters.AddWithValue("@refCode", purchaseOrder.txtReferenceCode.Text);
-
-        //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //            adapter.Fill(po.Tables["dtPurchaseOrder"]);
-
-        //            //report Parameters
-        //            ReportParameter pRefCode = new ReportParameter("pRefCode", purchaseOrder.txtReferenceCode.Text);
-        //            ReportParameter pOrderDate = new ReportParameter("pOrderDate", purchaseOrder.dtpOrderDate.Value.ToString("yyyy-MM-dd"));
-        //            ReportParameter pDeliveryDate = new ReportParameter("pDeliveryDate", purchaseOrder.dtpDeliveryDate.Value.ToString("yyyy-MM-dd"));
-        //            ReportParameter pDiscount = new ReportParameter("pDiscount", purchaseOrder.txtDiscPhp.Text);
-        //            ReportParameter pPendingPayment = new ReportParameter("pPendingPayment", purchaseOrder.txtPaymentDue.Text);
-        //            ReportParameter pBillTo = new ReportParameter("pBillTo", purchaseOrder.cbOrderBy.Text);
-
-        //            reportViewer1.LocalReport.SetParameters(pRefCode);
-        //            reportViewer1.LocalReport.SetParameters(pOrderDate);
-        //            reportViewer1.LocalReport.SetParameters(pDeliveryDate);
-        //            reportViewer1.LocalReport.SetParameters(pDiscount);
-        //            reportViewer1.LocalReport.SetParameters(pPendingPayment);
-        //            reportViewer1.LocalReport.SetParameters(pBillTo);
-
-        //            rds = new ReportDataSource("rwPurchaseOrder", po.Tables["dtPurchaseOrder"]);
-        //            reportViewer1.LocalReport.DataSources.Add(rds);
-        //            reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-        //            reportViewer1.ZoomMode = ZoomMode.Percent;
-        //            reportViewer1.ZoomPercent = 80;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //    }
-        //}
-        protected void Email(Object sender, EventArgs e)
+        private void btnSendToVendor_Click(object sender, EventArgs e)
         {
             try
             {
-                using (MailMessage mm = new MailMessage("roxsyle7@gmail.com", _reciever))
-                {
-                    mm.Subject = "Test";
-                    mm.Body = "Test";
-                    mm.Attachments.Add(new Attachment("Invoice.pdf"));
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    NetworkCredential credential = new NetworkCredential();
-                    credential.UserName = "roxsyle7@gmail.com";
-                    credential.Password = "rcmb0803";
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = credential;
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-                    smtp.Send(mm);
-                }
+                MailMessage mail = new MailMessage();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress(_sender);
+                mail.To.Add(_reciever);
+                mail.Subject = "Purchase Order";
+                mail.Body = "Please See Attatched File for the purchase order.";
+
+                //Attatch File
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment("output.pdf");
+                mail.Attachments.Add(attachment);
+
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential(_sender, "rcmb0803");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
             }
             catch (Exception ex)
             {
@@ -171,6 +143,5 @@ namespace CapstoneProject_3
                 Console.WriteLine(ex.Source);
             }
         }
-
     }
 }

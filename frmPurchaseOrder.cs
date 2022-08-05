@@ -333,7 +333,7 @@ namespace CapstoneProject_3
         {
             setDate();
             frmPurchaseOrderReportViewer pov = new frmPurchaseOrderReportViewer(this);
-            //pov.loadPurchaseOrder();
+            pov.loadPurchaseOrder();
             pov.ShowDialog();
         }
         private void sendPurchaseOrder()
