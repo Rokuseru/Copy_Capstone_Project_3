@@ -53,7 +53,7 @@ namespace CapstoneProject_3
 
             if (RequireAuthentication)
             {
-                var credentials = new NetworkCredential("rosyle7@gmail.com",
+                var credentials = new NetworkCredential("roxsyle7@gmail.com",
                                                         "rcmb0803");
                 client.Credentials = credentials;
             }
