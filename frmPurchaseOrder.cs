@@ -23,6 +23,7 @@ namespace CapstoneProject_3
         public frmPurchaseOrder()
         {
             InitializeComponent();
+            txtDiscPercent.Text = "0";
         }
         private void generateRefCode()
         {
@@ -196,15 +197,18 @@ namespace CapstoneProject_3
         {
             try
             {
+                double due = Convert.ToDouble(Decimal.Parse(txtPaymentDue.Text, NumberStyles.Currency));
+
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblPurchaseOrder SET oDate = @orderDate, oDeliveryDate = @deliveryDate WHERE referenceCode LIKE @refCode";
+                    command.CommandText = @"UPDATE tblPurchaseOrder SET oDate = @orderDate, oDeliveryDate = @deliveryDate, paymentDue = @due WHERE referenceCode LIKE @refCode";
                     command.Parameters.AddWithValue("@orderDate", dtpOrderDate.Value.ToString("yyyy-MM-dd"));
                     command.Parameters.AddWithValue("@deliveryDate", dtpDeliveryDate.Value.ToString("yyyy-MM-dd"));
                     command.Parameters.AddWithValue("@refCode", txtReferenceCode.Text);
+                    command.Parameters.AddWithValue("@due", due);
                     command.ExecuteNonQuery();
                 }
             }
@@ -328,8 +332,11 @@ namespace CapstoneProject_3
         private void btnCreatePo_Click(object sender, EventArgs e)
         {
             setDate();
+            frmPurchaseOrderReportViewer pov = new frmPurchaseOrderReportViewer(this);
+            //pov.loadPurchaseOrder();
+            pov.ShowDialog();
         }
-        private void createSendPO()
+        private void sendPurchaseOrder()
         {
 
         }

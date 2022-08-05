@@ -71,6 +71,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -95,6 +96,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetDailySalesReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSetPurchaseOrder.cs">
+      <DependentUpon>DataSetPurchaseOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DataSetPurchaseOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPurchaseOrder.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\DataSetReceipt.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -158,6 +167,12 @@
     <Compile Include="frmPurchaseOrderQuantity.Designer.cs">
       <DependentUpon>frmPurchaseOrderQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPurchaseOrderReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurchaseOrderReportViewer.Designer.cs">
+      <DependentUpon>frmPurchaseOrderReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRecords.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +215,7 @@
     <Compile Include="frmVendor.Designer.cs">
       <DependentUpon>frmVendor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mail.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +321,7 @@
     <EmbeddedResource Include="Datasets\rwDailySalesReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwInventoryReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwPriceHistory.rdlc" />
+    <EmbeddedResource Include="Datasets\rwPurchaseOrder.rdlc" />
     <EmbeddedResource Include="Datasets\rwReceipt.rdlc" />
     <EmbeddedResource Include="Datasets\rwRefunds.rdlc" />
     <EmbeddedResource Include="Datasets\rwSalesHistory.rdlc" />
@@ -334,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPurchaseOrderQuantity.resx">
       <DependentUpon>frmPurchaseOrderQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurchaseOrderReportViewer.resx">
+      <DependentUpon>frmPurchaseOrderReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecords.resx">
       <DependentUpon>frmRecords.cs</DependentUpon>
@@ -425,6 +445,17 @@
     <None Include="Datasets\DataSetDailySalesReport.xss">
       <DependentUpon>DataSetDailySalesReport.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\DataSetPurchaseOrder.xsc">
+      <DependentUpon>DataSetPurchaseOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DataSetPurchaseOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPurchaseOrder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\DataSetPurchaseOrder.xss">
+      <DependentUpon>DataSetPurchaseOrder.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\DataSetReceipt.xsc">
       <DependentUpon>DataSetReceipt.xsd</DependentUpon>
     </None>
@@ -513,6 +544,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Emails\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

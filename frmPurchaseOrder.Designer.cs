@@ -29,14 +29,14 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabPageCreate = new MetroFramework.Controls.MetroTabPage();
@@ -155,9 +155,10 @@ namespace CapstoneProject_3
             this.tabPageCreate.Controls.Add(this.label4);
             this.tabPageCreate.Controls.Add(this.label3);
             this.tabPageCreate.Controls.Add(this.dataGridView);
+            this.tabPageCreate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageCreate.HorizontalScrollbarBarColor = true;
             this.tabPageCreate.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabPageCreate.HorizontalScrollbarSize = 10;
+            this.tabPageCreate.HorizontalScrollbarSize = 9;
             this.tabPageCreate.Location = new System.Drawing.Point(4, 38);
             this.tabPageCreate.Name = "tabPageCreate";
             this.tabPageCreate.Size = new System.Drawing.Size(980, 475);
@@ -165,7 +166,7 @@ namespace CapstoneProject_3
             this.tabPageCreate.Text = "Create Purchase Order";
             this.tabPageCreate.VerticalScrollbarBarColor = true;
             this.tabPageCreate.VerticalScrollbarHighlightOnWheel = false;
-            this.tabPageCreate.VerticalScrollbarSize = 10;
+            this.tabPageCreate.VerticalScrollbarSize = 9;
             // 
             // label13
             // 
@@ -198,7 +199,7 @@ namespace CapstoneProject_3
             this.txtDiscPhp.Enabled = false;
             this.txtDiscPhp.Location = new System.Drawing.Point(874, 363);
             this.txtDiscPhp.Name = "txtDiscPhp";
-            this.txtDiscPhp.Size = new System.Drawing.Size(96, 23);
+            this.txtDiscPhp.Size = new System.Drawing.Size(96, 25);
             this.txtDiscPhp.TabIndex = 92;
             // 
             // label12
@@ -230,7 +231,7 @@ namespace CapstoneProject_3
             this.txtBeforeDisc.Enabled = false;
             this.txtBeforeDisc.Location = new System.Drawing.Point(730, 334);
             this.txtBeforeDisc.Name = "txtBeforeDisc";
-            this.txtBeforeDisc.Size = new System.Drawing.Size(240, 23);
+            this.txtBeforeDisc.Size = new System.Drawing.Size(240, 25);
             this.txtBeforeDisc.TabIndex = 89;
             // 
             // label11
@@ -249,7 +250,7 @@ namespace CapstoneProject_3
             this.txtDiscPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiscPercent.Location = new System.Drawing.Point(754, 363);
             this.txtDiscPercent.Name = "txtDiscPercent";
-            this.txtDiscPercent.Size = new System.Drawing.Size(84, 23);
+            this.txtDiscPercent.Size = new System.Drawing.Size(84, 25);
             this.txtDiscPercent.TabIndex = 87;
             this.txtDiscPercent.TextChanged += new System.EventHandler(this.txtDiscPercent_TextChanged_1);
             // 
@@ -270,7 +271,7 @@ namespace CapstoneProject_3
             this.txtPaymentDue.Enabled = false;
             this.txtPaymentDue.Location = new System.Drawing.Point(730, 392);
             this.txtPaymentDue.Name = "txtPaymentDue";
-            this.txtPaymentDue.Size = new System.Drawing.Size(240, 23);
+            this.txtPaymentDue.Size = new System.Drawing.Size(240, 25);
             this.txtPaymentDue.TabIndex = 85;
             // 
             // label9
@@ -317,7 +318,7 @@ namespace CapstoneProject_3
             this.txtReferenceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtReferenceCode.Location = new System.Drawing.Point(756, 8);
             this.txtReferenceCode.Name = "txtReferenceCode";
-            this.txtReferenceCode.Size = new System.Drawing.Size(210, 23);
+            this.txtReferenceCode.Size = new System.Drawing.Size(210, 25);
             this.txtReferenceCode.TabIndex = 81;
             // 
             // cbOrderBy
@@ -326,7 +327,7 @@ namespace CapstoneProject_3
             this.cbOrderBy.FormattingEnabled = true;
             this.cbOrderBy.Location = new System.Drawing.Point(80, 334);
             this.cbOrderBy.Name = "cbOrderBy";
-            this.cbOrderBy.Size = new System.Drawing.Size(246, 23);
+            this.cbOrderBy.Size = new System.Drawing.Size(246, 25);
             this.cbOrderBy.TabIndex = 80;
             this.cbOrderBy.SelectedIndexChanged += new System.EventHandler(this.cbOrderBy_SelectedIndexChanged);
             // 
@@ -346,7 +347,7 @@ namespace CapstoneProject_3
             this.dtpDeliveryDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDeliveryDate.Location = new System.Drawing.Point(756, 67);
             this.dtpDeliveryDate.Name = "dtpDeliveryDate";
-            this.dtpDeliveryDate.Size = new System.Drawing.Size(210, 23);
+            this.dtpDeliveryDate.Size = new System.Drawing.Size(210, 25);
             this.dtpDeliveryDate.TabIndex = 78;
             // 
             // dt
@@ -376,21 +377,21 @@ namespace CapstoneProject_3
             this.dtpOrderDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpOrderDate.Location = new System.Drawing.Point(756, 37);
             this.dtpOrderDate.Name = "dtpOrderDate";
-            this.dtpOrderDate.Size = new System.Drawing.Size(210, 23);
+            this.dtpOrderDate.Size = new System.Drawing.Size(210, 25);
             this.dtpOrderDate.TabIndex = 75;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(118, 64);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(219, 23);
+            this.txtEmail.Size = new System.Drawing.Size(219, 25);
             this.txtEmail.TabIndex = 74;
             // 
             // txtContactPerson
             // 
             this.txtContactPerson.Location = new System.Drawing.Point(118, 35);
             this.txtContactPerson.Name = "txtContactPerson";
-            this.txtContactPerson.Size = new System.Drawing.Size(219, 23);
+            this.txtContactPerson.Size = new System.Drawing.Size(219, 25);
             this.txtContactPerson.TabIndex = 73;
             // 
             // cbVendor
@@ -398,7 +399,7 @@ namespace CapstoneProject_3
             this.cbVendor.FormattingEnabled = true;
             this.cbVendor.Location = new System.Drawing.Point(118, 6);
             this.cbVendor.Name = "cbVendor";
-            this.cbVendor.Size = new System.Drawing.Size(219, 23);
+            this.cbVendor.Size = new System.Drawing.Size(219, 25);
             this.cbVendor.TabIndex = 72;
             this.cbVendor.SelectedIndexChanged += new System.EventHandler(this.cbVendor_SelectedIndexChanged);
             // 
@@ -509,21 +510,21 @@ namespace CapstoneProject_3
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -539,17 +540,17 @@ namespace CapstoneProject_3
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(12, 125);
             this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(960, 200);
@@ -560,7 +561,7 @@ namespace CapstoneProject_3
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 37;
+            this.Column3.Width = 39;
             // 
             // poID
             // 
@@ -593,14 +594,14 @@ namespace CapstoneProject_3
             this.Column4.HeaderText = "Price";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 56;
+            this.Column4.Width = 60;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "QTY (Carton)";
+            this.Column5.HeaderText = "QTY (Carton/Pack)";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 90;
+            this.Column5.Width = 129;
             // 
             // total
             // 
@@ -608,7 +609,7 @@ namespace CapstoneProject_3
             this.total.HeaderText = "Total";
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            this.total.Width = 56;
+            this.total.Width = 60;
             // 
             // tabPagePending
             // 
@@ -633,21 +634,21 @@ namespace CapstoneProject_3
             this.dataGridViewPending.AllowUserToDeleteRows = false;
             this.dataGridViewPending.AllowUserToResizeColumns = false;
             this.dataGridViewPending.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridViewPending.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridViewPending.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewPending.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPending.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewPending.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPending.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPending.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewPending.ColumnHeadersHeight = 35;
             this.dataGridViewPending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewPending.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -661,17 +662,17 @@ namespace CapstoneProject_3
             this.dataGridViewPending.GridColor = System.Drawing.Color.Black;
             this.dataGridViewPending.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewPending.Name = "dataGridViewPending";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPending.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPending.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewPending.RowHeadersVisible = false;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewPending.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewPending.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewPending.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewPending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPending.Size = new System.Drawing.Size(974, 464);
@@ -749,27 +750,19 @@ namespace CapstoneProject_3
         private MetroFramework.Controls.MetroTabPage tabPageCreate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.LinkLabel linkAddProducts;
-        private System.Windows.Forms.TextBox txtDiscPhp;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbluserID;
         private System.Windows.Forms.TextBox txtBeforeDisc;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtDiscPercent;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPaymentDue;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         public FontAwesome.Sharp.IconButton btnRefNo;
         public System.Windows.Forms.TextBox txtReferenceCode;
-        private System.Windows.Forms.ComboBox cbOrderBy;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpDeliveryDate;
         private System.Windows.Forms.Label dt;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtpOrderDate;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtContactPerson;
-        private System.Windows.Forms.ComboBox cbVendor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -779,14 +772,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private MetroFramework.Controls.MetroTabPage tabPagePending;
         public System.Windows.Forms.DataGridView dataGridViewPending;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -795,5 +780,21 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        public System.Windows.Forms.TextBox txtDiscPhp;
+        public System.Windows.Forms.TextBox txtPaymentDue;
+        public System.Windows.Forms.ComboBox cbOrderBy;
+        public System.Windows.Forms.DateTimePicker dtpDeliveryDate;
+        public System.Windows.Forms.DateTimePicker dtpOrderDate;
+        public System.Windows.Forms.TextBox txtEmail;
+        public System.Windows.Forms.TextBox txtContactPerson;
+        public System.Windows.Forms.ComboBox cbVendor;
     }
 }
