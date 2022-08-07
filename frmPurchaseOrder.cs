@@ -29,32 +29,23 @@ namespace CapstoneProject_3
         {
             try
             {
-                string referencecode = "#PCO000";
-                string referenceno;
-                int count;
+                string sql = @"SELECT MAX(referenceCode) FROM tblPurchaseOrder";
 
                 using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
                 {
                     connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT TOP 1 referenceCode FROM tblPurchaseOrder
-                                            WHERE referenceCode 
-                                            LIKE '"+txtReferenceCode.Text+"%' ORDER BY purchaseOrderID DESC";
-                    using (var reader = command.ExecuteReader())
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    var refid = cmd.ExecuteScalar() as string;
+
+                    if (refid == null)
                     {
-                        reader.Read();
-                        if (reader.HasRows)
-                        {
-                            referenceno = reader[0].ToString();
-                            count = int.Parse(referenceno.Substring(4, 4));
-                            txtReferenceCode.Text = referencecode + (count + 1);
-                        }
-                        else
-                        {
-                            referenceno = referencecode + "1";
-                            txtReferenceCode.Text = referenceno;
-                        }
+                        txtReferenceCode.Text = "PO-000001";
+                    }
+                    else
+                    {
+                        int intval = int.Parse(refid.Substring(3, 6));
+                        intval++;
+                        txtReferenceCode.Text = String.Format("PO-{0:000000}", intval);
                     }
                 }
             }
@@ -335,10 +326,6 @@ namespace CapstoneProject_3
             frmPurchaseOrderReportViewer pov = new frmPurchaseOrderReportViewer(this);
             pov.loadPurchaseOrder();
             pov.ShowDialog();
-        }
-        private void sendPurchaseOrder()
-        {
-
         }
     }
 }

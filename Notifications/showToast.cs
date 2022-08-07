@@ -17,6 +17,7 @@ namespace CapstoneProject_3.Notifications
             tabPage.Controls.Add(toastForm);
             toastForm.FormBorderStyle = FormBorderStyle.None;
             toastForm.Dock = DockStyle.Bottom;
+            toastForm.BringToFront();
             toastForm.Show();
         }
         public void showToastNotifInPanel(Form toastForm, Panel panel)
@@ -25,6 +26,7 @@ namespace CapstoneProject_3.Notifications
             panel.Controls.Add(toastForm);
             toastForm.FormBorderStyle = FormBorderStyle.None;
             toastForm.Dock = DockStyle.Bottom;
+            toastForm.BringToFront();
             toastForm.Show();
         }
     }

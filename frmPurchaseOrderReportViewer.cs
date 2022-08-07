@@ -108,6 +108,46 @@ namespace CapstoneProject_3
                 fs.Write(bytes, 0, bytes.Length);
             }
         }
+        public void sendMailWithAttachment()
+        {
+            using (SmtpClient client = new SmtpClient())
+            {
+                var cred = new NetworkCredential(_sender, "rcmb0803");
+                using (MailMessage message = new MailMessage())
+                {
+                    MailAddress address = new MailAddress("roxsyle7@gmail.com");
+
+                    client.Host = "smtp.gmail.com";
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = cred;
+                    client.EnableSsl = false;
+                    client.Port = 587;
+
+                    //Message
+                    message.From = new MailAddress(_sender);
+                    message.Subject = "Purchase Order";
+                    message.Body = "Please See Attatched File for the purchase order.";
+                    message.To.Add(_reciever);
+                    message.Priority = MailPriority.High;
+                    //Message attachment
+                    System.Net.Mail.Attachment attachment;
+                    attachment = new System.Net.Mail.Attachment("output.pdf");
+                    message.Attachments.Add(attachment);
+
+                    try
+                    {
+                        client.Send(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Not Sent", "Error");
+                        Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.StackTrace);
+                        Console.WriteLine(ex.Source);
+                    }
+                }
+            }
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -116,32 +156,38 @@ namespace CapstoneProject_3
 
         private void btnSendToVendor_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MailMessage mail = new MailMessage();
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress(_sender);
-                mail.To.Add(_reciever);
-                mail.Subject = "Purchase Order";
-                mail.Body = "Please See Attatched File for the purchase order.";
+            sendMailWithAttachment();
+            //try
+            //{
+            //    MailMessage mail = new MailMessage();
+            //    SmtpClient smtp = new SmtpClient();
+            //    mail.From = new MailAddress(_sender);
+            //    mail.To.Add(_reciever);
+            //    mail.Subject = "Purchase Order";
+            //    mail.Body = "Please See Attatched File for the purchase order.";
 
-                //Attatch File
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("output.pdf");
-                mail.Attachments.Add(attachment);
+            //    //Attatch File
+            //    System.Net.Mail.Attachment attachment;
+            //    attachment = new System.Net.Mail.Attachment("output.pdf");
+            //    mail.Attachments.Add(attachment);
 
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential(_sender, "rcmb0803");
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
-            }
+            //    smtp.UseDefaultCredentials = false;
+            //    NetworkCredential cred = new System.Net.NetworkCredential(_sender, "rcmb0803","bvainvjmpxsdcdac");
+            //    smtp.Credentials = cred;
+            //    smtp.EnableSsl = true;
+            //    smtp.Port = 587;
+            //    smtp.Host = "smtp.gmail.com";
+               
+            //    smtp.Send(mail);
+            //    MessageBox.Show("Sent");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Not Sent");
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.StackTrace);
+            //    Console.WriteLine(ex.Source);
+            //}
         }
     }
 }

@@ -146,8 +146,9 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCart WHERE productID = @pid AND Status LIKE 'Pending'";
+                    command.CommandText = @"SELECT * FROM tblCart WHERE productID = @pid AND Status LIKE 'Pending' AND TransactionNo LIKE @transNo";
                     command.Parameters.AddWithValue("@pid", pid);
+                    command.Parameters.AddWithValue("@transNo", transacno);
                     using (var reader = command.ExecuteReader())
                     {
                         reader.Read();

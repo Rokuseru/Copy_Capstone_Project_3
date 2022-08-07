@@ -216,7 +216,6 @@ namespace CapstoneProject_3.POS_System
                 Console.WriteLine(ex.Message);
             }
         }
-        //Vat
         public void loadVat()
         {
             using (var connection = new SqlConnection(con))
@@ -243,13 +242,15 @@ namespace CapstoneProject_3.POS_System
                 int i = 0;
                 double total = 0;
                 double discount = 0;
+                int qty = 0;
 
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"select * from viewCart WHERE Status LIKE 'Pending'";
+                    command.CommandText = @"select * from viewCart WHERE Status LIKE 'Pending' AND TransactionNo LIKE @tnumber";
+                    command.Parameters.AddWithValue("@tnumber", lblTransNo.Text);
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -258,12 +259,14 @@ namespace CapstoneProject_3.POS_System
                             i += 1;
                             total += Double.Parse(reader["Total"].ToString());
                             discount += Double.Parse(reader["discount"].ToString());
+                            qty += int.Parse(reader["qty"].ToString());
                             dataGridView.Rows.Add(i, reader["cartID"].ToString(), reader["productID"].ToString(), reader["productCode"].ToString(), reader["Description"].ToString(), reader["Price"].ToString(),
                                 reader["qty"].ToString(), reader["discount"].ToString(), Double.Parse(reader["Total"].ToString()).ToString("#,#00.00"));
                         }
                         lblTotal.Text = total.ToString("C", culture);
                         lblTopTotal.Text = total.ToString("C", culture);
                         lblDiscount.Text = discount.ToString("C", culture);
+                        lblTotalQty.Text = qty.ToString();
                         loadVat();
                         computeCartSales();
                     }
@@ -306,12 +309,14 @@ namespace CapstoneProject_3.POS_System
             double sales = Convert.ToDouble(Decimal.Parse(lblTotal.Text, NumberStyles.Currency));
             double discount = Convert.ToDouble(Decimal.Parse(lblDiscount.Text, NumberStyles.Currency));
             double vat = taxVat;
-            double vatable = 0.00;
+            double vatable = Convert.ToDouble(Decimal.Parse(lblTotal.Text, NumberStyles.Currency));
             double cash = double.Parse(spayment.txtPayment.Text);
+            //Compute Vat
+            double vatAmount = vatable * vat;
 
             lblCash.Text = cash.ToString("C", culture);
-            lblVat.Text = vat.ToString("P", CultureInfo.InvariantCulture);
-            lblVatable.Text = vatable.ToString();
+            lblVat.Text = vatAmount.ToString("C", culture);
+            lblVatable.Text = vatable.ToString("C", culture);
         }
         private void loadSearch()
         {

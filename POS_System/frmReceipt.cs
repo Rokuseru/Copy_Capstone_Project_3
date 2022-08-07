@@ -59,6 +59,7 @@ namespace CapstoneProject_3.POS_System
                     ReportParameter pCashier = new ReportParameter("pCashier", fpos.lblUser.Text);
                     ReportParameter pVAT = new ReportParameter("pVAT", fpos.lblVat.Text);
                     ReportParameter pVatable = new ReportParameter("pVatable", fpos.lblVatable.Text);
+                    ReportParameter pQty = new ReportParameter("pQty", fpos.lblTotalQty.Text);
 
                     reportViewer1.LocalReport.SetParameters(pTotal);
                     reportViewer1.LocalReport.SetParameters(pAddress);
@@ -70,6 +71,7 @@ namespace CapstoneProject_3.POS_System
                     reportViewer1.LocalReport.SetParameters(pCashier);
                     reportViewer1.LocalReport.SetParameters(pVAT);
                     reportViewer1.LocalReport.SetParameters(pVatable);
+                    reportViewer1.LocalReport.SetParameters(pQty);
                     //Parameters-
 
                     rds = new ReportDataSource("DataSetReceipt", ds.Tables["dtReceipt"]);
