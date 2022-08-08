@@ -389,7 +389,7 @@ namespace CapstoneProject_3
             frmPOS pos = new frmPOS();
             pos.lblRole.Text = lblRole.Text;
             pos.lblUser.Text = lblUser.Text;
-            this.Close();
+            this.Hide();
             pos.Show();
         }
 

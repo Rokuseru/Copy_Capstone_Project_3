@@ -349,10 +349,57 @@ namespace CapstoneProject_3.POS_System
             btnSearchProd.Enabled = false;
             btnSettle.Enabled = false;
         }
-        private void checkAttendance()
+        private void checkTimeIn()
         {
+            try
+            {
+                loadUsers();
+                bool found;
+                string timeIn = "";
+                string timeOut = "";
 
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblAttendance WHERE userID LIKE @uid AND aDate LIKE @date";
+                    command.Parameters.AddWithValue("@uid", uid);
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+
+                    //Validate
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            timeIn = DateTime.Parse(reader["Time_In"].ToString()).ToString("hh:mm:ss");
+                            timeOut = DateTime.Parse(reader["Time_Out"].ToString()).ToString("hh:mm:ss");
+                        }
+                        if (reader.HasRows)
+                        {
+                            found = true;
+                        }
+                        else
+                        {
+                            found = false;
+                        }
+                    }
+                    if (found == true)
+                    {
+                        MessageBox.Show("Timed-In Already", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Time-In First", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+  
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
             if (dataGridView.Rows.Count > 0)
@@ -367,27 +414,74 @@ namespace CapstoneProject_3.POS_System
        
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+            //Check If User Has Timed Out
+            try
             {
-                if (this.lblRole.Text == "Admin")
+                loadUsers();
+                bool found;
+                string timeIn = "";
+                string timeOut = "";
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
                 {
-                    MainForm main = new MainForm();
-                    main.Show();
-                    this.Close();
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblAttendance WHERE userID LIKE @uid AND aDate LIKE @date";
+                    command.Parameters.AddWithValue("@uid", uid);
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            timeIn = DateTime.Parse(reader["Time_In"].ToString()).ToString("hh:mm:ss");
+                            timeOut = DateTime.Parse(reader["Time_Out"].ToString()).ToString("hh:mm:ss");
+                        }
+                        if (reader.HasRows)
+                        {
+                            found = true;
+                        }
+                        else
+                        {
+                            found = false;
+                        }
+                        Console.WriteLine(timeOut);
+                        Console.WriteLine(timeIn);
+                    }
+                    if (timeOut == "12:00:00")
+                    {
+                        MessageBox.Show("Please Time-Out Before Loggin Out");
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (this.lblRole.Text == "Admin")
+                            {
+                                MainForm main = new MainForm();
+                                main.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                frmLogin login = new frmLogin();
+                                login.Show();
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
                 }
-                else
-                {
-                    frmLogin login = new frmLogin();
-                    login.Show();
-                    this.Close();
-                }
-            }
-            else
+            } 
+            catch(Exception ex)
             {
-                return;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnSearchProd_Click(object sender, EventArgs e)
         {
             frmProductSearch psearch = new frmProductSearch(this);
@@ -463,10 +557,10 @@ namespace CapstoneProject_3.POS_System
         }
 
         private void frmPOS_Load(object sender, EventArgs e)
-        {
+        {        
             loadSearch();
             timer1.Start();
-
+            checkTimeIn();
             if (dataGridView.Rows.Count == 0 || dataGridView == null)
             {
                 btnAddDisc.Enabled = false;
@@ -527,6 +621,7 @@ namespace CapstoneProject_3.POS_System
             {
                 reset();
                 cancelSales();
+                lblTotalQty.Text = "0";
                 lblChange.Text = "₱0.00";
                 lblDiscount.Text = "₱0.00";
                 lblSubTotal.Text = "₱0.00";
@@ -635,15 +730,11 @@ namespace CapstoneProject_3.POS_System
         private void btnTimeIn_Click(object sender, EventArgs e)
         {
             timeIn();
-            ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Timed In Successfully!");
-            ntf.notificationTimer(timer1, panelNotif1);
         }
 
         private void btnTimeOut_Click(object sender, EventArgs e)
         {
             timeOut();
-            ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Timed Out Successfully! Have A Nice Day!");
-            ntf.notificationTimer(timer1, panelNotif1);
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
