@@ -17,6 +17,7 @@ namespace CapstoneProject_3.POS_System
     {
         frmPOS fpos;
         public double payment;
+        int uid = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         Notification ntf = new Notification();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
@@ -31,14 +32,38 @@ namespace CapstoneProject_3.POS_System
         {
             fpos.lblChange.Text = "₱0.00";
             fpos.lblDiscount.Text = "₱0.00";
-            fpos.lblTotal.Text = "₱0.00";
+            fpos.lblSubTotal.Text = "₱0.00";
             fpos.lblTopTotal.Text = "₱0.00";
             fpos.lblVatable.Text = "0.00";
             fpos.lblVat.Text = "0.00";
             fpos.btnAddDisc.Enabled = false;
             fpos.btnSettle.Enabled = false;
         }
-
+        public void getUserID()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblUsers WHERE Name LIKE @name";
+                    command.Parameters.AddWithValue("@name", fpos.lblUser.Text);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            uid = int.Parse(reader["userID"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public void updateStockAndCart()
         {
 
@@ -81,6 +106,38 @@ namespace CapstoneProject_3.POS_System
             catch (Exception ex)
             {     
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private void insertToSalesTable()
+        {
+            try
+            {
+                getUserID();
+                double discount = Convert.ToDouble(Decimal.Parse(fpos.lblDiscount.Text, NumberStyles.Currency));
+                double totalSales = Convert.ToDouble(Decimal.Parse(fpos.lblTopTotal.Text, NumberStyles.Currency));
+                double tendered = Convert.ToDouble(Decimal.Parse(fpos.lblCash.Text, NumberStyles.Currency));
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"INSERT INTO tblSales (TransactionNo, userID, Method,Tendered, Discount, Total_Sales, date, time) 
+                                            VALUES (@tnumber, @uid, @Method, @tendered, @Discount, @totSales, @date, @time)";
+                    command.Parameters.AddWithValue("@tnumber", fpos.lblTransNo.Text);
+                    command.Parameters.AddWithValue("@uid", uid);
+                    command.Parameters.AddWithValue("@Method", "Cash");
+                    command.Parameters.AddWithValue("@Discount", discount);
+                    command.Parameters.AddWithValue("@totSales", totalSales);
+                    command.Parameters.AddWithValue("@date", Convert.ToDateTime(fpos.lblDate.Text));
+                    command.Parameters.AddWithValue("@time", DateTime.Now.ToString("hh:mm:ss"));
+                    command.Parameters.AddWithValue("@tendered", tendered);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //Events
@@ -223,6 +280,7 @@ namespace CapstoneProject_3.POS_System
                     payment = double.Parse(txtPayment.Text);
                     fpos.lblChange.Text = txtChange.Text;
                     fpos.lblCash.Text = payment.ToString("C", culture); ;
+                    insertToSalesTable();
                     updateStockAndCart();
                     clear();
                 }

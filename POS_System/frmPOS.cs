@@ -20,7 +20,7 @@ namespace CapstoneProject_3.POS_System
         string id;
         public double price;
         public double taxVat;
-        private int uid = 0;
+        public int uid = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         //Fields
@@ -263,7 +263,7 @@ namespace CapstoneProject_3.POS_System
                             dataGridView.Rows.Add(i, reader["cartID"].ToString(), reader["productID"].ToString(), reader["productCode"].ToString(), reader["Description"].ToString(), reader["Price"].ToString(),
                                 reader["qty"].ToString(), reader["discount"].ToString(), Double.Parse(reader["Total"].ToString()).ToString("#,#00.00"));
                         }
-                        lblTotal.Text = total.ToString("C", culture);
+                        lblSubTotal.Text = total.ToString("C", culture);
                         lblTopTotal.Text = total.ToString("C", culture);
                         lblDiscount.Text = discount.ToString("C", culture);
                         lblTotalQty.Text = qty.ToString();
@@ -306,14 +306,16 @@ namespace CapstoneProject_3.POS_System
             frmSettlePayment spayment = new frmSettlePayment(this);
             loadVat();
             //Variables
-            double sales = Convert.ToDouble(Decimal.Parse(lblTotal.Text, NumberStyles.Currency));
+            double sales = Convert.ToDouble(Decimal.Parse(lblSubTotal.Text, NumberStyles.Currency));
             double discount = Convert.ToDouble(Decimal.Parse(lblDiscount.Text, NumberStyles.Currency));
             double vat = taxVat;
-            double vatable = Convert.ToDouble(Decimal.Parse(lblTotal.Text, NumberStyles.Currency));
+            double vatable = Convert.ToDouble(Decimal.Parse(lblSubTotal.Text, NumberStyles.Currency));
             double cash = double.Parse(spayment.txtPayment.Text);
-            //Compute Vat
+            //Compute
             double vatAmount = vatable * vat;
+            double total = sales + vatAmount;
 
+            lblTopTotal.Text = total.ToString("C", culture);
             lblCash.Text = cash.ToString("C", culture);
             lblVat.Text = vatAmount.ToString("C", culture);
             lblVatable.Text = vatable.ToString("C", culture);
@@ -342,10 +344,14 @@ namespace CapstoneProject_3.POS_System
         }
         public void reset()
         {
-            txtSearch.Enabled = false;
+            dataGridView.Rows.Clear();
             btnAddDisc.Enabled = false;
             btnSearchProd.Enabled = false;
             btnSettle.Enabled = false;
+        }
+        private void checkAttendance()
+        {
+
         }
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
@@ -356,8 +362,6 @@ namespace CapstoneProject_3.POS_System
             else
             {
                 getTransNumber();
-                txtSearch.Enabled = true;
-                btnSearchProd.Enabled = true;
             }
         }
        
@@ -448,7 +452,7 @@ namespace CapstoneProject_3.POS_System
         private void btnSettle_Click(object sender, EventArgs e)
         {
             frmSettlePayment payment = new frmSettlePayment(this);
-            payment.txtBill.Text = lblTotal.Text;
+            payment.txtBill.Text = lblTopTotal.Text;
             payment.ShowDialog();
         }
 
@@ -460,9 +464,19 @@ namespace CapstoneProject_3.POS_System
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
-            checkDataGridView();
             loadSearch();
             timer1.Start();
+
+            if (dataGridView.Rows.Count == 0 || dataGridView == null)
+            {
+                btnAddDisc.Enabled = false;
+                btnSettle.Enabled = false;
+            }
+            else
+            {
+                btnAddDisc.Enabled = true;
+                btnSettle.Enabled = true;
+            }
         }
 
         private void btnDailySales_Click(object sender, EventArgs e)
@@ -512,9 +526,10 @@ namespace CapstoneProject_3.POS_System
             if (MessageBox.Show("Cancel Current Transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
             {
                 reset();
+                cancelSales();
                 lblChange.Text = "₱0.00";
                 lblDiscount.Text = "₱0.00";
-                lblTotal.Text = "₱0.00";
+                lblSubTotal.Text = "₱0.00";
                 lblTopTotal.Text = "₱0.00";
                 lblVatable.Text = "0.00";
                 lblVat.Text = "0.00";
@@ -524,7 +539,25 @@ namespace CapstoneProject_3.POS_System
                 return;
             }
         }
-        
+        private void cancelSales()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"DELETE FROM tblCart WHERE TransactionNo LIKE @tno";
+                    command.Parameters.AddWithValue("tno", lblTransNo.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         //For the Attendance Methods---
         private void loadUsers()
         {
@@ -618,21 +651,6 @@ namespace CapstoneProject_3.POS_System
             if (e.KeyCode == Keys.Enter)
             {
                 searchProducts();
-            }
-        }
-        //---Attendance Methods.
-        private void checkDataGridView()
-        {
-            if (dataGridView.Rows.Count > 0)
-            {
-
-                btnSettle.Enabled = true;
-                btnAddDisc.Enabled = true;
-            }
-            else
-            {
-                btnSettle.Enabled = false;
-                btnAddDisc.Enabled = false;
             }
         }
     }

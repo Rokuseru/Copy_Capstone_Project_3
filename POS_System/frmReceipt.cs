@@ -49,7 +49,7 @@ namespace CapstoneProject_3.POS_System
                     adapter.Fill(ds.Tables["dtReceipt"]);
 
                     //Parameters-
-                    ReportParameter pTotal = new ReportParameter("pTotal", fpos.lblTotal.Text);
+                    ReportParameter pTotal = new ReportParameter("pTotal", fpos.lblSubTotal.Text);
                     ReportParameter pAddress = new ReportParameter("pAddress", address);
                     ReportParameter pStore = new ReportParameter("pStore", store);
                     ReportParameter pDiscount = new ReportParameter("pDiscount", fpos.lblDiscount.Text);
