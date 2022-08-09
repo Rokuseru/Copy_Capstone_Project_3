@@ -19,7 +19,6 @@ namespace CapstoneProject_3.POS_System
         public double payment;
         int uid = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
-        Notification ntf = new Notification();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         public frmSettlePayment(frmPOS pos)
         {
@@ -100,8 +99,6 @@ namespace CapstoneProject_3.POS_System
                 fpos.getTransNumber();
                 fpos.loadCart();
                 this.Dispose();
-                ntf.notificationMessage(fpos.panelNotif1, fpos.labelNotif1, fpos.iconNotif1, "Transaction Successful. Payment Recieved.");
-                ntf.notificationTimer(fpos.timer1, fpos.panelNotif1);
             }
             catch (Exception ex)
             {     
@@ -122,7 +119,7 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblSales (TransactionNo, userID, Method,Tendered, Discount, Total_Sales, date, time) 
+                    command.CommandText = @"INSERT INTO tblSales (TransactionID, userID, Method,Tendered, Discount, Total_Sales, date, time) 
                                             VALUES (@tnumber, @uid, @Method, @tendered, @Discount, @totSales, @date, @time)";
                     command.Parameters.AddWithValue("@tnumber", fpos.lblTransNo.Text);
                     command.Parameters.AddWithValue("@uid", uid);

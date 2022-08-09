@@ -104,7 +104,6 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
             metroTabControl.SelectedTab = tabPageCreate;

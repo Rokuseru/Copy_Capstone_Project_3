@@ -22,7 +22,6 @@ namespace CapstoneProject_3.POS_System
         private string transacno;
         private int qty; 
         public int userID = 0;
-        Notification ntf = new Notification();
 
         public frmQuantity(frmPOS pOS)
         {
@@ -89,15 +88,12 @@ namespace CapstoneProject_3.POS_System
                     ps.txtSearch.Clear();
                     ps.txtSearch.Focus();
 
-                    ntf.notificationMessage(ps.panelNotif1, ps.labelNotif1, ps.iconNotif1, "Added to Cart");
-                    ntf.notificationTimer(ps.timer1, ps.panelNotif1);
                     this.Close();
                 }
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(ps.panelNotif1, ps.labelNotif1, ps.iconNotif1, ex);
-                ntf.notificationTimer(ps.timer1, ps.panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void addToCartQuantity()
@@ -116,8 +112,6 @@ namespace CapstoneProject_3.POS_System
                     ps.txtSearch.Clear();
                     ps.txtSearch.Focus();
 
-                    ntf.notificationMessage(ps.panelNotif1, ps.labelNotif1, ps.iconNotif1, "Added to Cart");
-                    ntf.notificationTimer(ps.timer1, ps.panelNotif1);
                     this.Close();
                 }
             }

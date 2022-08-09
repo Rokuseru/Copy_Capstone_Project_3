@@ -28,7 +28,7 @@ namespace CapstoneProject_3.POS_System
         private Size formSize; //Keep form size when it is minimized and restored.
                                //Since the form is resized
                                //because it takes into account the size of the title bar and borders.
-        Notification ntf = new Notification();
+        showToast toast = new showToast();
         public frmPOS()
         {
             InitializeComponent();
@@ -210,10 +210,7 @@ namespace CapstoneProject_3.POS_System
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
-                Console.WriteLine(ex.GetType());
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadVat()
@@ -290,14 +287,12 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@cid", dataGridView.CurrentRow.Cells["cartID"].Value.ToString());
                     command.ExecuteNonQuery();
 
-                    ntf.notificationMessage(panelNotif1, labelNotif1, iconNotif1, "Item Removed From Cart.");
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotifInPanel(new ToastNotification("Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panelBottom);
                 }
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(panelNotif1, labelNotif1, iconNotif1, ex);
-                ntf.notificationTimer(timer1, panelNotif1);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void computeCartSales()
@@ -356,7 +351,6 @@ namespace CapstoneProject_3.POS_System
                 loadUsers();
                 bool found;
                 string timeIn = "";
-                string timeOut = "";
 
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
@@ -373,7 +367,6 @@ namespace CapstoneProject_3.POS_System
                         while (reader.Read())
                         {
                             timeIn = DateTime.Parse(reader["Time_In"].ToString()).ToString("hh:mm:ss");
-                            timeOut = DateTime.Parse(reader["Time_Out"].ToString()).ToString("hh:mm:ss");
                         }
                         if (reader.HasRows)
                         {
@@ -399,12 +392,11 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-  
         private void btnNewTrans_Click(object sender, EventArgs e)
         {
             if (dataGridView.Rows.Count > 0)
             {
-                ntf.errorMessage(panelNotif1, labelNotif1, iconNotif1, "Transaction Still Ongoing. Finish Current Transaction To Generate New Transaction Number.");
+                toast.showToastNotifInPanel(new ToastNotification("Category Already Exists.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), panelBottom);
             }
             else
             {
@@ -436,7 +428,7 @@ namespace CapstoneProject_3.POS_System
                         while (reader.Read())
                         {
                             timeIn = DateTime.Parse(reader["Time_In"].ToString()).ToString("hh:mm:ss");
-                            timeOut = DateTime.Parse(reader["Time_Out"].ToString()).ToString("hh:mm:ss");
+                            timeOut = reader["Time_Out"].ToString();
                         }
                         if (reader.HasRows)
                         {
@@ -448,8 +440,9 @@ namespace CapstoneProject_3.POS_System
                         }
                         Console.WriteLine(timeOut);
                         Console.WriteLine(timeIn);
+                        Console.WriteLine(found);
                     }
-                    if (timeOut == "12:00:00")
+                    if (String.IsNullOrWhiteSpace(timeOut))
                     {
                         MessageBox.Show("Please Time-Out Before Loggin Out");
                     }
@@ -513,8 +506,7 @@ namespace CapstoneProject_3.POS_System
                 }
                 else
                 {
-                    ntf.cancelMessage(panelNotif1, labelNotif1, iconNotif1);
-                    ntf.notificationTimer(timer1, panelNotif1);
+                    toast.showToastNotifInPanel(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), panelBottom);
                 }
             }
             //Adjust Quantity
@@ -735,6 +727,11 @@ namespace CapstoneProject_3.POS_System
         private void btnTimeOut_Click(object sender, EventArgs e)
         {
             timeOut();
+
+            frmXReport report = new frmXReport(this);
+            report.cbUsers.Text = lblUser.Text;
+            report.loadXReport();
+            report.ShowDialog();
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)

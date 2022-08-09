@@ -290,11 +290,11 @@
     <Compile Include="POS_System\frmVoid.Designer.cs">
       <DependentUpon>frmVoid.cs</DependentUpon>
     </Compile>
-    <Compile Include="POS_System\frmXandZReport.cs">
+    <Compile Include="POS_System\frmXReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POS_System\frmXandZReport.Designer.cs">
-      <DependentUpon>frmXandZReport.cs</DependentUpon>
+    <Compile Include="POS_System\frmXReport.Designer.cs">
+      <DependentUpon>frmXReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -418,8 +418,8 @@
     <EmbeddedResource Include="POS_System\frmVoid.resx">
       <DependentUpon>frmVoid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POS_System\frmXandZReport.resx">
-      <DependentUpon>frmXandZReport.cs</DependentUpon>
+    <EmbeddedResource Include="POS_System\frmXReport.resx">
+      <DependentUpon>frmXReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -82,8 +82,7 @@ namespace CapstoneProject_3.POS_System
             }
             catch (Exception ex)
             {
-                ntf.exceptionMessage(fpos.panelNotif1, fpos.labelNotif1, fpos.iconNotif1, ex);
-                ntf.notificationTimer(fpos.timer1, fpos.panelNotif1);
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
