@@ -379,11 +379,11 @@ namespace CapstoneProject_3.POS_System
                     }
                     if (found == true)
                     {
-                        MessageBox.Show("Timed-In Already", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Timed-In Already", "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Please Time-In First", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Please Time-In First", "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -707,7 +707,7 @@ namespace CapstoneProject_3.POS_System
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"UPDATE tblAttendance SET Time_Out = @out WHERE userID = @uid AND aDate = @date";
-                    command.Parameters.AddWithValue("@out", DateTime.Now.ToString("hh:mm:ss"));
+                    command.Parameters.AddWithValue("@out", DateTime.Now.ToString("HH:mm:ss"));
                     command.Parameters.AddWithValue("@uid", uid);
                     command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                     command.ExecuteNonQuery();

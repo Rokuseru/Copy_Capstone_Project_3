@@ -35,11 +35,7 @@ namespace CapstoneProject_3.POS_System
             this.MainPanel = new System.Windows.Forms.Panel();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtEwallet = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnPrint = new RJCodeAdvance.RJControls.RJButton();
-            this.txtCash = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtItemsSold = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTransactions = new System.Windows.Forms.TextBox();
@@ -97,13 +93,10 @@ namespace CapstoneProject_3.POS_System
             // 
             // MainPanel
             // 
+            this.MainPanel.BackColor = System.Drawing.Color.White;
             this.MainPanel.Controls.Add(this.txtTotal);
             this.MainPanel.Controls.Add(this.label8);
-            this.MainPanel.Controls.Add(this.txtEwallet);
-            this.MainPanel.Controls.Add(this.label7);
             this.MainPanel.Controls.Add(this.btnPrint);
-            this.MainPanel.Controls.Add(this.txtCash);
-            this.MainPanel.Controls.Add(this.label6);
             this.MainPanel.Controls.Add(this.txtItemsSold);
             this.MainPanel.Controls.Add(this.label5);
             this.MainPanel.Controls.Add(this.txtTransactions);
@@ -117,12 +110,12 @@ namespace CapstoneProject_3.POS_System
             this.MainPanel.Margin = new System.Windows.Forms.Padding(10);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.MainPanel.Size = new System.Drawing.Size(350, 284);
+            this.MainPanel.Size = new System.Drawing.Size(350, 225);
             this.MainPanel.TabIndex = 14;
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(120, 210);
+            this.txtTotal.Location = new System.Drawing.Point(120, 144);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(217, 23);
             this.txtTotal.TabIndex = 19;
@@ -134,68 +127,29 @@ namespace CapstoneProject_3.POS_System
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(14, 214);
+            this.label8.Location = new System.Drawing.Point(14, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 21);
+            this.label8.Size = new System.Drawing.Size(86, 21);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Total";
-            // 
-            // txtEwallet
-            // 
-            this.txtEwallet.Location = new System.Drawing.Point(120, 177);
-            this.txtEwallet.Name = "txtEwallet";
-            this.txtEwallet.Size = new System.Drawing.Size(217, 23);
-            this.txtEwallet.TabIndex = 17;
-            this.txtEwallet.Text = "0";
-            this.txtEwallet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 180);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 21);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "E-Wallet";
+            this.label8.Text = "Total Sales";
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnPrint.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnPrint.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrint.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnPrint.BorderRadius = 5;
             this.btnPrint.BorderSize = 0;
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(184, 246);
+            this.btnPrint.Location = new System.Drawing.Point(219, 183);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(118, 28);
             this.btnPrint.TabIndex = 15;
             this.btnPrint.Text = "Print";
             this.btnPrint.TextColor = System.Drawing.Color.White;
             this.btnPrint.UseVisualStyleBackColor = false;
-            // 
-            // txtCash
-            // 
-            this.txtCash.Location = new System.Drawing.Point(120, 144);
-            this.txtCash.Name = "txtCash";
-            this.txtCash.Size = new System.Drawing.Size(217, 23);
-            this.txtCash.TabIndex = 14;
-            this.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 146);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 21);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Cash";
             // 
             // txtItemsSold
             // 
@@ -252,9 +206,9 @@ namespace CapstoneProject_3.POS_System
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 21);
+            this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Cashier";
+            this.label2.Text = "User";
             // 
             // txtOpened
             // 
@@ -279,7 +233,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 329);
+            this.ClientSize = new System.Drawing.Size(350, 270);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -303,8 +257,6 @@ namespace CapstoneProject_3.POS_System
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Panel MainPanel;
         private RJCodeAdvance.RJControls.RJButton btnPrint;
-        private System.Windows.Forms.TextBox txtCash;
-        public System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtItemsSold;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTransactions;
@@ -314,8 +266,6 @@ namespace CapstoneProject_3.POS_System
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTotal;
         public System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEwallet;
-        public System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cbUsers;
     }
 }
