@@ -727,11 +727,8 @@ namespace CapstoneProject_3.POS_System
         private void btnTimeOut_Click(object sender, EventArgs e)
         {
             timeOut();
-
-            frmXReport report = new frmXReport(this);
-            report.cbUsers.Text = lblUser.Text;
-            report.loadXReport();
-            report.ShowDialog();
+            frmXandZReports xz = new frmXandZReports(this);
+            xz.ShowDialog();
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)

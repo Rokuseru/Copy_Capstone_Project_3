@@ -118,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\DataSetXZReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetXZReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="frmAccounts.cs">
       <SubType>Form</SubType>
@@ -290,6 +295,12 @@
     <Compile Include="POS_System\frmVoid.Designer.cs">
       <DependentUpon>frmVoid.cs</DependentUpon>
     </Compile>
+    <Compile Include="POS_System\frmXandZReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS_System\frmXandZReports.Designer.cs">
+      <DependentUpon>frmXandZReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="POS_System\frmXReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +339,12 @@
     <Compile Include="Report_Forms\frmTopSellingReport.Designer.cs">
       <DependentUpon>frmTopSellingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report_Forms\frmXandYRDLC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Forms\frmXandYRDLC.Designer.cs">
+      <DependentUpon>frmXandYRDLC.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Datasets\rwCriticalStock.rdlc" />
     <EmbeddedResource Include="Datasets\rwDailySalesReport.rdlc" />
@@ -340,6 +357,7 @@
     <EmbeddedResource Include="Datasets\rwSoldItems.rdlc" />
     <EmbeddedResource Include="Datasets\rwStockIn.rdlc" />
     <EmbeddedResource Include="Datasets\rwTopTenSelling.rdlc" />
+    <EmbeddedResource Include="Datasets\rwZReport.rdlc" />
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>
     </EmbeddedResource>
@@ -424,6 +442,9 @@
     <EmbeddedResource Include="POS_System\frmVoid.resx">
       <DependentUpon>frmVoid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS_System\frmXandZReports.resx">
+      <DependentUpon>frmXandZReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS_System\frmXReport.resx">
       <DependentUpon>frmXReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -451,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report_Forms\frmTopSellingReport.resx">
       <DependentUpon>frmTopSellingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Forms\frmXandYRDLC.resx">
+      <DependentUpon>frmXandYRDLC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Datasets\DataSetDailySalesReport.xsc">
       <DependentUpon>DataSetDailySalesReport.xsd</DependentUpon>
@@ -495,6 +519,17 @@
     </None>
     <None Include="Datasets\DataSetReports.xss">
       <DependentUpon>DataSetReports.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DataSetXZReport.xsc">
+      <DependentUpon>DataSetXZReport.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DataSetXZReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetXZReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\DataSetXZReport.xss">
+      <DependentUpon>DataSetXZReport.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -563,8 +598,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Emails\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

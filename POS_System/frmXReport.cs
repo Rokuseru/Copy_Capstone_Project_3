@@ -17,7 +17,6 @@ namespace CapstoneProject_3.POS_System
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private int userID = 0;
-        //private string transNo = "";
         private string timeIn = "";
         private string timeOut = "";
 
@@ -45,7 +44,6 @@ namespace CapstoneProject_3.POS_System
                             cbUsers.Items.Add(reader["Name"].ToString());
                         }
                     }
-                    Console.WriteLine("FROM loadUsers():" + userID);
                 }
             }
             catch (Exception ex)
@@ -53,7 +51,7 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void getUserId()
+        private void loadUserId()
         {
             try
             {
@@ -72,7 +70,6 @@ namespace CapstoneProject_3.POS_System
                             userID = int.Parse(reader["userID"].ToString());
                         }
                     }
-                    Console.WriteLine("FROM getUserID():" + userID);
                 }
             }
             catch (Exception ex)
@@ -108,11 +105,11 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void getSoldQty()
+        private void loadSoldQty()
         {
             try
             {
-                string soldProducts = "0";
+                int soldProducts = 0;
                 using (var connection = new SqlConnection(con))
                 {
                     using (var command = new SqlCommand())
@@ -132,7 +129,7 @@ namespace CapstoneProject_3.POS_System
                         {
                             while (reader.Read())
                             {
-                                soldProducts = reader["Products_Sold"].ToString();
+                                soldProducts = int.Parse(reader["Products_Sold"].ToString());
                             }
                             txtItemsSold.Text = soldProducts.ToString();
                         }
@@ -151,7 +148,6 @@ namespace CapstoneProject_3.POS_System
             try
             {
                 LoadTime();
-                getSoldQty();
                 double _total = 0;
                 string _date = "";
                 string _transactions = "0";
@@ -187,22 +183,26 @@ namespace CapstoneProject_3.POS_System
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
             }
         }
         private void cbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            getUserId();
+            loadUserId();
             loadXReport();
         }
 
         private void frmXReport_Load(object sender, EventArgs e)
         {
-            getUserId();
+            cbUsers.Text = pos.lblUser.Text;
+            loadUserId();
             loadUsers();
             loadXReport();
+            loadSoldQty();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

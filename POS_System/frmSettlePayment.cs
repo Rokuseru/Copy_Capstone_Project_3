@@ -113,21 +113,23 @@ namespace CapstoneProject_3.POS_System
                 double discount = Convert.ToDouble(Decimal.Parse(fpos.lblDiscount.Text, NumberStyles.Currency));
                 double totalSales = Convert.ToDouble(Decimal.Parse(fpos.lblTopTotal.Text, NumberStyles.Currency));
                 double tendered = Convert.ToDouble(Decimal.Parse(fpos.lblCash.Text, NumberStyles.Currency));
+                int qty = Convert.ToInt32(int.Parse(fpos.lblTotalQty.Text));
 
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblSales (TransactionID, userID, Method,Tendered, Discount, Total_Sales, date, time) 
-                                            VALUES (@tnumber, @uid, @Method, @tendered, @Discount, @totSales, @date, @time)";
+                    command.CommandText = @"INSERT INTO tblSales (TransactionID, userID, Method,Tendered, Discount, qty,Total_Sales, date, time) 
+                                            VALUES (@tnumber, @uid, @Method, @tendered, @Discount, @qty,@totSales, @date, @time)";
                     command.Parameters.AddWithValue("@tnumber", fpos.lblTransNo.Text);
                     command.Parameters.AddWithValue("@uid", uid);
                     command.Parameters.AddWithValue("@Method", "Cash");
                     command.Parameters.AddWithValue("@Discount", discount);
+                    command.Parameters.AddWithValue("@qty", qty);
                     command.Parameters.AddWithValue("@totSales", totalSales);
                     command.Parameters.AddWithValue("@date", Convert.ToDateTime(fpos.lblDate.Text));
-                    command.Parameters.AddWithValue("@time", DateTime.Now.ToString("hh:mm:ss"));
+                    command.Parameters.AddWithValue("@time", DateTime.Now.ToString("HH:mm:ss"));
                     command.Parameters.AddWithValue("@tendered", tendered);
                     command.ExecuteNonQuery();
                 }
