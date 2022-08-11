@@ -1,7 +1,7 @@
 ﻿
 namespace CapstoneProject_3.Report_Forms
 {
-    partial class frmXandYRDLC
+    partial class frmZRDLC
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,8 @@ namespace CapstoneProject_3.Report_Forms
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,15 +60,6 @@ namespace CapstoneProject_3.Report_Forms
             this.label4.TabIndex = 15;
             this.label4.Text = "Z Report";
             // 
-            // reportViewer
-            // 
-            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer.Location = new System.Drawing.Point(0, 38);
-            this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(628, 412);
-            this.reportViewer.TabIndex = 17;
-            // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -89,8 +80,18 @@ namespace CapstoneProject_3.Report_Forms
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // frmXandYRDLC
+            // reportViewer
+            // 
+            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer.Location = new System.Drawing.Point(0, 38);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.Size = new System.Drawing.Size(628, 412);
+            this.reportViewer.TabIndex = 17;
+            // 
+            // frmZRDLC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +100,8 @@ namespace CapstoneProject_3.Report_Forms
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmXandYRDLC";
+            this.Name = "frmZRDLC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXandYRDLC";
             this.Load += new System.EventHandler(this.frmXandYRDLC_Load);
             this.panel1.ResumeLayout(false);

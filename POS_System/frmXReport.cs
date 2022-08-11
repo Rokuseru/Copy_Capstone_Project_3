@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
+using CapstoneProject_3.Report_Forms;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -16,9 +17,9 @@ namespace CapstoneProject_3.POS_System
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
-        private int userID = 0;
-        private string timeIn = "";
-        private string timeOut = "";
+        public int userID = 0;
+        public string timeIn = "";
+        public string timeOut = "";
 
         frmPOS pos;
         public frmXReport(frmPOS fpos)
@@ -131,7 +132,7 @@ namespace CapstoneProject_3.POS_System
                             {
                                 soldProducts = int.Parse(reader["Products_Sold"].ToString());
                             }
-                            txtItemsSold.Text = soldProducts.ToString();
+                            lblSoldItems.Text = soldProducts.ToString();
                         }
                     }
                 }
@@ -176,9 +177,9 @@ namespace CapstoneProject_3.POS_System
                                 _total = Double.Parse(reader["sales"].ToString());
                                 _date = Convert.ToDateTime(reader["date"].ToString()).ToString("ddd, MMM, dd, yyyy");
                             }
-                            txtTotal.Text = _total.ToString("C", culture);
-                            txtTransactions.Text = _transactions.ToString();
-                            txtOpened.Text = _date + " At " + Convert.ToDateTime(timeIn).ToString("hh:mm:ss tt");
+                            lblTotalSales.Text = _total.ToString("C", culture);
+                            lblTransactions.Text = _transactions.ToString();
+                            lblOpenedOn.Text = _date + " At " + Convert.ToDateTime(timeIn).ToString("hh:mm:ss tt");
                         }
                     }
                 }
@@ -208,6 +209,13 @@ namespace CapstoneProject_3.POS_System
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            frmXRDLC xreport = new frmXRDLC(this);
+            xreport.loadXReportRDLC();
+            xreport.ShowDialog();
         }
     }
 }

@@ -28,7 +28,8 @@ namespace CapstoneProject_3.POS_System
         {
             InitializeComponent();
             this.Padding = new Padding(borderSize);//Border size
-            this.BackColor = Color.FromArgb(30, 39, 46);//Border color
+            this.BackColor = Color.FromArgb(170, 166, 157);//Border color
+            this.panel1.BackColor = Color.White;
             fpos = pos;
         }
         //Form Properties
@@ -142,7 +143,6 @@ namespace CapstoneProject_3.POS_System
         public void loadRecord()
         {
             dataGridView.Rows.Clear();
-
             try
             {
                 int i = 0;
@@ -180,6 +180,8 @@ namespace CapstoneProject_3.POS_System
 
         private void frmDailySales_Load(object sender, EventArgs e)
         {
+            dateFrom.Value = DateTime.Now;
+            dateTo.Value = DateTime.Now;
             loadRecord();
         }
 

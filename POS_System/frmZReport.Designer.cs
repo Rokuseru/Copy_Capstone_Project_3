@@ -114,6 +114,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel2
             // 
@@ -134,11 +135,11 @@ namespace CapstoneProject_3.POS_System
             // 
             // lblOpenedOn
             // 
-            this.lblOpenedOn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpenedOn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpenedOn.ForeColor = System.Drawing.Color.Black;
-            this.lblOpenedOn.Location = new System.Drawing.Point(121, 43);
+            this.lblOpenedOn.Location = new System.Drawing.Point(106, 43);
             this.lblOpenedOn.Name = "lblOpenedOn";
-            this.lblOpenedOn.Size = new System.Drawing.Size(217, 21);
+            this.lblOpenedOn.Size = new System.Drawing.Size(232, 21);
             this.lblOpenedOn.TabIndex = 17;
             this.lblOpenedOn.Text = "--------------------";
             // 
@@ -427,9 +428,9 @@ namespace CapstoneProject_3.POS_System
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Items.AddRange(new object[] {
             "All Users"});
-            this.cbUsers.Location = new System.Drawing.Point(121, 13);
+            this.cbUsers.Location = new System.Drawing.Point(106, 13);
             this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(217, 25);
+            this.cbUsers.Size = new System.Drawing.Size(232, 25);
             this.cbUsers.TabIndex = 10;
             // 
             // label2

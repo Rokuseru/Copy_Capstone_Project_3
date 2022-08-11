@@ -17,8 +17,8 @@ namespace CapstoneProject_3.POS_System
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
-        private string timeOut = "";
-        private string timeIn = "";
+        public string timeOut = "";
+        public string timeIn = "";
         public frmZReport()
         {
             InitializeComponent();
@@ -49,8 +49,6 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //Just add date and time for better query
         private void loadRefunded()
         {
             try
@@ -61,9 +59,13 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT Status, SUM(Total) AS Refunds FROM tblCart 
-                                            WHERE Status = 'Refunded'
-                                            GROUP BY Status";
+                    command.CommandText = @"SELECT sdate, SUM(total) AS Refunds FROM tblCancelledOrders
+                                           WHERE sdate LIKE @date
+                                           AND stime BETWEEN @timein AND @timeout
+										   group by sdate";
+                    command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@timein", timeIn);
+                    command.Parameters.AddWithValue("@timeout", timeOut);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -207,8 +209,14 @@ namespace CapstoneProject_3.POS_System
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            frmXandYRDLC zx = new frmXandYRDLC(this);
+            frmZRDLC zx = new frmZRDLC(this);
+            zx.loadZReport();
             zx.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

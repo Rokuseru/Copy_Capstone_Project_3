@@ -564,7 +564,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Cash:</Value>
+                    <Value>Refunded:</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -594,7 +594,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Cash:</Value>
+                    <Value>Discount:</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -624,7 +624,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Cash:</Value>
+                    <Value>Tax:</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -654,7 +654,7 @@
       <Width>4.01401in</Width>
       <Page>
         <PageHeader>
-          <Height>4.43328cm</Height>
+          <Height>4.3539cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -745,8 +745,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>pDate</rd:DefaultName>
-              <Top>1.80627cm</Top>
-              <Left>0.26458cm</Left>
+              <Top>2.85605cm</Top>
+              <Left>0.26459cm</Left>
               <Height>0.6cm</Height>
               <Width>9.58958cm</Width>
               <ZIndex>2</ZIndex>
@@ -767,7 +767,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>By: </Value>
+                      <Value>For: </Value>
                       <Style />
                     </TextRun>
                     <TextRun>
@@ -779,8 +779,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>pUser</rd:DefaultName>
-              <Top>2.54738cm</Top>
-              <Left>0.303cm</Left>
+              <Top>3.59716cm</Top>
+              <Left>0.30301cm</Left>
               <Height>0.6cm</Height>
               <Width>9.55117cm</Width>
               <ZIndex>3</ZIndex>
@@ -814,8 +814,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox37</rd:DefaultName>
-              <Top>3.43641cm</Top>
-              <Left>0.303cm</Left>
+              <Top>1.84154cm</Top>
+              <Left>0.26458cm</Left>
               <Height>0.83812cm</Height>
               <Width>9.55117cm</Width>
               <ZIndex>4</ZIndex>

@@ -15,7 +15,24 @@
         <xs:element name="dtZReport" msprop:Generator_TableClassName="dtZReportDataTable" msprop:Generator_TableVarName="tabledtZReport" msprop:Generator_RowChangedName="dtZReportRowChanged" msprop:Generator_TablePropName="dtZReport" msprop:Generator_RowDeletingName="dtZReportRowDeleting" msprop:Generator_RowChangingName="dtZReportRowChanging" msprop:Generator_RowEvHandlerName="dtZReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtZReportRowDeleted" msprop:Generator_RowClassName="dtZReportRow" msprop:Generator_UserTableName="dtZReport" msprop:Generator_RowEvArgName="dtZReportRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:string" minOccurs="0" />
+              <xs:element name="Transactions" msprop:Generator_ColumnVarNameInTable="columnTransactions" msprop:Generator_ColumnPropNameInRow="Transactions" msprop:Generator_ColumnPropNameInTable="TransactionsColumn" msprop:Generator_UserColumnName="Transactions" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Method" msprop:Generator_ColumnVarNameInTable="columnMethod" msprop:Generator_ColumnPropNameInRow="Method" msprop:Generator_ColumnPropNameInTable="MethodColumn" msprop:Generator_UserColumnName="Method" type="xs:string" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:string" minOccurs="0" />
+              <xs:element name="sales" msprop:Generator_ColumnVarNameInTable="columnsales" msprop:Generator_ColumnPropNameInRow="sales" msprop:Generator_ColumnPropNameInTable="salesColumn" msprop:Generator_UserColumnName="sales" type="xs:string" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtXReport" msprop:Generator_TableClassName="dtXReportDataTable" msprop:Generator_TableVarName="tabledtXReport" msprop:Generator_TablePropName="dtXReport" msprop:Generator_RowDeletingName="dtXReportRowDeleting" msprop:Generator_RowChangingName="dtXReportRowChanging" msprop:Generator_RowEvHandlerName="dtXReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtXReportRowDeleted" msprop:Generator_UserTableName="dtXReport" msprop:Generator_RowChangedName="dtXReportRowChanged" msprop:Generator_RowEvArgName="dtXReportRowChangeEvent" msprop:Generator_RowClassName="dtXReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Transactions" msprop:Generator_ColumnVarNameInTable="columnTransactions" msprop:Generator_ColumnPropNameInRow="Transactions" msprop:Generator_ColumnPropNameInTable="TransactionsColumn" msprop:Generator_UserColumnName="Transactions" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Method" msprop:Generator_ColumnVarNameInTable="columnMethod" msprop:Generator_ColumnPropNameInRow="Method" msprop:Generator_ColumnPropNameInTable="MethodColumn" msprop:Generator_UserColumnName="Method" type="xs:string" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:string" minOccurs="0" />
+              <xs:element name="sales" msprop:Generator_ColumnVarNameInTable="columnsales" msprop:Generator_ColumnPropNameInRow="sales" msprop:Generator_ColumnPropNameInTable="salesColumn" msprop:Generator_UserColumnName="sales" type="xs:string" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -75,7 +75,7 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTop.Name = "panelTop";
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelTop.Size = new System.Drawing.Size(1009, 41);
+            this.panelTop.Size = new System.Drawing.Size(948, 34);
             this.panelTop.TabIndex = 1;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown_1);
             // 
@@ -92,7 +92,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(962, 6);
+            this.btnExit.Location = new System.Drawing.Point(901, 6);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 29);
@@ -115,7 +115,7 @@ namespace CapstoneProject_3.POS_System
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMaximize.IconSize = 20;
             this.btnMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMaximize.Location = new System.Drawing.Point(917, 6);
+            this.btnMaximize.Location = new System.Drawing.Point(856, 6);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(47, 29);
@@ -139,7 +139,7 @@ namespace CapstoneProject_3.POS_System
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
             this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizeWindow.Location = new System.Drawing.Point(874, 6);
+            this.btnMinimizeWindow.Location = new System.Drawing.Point(813, 6);
             this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizeWindow.Name = "btnMinimizeWindow";
             this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);
@@ -155,7 +155,7 @@ namespace CapstoneProject_3.POS_System
             this.lblCurrentChildForm.AutoSize = true;
             this.lblCurrentChildForm.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentChildForm.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentChildForm.Location = new System.Drawing.Point(3, 14);
+            this.lblCurrentChildForm.Location = new System.Drawing.Point(3, 7);
             this.lblCurrentChildForm.Name = "lblCurrentChildForm";
             this.lblCurrentChildForm.Size = new System.Drawing.Size(105, 25);
             this.lblCurrentChildForm.TabIndex = 1;
@@ -181,9 +181,9 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dataGridView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 41);
+            this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1009, 458);
+            this.panel1.Size = new System.Drawing.Size(948, 452);
             this.panel1.TabIndex = 7;
             // 
             // btnSave
@@ -209,11 +209,10 @@ namespace CapstoneProject_3.POS_System
             // 
             // lblTotalSales
             // 
-            this.lblTotalSales.AutoSize = true;
-            this.lblTotalSales.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTotalSales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalSales.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSales.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalSales.Location = new System.Drawing.Point(892, 0);
+            this.lblTotalSales.Location = new System.Drawing.Point(828, 2);
             this.lblTotalSales.Name = "lblTotalSales";
             this.lblTotalSales.Size = new System.Drawing.Size(117, 30);
             this.lblTotalSales.TabIndex = 11;
@@ -312,7 +311,7 @@ namespace CapstoneProject_3.POS_System
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1009, 421);
+            this.dataGridView.Size = new System.Drawing.Size(948, 415);
             this.dataGridView.TabIndex = 6;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -408,13 +407,16 @@ namespace CapstoneProject_3.POS_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1009, 499);
+            this.ClientSize = new System.Drawing.Size(948, 486);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmDailySales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDailySales";
             this.Load += new System.EventHandler(this.frmDailySales_Load);
             this.Resize += new System.EventHandler(this.frmDailySales_Resize);

@@ -26,6 +26,25 @@ namespace CapstoneProject_3.POS_System
             cd = frm;
         }
         //Methods
+        public void updateSales()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"DELETE FROM tblSales WHERE TransactionID LIKE @tnumber";
+                    command.Parameters.AddWithValue("@tnumber", cd.txtTransNo.Text);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public void loadVariables()
         {   
             //Transaction Number
@@ -94,13 +113,14 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblCancelledOrders (transacID, pid, price, qty, total, sdate, authorizedBy,cashier, reason, action)
-                                            VALUES (@tid, @pid, @price, @qty, @total, @sdate, @admin,@user, @reason, @action)";
+                    command.CommandText = @"INSERT INTO tblCancelledOrders (transacID, pid, price, qty, total, stime,sdate, authorizedBy,cashier, reason, action)
+                                            VALUES (@tid, @pid, @price, @qty, @total, @stime,@sdate, @admin,@user, @reason, @action)";
                     command.Parameters.AddWithValue("@tid", tid);
                     command.Parameters.AddWithValue("@pid", pid);
                     command.Parameters.AddWithValue("@price", double.Parse(cd.txtPrice.Text));
                     command.Parameters.AddWithValue("@qty", int.Parse(cd.txtQtyBot.Text));
                     command.Parameters.AddWithValue("@total", double.Parse(cd.txtTotal.Text));
+                    command.Parameters.AddWithValue("@stime", DateTime.Now.ToString("H:mm:ss"));
                     command.Parameters.AddWithValue("@sdate", DateTime.Now.ToString("yyyyMMdd"));
                     command.Parameters.AddWithValue("@user", userID);
                     command.Parameters.AddWithValue("@admin", admin);
@@ -217,11 +237,11 @@ namespace CapstoneProject_3.POS_System
                             admin = int.Parse(reader["userID"].ToString());
                             saveToRecord();
                             updateCart();
-
+                            updateSales();
                             if (cd.cbAction.Text == "Yes")
                             {
                                 returnToinventoryYes();
-                                MessageBox.Show("Transaction Cancelled.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Transaction Refunded.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Dispose();
                                 cd.Dispose();
                                 cd.refreshTable();
@@ -229,7 +249,7 @@ namespace CapstoneProject_3.POS_System
                             else
                             {
                                 returnToinventoryNo();
-                                MessageBox.Show("Transaction Cancelled.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Transaction Refunded.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Dispose();
                                 cd.Dispose();
                                 cd.refreshTable();

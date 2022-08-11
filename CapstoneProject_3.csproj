@@ -339,11 +339,17 @@
     <Compile Include="Report_Forms\frmTopSellingReport.Designer.cs">
       <DependentUpon>frmTopSellingReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_Forms\frmXandYRDLC.cs">
+    <Compile Include="Report_Forms\frmXRDLC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_Forms\frmXandYRDLC.Designer.cs">
-      <DependentUpon>frmXandYRDLC.cs</DependentUpon>
+    <Compile Include="Report_Forms\frmXRDLC.Designer.cs">
+      <DependentUpon>frmXRDLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Forms\frmZRDLC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Forms\frmZRDLC.Designer.cs">
+      <DependentUpon>frmZRDLC.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Datasets\rwCriticalStock.rdlc" />
@@ -357,6 +363,7 @@
     <EmbeddedResource Include="Datasets\rwSoldItems.rdlc" />
     <EmbeddedResource Include="Datasets\rwStockIn.rdlc" />
     <EmbeddedResource Include="Datasets\rwTopTenSelling.rdlc" />
+    <EmbeddedResource Include="Datasets\rwXReport.rdlc" />
     <EmbeddedResource Include="Datasets\rwZReport.rdlc" />
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>
@@ -473,8 +480,11 @@
     <EmbeddedResource Include="Report_Forms\frmTopSellingReport.resx">
       <DependentUpon>frmTopSellingReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Forms\frmXandYRDLC.resx">
-      <DependentUpon>frmXandYRDLC.cs</DependentUpon>
+    <EmbeddedResource Include="Report_Forms\frmXRDLC.resx">
+      <DependentUpon>frmXRDLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Forms\frmZRDLC.resx">
+      <DependentUpon>frmZRDLC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Datasets\DataSetDailySalesReport.xsc">
       <DependentUpon>DataSetDailySalesReport.xsd</DependentUpon>
