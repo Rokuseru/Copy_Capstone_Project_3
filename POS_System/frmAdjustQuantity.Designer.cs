@@ -99,9 +99,10 @@ namespace CapstoneProject_3.POS_System
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtQty);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdjustQuantity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Adjust Quantity";
             this.Load += new System.EventHandler(this.frmAdjustQuantity_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

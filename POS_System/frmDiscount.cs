@@ -15,6 +15,7 @@ namespace CapstoneProject_3.POS_System
     public partial class frmDiscount : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+        AuditTrail log = new AuditTrail();
         frmPOS fpos;
         double disc;
         public frmDiscount(frmPOS pos)
@@ -94,6 +95,9 @@ namespace CapstoneProject_3.POS_System
                     txtDiscount.Clear();
                     this.Close();
                }
+                //logs
+                log.loadUserID(fpos.lblUser.Text);
+                log.insertAction("Add Discount", "Deducted " +txtDiscAmount.Text + " from the Total Amount of " + txtPrice.Text, this.Text);
             }
             catch (Exception ex)
             {

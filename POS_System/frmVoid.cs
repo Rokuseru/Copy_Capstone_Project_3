@@ -15,6 +15,7 @@ namespace CapstoneProject_3.POS_System
     public partial class frmVoid : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+        AuditTrail log = new AuditTrail();
         frmRefundDetails cd;
         public int admin = 0;
         public int tid = 0;
@@ -128,6 +129,9 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@action", cd.cbAction.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(userID.ToString());
+                log.insertAction("Refund", "Refunded the Amount of " + cd.txtPrice.Text + "to Transaction with Reference Code " + cd.txtTransNo.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -214,7 +218,6 @@ namespace CapstoneProject_3.POS_System
         {
             this.Dispose();
         }
-
         private void btnGrant_Click(object sender, EventArgs e)
         {
             try
@@ -257,7 +260,6 @@ namespace CapstoneProject_3.POS_System
 
                         }
                     }
-
                 }
             }
             catch(Exception ex)

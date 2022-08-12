@@ -18,6 +18,7 @@ namespace CapstoneProject_3.POS_System
         frmPOS fpos;
         public double payment;
         int uid = 0;
+        AuditTrail log = new AuditTrail();
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         public frmSettlePayment(frmPOS pos)
@@ -135,6 +136,9 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@tendered", tendered);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(fpos.lblUser.Text);
+                log.insertAction("Completed A Transaction", "Reference Code " + fpos.lblTransNo.Text + "with a Total Sales of " + totalSales.ToString(), this.Text);
             }
             catch (Exception ex)
             {

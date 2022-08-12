@@ -22,6 +22,7 @@ namespace CapstoneProject_3.POS_System
         public double taxVat;
         public int uid = 0;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
+        AuditTrail log = new AuditTrail();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         //Fields
         private int borderSize = 2;
@@ -689,6 +690,9 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@timeIn", DateTime.Now.ToString("hh:mm:ss"));
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(lblUser.Text);
+                log.insertAction("Time-In", "User Time-in At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyyMMdd"), this.Text);
             }
             catch (Exception ex)
             {
@@ -696,7 +700,6 @@ namespace CapstoneProject_3.POS_System
                 Console.WriteLine(ex.StackTrace);
             }
         }
-
         public void timeOut()
         {
             try
@@ -712,6 +715,9 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(lblUser.Text);
+                log.insertAction("Time-Out", "User Time-out At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyyMMdd"), this.Text);
             }
             catch (Exception ex)
             {

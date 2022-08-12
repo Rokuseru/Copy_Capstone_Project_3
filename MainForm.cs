@@ -507,7 +507,7 @@ namespace CapstoneProject_3
         private void btnVendor_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmVendor());
+            OpenChildForm(new frmVendor(this));
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -520,6 +520,12 @@ namespace CapstoneProject_3
         {
             ActivateButton(sender);
             OpenChildForm(new frmRecords());
+        }
+
+        private void btnActivityLog_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmAuditTrail());
         }
     }
 }

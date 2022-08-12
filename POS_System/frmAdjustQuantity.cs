@@ -16,6 +16,7 @@ namespace CapstoneProject_3.POS_System
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         Notification ntf = new Notification();
+        AuditTrail log = new AuditTrail();
         frmPOS ps;
         private int _qty;
         private int pid;
@@ -70,6 +71,9 @@ namespace CapstoneProject_3.POS_System
 
                     this.Dispose();
                 }
+                //logs
+                log.loadUserID(ps.lblUser.Text);
+                log.insertAction("Ajust Quantity", txtQty.Text, this.Text);
             }
             catch (Exception ex)
             {

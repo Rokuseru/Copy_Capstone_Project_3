@@ -131,6 +131,7 @@ namespace CapstoneProject_3
             this.btnActivityLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnActivityLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActivityLog.UseVisualStyleBackColor = false;
+            this.btnActivityLog.Click += new System.EventHandler(this.btnActivityLog_Click);
             // 
             // btnHistory
             // 

@@ -16,7 +16,6 @@ namespace CapstoneProject_3
     public partial class frmVendor : Form
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        Notification ntf = new Notification();
         showToast toast = new showToast();
         AuditTrail log = new AuditTrail();
         MainForm main;
@@ -150,7 +149,6 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void frmVendor_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);

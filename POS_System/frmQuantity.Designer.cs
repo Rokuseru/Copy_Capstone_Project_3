@@ -100,9 +100,10 @@ namespace CapstoneProject_3.POS_System
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtQty);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmQuantity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quantity Module";
             this.Load += new System.EventHandler(this.frmQuantity_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
