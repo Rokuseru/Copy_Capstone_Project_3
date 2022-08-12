@@ -429,6 +429,7 @@ namespace CapstoneProject_3
             this.btnBack2.TabIndex = 18;
             this.btnBack2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
             // 
             // frmBrand
             // 

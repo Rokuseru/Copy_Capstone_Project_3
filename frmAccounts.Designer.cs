@@ -475,6 +475,7 @@ namespace CapstoneProject_3
             // 
             this.tabManage.BackColor = System.Drawing.Color.White;
             this.tabManage.Controls.Add(this.dataGridView);
+            this.tabManage.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabManage.HorizontalScrollbarBarColor = true;
             this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
             this.tabManage.HorizontalScrollbarSize = 10;
@@ -496,11 +497,14 @@ namespace CapstoneProject_3
             this.dataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -517,20 +521,19 @@ namespace CapstoneProject_3
             this.disable});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(161)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.Location = new System.Drawing.Point(0, 20);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
@@ -539,9 +542,9 @@ namespace CapstoneProject_3
             this.dataGridView.RowHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(792, 367);
+            this.dataGridView.Size = new System.Drawing.Size(792, 387);
             this.dataGridView.TabIndex = 16;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -551,7 +554,7 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 37;
+            this.Column3.Width = 39;
             // 
             // userID
             // 
@@ -575,7 +578,7 @@ namespace CapstoneProject_3
             this.role.HeaderText = "Role";
             this.role.Name = "role";
             this.role.ReadOnly = true;
-            this.role.Width = 52;
+            this.role.Width = 57;
             // 
             // status
             // 
@@ -583,7 +586,7 @@ namespace CapstoneProject_3
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
-            this.status.Width = 60;
+            this.status.Width = 69;
             // 
             // disable
             // 

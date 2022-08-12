@@ -16,8 +16,11 @@ namespace CapstoneProject_3
     {
         showToast toast = new showToast();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        public frmCategory()
+        AuditTrail log = new AuditTrail();
+        MainForm main;
+        public frmCategory( MainForm m)
         {
+            main = m;
             InitializeComponent();
         }
         //Insert Category
@@ -36,6 +39,10 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@category", txtCategoryName.Text);
                         command.ExecuteNonQuery();
                     }
+                    //Logs
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Add Category", txtCategoryName.Text, this.Text);
+                    //Toast Notification
                     toast.showToastNotif(new ToastNotification("Category Added Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
                 catch (Exception ex)
@@ -65,6 +72,10 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@category", txtCategoryName.Text);
                     command.ExecuteReader();
                 }
+                //Logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Edit Category", txtCategoryName.Text, this.Text);
+
                 toast.showToastNotif(new ToastNotification("Category Updated Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadAllCategory();
             }
@@ -73,7 +84,6 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void loadAllCategory()
         {
             try
@@ -146,6 +156,10 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
                         command.ExecuteReader();
                     }
+                    //Logs
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
+
                     toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
 
                     loadAllCategory();

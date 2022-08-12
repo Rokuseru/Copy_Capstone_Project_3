@@ -16,6 +16,7 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         showToast toast = new showToast();
+        AuditTrail log = new AuditTrail();
         MainForm mf;
         public string vendorID;
         public frmStockEntry(MainForm main)
@@ -48,6 +49,35 @@ namespace CapstoneProject_3
                         {
                             cbVendor.Items.Add(reader["Vendor"].ToString());
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void generateRefCode()
+        {
+            try
+            {
+                string sql = @"SELECT MAX(referenceCode) FROM tblPurchaseOrder";
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    var refid = cmd.ExecuteScalar() as string;
+
+                    if (refid == null)
+                    {
+                        txtRefNo.Text = "SE-000001";
+                    }
+                    else
+                    {
+                        int intval = int.Parse(refid.Substring(3, 6));
+                        intval++;
+                        txtRefNo.Text = String.Format("SE-{0:000000}", intval);
                     }
                 }
             }
@@ -165,6 +195,10 @@ namespace CapstoneProject_3
                                 command.ExecuteNonQuery();
                             }
                         }
+                        //Logs
+                        log.loadUserID(mf.lblUser.Text);
+                        log.insertAction("Enter Stock", txtRefNo.Text, this.Text);
+
                         toast.showToastNotifInPanel(new ToastNotification("Stock In Successful", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panel2);
                         clear();
                     }

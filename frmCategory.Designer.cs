@@ -78,7 +78,7 @@ namespace CapstoneProject_3
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(800, 442);
             this.tabControl.TabIndex = 3;
             this.tabControl.UseSelectable = true;
@@ -93,6 +93,7 @@ namespace CapstoneProject_3
             this.tabCategoryList.Controls.Add(this.btnBack);
             this.tabCategoryList.Controls.Add(this.btnAddNew);
             this.tabCategoryList.Controls.Add(this.dataGridView);
+            this.tabCategoryList.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCategoryList.HorizontalScrollbarBarColor = true;
             this.tabCategoryList.HorizontalScrollbarHighlightOnWheel = false;
             this.tabCategoryList.HorizontalScrollbarSize = 10;
@@ -174,7 +175,7 @@ namespace CapstoneProject_3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(108, 16);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(519, 20);
+            this.txtSearch.Size = new System.Drawing.Size(519, 25);
             this.txtSearch.TabIndex = 16;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -232,7 +233,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -251,7 +252,7 @@ namespace CapstoneProject_3
             this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -271,7 +272,7 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 37;
+            this.Column3.Width = 39;
             // 
             // Column1
             // 

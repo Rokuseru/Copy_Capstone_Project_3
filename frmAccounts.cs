@@ -18,6 +18,7 @@ namespace CapstoneProject_3
         showToast toast = new showToast();
         private int uid = 0;
         private string pw = " ";
+        AuditTrail trail = new AuditTrail();
         public frmAccounts()
         {
             InitializeComponent();

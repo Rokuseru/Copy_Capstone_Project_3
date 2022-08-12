@@ -465,19 +465,19 @@ namespace CapstoneProject_3
         private void btnBrand_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmBrand());
+            OpenChildForm(new frmBrand(this));
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmCategory());
+            OpenChildForm(new frmCategory(this));
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmProducts());
+            OpenChildForm(new frmProducts(this));
         }
 
         private void btnPurchaseOrder_Click(object sender, EventArgs e)

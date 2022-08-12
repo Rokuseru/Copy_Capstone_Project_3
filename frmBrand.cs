@@ -15,8 +15,11 @@ namespace CapstoneProject_3
     public partial class frmBrand : Form
     {
         showToast toast = new showToast();
-        public frmBrand()
+        MainForm main;
+        AuditTrail log = new AuditTrail();
+        public frmBrand(MainForm m)
         {
+            main = m;
             InitializeComponent();
         }
         //Connection and command
@@ -96,6 +99,10 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@brand", txtBrandName.Text);
                         command.ExecuteNonQuery();
                     }
+                    //Logs
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Add Brand", this.txtBrandName.Text, this.Text);
+                    //Toast Notif
                     toast.showToastNotif(new ToastNotification("Brand Added Successfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                     txtBrandName.Clear();
                 }
@@ -127,6 +134,10 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@brand", txtBrandName.Text);
                         command.ExecuteReader();
                     }
+                    //Save to Audit Trail
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Edit Brand", this.txtBrandName.Text, this.Text);
+                    //Toast Notification
                     toast.showToastNotif(new ToastNotification("Brand Updated Successfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
                 catch (Exception ex)
@@ -166,7 +177,6 @@ namespace CapstoneProject_3
         {
             tabControl.TabPages.Remove(tabManage);
             tabControl.TabPages.Add(tabBrandList);
-            toast.showToastNotif(new ToastNotification("Operation Cancelled", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabBrandList);
             btnSave.Enabled = true;
             btnSaveUpdate.Enabled = true;
             loadAllBrands();
@@ -196,7 +206,7 @@ namespace CapstoneProject_3
 
                         if (i > 0)
                         {
-                            MessageBox.Show("Failed to Add Brand. Brand Already Exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show("Brand Already Exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             return;
                         }
                         else
@@ -253,6 +263,8 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
                         command.ExecuteReader();
                     }
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Delete Brand", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
                     loadAllBrands();
                     toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabBrandList);
                 }
@@ -266,6 +278,11 @@ namespace CapstoneProject_3
             {
                 return;
             }
+        }
+
+        private void btnBack2_Click(object sender, EventArgs e)
+        {
+            btnCancel_Click(sender, e);
         }
     }
 }

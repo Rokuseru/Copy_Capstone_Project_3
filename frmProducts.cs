@@ -16,10 +16,13 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         showToast toast = new showToast();
+        AuditTrail log = new AuditTrail();
+        MainForm main;
         public string bid;
         public string cid;
-        public frmProducts()
+        public frmProducts(MainForm m)
         {
+            main = m;
             InitializeComponent();
         }
 
@@ -134,13 +137,15 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@reorder", txtReorder.Text);
                         command.ExecuteNonQuery();
                 }
+                //Logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Add Product", txtProdDesc.Text, this.Text);
             }
                 catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }      
         }
-
         public void updateProduct()
         {
             try
@@ -159,6 +164,10 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@reorder",txtReorder.Text);
                     command.ExecuteReader();
                 }
+                //Logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Edit Product", dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
+
                 toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadProducts();
             }
@@ -341,8 +350,11 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
                         command.ExecuteReader();
                     }
-                    loadProducts();
+                    //Logs
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
 
+                    loadProducts();
                     toast.showToastNotif(new ToastNotification("Product Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabProductList);
                 }
                 catch (Exception ex)

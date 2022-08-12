@@ -18,8 +18,11 @@ namespace CapstoneProject_3
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         Notification ntf = new Notification();
         showToast toast = new showToast();
-        public frmVendor()
+        AuditTrail log = new AuditTrail();
+        MainForm main;
+        public frmVendor(MainForm m)
         {
+            main = m;
             InitializeComponent();
         }
         public void clear()
@@ -79,6 +82,9 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@email", txtEmail.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Add Vendor", txtVendor.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -103,6 +109,9 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@email", txtEmail.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Edit Vendor", txtVendor.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -277,6 +286,9 @@ namespace CapstoneProject_3
                         command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
                         command.ExecuteReader();
                     }
+                    //logs
+                    log.loadUserID(main.lblUser.Text);
+                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
                     loadVendor();
                 }
                 catch (Exception ex)

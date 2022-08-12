@@ -16,6 +16,7 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         showToast toast = new showToast();
+        AuditTrail log = new AuditTrail();
         private int userID = 0;
         private int _qty = 0;
         private int pid = 0;
@@ -56,6 +57,35 @@ namespace CapstoneProject_3
                 }
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void generateRefCode()
+        {
+            try
+            {
+                string sql = @"SELECT MAX(referenceCode) FROM tblPurchaseOrder";
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    var refid = cmd.ExecuteScalar() as string;
+
+                    if (refid == null)
+                    {
+                        txtRefNo.Text = "SA-000001";
+                    }
+                    else
+                    {
+                        int intval = int.Parse(refid.Substring(3, 6));
+                        intval++;
+                        txtRefNo.Text = String.Format("SA-{0:000000}", intval);
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -275,6 +305,10 @@ namespace CapstoneProject_3
                             MessageBox.Show("Command is Empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             cbCommand.Focus();
                         }
+                        //logs
+                        log.loadUserID(frm.lblUser.Text);
+                        log.insertAction("Adjust Stock", txtRefNo.Text, this.Text);
+
                         insertToAdjustmentTable();
                         clear();
                         loadProducts();

@@ -89,6 +89,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditTrail.cs" />
     <Compile Include="Datasets\DataSetDailySalesReport.cs">
       <DependentUpon>DataSetDailySalesReport.xsd</DependentUpon>
     </Compile>
@@ -129,6 +130,12 @@
     </Compile>
     <Compile Include="frmAccounts.Designer.cs">
       <DependentUpon>frmAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuditTrail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAuditTrail.Designer.cs">
+      <DependentUpon>frmAuditTrail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBrand.cs">
       <SubType>Form</SubType>
@@ -367,6 +374,9 @@
     <EmbeddedResource Include="Datasets\rwZReport.rdlc" />
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuditTrail.resx">
+      <DependentUpon>frmAuditTrail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBrand.resx">
       <DependentUpon>frmBrand.cs</DependentUpon>

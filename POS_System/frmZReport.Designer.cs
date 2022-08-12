@@ -456,6 +456,7 @@ namespace CapstoneProject_3.POS_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmZReport";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmZReport";
             this.Load += new System.EventHandler(this.frmZReport_Load);

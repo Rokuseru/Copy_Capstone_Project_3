@@ -33,11 +33,6 @@ namespace CapstoneProject_3.POS_System
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.btnPrint = new RJCodeAdvance.RJControls.RJButton();
-            this.cbUsers = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblOpenedOn = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTransactions = new System.Windows.Forms.Label();
@@ -48,6 +43,11 @@ namespace CapstoneProject_3.POS_System
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.lblOpenedOn = new System.Windows.Forms.Label();
+            this.btnPrint = new RJCodeAdvance.RJControls.RJButton();
+            this.cbUsers = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -115,67 +115,6 @@ namespace CapstoneProject_3.POS_System
             this.MainPanel.Padding = new System.Windows.Forms.Padding(10);
             this.MainPanel.Size = new System.Drawing.Size(350, 197);
             this.MainPanel.TabIndex = 14;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrint.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrint.BorderRadius = 5;
-            this.btnPrint.BorderSize = 0;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(218, 160);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(118, 28);
-            this.btnPrint.TabIndex = 15;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.TextColor = System.Drawing.Color.White;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // cbUsers
-            // 
-            this.cbUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbUsers.FormattingEnabled = true;
-            this.cbUsers.Location = new System.Drawing.Point(120, 10);
-            this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(217, 25);
-            this.cbUsers.TabIndex = 8;
-            this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(12, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 21);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "User";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(11, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Opened On";
-            // 
-            // lblOpenedOn
-            // 
-            this.lblOpenedOn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpenedOn.ForeColor = System.Drawing.Color.Black;
-            this.lblOpenedOn.Location = new System.Drawing.Point(118, 44);
-            this.lblOpenedOn.Name = "lblOpenedOn";
-            this.lblOpenedOn.Size = new System.Drawing.Size(220, 21);
-            this.lblOpenedOn.TabIndex = 20;
-            this.lblOpenedOn.Text = "--------------------";
             // 
             // tableLayoutPanel1
             // 
@@ -290,6 +229,67 @@ namespace CapstoneProject_3.POS_System
             this.label16.Text = "Total Sales";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblOpenedOn
+            // 
+            this.lblOpenedOn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpenedOn.ForeColor = System.Drawing.Color.Black;
+            this.lblOpenedOn.Location = new System.Drawing.Point(118, 44);
+            this.lblOpenedOn.Name = "lblOpenedOn";
+            this.lblOpenedOn.Size = new System.Drawing.Size(220, 21);
+            this.lblOpenedOn.TabIndex = 20;
+            this.lblOpenedOn.Text = "--------------------";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrint.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrint.BorderRadius = 5;
+            this.btnPrint.BorderSize = 0;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(218, 160);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(118, 28);
+            this.btnPrint.TabIndex = 15;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.TextColor = System.Drawing.Color.White;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // cbUsers
+            // 
+            this.cbUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUsers.FormattingEnabled = true;
+            this.cbUsers.Location = new System.Drawing.Point(120, 10);
+            this.cbUsers.Name = "cbUsers";
+            this.cbUsers.Size = new System.Drawing.Size(217, 25);
+            this.cbUsers.TabIndex = 8;
+            this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 21);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "User";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(11, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Opened On";
+            // 
             // frmXReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -300,6 +300,7 @@ namespace CapstoneProject_3.POS_System
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmXReport";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXandZReport";
             this.Load += new System.EventHandler(this.frmXReport_Load);

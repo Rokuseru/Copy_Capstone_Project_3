@@ -48,7 +48,7 @@ namespace CapstoneProject_3.POS_System
             this.btnXReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXReport.ForeColor = System.Drawing.Color.White;
             this.btnXReport.Location = new System.Drawing.Point(13, 46);
-            this.btnXReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnXReport.Name = "btnXReport";
             this.btnXReport.Size = new System.Drawing.Size(122, 76);
             this.btnXReport.TabIndex = 17;
@@ -133,8 +133,9 @@ namespace CapstoneProject_3.POS_System
             this.Controls.Add(this.btnXReport);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmXandZReports";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXandZReports";
             this.panel1.ResumeLayout(false);

@@ -16,6 +16,7 @@ namespace CapstoneProject_3
     {
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         public bool found = false;
+        AuditTrail log = new AuditTrail();
         public frmLogin()
         {
             InitializeComponent();
@@ -65,7 +66,7 @@ namespace CapstoneProject_3
                         reader.Read();
                         if (reader.HasRows)
                         {
-                            found = true;
+                             found = true;
                             _username = reader["username"].ToString();
                             _role = reader["role"].ToString();
                             _Name = reader["Name"].ToString();
@@ -86,6 +87,9 @@ namespace CapstoneProject_3
                                 admin.lblUser.Text = _Name;
                                 this.Hide();
                                 admin.ShowDialog();
+                                //Logs
+                                log.loadUserID(_Name);
+                                log.insertAction("Login", "Admin", this.Text);
                             }
                             else if (_role == "Cashier")
                             {
@@ -96,6 +100,9 @@ namespace CapstoneProject_3
                                 pos.lblRole.Text = _role + " | ";
                                 this.Hide();
                                 pos.ShowDialog();
+                                //Logs
+                                log.loadUserID(_Name);
+                                log.insertAction("Login", "Cashier", this.Text);
                             }
                             else
                             {
