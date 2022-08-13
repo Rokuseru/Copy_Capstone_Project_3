@@ -248,11 +248,11 @@
     <Compile Include="POS_System\frmAdjustQuantity.Designer.cs">
       <DependentUpon>frmAdjustQuantity.cs</DependentUpon>
     </Compile>
-    <Compile Include="POS_System\frmCancelDetails.cs">
+    <Compile Include="POS_System\frmRefundDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POS_System\frmCancelDetails.Designer.cs">
-      <DependentUpon>frmCancelDetails.cs</DependentUpon>
+    <Compile Include="POS_System\frmRefundDetails.Designer.cs">
+      <DependentUpon>frmRefundDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="POS_System\frmDailySales.cs">
       <SubType>Form</SubType>
@@ -432,8 +432,8 @@
     <EmbeddedResource Include="POS_System\frmAdjustQuantity.resx">
       <DependentUpon>frmAdjustQuantity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POS_System\frmCancelDetails.resx">
-      <DependentUpon>frmCancelDetails.cs</DependentUpon>
+    <EmbeddedResource Include="POS_System\frmRefundDetails.resx">
+      <DependentUpon>frmRefundDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS_System\frmDailySales.resx">
       <DependentUpon>frmDailySales.cs</DependentUpon>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapstoneProject_3.Datasets;
 using Microsoft.Reporting.WinForms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -19,11 +20,22 @@ namespace CapstoneProject_3.POS_System
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         string store = "Andres Delegencia Store";
         string address = "Pilar, Capiz, Philippines";
+
+        //Fields
+        private int borderSize = 1;
         public frmReceipt(frmPOS pos)
         {
             fpos = pos;
             InitializeComponent();
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //Methods
         public void loadReport()
         {
@@ -96,6 +108,12 @@ namespace CapstoneProject_3.POS_System
         {
 
             this.reportViewer1.RefreshReport();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

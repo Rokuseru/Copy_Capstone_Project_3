@@ -78,6 +78,7 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panelTop.Size = new System.Drawing.Size(777, 41);
             this.panelTop.TabIndex = 3;
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
             // btnExit
             // 
@@ -91,11 +92,10 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(730, 5);
+            this.btnExit.Location = new System.Drawing.Point(730, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 29);
+            this.btnExit.Size = new System.Drawing.Size(47, 41);
             this.btnExit.TabIndex = 9;
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -114,11 +114,10 @@ namespace CapstoneProject_3.POS_System
             this.btnMinimizeWindow.IconColor = System.Drawing.Color.White;
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
-            this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMinimizeWindow.Location = new System.Drawing.Point(677, 3);
             this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizeWindow.Name = "btnMinimizeWindow";
-            this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 29);
+            this.btnMinimizeWindow.Size = new System.Drawing.Size(47, 38);
             this.btnMinimizeWindow.TabIndex = 7;
             this.btnMinimizeWindow.Tag = "";
             this.btnMinimizeWindow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

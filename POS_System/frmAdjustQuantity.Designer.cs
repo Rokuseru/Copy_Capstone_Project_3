@@ -59,10 +59,9 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.Location = new System.Drawing.Point(258, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 23);
+            this.btnExit.Size = new System.Drawing.Size(40, 40);
             this.btnExit.TabIndex = 7;
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -79,6 +78,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(298, 40);
             this.panel1.TabIndex = 12;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // txtQty
             // 

@@ -88,7 +88,7 @@ namespace CapstoneProject_3
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(917, 495);
             this.tabControl.TabIndex = 6;
             this.tabControl.UseSelectable = true;
@@ -542,7 +542,7 @@ namespace CapstoneProject_3
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
             this.Name = "frmVendor";
-            this.Text = "Vendor";
+            this.Text = "Vendor Module";
             this.Load += new System.EventHandler(this.frmVendor_Load);
             this.tabControl.ResumeLayout(false);
             this.tabVendorList.ResumeLayout(false);

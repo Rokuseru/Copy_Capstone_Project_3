@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapstoneProject_3.Notifications;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -17,11 +18,22 @@ namespace CapstoneProject_3.POS_System
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmPOS fpos;
         Notification ntf = new Notification();
+
+        //Fields
+        private int borderSize = 1;
         public frmProductSearch(frmPOS pos)
         {
             InitializeComponent();
             fpos = pos;
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         public void loadProduct()
         {
             try
@@ -112,6 +124,12 @@ namespace CapstoneProject_3.POS_System
                 qty.txtQty.Focus();
                 qty.ShowDialog();
             }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

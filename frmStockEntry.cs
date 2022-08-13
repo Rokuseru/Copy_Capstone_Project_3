@@ -197,7 +197,7 @@ namespace CapstoneProject_3
                         }
                         //Logs
                         log.loadUserID(mf.lblUser.Text);
-                        log.insertAction("Enter Stock", txtRefNo.Text, this.Text);
+                        log.insertAction("Enter Stock", "Stock Updated with Reference Code: " + txtRefNo.Text, this.Text);
 
                         toast.showToastNotifInPanel(new ToastNotification("Stock In Successful", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panel2);
                         clear();
@@ -218,18 +218,15 @@ namespace CapstoneProject_3
             this.txtStockInBy.Text = mf.lblUser.Text;
             loadVendor();
         }
-
         private void btnRefNo_Click(object sender, EventArgs e)
         {
             generateRefNo();
         }
-
         private void btnProductList_Click(object sender, EventArgs e)
         {
             frmSearchProducts productList = new frmSearchProducts(this);
             productList.ShowDialog();
         }
-
         private void cbVendor_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -255,12 +252,10 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadProducts();
         }
-
         private void dataGridViewStockEntry_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colname = dataGridViewStockEntry.Columns[e.ColumnIndex].Name;
@@ -283,7 +278,6 @@ namespace CapstoneProject_3
                             MessageBox.Show("Deleted Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             loadProducts();
                         }
-
                     }
                 }
                
@@ -293,7 +287,6 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveQty();

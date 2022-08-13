@@ -455,9 +455,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
             <Top>4.44142cm</Top>
-            <Left>7.48648cm</Left>
+            <Left>7.28485cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.11068cm</Width>
+            <Width>2.31231cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -487,9 +487,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
             <Top>3.73559cm</Top>
-            <Left>7.48648cm</Left>
+            <Left>7.28485cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.12957cm</Width>
+            <Width>2.3312cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -519,7 +519,7 @@
             <Top>4.44142cm</Top>
             <Left>0.1323cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.32894cm</Width>
+            <Width>7.15255cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -551,7 +551,7 @@
             <Top>5.11198cm</Top>
             <Left>0.1323cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.32894cm</Width>
+            <Width>7.15255cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -581,7 +581,7 @@
             <Top>3.73559cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.32895cm</Width>
+            <Width>7.15256cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -613,7 +613,7 @@
             <Top>2.80045cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.86458cm</Height>
-            <Width>7.32896cm</Width>
+            <Width>7.15256cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -679,9 +679,9 @@
             </Paragraphs>
             <rd:DefaultName>pTotal</rd:DefaultName>
             <Top>2.80045cm</Top>
-            <Left>7.48648cm</Left>
+            <Left>7.28485cm</Left>
             <Height>0.86458cm</Height>
-            <Width>2.12957cm</Width>
+            <Width>2.3312cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -709,9 +709,9 @@
             </Paragraphs>
             <rd:DefaultName>pChange</rd:DefaultName>
             <Top>5.14726cm</Top>
-            <Left>7.46124cm</Left>
+            <Left>7.28485cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.13592cm</Width>
+            <Width>2.31231cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -895,7 +895,7 @@
             <Top>2.02406cm</Top>
             <Left>0.15876cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.30248cm</Width>
+            <Width>7.12609cm</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -927,9 +927,9 @@
             </Paragraphs>
             <rd:DefaultName>pQty</rd:DefaultName>
             <Top>2.02406cm</Top>
-            <Left>7.49652cm</Left>
+            <Left>7.28485cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.11953cm</Width>
+            <Width>2.3312cm</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>

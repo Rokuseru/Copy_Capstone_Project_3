@@ -442,7 +442,7 @@ namespace CapstoneProject_3
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
             this.Name = "frmCategory";
-            this.Text = "Category";
+            this.Text = "Category Module";
             this.Load += new System.EventHandler(this.frmCategory_Load);
             this.tabControl.ResumeLayout(false);
             this.tabCategoryList.ResumeLayout(false);

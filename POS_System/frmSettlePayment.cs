@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Data.SqlClient;
 using CapstoneProject_3.Notifications;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -21,11 +22,22 @@ namespace CapstoneProject_3.POS_System
         AuditTrail log = new AuditTrail();
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+
+        //Fields
+        private int borderSize = 1;
         public frmSettlePayment(frmPOS pos)
         {
             InitializeComponent();
             fpos = pos;
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //Methods
         //Clear pos labels
         public void clear()
@@ -138,7 +150,7 @@ namespace CapstoneProject_3.POS_System
                 }
                 //logs
                 log.loadUserID(fpos.lblUser.Text);
-                log.insertAction("Completed A Transaction", "Reference Code " + fpos.lblTransNo.Text + "with a Total Sales of " + totalSales.ToString(), this.Text);
+                log.insertAction("Transaction Successful", "Reference Code " + fpos.lblTransNo.Text + "with a Total Sales of " + totalSales.ToString(), this.Text);
             }
             catch (Exception ex)
             {
@@ -294,6 +306,12 @@ namespace CapstoneProject_3.POS_System
             {
                 MessageBox.Show(ex.Message);
             } 
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

@@ -139,7 +139,7 @@ namespace CapstoneProject_3
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Add Product", txtProdDesc.Text, this.Text);
+                log.insertAction("Add Product", "Added New Product: " + txtProdDesc.Text + "with Product Code: " + txtProdCode.Text, this.Text);
             }
                 catch (Exception ex)
             {
@@ -166,7 +166,7 @@ namespace CapstoneProject_3
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Edit Product", dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
+                log.insertAction("Edit Product", "Updated the Product" + dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
 
                 toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadProducts();
@@ -352,7 +352,7 @@ namespace CapstoneProject_3
                     }
                     //Logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
+                    log.insertAction("Delete", "Deleted the Product: " + dataGridView.CurrentRow.Cells[4].Value.ToString(), this.Text);
 
                     loadProducts();
                     toast.showToastNotif(new ToastNotification("Product Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabProductList);

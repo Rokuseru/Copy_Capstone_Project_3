@@ -41,7 +41,7 @@ namespace CapstoneProject_3
                     }
                     //Logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Add Category", txtCategoryName.Text, this.Text);
+                    log.insertAction("Add Category", "Added New Category: "+txtCategoryName.Text, this.Text);
                     //Toast Notification
                     toast.showToastNotif(new ToastNotification("Category Added Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
@@ -74,7 +74,7 @@ namespace CapstoneProject_3
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Edit Category", txtCategoryName.Text, this.Text);
+                log.insertAction("Edit Category", "Updated the Category: " + txtCategoryName.Text, this.Text);
 
                 toast.showToastNotif(new ToastNotification("Category Updated Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadAllCategory();
@@ -158,7 +158,7 @@ namespace CapstoneProject_3
                     }
                     //Logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
+                    log.insertAction("Delete", "Deleted the Category: " +dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
 
                     toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
 

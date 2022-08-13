@@ -39,14 +39,25 @@ namespace CapstoneProject_3
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRefNo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnGenerateRef = new FontAwesome.Sharp.IconButton();
             this.txtProductCode = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -58,18 +69,7 @@ namespace CapstoneProject_3
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.cbCommand = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnGenerateRef = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -120,6 +120,25 @@ namespace CapstoneProject_3
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(448, 23);
             this.txtSearch.TabIndex = 89;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Enabled = false;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 25;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSearch.Location = new System.Drawing.Point(61, 180);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(31, 28);
+            this.btnSearch.TabIndex = 88;
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -196,6 +215,82 @@ namespace CapstoneProject_3
             this.dataGridView.TabIndex = 86;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 39;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "productID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // pcode
+            // 
+            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pcode.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pcode.HeaderText = "Product Code";
+            this.pcode.Name = "pcode";
+            this.pcode.ReadOnly = true;
+            this.pcode.Width = 104;
+            // 
+            // desc
+            // 
+            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Brand";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 67;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "Category";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 87;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "Price";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 60;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.HeaderText = "Stock On-Hand";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 113;
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.select.HeaderText = "";
+            this.select.Image = global::CapstoneProject_3.Properties.Resources.icons8_chevron_right_50;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 5;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -215,6 +310,7 @@ namespace CapstoneProject_3
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.txtQty);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtRefNo);
@@ -267,6 +363,23 @@ namespace CapstoneProject_3
             this.label12.TabIndex = 68;
             this.label12.Text = "Reference Code";
             // 
+            // btnGenerateRef
+            // 
+            this.btnGenerateRef.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerateRef.FlatAppearance.BorderSize = 0;
+            this.btnGenerateRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateRef.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnGenerateRef.IconChar = FontAwesome.Sharp.IconChar.Random;
+            this.btnGenerateRef.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnGenerateRef.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGenerateRef.IconSize = 29;
+            this.btnGenerateRef.Location = new System.Drawing.Point(455, 19);
+            this.btnGenerateRef.Name = "btnGenerateRef";
+            this.btnGenerateRef.Size = new System.Drawing.Size(31, 26);
+            this.btnGenerateRef.TabIndex = 69;
+            this.btnGenerateRef.UseVisualStyleBackColor = true;
+            this.btnGenerateRef.Click += new System.EventHandler(this.btnGenerateRef_Click);
+            // 
             // txtProductCode
             // 
             this.txtProductCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -308,6 +421,7 @@ namespace CapstoneProject_3
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.txtUser);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label7);
@@ -378,72 +492,6 @@ namespace CapstoneProject_3
             this.label8.TabIndex = 76;
             this.label8.Text = "Remarks";
             // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "productID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // pcode
-            // 
-            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pcode.DefaultCellStyle = dataGridViewCellStyle3;
-            this.pcode.HeaderText = "Product Code";
-            this.pcode.Name = "pcode";
-            this.pcode.ReadOnly = true;
-            this.pcode.Width = 104;
-            // 
-            // desc
-            // 
-            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desc.HeaderText = "Description";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "Brand";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 67;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Category";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 87;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "Price";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 60;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.HeaderText = "Stock On-Hand";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 113;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -452,53 +500,6 @@ namespace CapstoneProject_3
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 5;
-            // 
-            // btnGenerateRef
-            // 
-            this.btnGenerateRef.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerateRef.FlatAppearance.BorderSize = 0;
-            this.btnGenerateRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateRef.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnGenerateRef.IconChar = FontAwesome.Sharp.IconChar.Random;
-            this.btnGenerateRef.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnGenerateRef.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGenerateRef.IconSize = 29;
-            this.btnGenerateRef.Location = new System.Drawing.Point(455, 19);
-            this.btnGenerateRef.Name = "btnGenerateRef";
-            this.btnGenerateRef.Size = new System.Drawing.Size(31, 26);
-            this.btnGenerateRef.TabIndex = 69;
-            this.btnGenerateRef.UseVisualStyleBackColor = true;
-            this.btnGenerateRef.Click += new System.EventHandler(this.btnGenerateRef_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Enabled = false;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 25;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSearch.Location = new System.Drawing.Point(61, 180);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(31, 28);
-            this.btnSearch.TabIndex = 88;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.select.HeaderText = "";
-            this.select.Image = global::CapstoneProject_3.Properties.Resources.icons8_chevron_right_50;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 5;
             // 
             // frmStockAdjustment
             // 
@@ -512,8 +513,8 @@ namespace CapstoneProject_3
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmStockAdjustment";
-            this.Tag = "Stock Adjustment";
-            this.Text = "Stock Adjustment";
+            this.Tag = "Stock Adjustment Module";
+            this.Text = "Stock Adjustment Module";
             this.Load += new System.EventHandler(this.frmStockAdjustment_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

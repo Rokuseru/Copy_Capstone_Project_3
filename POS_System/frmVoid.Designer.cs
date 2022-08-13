@@ -51,6 +51,7 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panelTop.Size = new System.Drawing.Size(297, 41);
             this.panelTop.TabIndex = 2;
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
             // btnExit
             // 
@@ -64,11 +65,10 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(250, 6);
+            this.btnExit.Location = new System.Drawing.Point(250, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 29);
+            this.btnExit.Size = new System.Drawing.Size(47, 41);
             this.btnExit.TabIndex = 9;
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -205,6 +205,7 @@ namespace CapstoneProject_3.POS_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVoid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Refund Module";
             this.Load += new System.EventHandler(this.frmVoid_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

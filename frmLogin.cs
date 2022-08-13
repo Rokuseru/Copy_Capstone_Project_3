@@ -89,7 +89,7 @@ namespace CapstoneProject_3
                                 admin.ShowDialog();
                                 //Logs
                                 log.loadUserID(_Name);
-                                log.insertAction("Login", "Admin", this.Text);
+                                log.insertAction("Login", "User: " + _Name + "Role: " + _role, this.Text);
                             }
                             else if (_role == "Cashier")
                             {
@@ -102,7 +102,7 @@ namespace CapstoneProject_3
                                 pos.ShowDialog();
                                 //Logs
                                 log.loadUserID(_Name);
-                                log.insertAction("Login", "Cashier", this.Text);
+                                log.insertAction("Login", "User: " + _Name + "Role: " + _role, this.Text);
                             }
                             else
                             {

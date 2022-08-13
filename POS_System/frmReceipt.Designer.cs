@@ -46,6 +46,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(352, 34);
             this.panel1.TabIndex = 2;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label4
             // 
@@ -73,7 +74,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.Location = new System.Drawing.Point(312, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 23);
+            this.btnExit.Size = new System.Drawing.Size(40, 34);
             this.btnExit.TabIndex = 7;
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
 using CapstoneProject_3.Report_Forms;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -19,11 +20,21 @@ namespace CapstoneProject_3.POS_System
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         public string timeOut = "";
         public string timeIn = "";
+        //Fields
+        private int borderSize = 1;
         public frmZReport()
         {
             InitializeComponent();
             loadUsers();
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void loadUsers()
         {
             try
@@ -81,7 +92,7 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //Edit this code here to add Other method
+        //Edit this code here to add Other Payment method
         private void loadTransactions()
         {
             try
@@ -217,6 +228,12 @@ namespace CapstoneProject_3.POS_System
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

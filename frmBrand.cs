@@ -101,7 +101,7 @@ namespace CapstoneProject_3
                     }
                     //Logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Add Brand", this.txtBrandName.Text, this.Text);
+                    log.insertAction("Add Brand", "Added New Brand: "+this.txtBrandName.Text, this.Text);
                     //Toast Notif
                     toast.showToastNotif(new ToastNotification("Brand Added Successfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                     txtBrandName.Clear();
@@ -136,7 +136,7 @@ namespace CapstoneProject_3
                     }
                     //Save to Audit Trail
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Edit Brand", this.txtBrandName.Text, this.Text);
+                    log.insertAction("Edit Brand", "Edited the Brand: "+this.txtBrandName.Text, this.Text);
                     //Toast Notification
                     toast.showToastNotif(new ToastNotification("Brand Updated Successfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
@@ -264,7 +264,7 @@ namespace CapstoneProject_3
                         command.ExecuteReader();
                     }
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete Brand", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
+                    log.insertAction("Delete Brand", "Deleted the Brand: "+dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
                     loadAllBrands();
                     toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabBrandList);
                 }

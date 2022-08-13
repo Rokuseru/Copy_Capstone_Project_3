@@ -200,6 +200,9 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@pcode", txtProductCode.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(frm.lblUser.Text);
+                log.insertAction("Stock Adjustment", "Product: " + txtDescription.Text +" Removed QTY: " + txtQty.Text + " with Reference: " + txtRefNo.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -221,6 +224,9 @@ namespace CapstoneProject_3
                     command.Parameters.AddWithValue("@pcode", txtProductCode.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(frm.lblUser.Text);
+                log.insertAction("Stock Adjustment", "Product: " + txtDescription.Text + " Added QTY: " + txtQty.Text + " with Reference: " + txtRefNo.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -305,10 +311,6 @@ namespace CapstoneProject_3
                             MessageBox.Show("Command is Empty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             cbCommand.Focus();
                         }
-                        //logs
-                        log.loadUserID(frm.lblUser.Text);
-                        log.insertAction("Adjust Stock", txtRefNo.Text, this.Text);
-
                         insertToAdjustmentTable();
                         clear();
                         loadProducts();

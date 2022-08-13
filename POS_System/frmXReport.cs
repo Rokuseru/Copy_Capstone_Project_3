@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
 using CapstoneProject_3.Report_Forms;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -22,11 +23,21 @@ namespace CapstoneProject_3.POS_System
         public string timeOut = "";
 
         frmPOS pos;
+        //Fields
+        private int borderSize = 1;
         public frmXReport(frmPOS fpos)
         {
             InitializeComponent();
             pos = fpos;
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void loadUsers()
         {
             try
@@ -216,6 +227,12 @@ namespace CapstoneProject_3.POS_System
             frmXRDLC xreport = new frmXRDLC(this);
             xreport.loadXReportRDLC();
             xreport.ShowDialog();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

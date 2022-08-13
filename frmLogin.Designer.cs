@@ -291,7 +291,7 @@ namespace CapstoneProject_3
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Log In Form";
+            this.Text = "Log In Module";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.titleAndImageHolder.ResumeLayout(false);
             this.titleAndImageHolder.PerformLayout();

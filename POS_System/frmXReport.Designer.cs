@@ -64,15 +64,16 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 45);
+            this.panel1.Size = new System.Drawing.Size(350, 36);
             this.panel1.TabIndex = 13;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 10);
+            this.label4.Location = new System.Drawing.Point(12, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 21);
             this.label4.TabIndex = 15;
@@ -92,7 +93,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconSize = 25;
             this.btnExit.Location = new System.Drawing.Point(303, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 45);
+            this.btnExit.Size = new System.Drawing.Size(47, 36);
             this.btnExit.TabIndex = 7;
             this.btnExit.Tag = "";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -109,11 +110,11 @@ namespace CapstoneProject_3.POS_System
             this.MainPanel.Controls.Add(this.label2);
             this.MainPanel.Controls.Add(this.label1);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 45);
+            this.MainPanel.Location = new System.Drawing.Point(0, 36);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(10);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.MainPanel.Size = new System.Drawing.Size(350, 197);
+            this.MainPanel.Size = new System.Drawing.Size(350, 206);
             this.MainPanel.TabIndex = 14;
             // 
             // tableLayoutPanel1

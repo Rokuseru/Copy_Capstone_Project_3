@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -18,12 +19,22 @@ namespace CapstoneProject_3.POS_System
         AuditTrail log = new AuditTrail();
         frmPOS fpos;
         double disc;
+
+        //Fields
+        private int borderSize = 1;
         public frmDiscount(frmPOS pos)
         {
             InitializeComponent();
             fpos = pos;
+            this.Padding = new Padding(borderSize);//Border size
+            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
-
+        //Form Properties
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -96,13 +107,21 @@ namespace CapstoneProject_3.POS_System
                     this.Close();
                }
                 //logs
+                double discount = Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency));
+                double price = Convert.ToDouble(Decimal.Parse(txtPrice.Text, NumberStyles.Currency));
                 log.loadUserID(fpos.lblUser.Text);
-                log.insertAction("Add Discount", "Deducted " +txtDiscAmount.Text + " from the Total Amount of " + txtPrice.Text, this.Text);
+                log.insertAction("Add Discount", "Deducted " +discount.ToString() + " from the Total Amount of " + price.ToString(), this.Text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

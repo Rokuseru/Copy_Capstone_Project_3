@@ -83,7 +83,7 @@ namespace CapstoneProject_3
                 }
                 //logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Add Vendor", txtVendor.Text, this.Text);
+                log.insertAction("Add Vendor", "Added New Vendor : " +txtVendor.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -286,7 +286,7 @@ namespace CapstoneProject_3
                     }
                     //logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete", dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
+                    log.insertAction("Delete", "Deleted Vendor: " +dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
                     loadVendor();
                 }
                 catch (Exception ex)

@@ -97,7 +97,7 @@ namespace CapstoneProject_3
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(917, 495);
             this.tabControl.TabIndex = 5;
             this.tabControl.UseSelectable = true;
@@ -112,7 +112,7 @@ namespace CapstoneProject_3
             this.tabProductList.Controls.Add(this.btnBack);
             this.tabProductList.Controls.Add(this.btnAddNew);
             this.tabProductList.Controls.Add(this.dataGridView);
-            this.tabProductList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabProductList.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabProductList.HorizontalScrollbarBarColor = true;
             this.tabProductList.HorizontalScrollbarHighlightOnWheel = false;
             this.tabProductList.HorizontalScrollbarSize = 10;
@@ -250,7 +250,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -274,7 +274,7 @@ namespace CapstoneProject_3
             this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
@@ -311,7 +311,7 @@ namespace CapstoneProject_3
             this.Column2.HeaderText = "Product Code";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 102;
+            this.Column2.Width = 104;
             // 
             // Column8
             // 
@@ -319,7 +319,7 @@ namespace CapstoneProject_3
             this.Column8.HeaderText = "Barcode";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 79;
+            this.Column8.Width = 80;
             // 
             // Column4
             // 
@@ -334,7 +334,7 @@ namespace CapstoneProject_3
             this.Column5.HeaderText = "Brand";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 65;
+            this.Column5.Width = 67;
             // 
             // Column6
             // 
@@ -342,7 +342,7 @@ namespace CapstoneProject_3
             this.Column6.HeaderText = "Category";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 84;
+            this.Column6.Width = 87;
             // 
             // Column7
             // 
@@ -352,7 +352,7 @@ namespace CapstoneProject_3
             this.Column7.HeaderText = "Price";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 59;
+            this.Column7.Width = 60;
             // 
             // Column9
             // 

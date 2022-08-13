@@ -454,12 +454,18 @@ namespace CapstoneProject_3.POS_System
                             if (this.lblRole.Text == "Admin")
                             {
                                 MainForm main = new MainForm();
+                                //logs
+                                log.loadUserID(lblUser.Text);
+                                log.insertAction("Logout", "User: " + lblUser.Text + "Role: " + lblRole.Text, this.Text);
                                 main.Show();
                                 this.Close();
                             }
                             else
                             {
                                 frmLogin login = new frmLogin();
+                                //logs
+                                log.loadUserID(lblUser.Text);
+                                log.insertAction("Logout", "User: " + lblUser.Text + "Role: " + lblRole.Text, this.Text);
                                 login.Show();
                                 this.Close();
                             }
@@ -640,6 +646,9 @@ namespace CapstoneProject_3.POS_System
                     command.Parameters.AddWithValue("tno", lblTransNo.Text);
                     command.ExecuteNonQuery();
                 }
+                //logs
+                log.loadUserID(lblUser.Text);
+                log.insertAction("Transaction Cancelled", "Cancelled Transaction with Transaction Number: "+lblTransNo.Text, this.Text);
             }
             catch (Exception ex)
             {
@@ -692,7 +701,7 @@ namespace CapstoneProject_3.POS_System
                 }
                 //logs
                 log.loadUserID(lblUser.Text);
-                log.insertAction("Time-In", "User Time-in At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyyMMdd"), this.Text);
+                log.insertAction("Time-In", "User Time-in At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyy-MM-dd"), this.Text);
             }
             catch (Exception ex)
             {
@@ -717,7 +726,7 @@ namespace CapstoneProject_3.POS_System
                 }
                 //logs
                 log.loadUserID(lblUser.Text);
-                log.insertAction("Time-Out", "User Time-out At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyyMMdd"), this.Text);
+                log.insertAction("Time-Out", "User Time-out At " + DateTime.Now.ToString("hh:mm:ss") + " on " + DateTime.Now.ToString("yyyy-MM-dd"), this.Text);
             }
             catch (Exception ex)
             {
