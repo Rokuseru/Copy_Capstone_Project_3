@@ -228,6 +228,41 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void loadStockHistory()
+        {
+            try
+            {
+                dataGridViewStockHistory.Rows.Clear();
+                int i = 0;
+                using (var connection = new SqlConnection(con))
+                using (var commamnd = new SqlCommand())
+                {
+                    connection.Open();
+                    commamnd.Connection = connection;
+                    commamnd.CommandText = @"SELECT p.Description , h.qty, h.date, h.time FROM tblStockHistory AS h
+                                             JOIN tblProduct AS p ON h.productID = p.productID
+                                             WHERE date BETWEEN @dateFrom AND @dateTo
+                                             AND time BETWEEN @timeFrom AND @timeTo";
+                    commamnd.Parameters.AddWithValue("@dateFrom", dateFrom5.Value.ToString("yyyy-MM-dd"));
+                    commamnd.Parameters.AddWithValue("@dateFrom", dateTo5.Value.ToString("yyyy-MM-dd"));
+                    commamnd.Parameters.AddWithValue("@timeFrom", dateFrom5.Value.ToString("HH:mm:ss.ffffff"));
+                    commamnd.Parameters.AddWithValue("@timeFrom", dateFrom5.Value.ToString("HH:mm:ss.ffffff"));
+
+                    using (var reader = commamnd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewStockHistory.Rows.Add(i,reader["Description"].ToString(), reader["qty"].ToString(), Convert.ToDateTime(reader["date"].ToString()).ToString("yyyy-MM-dd"), Convert.ToDateTime(reader["time"].ToString()).ToString("hh:mm:ss tt"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmSalesHistory_Load(object sender, EventArgs e)
         {
             dateTo.Value = DateTime.Today;
