@@ -46,6 +46,10 @@ namespace CapstoneProject_3
             this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
             this.lblCurrentChildForm = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStoreItems = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSystemItems = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCompare = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridViewStore = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,10 +63,6 @@ namespace CapstoneProject_3
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblSystemItems = new System.Windows.Forms.Label();
-            this.lblStoreItems = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panelTitleBar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStore)).BeginInit();
@@ -180,8 +180,46 @@ namespace CapstoneProject_3
             this.panel1.Location = new System.Drawing.Point(0, 37);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(8);
-            this.panel1.Size = new System.Drawing.Size(743, 482);
+            this.panel1.Size = new System.Drawing.Size(743, 475);
             this.panel1.TabIndex = 3;
+            // 
+            // lblStoreItems
+            // 
+            this.lblStoreItems.AutoSize = true;
+            this.lblStoreItems.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStoreItems.Location = new System.Drawing.Point(184, 436);
+            this.lblStoreItems.Name = "lblStoreItems";
+            this.lblStoreItems.Size = new System.Drawing.Size(37, 20);
+            this.lblStoreItems.TabIndex = 57;
+            this.lblStoreItems.Text = "0.00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 438);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(162, 17);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "Total Item(s) In the Store:";
+            // 
+            // lblSystemItems
+            // 
+            this.lblSystemItems.AutoSize = true;
+            this.lblSystemItems.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemItems.Location = new System.Drawing.Point(184, 416);
+            this.lblSystemItems.Name = "lblSystemItems";
+            this.lblSystemItems.Size = new System.Drawing.Size(37, 20);
+            this.lblSystemItems.TabIndex = 55;
+            this.lblSystemItems.Text = "0.00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 418);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 17);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Total Item(s) In the System:";
             // 
             // btnCompare
             // 
@@ -395,50 +433,12 @@ namespace CapstoneProject_3
             this.label1.TabIndex = 0;
             this.label1.Text = "Current Item(s) In the System";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 418);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 17);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Total Item(s) In the System:";
-            // 
-            // lblSystemItems
-            // 
-            this.lblSystemItems.AutoSize = true;
-            this.lblSystemItems.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSystemItems.Location = new System.Drawing.Point(184, 416);
-            this.lblSystemItems.Name = "lblSystemItems";
-            this.lblSystemItems.Size = new System.Drawing.Size(37, 20);
-            this.lblSystemItems.TabIndex = 55;
-            this.lblSystemItems.Text = "0.00";
-            // 
-            // lblStoreItems
-            // 
-            this.lblStoreItems.AutoSize = true;
-            this.lblStoreItems.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStoreItems.Location = new System.Drawing.Point(184, 436);
-            this.lblStoreItems.Name = "lblStoreItems";
-            this.lblStoreItems.Size = new System.Drawing.Size(37, 20);
-            this.lblStoreItems.TabIndex = 57;
-            this.lblStoreItems.Text = "0.00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 438);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 17);
-            this.label6.TabIndex = 56;
-            this.label6.Text = "Total Item(s) In the Store:";
-            // 
             // frmInventoryCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(743, 519);
+            this.ClientSize = new System.Drawing.Size(743, 512);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTitleBar);
