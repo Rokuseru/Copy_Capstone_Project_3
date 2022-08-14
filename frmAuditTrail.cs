@@ -30,8 +30,7 @@ namespace CapstoneProject_3
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"SELECT action, u.Name, value, module, date, time FROM tblAuditTrail AS a
-                                            INNER JOIN tblUsers AS u ON a.userID = u.userID
-                                            ORDER BY date DESC";
+                                            INNER JOIN tblUsers AS u ON a.userID = u.userID";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())

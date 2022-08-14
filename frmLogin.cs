@@ -83,26 +83,26 @@ namespace CapstoneProject_3
                                 MainForm admin = new MainForm();
                                 MessageBox.Show("Login Sucessful. Welcome, " + _Name + "!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 clear();
+                                //Logs
+                                log.loadUserID(_Name);
+                                log.insertAction("Login", "User: " + _Name + " Role: " + _role, this.Text);
                                 admin.lblRole.Text = _role;
                                 admin.lblUser.Text = _Name;
                                 this.Hide();
                                 admin.ShowDialog();
-                                //Logs
-                                log.loadUserID(_Name);
-                                log.insertAction("Login", "User: " + _Name + "Role: " + _role, this.Text);
                             }
                             else if (_role == "Cashier")
                             {
                                 frmPOS pos = new frmPOS();
                                 MessageBox.Show("Login Sucessful. Welcome, " + _Name + "!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 clear();
+                                //Logs
+                                log.loadUserID(_Name);
+                                log.insertAction("Login", "User: " + _Name + " Role: " + _role, this.Text);
                                 pos.lblUser.Text = _Name;
                                 pos.lblRole.Text = _role + " | ";
                                 this.Hide();
                                 pos.ShowDialog();
-                                //Logs
-                                log.loadUserID(_Name);
-                                log.insertAction("Login", "User: " + _Name + "Role: " + _role, this.Text);
                             }
                             else
                             {

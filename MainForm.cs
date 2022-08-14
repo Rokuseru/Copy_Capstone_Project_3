@@ -20,6 +20,7 @@ namespace CapstoneProject_3
     {
         public string nameOfUser = " ";
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+        AuditTrail log = new AuditTrail();
         //Fields
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.
@@ -300,7 +301,6 @@ namespace CapstoneProject_3
                 }
             }
         }
-
         private void OpenChildForm(Form childForm)
         {
             //open only form
@@ -318,13 +318,15 @@ namespace CapstoneProject_3
             childForm.BringToFront();
             childForm.Show();
             lblCurrentChildForm.Text = childForm.Text;
-        }
-        
+        }       
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Log Out Application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
             {
                 frmLogin login = new frmLogin();
+                //Logs
+                log.loadUserID(lblUser.Text);
+                log.insertAction("Logout", "User: " + lblUser.Text + " Role: " + lblRole.Text, this.Text);
                 this.Close();
                 login.Show();
             }

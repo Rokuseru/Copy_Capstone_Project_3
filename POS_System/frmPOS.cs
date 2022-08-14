@@ -457,6 +457,8 @@ namespace CapstoneProject_3.POS_System
                                 //logs
                                 log.loadUserID(lblUser.Text);
                                 log.insertAction("Logout", "User: " + lblUser.Text + "Role: " + lblRole.Text, this.Text);
+                                main.lblRole.Text = lblRole.Text;
+                                main.lblUser.Text = lblUser.Text;
                                 main.Show();
                                 this.Close();
                             }

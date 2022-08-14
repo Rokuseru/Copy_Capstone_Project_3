@@ -244,9 +244,9 @@ namespace CapstoneProject_3
                                              WHERE date BETWEEN @dateFrom AND @dateTo
                                              AND time BETWEEN @timeFrom AND @timeTo";
                     commamnd.Parameters.AddWithValue("@dateFrom", dateFrom5.Value.ToString("yyyy-MM-dd"));
-                    commamnd.Parameters.AddWithValue("@dateFrom", dateTo5.Value.ToString("yyyy-MM-dd"));
-                    commamnd.Parameters.AddWithValue("@timeFrom", dateFrom5.Value.ToString("HH:mm:ss.ffffff"));
-                    commamnd.Parameters.AddWithValue("@timeFrom", dateFrom5.Value.ToString("HH:mm:ss.ffffff"));
+                    commamnd.Parameters.AddWithValue("@dateTo", dateTo5.Value.ToString("yyyy-MM-dd"));
+                    commamnd.Parameters.AddWithValue("@timeFrom", timeFrom.Value.ToString("HH:mm:ss.ffffff"));
+                    commamnd.Parameters.AddWithValue("@timeTo", timeTo.Value.ToString("HH:mm:ss.ffffff"));
 
                     using (var reader = commamnd.ExecuteReader())
                     {
@@ -268,6 +268,8 @@ namespace CapstoneProject_3
             dateTo.Value = DateTime.Today;
             dateTo3.Value = DateTime.Today;
             dateTo4.Value = DateTime.Today;
+            dateTo5.Value = DateTime.Today;
+            timeTo.Value = DateTime.Now;
             loadRecord();
             loadUsers();
         }
@@ -323,6 +325,10 @@ namespace CapstoneProject_3
             {
                 loadPriceHistory();
             }
+            else if (tabControlHistory.SelectedTab == tabControlHistory.TabPages["tabStockHistory"])
+            {
+                loadStockHistory();
+            }
             else
             {
                 return;
@@ -375,6 +381,26 @@ namespace CapstoneProject_3
             frmHistoryReport history = new frmHistoryReport(this);
             history.loadSalesHistory();
             history.ShowDialog();
+        }
+
+        private void dateFrom5_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockHistory();
+        }
+
+        private void dateTo5_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockHistory();
+        }
+
+        private void timeFrom_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockHistory();
+        }
+
+        private void timeTo_ValueChanged(object sender, EventArgs e)
+        {
+            loadStockHistory();
         }
     }
 }

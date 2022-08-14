@@ -785,6 +785,7 @@ namespace CapstoneProject_3
             this.MinimumSize = new System.Drawing.Size(1037, 629);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inventory System";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.panelMenu.ResumeLayout(false);

@@ -291,5 +291,12 @@ namespace CapstoneProject_3
         {
             saveQty();
         }
+
+        private void btnInventoryCount_Click(object sender, EventArgs e)
+        {
+            frmInventoryCount count = new frmInventoryCount();
+            count.loadProductQTY();
+            count.ShowDialog();
+        }
     }
 }
