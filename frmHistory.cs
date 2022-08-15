@@ -242,7 +242,7 @@ namespace CapstoneProject_3
                     commamnd.CommandText = @"SELECT p.Description , h.qty, h.date, h.time FROM tblStockHistory AS h
                                              JOIN tblProduct AS p ON h.productID = p.productID
                                              WHERE date BETWEEN @dateFrom AND @dateTo
-                                             AND time LIKE '%"+time.Value.ToString("HH")+"%'";
+                                             AND time LIKE '"+time.Value.ToString("HH")+"%'";
                     commamnd.Parameters.AddWithValue("@dateFrom", dateFrom5.Value.ToString("yyyy-MM-dd"));
                     commamnd.Parameters.AddWithValue("@dateTo", dateTo5.Value.ToString("yyyy-MM-dd"));
                     using (var reader = commamnd.ExecuteReader())

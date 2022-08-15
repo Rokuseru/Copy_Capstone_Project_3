@@ -34,28 +34,26 @@ namespace CapstoneProject_3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.btnMinimizeWindow = new FontAwesome.Sharp.IconButton();
             this.lblCurrentChildForm = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDifference = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.lblStoreItems = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblSystemItems = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCompare = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridViewStore = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +61,10 @@ namespace CapstoneProject_3
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblResult = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitleBar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStore)).BeginInit();
@@ -81,7 +82,7 @@ namespace CapstoneProject_3
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(743, 37);
+            this.panelTitleBar.Size = new System.Drawing.Size(988, 37);
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -98,7 +99,7 @@ namespace CapstoneProject_3
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(690, 0);
+            this.btnExit.Location = new System.Drawing.Point(935, 1);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(53, 29);
@@ -121,7 +122,7 @@ namespace CapstoneProject_3
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMaximize.IconSize = 20;
             this.btnMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMaximize.Location = new System.Drawing.Point(638, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(883, 0);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(53, 29);
@@ -144,7 +145,7 @@ namespace CapstoneProject_3
             this.btnMinimizeWindow.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnMinimizeWindow.IconSize = 20;
             this.btnMinimizeWindow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMinimizeWindow.Location = new System.Drawing.Point(589, 0);
+            this.btnMinimizeWindow.Location = new System.Drawing.Point(834, 0);
             this.btnMinimizeWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizeWindow.Name = "btnMinimizeWindow";
             this.btnMinimizeWindow.Size = new System.Drawing.Size(53, 29);
@@ -168,6 +169,7 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblDifference);
             this.panel1.Controls.Add(this.lblResult);
             this.panel1.Controls.Add(this.lblStoreItems);
             this.panel1.Controls.Add(this.label6);
@@ -182,8 +184,27 @@ namespace CapstoneProject_3
             this.panel1.Location = new System.Drawing.Point(0, 37);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(8);
-            this.panel1.Size = new System.Drawing.Size(743, 475);
+            this.panel1.Size = new System.Drawing.Size(988, 483);
             this.panel1.TabIndex = 3;
+            // 
+            // lblDifference
+            // 
+            this.lblDifference.AutoSize = true;
+            this.lblDifference.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDifference.Location = new System.Drawing.Point(184, 456);
+            this.lblDifference.Name = "lblDifference";
+            this.lblDifference.Size = new System.Drawing.Size(37, 20);
+            this.lblDifference.TabIndex = 59;
+            this.lblDifference.Text = "0.00";
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(7, 456);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(71, 17);
+            this.lblResult.TabIndex = 58;
+            this.lblResult.Text = "Difference:";
             // 
             // lblStoreItems
             // 
@@ -194,11 +215,12 @@ namespace CapstoneProject_3
             this.lblStoreItems.Size = new System.Drawing.Size(37, 20);
             this.lblStoreItems.TabIndex = 57;
             this.lblStoreItems.Text = "0.00";
+            this.lblStoreItems.TextChanged += new System.EventHandler(this.lblStoreItems_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 438);
+            this.label6.Location = new System.Drawing.Point(7, 437);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(162, 17);
             this.label6.TabIndex = 56;
@@ -235,7 +257,7 @@ namespace CapstoneProject_3
             this.btnCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompare.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompare.ForeColor = System.Drawing.Color.White;
-            this.btnCompare.Location = new System.Drawing.Point(634, 436);
+            this.btnCompare.Location = new System.Drawing.Point(879, 437);
             this.btnCompare.Name = "btnCompare";
             this.btnCompare.Size = new System.Drawing.Size(97, 30);
             this.btnCompare.TabIndex = 53;
@@ -296,48 +318,18 @@ namespace CapstoneProject_3
             this.dataGridViewStore.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewStore.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewStore.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStore.Size = new System.Drawing.Size(724, 181);
+            this.dataGridViewStore.Size = new System.Drawing.Size(969, 181);
             this.dataGridViewStore.TabIndex = 41;
             this.dataGridViewStore.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStore_CellValueChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "#";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Desciption";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle3;
-            this.quantity.HeaderText = "QTY";
-            this.quantity.Name = "quantity";
-            this.quantity.Width = 55;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 17);
+            this.label2.Size = new System.Drawing.Size(179, 17);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Current Item(s) In the Store";
+            this.label2.Text = "Current Item(s) In the Store:";
             // 
             // dataGridView
             // 
@@ -369,10 +361,11 @@ namespace CapstoneProject_3
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView.Enabled = false;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(8, 28);
@@ -391,7 +384,7 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(724, 181);
+            this.dataGridView.Size = new System.Drawing.Size(969, 181);
             this.dataGridView.TabIndex = 39;
             // 
             // Column3
@@ -431,25 +424,47 @@ namespace CapstoneProject_3
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 17);
+            this.label1.Size = new System.Drawing.Size(191, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Current Item(s) In the System";
+            this.label1.Text = "Current Item(s) In the System:";
             // 
-            // lblResult
+            // dataGridViewTextBoxColumn1
             // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(268, 430);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(162, 17);
-            this.lblResult.TabIndex = 58;
-            this.lblResult.Text = "Total Item(s) In the Store:";
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "#";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 39;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 42;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Desciption";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.quantity.HeaderText = "QTY";
+            this.quantity.Name = "quantity";
+            this.quantity.Width = 55;
             // 
             // frmInventoryCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(743, 512);
+            this.ClientSize = new System.Drawing.Size(988, 520);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTitleBar);
@@ -458,6 +473,8 @@ namespace CapstoneProject_3
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInventoryCount";
             this.Text = "frmInventoryCount";
+            this.Load += new System.EventHandler(this.frmInventoryCount_Load);
+            this.Resize += new System.EventHandler(this.frmInventoryCount_Resize);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -485,14 +502,15 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private RJCodeAdvance.RJControls.RJButton btnCompare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.Label lblStoreItems;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblSystemItems;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Label lblDifference;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
     }
 }
