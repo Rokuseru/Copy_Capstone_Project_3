@@ -63,6 +63,7 @@ namespace CapstoneProject_3
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.panelTitleBar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStore)).BeginInit();
@@ -167,6 +168,7 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblResult);
             this.panel1.Controls.Add(this.lblStoreItems);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblSystemItems);
@@ -273,7 +275,7 @@ namespace CapstoneProject_3
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewStore.DefaultCellStyle = dataGridViewCellStyle4;
@@ -367,7 +369,7 @@ namespace CapstoneProject_3
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle9;
@@ -433,6 +435,15 @@ namespace CapstoneProject_3
             this.label1.TabIndex = 0;
             this.label1.Text = "Current Item(s) In the System";
             // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(268, 430);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(162, 17);
+            this.lblResult.TabIndex = 58;
+            this.lblResult.Text = "Total Item(s) In the Store:";
+            // 
             // frmInventoryCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -482,5 +493,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblSystemItems;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblResult;
     }
 }

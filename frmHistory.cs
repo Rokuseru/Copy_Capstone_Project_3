@@ -242,12 +242,9 @@ namespace CapstoneProject_3
                     commamnd.CommandText = @"SELECT p.Description , h.qty, h.date, h.time FROM tblStockHistory AS h
                                              JOIN tblProduct AS p ON h.productID = p.productID
                                              WHERE date BETWEEN @dateFrom AND @dateTo
-                                             AND time BETWEEN @timeFrom AND @timeTo";
+                                             AND time LIKE '%"+time.Value.ToString("HH")+"%'";
                     commamnd.Parameters.AddWithValue("@dateFrom", dateFrom5.Value.ToString("yyyy-MM-dd"));
                     commamnd.Parameters.AddWithValue("@dateTo", dateTo5.Value.ToString("yyyy-MM-dd"));
-                    commamnd.Parameters.AddWithValue("@timeFrom", timeFrom.Value.ToString("HH:mm:ss.ffffff"));
-                    commamnd.Parameters.AddWithValue("@timeTo", timeTo.Value.ToString("HH:mm:ss.ffffff"));
-
                     using (var reader = commamnd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -269,7 +266,7 @@ namespace CapstoneProject_3
             dateTo3.Value = DateTime.Today;
             dateTo4.Value = DateTime.Today;
             dateTo5.Value = DateTime.Today;
-            timeTo.Value = DateTime.Now;
+            time.Value = DateTime.Now;
             loadRecord();
             loadUsers();
         }
@@ -393,12 +390,7 @@ namespace CapstoneProject_3
             loadStockHistory();
         }
 
-        private void timeFrom_ValueChanged(object sender, EventArgs e)
-        {
-            loadStockHistory();
-        }
-
-        private void timeTo_ValueChanged(object sender, EventArgs e)
+        private void time_ValueChanged(object sender, EventArgs e)
         {
             loadStockHistory();
         }

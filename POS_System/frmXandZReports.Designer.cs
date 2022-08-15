@@ -34,7 +34,9 @@ namespace CapstoneProject_3.POS_System
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.btnZReport = new RJCodeAdvance.RJControls.RJButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnXReport
@@ -47,7 +49,7 @@ namespace CapstoneProject_3.POS_System
             this.btnXReport.FlatAppearance.BorderSize = 0;
             this.btnXReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXReport.ForeColor = System.Drawing.Color.White;
-            this.btnXReport.Location = new System.Drawing.Point(13, 46);
+            this.btnXReport.Location = new System.Drawing.Point(12, 15);
             this.btnXReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnXReport.Name = "btnXReport";
             this.btnXReport.Size = new System.Drawing.Size(122, 76);
@@ -114,7 +116,7 @@ namespace CapstoneProject_3.POS_System
             this.btnZReport.FlatAppearance.BorderSize = 0;
             this.btnZReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZReport.ForeColor = System.Drawing.Color.White;
-            this.btnZReport.Location = new System.Drawing.Point(143, 46);
+            this.btnZReport.Location = new System.Drawing.Point(142, 15);
             this.btnZReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnZReport.Name = "btnZReport";
             this.btnZReport.Size = new System.Drawing.Size(122, 76);
@@ -124,14 +126,23 @@ namespace CapstoneProject_3.POS_System
             this.btnZReport.UseVisualStyleBackColor = false;
             this.btnZReport.Click += new System.EventHandler(this.btnZReport_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnZReport);
+            this.panel2.Controls.Add(this.btnXReport);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 105);
+            this.panel2.TabIndex = 20;
+            // 
             // frmXandZReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 136);
-            this.Controls.Add(this.btnZReport);
+            this.ClientSize = new System.Drawing.Size(279, 143);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnXReport);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -141,6 +152,7 @@ namespace CapstoneProject_3.POS_System
             this.Text = "frmXandZReports";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -152,5 +164,6 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton btnExit;
         private RJCodeAdvance.RJControls.RJButton btnZReport;
+        private System.Windows.Forms.Panel panel2;
     }
 }

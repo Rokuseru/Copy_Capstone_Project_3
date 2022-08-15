@@ -45,7 +45,9 @@ namespace CapstoneProject_3.POS_System
             this.btn5 = new RJCodeAdvance.RJControls.RJButton();
             this.btn10 = new RJCodeAdvance.RJControls.RJButton();
             this.btnBspace = new RJCodeAdvance.RJControls.RJButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,7 +58,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 39);
+            this.panel1.Size = new System.Drawing.Size(309, 39);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -83,7 +85,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(229)))), ((int)(((byte)(245)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
-            this.btnExit.Location = new System.Drawing.Point(276, 0);
+            this.btnExit.Location = new System.Drawing.Point(269, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(40, 39);
             this.btnExit.TabIndex = 7;
@@ -96,7 +98,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.txtChange.Enabled = false;
             this.txtChange.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChange.Location = new System.Drawing.Point(12, 113);
+            this.txtChange.Location = new System.Drawing.Point(8, 78);
             this.txtChange.Multiline = true;
             this.txtChange.Name = "txtChange";
             this.txtChange.Size = new System.Drawing.Size(291, 28);
@@ -108,7 +110,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.txtPayment.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPayment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPayment.Location = new System.Drawing.Point(12, 79);
+            this.txtPayment.Location = new System.Drawing.Point(8, 44);
             this.txtPayment.Multiline = true;
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(291, 28);
@@ -121,7 +123,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.txtBill.Enabled = false;
             this.txtBill.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBill.Location = new System.Drawing.Point(12, 45);
+            this.txtBill.Location = new System.Drawing.Point(8, 10);
             this.txtBill.Multiline = true;
             this.txtBill.Name = "txtBill";
             this.txtBill.Size = new System.Drawing.Size(291, 28);
@@ -139,7 +141,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSettle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettle.ForeColor = System.Drawing.Color.White;
-            this.btnSettle.Location = new System.Drawing.Point(12, 288);
+            this.btnSettle.Location = new System.Drawing.Point(8, 253);
             this.btnSettle.Name = "btnSettle";
             this.btnSettle.Size = new System.Drawing.Size(291, 32);
             this.btnSettle.TabIndex = 21;
@@ -159,7 +161,7 @@ namespace CapstoneProject_3.POS_System
             this.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn100.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn100.ForeColor = System.Drawing.Color.White;
-            this.btn100.Location = new System.Drawing.Point(210, 192);
+            this.btn100.Location = new System.Drawing.Point(206, 157);
             this.btn100.Name = "btn100";
             this.btn100.Size = new System.Drawing.Size(93, 42);
             this.btn100.TabIndex = 22;
@@ -179,7 +181,7 @@ namespace CapstoneProject_3.POS_System
             this.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn200.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn200.ForeColor = System.Drawing.Color.White;
-            this.btn200.Location = new System.Drawing.Point(12, 240);
+            this.btn200.Location = new System.Drawing.Point(8, 205);
             this.btn200.Name = "btn200";
             this.btn200.Size = new System.Drawing.Size(93, 42);
             this.btn200.TabIndex = 23;
@@ -199,7 +201,7 @@ namespace CapstoneProject_3.POS_System
             this.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn50.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn50.ForeColor = System.Drawing.Color.White;
-            this.btn50.Location = new System.Drawing.Point(111, 192);
+            this.btn50.Location = new System.Drawing.Point(107, 157);
             this.btn50.Name = "btn50";
             this.btn50.Size = new System.Drawing.Size(93, 42);
             this.btn50.TabIndex = 24;
@@ -219,7 +221,7 @@ namespace CapstoneProject_3.POS_System
             this.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn500.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn500.ForeColor = System.Drawing.Color.White;
-            this.btn500.Location = new System.Drawing.Point(111, 240);
+            this.btn500.Location = new System.Drawing.Point(107, 205);
             this.btn500.Name = "btn500";
             this.btn500.Size = new System.Drawing.Size(93, 42);
             this.btn500.TabIndex = 27;
@@ -239,7 +241,7 @@ namespace CapstoneProject_3.POS_System
             this.btn20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn20.ForeColor = System.Drawing.Color.White;
-            this.btn20.Location = new System.Drawing.Point(12, 192);
+            this.btn20.Location = new System.Drawing.Point(8, 157);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(93, 42);
             this.btn20.TabIndex = 26;
@@ -259,7 +261,7 @@ namespace CapstoneProject_3.POS_System
             this.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1000.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1000.ForeColor = System.Drawing.Color.White;
-            this.btn1000.Location = new System.Drawing.Point(210, 240);
+            this.btn1000.Location = new System.Drawing.Point(206, 205);
             this.btn1000.Name = "btn1000";
             this.btn1000.Size = new System.Drawing.Size(93, 42);
             this.btn1000.TabIndex = 25;
@@ -279,7 +281,7 @@ namespace CapstoneProject_3.POS_System
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn5.ForeColor = System.Drawing.Color.White;
-            this.btn5.Location = new System.Drawing.Point(12, 147);
+            this.btn5.Location = new System.Drawing.Point(8, 112);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(93, 42);
             this.btn5.TabIndex = 30;
@@ -299,7 +301,7 @@ namespace CapstoneProject_3.POS_System
             this.btn10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn10.ForeColor = System.Drawing.Color.White;
-            this.btn10.Location = new System.Drawing.Point(111, 147);
+            this.btn10.Location = new System.Drawing.Point(107, 112);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(93, 42);
             this.btn10.TabIndex = 29;
@@ -321,7 +323,7 @@ namespace CapstoneProject_3.POS_System
             this.btnBspace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBspace.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBspace.ForeColor = System.Drawing.Color.White;
-            this.btnBspace.Location = new System.Drawing.Point(210, 147);
+            this.btnBspace.Location = new System.Drawing.Point(206, 112);
             this.btnBspace.Name = "btnBspace";
             this.btnBspace.Size = new System.Drawing.Size(93, 42);
             this.btnBspace.TabIndex = 28;
@@ -329,26 +331,36 @@ namespace CapstoneProject_3.POS_System
             this.btnBspace.UseVisualStyleBackColor = false;
             this.btnBspace.Click += new System.EventHandler(this.btnBspace_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtBill);
+            this.panel2.Controls.Add(this.btn5);
+            this.panel2.Controls.Add(this.txtPayment);
+            this.panel2.Controls.Add(this.btn10);
+            this.panel2.Controls.Add(this.txtChange);
+            this.panel2.Controls.Add(this.btnBspace);
+            this.panel2.Controls.Add(this.btnSettle);
+            this.panel2.Controls.Add(this.btn500);
+            this.panel2.Controls.Add(this.btn100);
+            this.panel2.Controls.Add(this.btn20);
+            this.panel2.Controls.Add(this.btn200);
+            this.panel2.Controls.Add(this.btn1000);
+            this.panel2.Controls.Add(this.btn50);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.panel2.Size = new System.Drawing.Size(309, 297);
+            this.panel2.TabIndex = 31;
+            // 
             // frmSettlePayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(316, 333);
+            this.ClientSize = new System.Drawing.Size(309, 336);
             this.ControlBox = false;
-            this.Controls.Add(this.btn5);
-            this.Controls.Add(this.btn10);
-            this.Controls.Add(this.btnBspace);
-            this.Controls.Add(this.btn500);
-            this.Controls.Add(this.btn20);
-            this.Controls.Add(this.btn1000);
-            this.Controls.Add(this.btn50);
-            this.Controls.Add(this.btn200);
-            this.Controls.Add(this.btn100);
-            this.Controls.Add(this.btnSettle);
-            this.Controls.Add(this.txtChange);
-            this.Controls.Add(this.txtPayment);
-            this.Controls.Add(this.txtBill);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -357,8 +369,9 @@ namespace CapstoneProject_3.POS_System
             this.Text = "Settle Payment Module";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -380,5 +393,6 @@ namespace CapstoneProject_3.POS_System
         private RJCodeAdvance.RJControls.RJButton btn5;
         private RJCodeAdvance.RJControls.RJButton btn10;
         private RJCodeAdvance.RJControls.RJButton btnBspace;
+        private System.Windows.Forms.Panel panel2;
     }
 }

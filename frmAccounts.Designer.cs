@@ -615,6 +615,8 @@ namespace CapstoneProject_3
             this.Controls.Add(this.panel1);
             this.Name = "frmAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Accounts Module";
+            this.Text = "Accounts Module";
             this.Load += new System.EventHandler(this.frmAccounts_Load);
             this.tab.ResumeLayout(false);
             this.tabAdd.ResumeLayout(false);

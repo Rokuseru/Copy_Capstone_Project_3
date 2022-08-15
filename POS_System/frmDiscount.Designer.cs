@@ -40,7 +40,9 @@ namespace CapstoneProject_3.POS_System
             this.txtDiscAmount = new System.Windows.Forms.TextBox();
             this.btnDiscount = new RJCodeAdvance.RJControls.RJButton();
             this.lblID = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -55,7 +57,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
-            this.btnExit.Location = new System.Drawing.Point(366, 0);
+            this.btnExit.Location = new System.Drawing.Point(357, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(40, 39);
             this.btnExit.TabIndex = 7;
@@ -72,7 +74,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 39);
+            this.panel1.Size = new System.Drawing.Size(397, 39);
             this.panel1.TabIndex = 12;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -91,7 +93,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(155, 53);
+            this.txtPrice.Location = new System.Drawing.Point(150, 20);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(239, 28);
@@ -102,7 +104,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 57);
+            this.label1.Location = new System.Drawing.Point(7, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 21);
             this.label1.TabIndex = 14;
@@ -112,7 +114,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(7, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 21);
             this.label2.TabIndex = 16;
@@ -121,7 +123,7 @@ namespace CapstoneProject_3.POS_System
             // txtDiscount
             // 
             this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(155, 87);
+            this.txtDiscount.Location = new System.Drawing.Point(150, 54);
             this.txtDiscount.Multiline = true;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(239, 28);
@@ -134,7 +136,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 125);
+            this.label3.Location = new System.Drawing.Point(7, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 21);
             this.label3.TabIndex = 18;
@@ -144,7 +146,7 @@ namespace CapstoneProject_3.POS_System
             // 
             this.txtDiscAmount.Enabled = false;
             this.txtDiscAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscAmount.Location = new System.Drawing.Point(155, 121);
+            this.txtDiscAmount.Location = new System.Drawing.Point(150, 88);
             this.txtDiscAmount.Multiline = true;
             this.txtDiscAmount.Name = "txtDiscAmount";
             this.txtDiscAmount.Size = new System.Drawing.Size(239, 28);
@@ -163,7 +165,7 @@ namespace CapstoneProject_3.POS_System
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
-            this.btnDiscount.Location = new System.Drawing.Point(155, 157);
+            this.btnDiscount.Location = new System.Drawing.Point(150, 122);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(239, 32);
             this.btnDiscount.TabIndex = 19;
@@ -176,36 +178,47 @@ namespace CapstoneProject_3.POS_System
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(12, 157);
+            this.lblID.Location = new System.Drawing.Point(7, 124);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(19, 21);
             this.lblID.TabIndex = 20;
             this.lblID.Text = "0";
             this.lblID.Visible = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtPrice);
+            this.panel2.Controls.Add(this.lblID);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnDiscount);
+            this.panel2.Controls.Add(this.txtDiscount);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtDiscAmount);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(397, 162);
+            this.panel2.TabIndex = 21;
+            // 
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 198);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(397, 201);
             this.ControlBox = false;
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.btnDiscount);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtDiscAmount);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDiscount);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtPrice);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDiscount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "discountModule";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -222,5 +235,6 @@ namespace CapstoneProject_3.POS_System
         public System.Windows.Forms.TextBox txtPrice;
         public System.Windows.Forms.TextBox txtDiscount;
         public System.Windows.Forms.TextBox txtDiscAmount;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -32,7 +32,6 @@ namespace CapstoneProject_3.POS_System
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lblOpenedOn = new System.Windows.Forms.Label();
             this.btnPrint = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -60,14 +59,15 @@ namespace CapstoneProject_3.POS_System
             this.label3 = new System.Windows.Forms.Label();
             this.cbUsers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,7 +79,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 38);
+            this.panel1.Size = new System.Drawing.Size(354, 38);
             this.panel1.TabIndex = 15;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -107,7 +107,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
-            this.btnExit.Location = new System.Drawing.Point(312, 0);
+            this.btnExit.Location = new System.Drawing.Point(316, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 38);
@@ -117,28 +117,11 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblOpenedOn);
-            this.panel2.Controls.Add(this.btnPrint);
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Controls.Add(this.cbUsers);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(350, 457);
-            this.panel2.TabIndex = 16;
-            // 
             // lblOpenedOn
             // 
             this.lblOpenedOn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpenedOn.ForeColor = System.Drawing.Color.Black;
-            this.lblOpenedOn.Location = new System.Drawing.Point(106, 43);
+            this.lblOpenedOn.Location = new System.Drawing.Point(105, 35);
             this.lblOpenedOn.Name = "lblOpenedOn";
             this.lblOpenedOn.Size = new System.Drawing.Size(232, 21);
             this.lblOpenedOn.TabIndex = 17;
@@ -154,7 +137,7 @@ namespace CapstoneProject_3.POS_System
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(215, 414);
+            this.btnPrint.Location = new System.Drawing.Point(214, 406);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(118, 28);
             this.btnPrint.TabIndex = 16;
@@ -172,7 +155,7 @@ namespace CapstoneProject_3.POS_System
             this.groupBox2.Controls.Add(this.txtDiscount);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(14, 277);
+            this.groupBox2.Location = new System.Drawing.Point(13, 269);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(326, 131);
             this.groupBox2.TabIndex = 15;
@@ -249,7 +232,7 @@ namespace CapstoneProject_3.POS_System
             this.groupBox1.Controls.Add(this.txtCash);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 174);
+            this.groupBox1.Location = new System.Drawing.Point(13, 166);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(326, 97);
             this.groupBox1.TabIndex = 14;
@@ -303,7 +286,7 @@ namespace CapstoneProject_3.POS_System
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(10, 43);
+            this.label1.Location = new System.Drawing.Point(9, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 21);
             this.label1.TabIndex = 12;
@@ -318,7 +301,7 @@ namespace CapstoneProject_3.POS_System
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 82);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 74);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -429,7 +412,7 @@ namespace CapstoneProject_3.POS_System
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Items.AddRange(new object[] {
             "All Users"});
-            this.cbUsers.Location = new System.Drawing.Point(106, 13);
+            this.cbUsers.Location = new System.Drawing.Point(105, 5);
             this.cbUsers.Name = "cbUsers";
             this.cbUsers.Size = new System.Drawing.Size(232, 25);
             this.cbUsers.TabIndex = 10;
@@ -439,17 +422,34 @@ namespace CapstoneProject_3.POS_System
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(13, 13);
+            this.label2.Location = new System.Drawing.Point(12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "User";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnPrint);
+            this.panel2.Controls.Add(this.lblOpenedOn);
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Controls.Add(this.cbUsers);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(354, 446);
+            this.panel2.TabIndex = 18;
+            // 
             // frmZReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 495);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(354, 484);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -463,8 +463,6 @@ namespace CapstoneProject_3.POS_System
             this.Load += new System.EventHandler(this.frmZReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -473,6 +471,8 @@ namespace CapstoneProject_3.POS_System
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,7 +482,6 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton btnExit;
-        private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.ComboBox cbUsers;
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -510,5 +509,6 @@ namespace CapstoneProject_3.POS_System
         public System.Windows.Forms.TextBox txtOthers;
         public System.Windows.Forms.TextBox txtCash;
         public System.Windows.Forms.TextBox txtTax;
+        private System.Windows.Forms.Panel panel2;
     }
 }
