@@ -141,7 +141,6 @@ namespace CapstoneProject_3.POS_System
         }
         private void frmZReport_Load(object sender, EventArgs e)
         {
-            loadZReport();
             loadTransactions();
             loadRefunded();
             cbUsers.Text = "All Users";

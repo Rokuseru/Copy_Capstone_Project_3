@@ -160,6 +160,7 @@ namespace CapstoneProject_3.POS_System
             try
             {
                 LoadTime();
+                loadSoldQty();
                 double _total = 0;
                 string _date = "";
                 string _transactions = "0";

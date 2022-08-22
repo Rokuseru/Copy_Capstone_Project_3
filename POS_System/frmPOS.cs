@@ -309,9 +309,8 @@ namespace CapstoneProject_3.POS_System
             double cash = double.Parse(spayment.txtPayment.Text);
             //Compute
             double vatAmount = vatable * vat;
-            double total = sales + vatAmount;
 
-            lblTopTotal.Text = total.ToString("C", culture);
+            lblTopTotal.Text = sales.ToString("C", culture);
             lblCash.Text = cash.ToString("C", culture);
             lblVat.Text = vatAmount.ToString("C", culture);
             lblVatable.Text = vatable.ToString("C", culture);
@@ -698,7 +697,7 @@ namespace CapstoneProject_3.POS_System
                                             VALUES (@uid, @date, @timeIn)";
                     command.Parameters.AddWithValue("@uid", uid);
                     command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyyMMdd"));
-                    command.Parameters.AddWithValue("@timeIn", DateTime.Now.ToString("hh:mm:ss"));
+                    command.Parameters.AddWithValue("@timeIn", DateTime.Now.ToString("HH:mm:ss"));
                     command.ExecuteNonQuery();
                 }
                 //logs

@@ -28,6 +28,7 @@ namespace CapstoneProject_3.POS_System
             fpos = pos;
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(53, 59, 72);//Border color
+            this.panel2.BackColor = Color.White;
         }
         //Form Properties
         //Drag Form

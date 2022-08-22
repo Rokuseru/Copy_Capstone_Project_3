@@ -39,12 +39,14 @@ namespace CapstoneProject_3.POS_System
         private void btnZReport_Click(object sender, EventArgs e)
         {
             frmZReport z = new frmZReport();
+            z.loadZReport();
             z.ShowDialog();
         }
 
         private void btnXReport_Click(object sender, EventArgs e)
         {
             frmXReport x = new frmXReport(pos);
+            x.loadXReport();
             x.ShowDialog();
         }
 
