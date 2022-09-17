@@ -28,7 +28,6 @@ namespace CapstoneProject_3
 
         public void clear()
         {
-            txtBarcode.Clear();
             txtPrice.Clear();
             txtProdCode.Clear();
             txtProdDesc.Clear();
@@ -96,7 +95,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Barcode, Description, b.Brand, c.Category, Price,reorder FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, Price,reorder FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
@@ -107,7 +106,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString());
                         }
                     }
                 }
@@ -126,10 +125,9 @@ namespace CapstoneProject_3
                 {
                         connection.Open();
                         command.Connection = connection;
-                        command.CommandText = @"INSERT INTO tblProduct (ProductCode, Barcode, Description, BrandID, CategoryID, Price, reorder) 
-                                            VALUES (@pcode, @bcode, @desc, @brandID, @catID, @price, @reorder)";
+                        command.CommandText = @"INSERT INTO tblProduct (ProductCode, Description, BrandID, CategoryID, Price, reorder) 
+                                            VALUES (@pcode, @desc, @brandID, @catID, @price, @reorder)";
                         command.Parameters.AddWithValue("@pcode", txtProdCode.Text);
-                        command.Parameters.AddWithValue("@bcode", txtBarcode.Text);
                         command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
                         command.Parameters.AddWithValue("@brandID", bid);
                         command.Parameters.AddWithValue("@catID", cid);
@@ -238,13 +236,12 @@ namespace CapstoneProject_3
             btnSaveUpdate.Enabled = false;
             btnSave.Enabled = true;
 
-            txtBarcode.Enabled = true;
             txtProdCode.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtBarcode.Text) || String.IsNullOrWhiteSpace(txtPrice.Text) || String.IsNullOrWhiteSpace(txtProdCode.Text) ||
+            if (String.IsNullOrWhiteSpace(txtPrice.Text) || String.IsNullOrWhiteSpace(txtProdCode.Text) ||
                 String.IsNullOrWhiteSpace(txtProdDesc.Text))
             {
                 MessageBox.Show("A Field Is Empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -261,7 +258,6 @@ namespace CapstoneProject_3
                             DataSet ds = new DataSet();
                             SqlCommand cmd = new SqlCommand(@"SELECT * FROM tblProduct WHERE Description=@product OR Barcode=@bCode", connection);
                             cmd.Parameters.AddWithValue("@product", txtProdDesc.Text);
-                            cmd.Parameters.AddWithValue("@bCode", txtBarcode.Text);
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             adapter.Fill(ds);
 
@@ -371,7 +367,6 @@ namespace CapstoneProject_3
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             txtProdCode.Text = dataGridView.SelectedRows[0].Cells[2].Value.ToString();
-            txtBarcode.Text = dataGridView.SelectedRows[0].Cells[3].Value.ToString();
             txtProdDesc.Text = dataGridView.SelectedRows[0].Cells[4].Value.ToString();
             cbBrand.Text = dataGridView.SelectedRows[0].Cells[5].Value.ToString();
             cbCategory.Text = dataGridView.SelectedRows[0].Cells[6].Value.ToString();
@@ -379,7 +374,6 @@ namespace CapstoneProject_3
             txtReorder.Text = dataGridView.SelectedRows[0].Cells[8].Value.ToString();
 
             txtProdCode.Enabled = false;
-            txtBarcode.Enabled = false;
 
             tabControl.TabPages.Remove(tabProductList);
             tabControl.TabPages.Add(tabManage);

@@ -243,7 +243,6 @@ namespace CapstoneProject_3
         {
             calculateDiscount();
         }
-
         private void btnRefNo_Click(object sender, EventArgs e)
         {
             generateRefCode();
@@ -301,6 +300,8 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             userID = int.Parse(reader["userID"].ToString());
+                            txtSenderEmail.Text = reader["email"].ToString();
+                            txtSenderPassword.Text = reader["emailPassword"].ToString();
                         }
                     }
                 }
@@ -318,7 +319,6 @@ namespace CapstoneProject_3
                 loadPendingOrders();
             }
         }
-
         private void btnCreatePo_Click(object sender, EventArgs e)
         {
             setDate();

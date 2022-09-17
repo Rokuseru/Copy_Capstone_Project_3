@@ -41,13 +41,13 @@ namespace CapstoneProject_3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -85,23 +85,21 @@ namespace CapstoneProject_3
             this.tabCriticalStock = new MetroFramework.Controls.MetroTabPage();
             this.btnPrintCriticalStock = new FontAwesome.Sharp.IconButton();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabInventoryCount = new MetroFramework.Controls.MetroTabPage();
+            this.btnPrintInventoryCount = new FontAwesome.Sharp.IconButton();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabInventoryCount = new MetroFramework.Controls.MetroTabPage();
-            this.btnPrintInventoryCount = new FontAwesome.Sharp.IconButton();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -139,7 +137,7 @@ namespace CapstoneProject_3
             this.tabControlRecords.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlRecords.Location = new System.Drawing.Point(0, 1);
             this.tabControlRecords.Name = "tabControlRecords";
-            this.tabControlRecords.SelectedIndex = 0;
+            this.tabControlRecords.SelectedIndex = 3;
             this.tabControlRecords.Size = new System.Drawing.Size(911, 491);
             this.tabControlRecords.TabIndex = 4;
             this.tabControlRecords.UseSelectable = true;
@@ -177,7 +175,7 @@ namespace CapstoneProject_3
             "Sort By Total Amount"});
             this.cbSortBy.Location = new System.Drawing.Point(392, 6);
             this.cbSortBy.Name = "cbSortBy";
-            this.cbSortBy.Size = new System.Drawing.Size(162, 23);
+            this.cbSortBy.Size = new System.Drawing.Size(133, 23);
             this.cbSortBy.TabIndex = 45;
             this.cbSortBy.SelectedIndexChanged += new System.EventHandler(this.cbSortBy_SelectedIndexChanged);
             // 
@@ -191,7 +189,7 @@ namespace CapstoneProject_3
             this.btnTopSelling.IconColor = System.Drawing.Color.White;
             this.btnTopSelling.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTopSelling.IconSize = 25;
-            this.btnTopSelling.Location = new System.Drawing.Point(562, 3);
+            this.btnTopSelling.Location = new System.Drawing.Point(531, 4);
             this.btnTopSelling.Name = "btnTopSelling";
             this.btnTopSelling.Size = new System.Drawing.Size(95, 28);
             this.btnTopSelling.TabIndex = 44;
@@ -355,7 +353,6 @@ namespace CapstoneProject_3
             // 
             // btnPrintSoldItems
             // 
-            this.btnPrintSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrintSoldItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnPrintSoldItems.FlatAppearance.BorderSize = 0;
             this.btnPrintSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -554,7 +551,6 @@ namespace CapstoneProject_3
             // 
             // btnPrintCriticalStock
             // 
-            this.btnPrintCriticalStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrintCriticalStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnPrintCriticalStock.FlatAppearance.BorderSize = 0;
             this.btnPrintCriticalStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -563,7 +559,7 @@ namespace CapstoneProject_3
             this.btnPrintCriticalStock.IconColor = System.Drawing.Color.White;
             this.btnPrintCriticalStock.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrintCriticalStock.IconSize = 25;
-            this.btnPrintCriticalStock.Location = new System.Drawing.Point(808, 3);
+            this.btnPrintCriticalStock.Location = new System.Drawing.Point(8, 3);
             this.btnPrintCriticalStock.Name = "btnPrintCriticalStock";
             this.btnPrintCriticalStock.Size = new System.Drawing.Size(95, 28);
             this.btnPrintCriticalStock.TabIndex = 43;
@@ -599,7 +595,6 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.Column2,
-            this.Column8,
             this.dataGridViewTextBoxColumn7,
             this.Column5,
             this.Column6,
@@ -623,8 +618,97 @@ namespace CapstoneProject_3
             this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView3.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(903, 400);
+            this.dataGridView3.Size = new System.Drawing.Size(903, 406);
             this.dataGridView3.TabIndex = 39;
+            // 
+            // tabInventoryCount
+            // 
+            this.tabInventoryCount.Controls.Add(this.btnPrintInventoryCount);
+            this.tabInventoryCount.Controls.Add(this.dataGridView4);
+            this.tabInventoryCount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabInventoryCount.HorizontalScrollbarBarColor = true;
+            this.tabInventoryCount.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabInventoryCount.HorizontalScrollbarSize = 10;
+            this.tabInventoryCount.Location = new System.Drawing.Point(4, 41);
+            this.tabInventoryCount.Name = "tabInventoryCount";
+            this.tabInventoryCount.Size = new System.Drawing.Size(903, 446);
+            this.tabInventoryCount.TabIndex = 3;
+            this.tabInventoryCount.Text = "Inventory Report";
+            this.tabInventoryCount.VerticalScrollbarBarColor = true;
+            this.tabInventoryCount.VerticalScrollbarHighlightOnWheel = false;
+            this.tabInventoryCount.VerticalScrollbarSize = 10;
+            // 
+            // btnPrintInventoryCount
+            // 
+            this.btnPrintInventoryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintInventoryCount.FlatAppearance.BorderSize = 0;
+            this.btnPrintInventoryCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintInventoryCount.ForeColor = System.Drawing.Color.White;
+            this.btnPrintInventoryCount.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintInventoryCount.IconColor = System.Drawing.Color.White;
+            this.btnPrintInventoryCount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintInventoryCount.IconSize = 25;
+            this.btnPrintInventoryCount.Location = new System.Drawing.Point(8, 3);
+            this.btnPrintInventoryCount.Name = "btnPrintInventoryCount";
+            this.btnPrintInventoryCount.Size = new System.Drawing.Size(95, 28);
+            this.btnPrintInventoryCount.TabIndex = 42;
+            this.btnPrintInventoryCount.Text = "Print";
+            this.btnPrintInventoryCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintInventoryCount.UseVisualStyleBackColor = false;
+            this.btnPrintInventoryCount.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToResizeColumns = false;
+            this.dataGridView4.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridView4.ColumnHeadersHeight = 40;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17});
+            this.dataGridView4.EnableHeadersVisualStyles = false;
+            this.dataGridView4.Location = new System.Drawing.Point(0, 37);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridView4.RowHeadersVisible = false;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridView4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView4.Size = new System.Drawing.Size(903, 406);
+            this.dataGridView4.TabIndex = 40;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -650,14 +734,6 @@ namespace CapstoneProject_3
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 104;
-            // 
-            // Column8
-            // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "Barcode";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 80;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -710,97 +786,6 @@ namespace CapstoneProject_3
             this.Column10.ReadOnly = true;
             this.Column10.Width = 112;
             // 
-            // tabInventoryCount
-            // 
-            this.tabInventoryCount.Controls.Add(this.btnPrintInventoryCount);
-            this.tabInventoryCount.Controls.Add(this.dataGridView4);
-            this.tabInventoryCount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabInventoryCount.HorizontalScrollbarBarColor = true;
-            this.tabInventoryCount.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabInventoryCount.HorizontalScrollbarSize = 10;
-            this.tabInventoryCount.Location = new System.Drawing.Point(4, 41);
-            this.tabInventoryCount.Name = "tabInventoryCount";
-            this.tabInventoryCount.Size = new System.Drawing.Size(903, 446);
-            this.tabInventoryCount.TabIndex = 3;
-            this.tabInventoryCount.Text = "Inventory Report";
-            this.tabInventoryCount.VerticalScrollbarBarColor = true;
-            this.tabInventoryCount.VerticalScrollbarHighlightOnWheel = false;
-            this.tabInventoryCount.VerticalScrollbarSize = 10;
-            // 
-            // btnPrintInventoryCount
-            // 
-            this.btnPrintInventoryCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintInventoryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintInventoryCount.FlatAppearance.BorderSize = 0;
-            this.btnPrintInventoryCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintInventoryCount.ForeColor = System.Drawing.Color.White;
-            this.btnPrintInventoryCount.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintInventoryCount.IconColor = System.Drawing.Color.White;
-            this.btnPrintInventoryCount.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintInventoryCount.IconSize = 25;
-            this.btnPrintInventoryCount.Location = new System.Drawing.Point(808, 3);
-            this.btnPrintInventoryCount.Name = "btnPrintInventoryCount";
-            this.btnPrintInventoryCount.Size = new System.Drawing.Size(95, 28);
-            this.btnPrintInventoryCount.TabIndex = 42;
-            this.btnPrintInventoryCount.Text = "Print";
-            this.btnPrintInventoryCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintInventoryCount.UseVisualStyleBackColor = false;
-            this.btnPrintInventoryCount.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToResizeColumns = false;
-            this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView4.ColumnHeadersHeight = 40;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
-            this.dataGridView4.EnableHeadersVisualStyles = false;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 37);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridView4.RowHeadersVisible = false;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridView4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(903, 397);
-            this.dataGridView4.TabIndex = 40;
-            // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -825,14 +810,6 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 104;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Barcode";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 80;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -938,28 +915,8 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private MetroFramework.Controls.MetroTabPage tabCriticalStock;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private MetroFramework.Controls.MetroTabPage tabInventoryCount;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private FontAwesome.Sharp.IconButton btnPrintInventoryCount;
         private FontAwesome.Sharp.IconButton btnPrintSoldItems;
         private FontAwesome.Sharp.IconButton btnPrintCriticalStock;
@@ -970,5 +927,23 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         public System.Windows.Forms.ComboBox cbSortBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
     }
 }

@@ -526,8 +526,6 @@ namespace CapstoneProject_3.Datasets {
             
             private global::System.Data.DataColumn columnproductCode;
             
-            private global::System.Data.DataColumn columnBarcode;
-            
             private global::System.Data.DataColumn columnDescription;
             
             private global::System.Data.DataColumn columnBrand;
@@ -578,14 +576,6 @@ namespace CapstoneProject_3.Datasets {
             public global::System.Data.DataColumn productCodeColumn {
                 get {
                     return this.columnproductCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BarcodeColumn {
-                get {
-                    return this.columnBarcode;
                 }
             }
             
@@ -674,11 +664,10 @@ namespace CapstoneProject_3.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dtInventoryRow AdddtInventoryRow(string productCode, string Barcode, string Description, string Brand, string Category, string Price, string reorder, string quantity) {
+            public dtInventoryRow AdddtInventoryRow(string productCode, string Description, string Brand, string Category, string Price, string reorder, string quantity) {
                 dtInventoryRow rowdtInventoryRow = ((dtInventoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         productCode,
-                        Barcode,
                         Description,
                         Brand,
                         Category,
@@ -708,7 +697,6 @@ namespace CapstoneProject_3.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnproductCode = base.Columns["productCode"];
-                this.columnBarcode = base.Columns["Barcode"];
                 this.columnDescription = base.Columns["Description"];
                 this.columnBrand = base.Columns["Brand"];
                 this.columnCategory = base.Columns["Category"];
@@ -722,8 +710,6 @@ namespace CapstoneProject_3.Datasets {
             private void InitClass() {
                 this.columnproductCode = new global::System.Data.DataColumn("productCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproductCode);
-                this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBarcode);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
                 this.columnBrand = new global::System.Data.DataColumn("Brand", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3155,22 +3141,6 @@ namespace CapstoneProject_3.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Barcode {
-                get {
-                    try {
-                        return ((string)(this[this.tabledtInventory.BarcodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Barcode\' in table \'dtInventory\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledtInventory.BarcodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Description {
                 get {
                     try {
@@ -3275,18 +3245,6 @@ namespace CapstoneProject_3.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetproductCodeNull() {
                 this[this.tabledtInventory.productCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBarcodeNull() {
-                return this.IsNull(this.tabledtInventory.BarcodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBarcodeNull() {
-                this[this.tabledtInventory.BarcodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

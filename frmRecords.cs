@@ -141,7 +141,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i++;
-                            dataGridView3.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(),
+                            dataGridView3.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(),
                                 reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString(), reader["quantity"].ToString());
                         }
                     }
@@ -166,7 +166,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID, p.ProductCode, p.Barcode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
+                    command.CommandText = @"SELECT p.productID, p.ProductCode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
                                             INNER JOIN tblBrand AS b ON p.brandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.categoryID = c.categoryID";
                     using (var reader = command.ExecuteReader())
@@ -174,7 +174,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i++;
-                            dataGridView4.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString()
+                            dataGridView4.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString()
                                 , reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString(), reader["quantity"].ToString());
                         }
                     }

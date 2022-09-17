@@ -25,8 +25,7 @@ namespace CapstoneProject_3
         public frmPurchaseOrderReportViewer(frmPurchaseOrder po)
         {
             purchaseOrder = po;
-            InitializeComponent();
-           
+            InitializeComponent();        
         }
         private void frmPurchaseOrderReportViewer_Load(object sender, EventArgs e)
         {
@@ -108,47 +107,39 @@ namespace CapstoneProject_3
                 fs.Write(bytes, 0, bytes.Length);
             }
         }
-        public void sendMailWithAttachment()
+        public void sendMail()
         {
-            using (SmtpClient client = new SmtpClient())
+            try
             {
-                var cred = new NetworkCredential(_sender, "rcmb0803");
-                using (MailMessage message = new MailMessage())
+                using (var mail = new MailMessage())
                 {
-                    MailAddress address = new MailAddress("roxsyle7@gmail.com");
-
-                    client.Host = "smtp.gmail.com";
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = cred;
-                    client.EnableSsl = false;
-                    client.Port = 587;
-
-                    //Message
-                    message.From = new MailAddress(_sender);
-                    message.Subject = "Purchase Order";
-                    message.Body = "Please See Attatched File for the purchase order.";
-                    message.To.Add(_reciever);
-                    message.Priority = MailPriority.High;
-                    //Message attachment
-                    System.Net.Mail.Attachment attachment;
-                    attachment = new System.Net.Mail.Attachment("output.pdf");
-                    message.Attachments.Add(attachment);
-
-                    try
+                    using (var client = new SmtpClient("smtp.gmail.com"))
                     {
-                        client.Send(message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Not Sent", "Error");
-                        Console.WriteLine(ex.Message);
-                        Console.WriteLine(ex.StackTrace);
-                        Console.WriteLine(ex.Source);
+                        mail.From = new MailAddress(purchaseOrder.txtSenderEmail.Text);
+                        mail.To.Add(purchaseOrder.txtEmail.Text);
+                        mail.Subject = "Andres Delegencia Store Purchase Order";
+                        mail.Body = purchaseOrder.txtRemarks.Text;
+
+                        //Attachment
+                        System.Net.Mail.Attachment attachment;
+                        attachment = new System.Net.Mail.Attachment("output.pdf");
+                        mail.Attachments.Add(attachment);
+
+                        client.UseDefaultCredentials = false;
+                        client.EnableSsl = true;
+                        client.Port = 587;
+                        client.Credentials = new System.Net.NetworkCredential(purchaseOrder.txtSenderEmail.Text, purchaseOrder.txtSenderPassword.Text);
+                        client.Send(mail);
+
+                        MessageBox.Show("Successfully Sent!", "Notification");
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -156,38 +147,8 @@ namespace CapstoneProject_3
 
         private void btnSendToVendor_Click(object sender, EventArgs e)
         {
-            sendMailWithAttachment();
-            //try
-            //{
-            //    MailMessage mail = new MailMessage();
-            //    SmtpClient smtp = new SmtpClient();
-            //    mail.From = new MailAddress(_sender);
-            //    mail.To.Add(_reciever);
-            //    mail.Subject = "Purchase Order";
-            //    mail.Body = "Please See Attatched File for the purchase order.";
-
-            //    //Attatch File
-            //    System.Net.Mail.Attachment attachment;
-            //    attachment = new System.Net.Mail.Attachment("output.pdf");
-            //    mail.Attachments.Add(attachment);
-
-            //    smtp.UseDefaultCredentials = false;
-            //    NetworkCredential cred = new System.Net.NetworkCredential(_sender, "rcmb0803","bvainvjmpxsdcdac");
-            //    smtp.Credentials = cred;
-            //    smtp.EnableSsl = true;
-            //    smtp.Port = 587;
-            //    smtp.Host = "smtp.gmail.com";
-               
-            //    smtp.Send(mail);
-            //    MessageBox.Show("Sent");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Not Sent");
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //    Console.WriteLine(ex.Source);
-            //}
+            convertRdlcToPdf();
+            sendMail();
         }
     }
 }

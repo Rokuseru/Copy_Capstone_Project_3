@@ -105,6 +105,8 @@ namespace CapstoneProject_3
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -126,7 +128,7 @@ namespace CapstoneProject_3
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(13, 13);
+            this.chart1.Location = new System.Drawing.Point(14, 14);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,7 +137,7 @@ namespace CapstoneProject_3
             series1.Name = "Series1";
             series1.YValuesPerPoint = 4;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(460, 335);
+            this.chart1.Size = new System.Drawing.Size(459, 333);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             title1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,14 +152,14 @@ namespace CapstoneProject_3
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(479, 13);
+            this.chart2.Location = new System.Drawing.Point(480, 14);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(461, 335);
+            this.chart2.Size = new System.Drawing.Size(459, 333);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             title2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

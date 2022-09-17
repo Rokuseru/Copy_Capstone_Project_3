@@ -60,7 +60,7 @@ namespace CapstoneProject_3.Report_Forms
                     DataSetReports invReports = new DataSetReports();
 
                     //Command
-                    SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode, p.Barcode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
+                    SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
                                                       INNER JOIN tblBrand AS b ON p.brandID = b.brandID
                                                       INNER JOIN tblCategory AS c ON p.categoryID = c.categoryID", connection);
 
