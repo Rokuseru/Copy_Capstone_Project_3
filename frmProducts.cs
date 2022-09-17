@@ -208,6 +208,35 @@ namespace CapstoneProject_3
             }
 
         }
+        private void generateProductCode()
+        {
+            try
+            {
+                string sql = @"SELECT MAX(ProductCode) FROM tblProduct";
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    var refid = cmd.ExecuteScalar() as string;
+
+                    if (refid == null)
+                    {
+                        txtProdCode.Text = "P00001";
+                    }
+                    else
+                    {
+                        int intval = int.Parse(refid.Substring(1, 5));
+                        intval++;
+                        txtProdCode.Text = String.Format("P{0:00000}", intval);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmProducts_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
@@ -232,6 +261,7 @@ namespace CapstoneProject_3
         {
             tabControl.TabPages.Remove(tabProductList);
             tabControl.TabPages.Add(tabManage);
+            generateProductCode();
 
             btnSaveUpdate.Enabled = false;
             btnSave.Enabled = true;
