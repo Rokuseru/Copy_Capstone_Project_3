@@ -29,14 +29,19 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBatchNo = new System.Windows.Forms.TextBox();
+            this.btnInventoryCount = new RJCodeAdvance.RJControls.RJButton();
             this.cbVendor = new System.Windows.Forms.ComboBox();
+            this.btnProductList = new FontAwesome.Sharp.IconButton();
+            this.btnRefNo = new FontAwesome.Sharp.IconButton();
             this.dtStockInDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,8 +50,10 @@ namespace CapstoneProject_3
             this.label3 = new System.Windows.Forms.Label();
             this.txtRefNo = new System.Windows.Forms.TextBox();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridViewStockEntry = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,12 +62,8 @@ namespace CapstoneProject_3
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInventoryCount = new RJCodeAdvance.RJControls.RJButton();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnProductList = new FontAwesome.Sharp.IconButton();
-            this.btnRefNo = new FontAwesome.Sharp.IconButton();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockEntry)).BeginInit();
@@ -78,6 +81,8 @@ namespace CapstoneProject_3
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtBatchNo);
             this.panel2.Controls.Add(this.btnInventoryCount);
             this.panel2.Controls.Add(this.cbVendor);
             this.panel2.Controls.Add(this.btnProductList);
@@ -100,6 +105,43 @@ namespace CapstoneProject_3
             this.panel2.Size = new System.Drawing.Size(941, 504);
             this.panel2.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(457, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Batch No.";
+            // 
+            // txtBatchNo
+            // 
+            this.txtBatchNo.Location = new System.Drawing.Point(530, 25);
+            this.txtBatchNo.Name = "txtBatchNo";
+            this.txtBatchNo.Size = new System.Drawing.Size(95, 25);
+            this.txtBatchNo.TabIndex = 53;
+            // 
+            // btnInventoryCount
+            // 
+            this.btnInventoryCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInventoryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnInventoryCount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnInventoryCount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnInventoryCount.BorderRadius = 5;
+            this.btnInventoryCount.BorderSize = 0;
+            this.btnInventoryCount.FlatAppearance.BorderSize = 0;
+            this.btnInventoryCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventoryCount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventoryCount.ForeColor = System.Drawing.Color.White;
+            this.btnInventoryCount.Location = new System.Drawing.Point(832, 97);
+            this.btnInventoryCount.Name = "btnInventoryCount";
+            this.btnInventoryCount.Size = new System.Drawing.Size(97, 46);
+            this.btnInventoryCount.TabIndex = 52;
+            this.btnInventoryCount.Text = "Inventory Count";
+            this.btnInventoryCount.TextColor = System.Drawing.Color.White;
+            this.btnInventoryCount.UseVisualStyleBackColor = false;
+            this.btnInventoryCount.Click += new System.EventHandler(this.btnInventoryCount_Click);
+            // 
             // cbVendor
             // 
             this.cbVendor.FormattingEnabled = true;
@@ -109,11 +151,46 @@ namespace CapstoneProject_3
             this.cbVendor.TabIndex = 51;
             this.cbVendor.SelectedIndexChanged += new System.EventHandler(this.cbVendor_SelectedIndexChanged);
             // 
+            // btnProductList
+            // 
+            this.btnProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProductList.FlatAppearance.BorderSize = 0;
+            this.btnProductList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnProductList.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btnProductList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnProductList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProductList.IconSize = 35;
+            this.btnProductList.Location = new System.Drawing.Point(832, 22);
+            this.btnProductList.Name = "btnProductList";
+            this.btnProductList.Size = new System.Drawing.Size(97, 69);
+            this.btnProductList.TabIndex = 50;
+            this.btnProductList.Text = "Product List\r\n";
+            this.btnProductList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnProductList.UseVisualStyleBackColor = true;
+            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
+            // 
+            // btnRefNo
+            // 
+            this.btnRefNo.FlatAppearance.BorderSize = 0;
+            this.btnRefNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnRefNo.IconChar = FontAwesome.Sharp.IconChar.Random;
+            this.btnRefNo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnRefNo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRefNo.IconSize = 29;
+            this.btnRefNo.Location = new System.Drawing.Point(425, 28);
+            this.btnRefNo.Name = "btnRefNo";
+            this.btnRefNo.Size = new System.Drawing.Size(26, 26);
+            this.btnRefNo.TabIndex = 49;
+            this.btnRefNo.UseVisualStyleBackColor = true;
+            this.btnRefNo.Click += new System.EventHandler(this.btnRefNo_Click);
+            // 
             // dtStockInDate
             // 
             this.dtStockInDate.Location = new System.Drawing.Point(121, 118);
             this.dtStockInDate.Name = "dtStockInDate";
-            this.dtStockInDate.Size = new System.Drawing.Size(211, 25);
+            this.dtStockInDate.Size = new System.Drawing.Size(218, 25);
             this.dtStockInDate.TabIndex = 48;
             this.dtStockInDate.Value = new System.DateTime(2022, 6, 15, 0, 0, 0, 0);
             // 
@@ -189,6 +266,23 @@ namespace CapstoneProject_3
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 35;
+            this.btnBack.Location = new System.Drawing.Point(892, 462);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(46, 39);
+            this.btnBack.TabIndex = 40;
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -216,21 +310,21 @@ namespace CapstoneProject_3
             this.dataGridViewStockEntry.AllowUserToDeleteRows = false;
             this.dataGridViewStockEntry.AllowUserToResizeColumns = false;
             this.dataGridViewStockEntry.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewStockEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStockEntry.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewStockEntry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewStockEntry.ColumnHeadersHeight = 40;
             this.dataGridViewStockEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewStockEntry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -242,36 +336,45 @@ namespace CapstoneProject_3
             this.Column5,
             this.Column6,
             this.qty,
+            this.cPrice,
             this.Column4,
             this.Delete});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewStockEntry.EnableHeadersVisualStyles = false;
             this.dataGridViewStockEntry.GridColor = System.Drawing.Color.Black;
             this.dataGridViewStockEntry.Location = new System.Drawing.Point(12, 149);
             this.dataGridViewStockEntry.Name = "dataGridViewStockEntry";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewStockEntry.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewStockEntry.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewStockEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStockEntry.Size = new System.Drawing.Size(917, 297);
             this.dataGridViewStockEntry.TabIndex = 38;
             this.dataGridViewStockEntry.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockEntry_CellContentClick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // Column3
             // 
@@ -334,94 +437,19 @@ namespace CapstoneProject_3
             this.qty.Name = "qty";
             this.qty.Width = 84;
             // 
+            // cPrice
+            // 
+            this.cPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cPrice.HeaderText = "Price";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.Width = 60;
+            // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column4.HeaderText = "Stock-In Date";
             this.Column4.Name = "Column4";
             this.Column4.Width = 103;
-            // 
-            // btnInventoryCount
-            // 
-            this.btnInventoryCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInventoryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnInventoryCount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnInventoryCount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnInventoryCount.BorderRadius = 5;
-            this.btnInventoryCount.BorderSize = 0;
-            this.btnInventoryCount.FlatAppearance.BorderSize = 0;
-            this.btnInventoryCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventoryCount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventoryCount.ForeColor = System.Drawing.Color.White;
-            this.btnInventoryCount.Location = new System.Drawing.Point(832, 97);
-            this.btnInventoryCount.Name = "btnInventoryCount";
-            this.btnInventoryCount.Size = new System.Drawing.Size(97, 46);
-            this.btnInventoryCount.TabIndex = 52;
-            this.btnInventoryCount.Text = "Inventory Count";
-            this.btnInventoryCount.TextColor = System.Drawing.Color.White;
-            this.btnInventoryCount.UseVisualStyleBackColor = false;
-            this.btnInventoryCount.Click += new System.EventHandler(this.btnInventoryCount_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 5;
-            // 
-            // btnProductList
-            // 
-            this.btnProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProductList.FlatAppearance.BorderSize = 0;
-            this.btnProductList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnProductList.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnProductList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnProductList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnProductList.IconSize = 35;
-            this.btnProductList.Location = new System.Drawing.Point(832, 22);
-            this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(97, 69);
-            this.btnProductList.TabIndex = 50;
-            this.btnProductList.Text = "Product List\r\n";
-            this.btnProductList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnProductList.UseVisualStyleBackColor = true;
-            this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
-            // 
-            // btnRefNo
-            // 
-            this.btnRefNo.FlatAppearance.BorderSize = 0;
-            this.btnRefNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnRefNo.IconChar = FontAwesome.Sharp.IconChar.Random;
-            this.btnRefNo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnRefNo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRefNo.IconSize = 29;
-            this.btnRefNo.Location = new System.Drawing.Point(425, 28);
-            this.btnRefNo.Name = "btnRefNo";
-            this.btnRefNo.Size = new System.Drawing.Size(26, 26);
-            this.btnRefNo.TabIndex = 49;
-            this.btnRefNo.UseVisualStyleBackColor = true;
-            this.btnRefNo.Click += new System.EventHandler(this.btnRefNo_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(892, 462);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 39);
-            this.btnBack.TabIndex = 40;
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // Delete
             // 
@@ -469,6 +497,9 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnBack;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private System.Windows.Forms.DataGridView dataGridViewStockEntry;
+        private RJCodeAdvance.RJControls.RJButton btnInventoryCount;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtBatchNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pid;
@@ -477,8 +508,8 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private RJCodeAdvance.RJControls.RJButton btnInventoryCount;
     }
 }

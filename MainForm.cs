@@ -402,7 +402,28 @@ namespace CapstoneProject_3
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            collapseDropDownHeight(btnContainer2);
+            if (btnContainer2.Height > 100)//Collapse
+            {
+                btnContainer2.Visible = false;
+                btnContainer2.Height = 43;
+
+                foreach (IconButton button in btnContainer2.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                btnContainer2.Visible = true;
+                btnContainer2.Height = 175;
+                foreach (IconButton button in btnContainer2.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
         }
 
         private void CollapseDropDownForSU()
@@ -528,6 +549,12 @@ namespace CapstoneProject_3
         {
             ActivateButton(sender);
             OpenChildForm(new frmAuditTrail());
+        }
+
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            OpenChildForm(new frmInventory());
         }
     }
 }

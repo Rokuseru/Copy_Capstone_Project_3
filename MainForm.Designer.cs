@@ -40,6 +40,7 @@ namespace CapstoneProject_3
             this.btnUsers = new FontAwesome.Sharp.IconButton();
             this.btnSuppliersAndUsers = new FontAwesome.Sharp.IconButton();
             this.btnContainer2 = new System.Windows.Forms.Panel();
+            this.btnWarehouse = new FontAwesome.Sharp.IconButton();
             this.btnStockAdjustment = new FontAwesome.Sharp.IconButton();
             this.btnStockIn = new FontAwesome.Sharp.IconButton();
             this.btnPurchaseOrder = new FontAwesome.Sharp.IconButton();
@@ -102,7 +103,7 @@ namespace CapstoneProject_3
             this.btnContainer4.Controls.Add(this.btnHistory);
             this.btnContainer4.Controls.Add(this.btnReports);
             this.btnContainer4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer4.Location = new System.Drawing.Point(0, 760);
+            this.btnContainer4.Location = new System.Drawing.Point(0, 799);
             this.btnContainer4.Name = "btnContainer4";
             this.btnContainer4.Size = new System.Drawing.Size(203, 143);
             this.btnContainer4.TabIndex = 45;
@@ -199,7 +200,7 @@ namespace CapstoneProject_3
             this.btnRecords.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRecords.IconSize = 35;
             this.btnRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecords.Location = new System.Drawing.Point(0, 717);
+            this.btnRecords.Location = new System.Drawing.Point(0, 756);
             this.btnRecords.Name = "btnRecords";
             this.btnRecords.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRecords.Size = new System.Drawing.Size(203, 43);
@@ -216,7 +217,7 @@ namespace CapstoneProject_3
             this.btnContainer3.Controls.Add(this.btnVendor);
             this.btnContainer3.Controls.Add(this.btnUsers);
             this.btnContainer3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnContainer3.Location = new System.Drawing.Point(0, 624);
+            this.btnContainer3.Location = new System.Drawing.Point(0, 663);
             this.btnContainer3.Name = "btnContainer3";
             this.btnContainer3.Size = new System.Drawing.Size(203, 93);
             this.btnContainer3.TabIndex = 43;
@@ -287,7 +288,7 @@ namespace CapstoneProject_3
             this.btnSuppliersAndUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSuppliersAndUsers.IconSize = 35;
             this.btnSuppliersAndUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuppliersAndUsers.Location = new System.Drawing.Point(0, 581);
+            this.btnSuppliersAndUsers.Location = new System.Drawing.Point(0, 620);
             this.btnSuppliersAndUsers.Name = "btnSuppliersAndUsers";
             this.btnSuppliersAndUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSuppliersAndUsers.Size = new System.Drawing.Size(203, 43);
@@ -301,14 +302,41 @@ namespace CapstoneProject_3
             // 
             // btnContainer2
             // 
+            this.btnContainer2.Controls.Add(this.btnWarehouse);
             this.btnContainer2.Controls.Add(this.btnStockAdjustment);
             this.btnContainer2.Controls.Add(this.btnStockIn);
             this.btnContainer2.Controls.Add(this.btnPurchaseOrder);
             this.btnContainer2.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContainer2.Location = new System.Drawing.Point(0, 445);
             this.btnContainer2.Name = "btnContainer2";
-            this.btnContainer2.Size = new System.Drawing.Size(203, 136);
+            this.btnContainer2.Size = new System.Drawing.Size(203, 175);
             this.btnContainer2.TabIndex = 41;
+            // 
+            // btnWarehouse
+            // 
+            this.btnWarehouse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnWarehouse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWarehouse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnWarehouse.FlatAppearance.BorderSize = 0;
+            this.btnWarehouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarehouse.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWarehouse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnWarehouse.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
+            this.btnWarehouse.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnWarehouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWarehouse.IconSize = 30;
+            this.btnWarehouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWarehouse.Location = new System.Drawing.Point(0, 129);
+            this.btnWarehouse.Name = "btnWarehouse";
+            this.btnWarehouse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnWarehouse.Size = new System.Drawing.Size(203, 43);
+            this.btnWarehouse.TabIndex = 39;
+            this.btnWarehouse.Tag = "     Inventory";
+            this.btnWarehouse.Text = "     Inventory";
+            this.btnWarehouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWarehouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWarehouse.UseVisualStyleBackColor = false;
+            this.btnWarehouse.Click += new System.EventHandler(this.btnWarehouse_Click);
             // 
             // btnStockAdjustment
             // 
@@ -543,7 +571,7 @@ namespace CapstoneProject_3
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 35;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 903);
+            this.btnLogout.Location = new System.Drawing.Point(0, 942);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(203, 43);
@@ -837,6 +865,7 @@ namespace CapstoneProject_3
         private FontAwesome.Sharp.IconButton btnReports;
         private FontAwesome.Sharp.IconButton btnActivityLog;
         public System.Windows.Forms.Panel panelDesktop;
+        private FontAwesome.Sharp.IconButton btnWarehouse;
     }
 }
 

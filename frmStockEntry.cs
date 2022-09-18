@@ -23,6 +23,8 @@ namespace CapstoneProject_3
         {
             InitializeComponent();
             mf = main;
+            generateBatchNo();
+            generateRefCode();
         }
         public void clear()
         {
@@ -57,11 +59,40 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void generateBatchNo()
+        {
+            try
+            {
+                string sql = @"SELECT MAX(BatchNo) FROM tblInventory";
+
+                using (var connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    var refid = cmd.ExecuteScalar() as string;
+
+                    if (refid == null)
+                    {
+                        txtBatchNo.Text = "BT-000001";
+                    }
+                    else
+                    {
+                        int intval = int.Parse(refid.Substring(3, 6));
+                        intval++;
+                        txtBatchNo.Text = String.Format("BT-{0:000000}", intval);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void generateRefCode()
         {
             try
             {
-                string sql = @"SELECT MAX(referenceCode) FROM tblPurchaseOrder";
+                string sql = @"SELECT MAX(RefNumber) FROM tblStockEntry";
 
                 using (var connection = new SqlConnection(con))
                 {
@@ -85,47 +116,6 @@ namespace CapstoneProject_3
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        public void generateRefNo()
-        {
-            try
-            {
-                string referencecode = "#STC000";
-                string referenceno;
-                int count;
-
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT TOP 1 RefNumber FROM tblStockEntry
-                                            WHERE RefNumber
-                                            LIKE '" + txtRefNo.Text+"%' ORDER BY stockEntryID DESC";
-                    using (var reader = command.ExecuteReader())
-                    {
-                        reader.Read();
-                        if (reader.HasRows)
-                        {
-                            referenceno = reader[0].ToString();
-                            count = int.Parse(referenceno.Substring(4, 4));
-                            txtRefNo.Text = referencecode + (count + 1);
-                        }
-                        else
-                        {
-                            referenceno = referencecode + "1";
-                            txtRefNo.Text = referenceno;
-                        }
-                    }
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
         public void loadProducts()
         {
@@ -151,7 +141,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             dataGridViewStockEntry.Rows.Add(i, reader["stockEntryID"].ToString(), reader["productID"].ToString(),reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
-                           reader["Vendor"].ToString(), reader["qty"].ToString(), reader["StockInDate"].ToString());
+                           reader["Vendor"].ToString(), reader["qty"].ToString(), 0,reader["StockInDate"].ToString());
                         }
                        
                     }
@@ -194,6 +184,7 @@ namespace CapstoneProject_3
                                 command.Parameters.AddWithValue("id", dataGridViewStockEntry.Rows[i].Cells[1].Value.ToString());
                                 command.ExecuteNonQuery();
                             }
+                            saveToInventory();
                         }
                         //Logs
                         log.loadUserID(mf.lblUser.Text);
@@ -206,11 +197,41 @@ namespace CapstoneProject_3
                     {
                         toast.showToastNotifInPanel(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), panel2);
                     }
+                    generateBatchNo();
+                    generateRefCode();
                 }
             } 
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void saveToInventory()
+        {
+            try
+            {
+                for (int i = 0; i < dataGridViewStockEntry.Rows.Count; i++)
+                {
+                    using (var connection = new SqlConnection(con))
+                    using (var command = new SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @"INSERT INTO tblInventory (productID, BatchNo, price, qty, date)
+                                            VALUES (@pid, @bno, @price, @qty, @date)";
+                        command.Parameters.AddWithValue("@pid", int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
+                        command.Parameters.AddWithValue("@bno", txtBatchNo.Text);
+                        command.Parameters.AddWithValue("@price", int.Parse(dataGridViewStockEntry.Rows[i].Cells["cPrice"].Value.ToString()));
+                        command.Parameters.AddWithValue("@qty", int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()));
+                        command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+                        command.ExecuteNonQuery();
+                    } 
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void frmStockEntry_Load(object sender, EventArgs e)
@@ -220,7 +241,7 @@ namespace CapstoneProject_3
         }
         private void btnRefNo_Click(object sender, EventArgs e)
         {
-            generateRefNo();
+            generateRefCode();
         }
         private void btnProductList_Click(object sender, EventArgs e)
         {
@@ -290,6 +311,7 @@ namespace CapstoneProject_3
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveQty();
+            saveToInventory();
         }
 
         private void btnInventoryCount_Click(object sender, EventArgs e)
