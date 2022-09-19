@@ -42,12 +42,6 @@ namespace CapstoneProject_3
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.panelNotif1 = new System.Windows.Forms.Panel();
-            this.labelNotif1 = new System.Windows.Forms.Label();
-            this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +50,12 @@ namespace CapstoneProject_3
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panelNotif1 = new System.Windows.Forms.Panel();
+            this.labelNotif1 = new System.Windows.Forms.Label();
+            this.iconNotif1 = new FontAwesome.Sharp.IconPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panelNotif1.SuspendLayout();
@@ -64,7 +64,7 @@ namespace CapstoneProject_3
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -79,7 +79,7 @@ namespace CapstoneProject_3
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
@@ -103,7 +103,7 @@ namespace CapstoneProject_3
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.btnSearch.IconColor = System.Drawing.Color.White;
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 25;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -195,61 +195,6 @@ namespace CapstoneProject_3
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
-            // panelNotif1
-            // 
-            this.panelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNotif1.Controls.Add(this.labelNotif1);
-            this.panelNotif1.Controls.Add(this.iconNotif1);
-            this.panelNotif1.Location = new System.Drawing.Point(0, 458);
-            this.panelNotif1.Name = "panelNotif1";
-            this.panelNotif1.Size = new System.Drawing.Size(1022, 29);
-            this.panelNotif1.TabIndex = 14;
-            this.panelNotif1.Visible = false;
-            // 
-            // labelNotif1
-            // 
-            this.labelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNotif1.AutoSize = true;
-            this.labelNotif1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNotif1.Location = new System.Drawing.Point(45, 6);
-            this.labelNotif1.Name = "labelNotif1";
-            this.labelNotif1.Size = new System.Drawing.Size(43, 17);
-            this.labelNotif1.TabIndex = 1;
-            this.labelNotif1.Text = "label3";
-            // 
-            // iconNotif1
-            // 
-            this.iconNotif1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.iconNotif1.ForeColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.iconNotif1.IconColor = System.Drawing.SystemColors.Info;
-            this.iconNotif1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconNotif1.IconSize = 26;
-            this.iconNotif1.Location = new System.Drawing.Point(14, 3);
-            this.iconNotif1.Name = "iconNotif1";
-            this.iconNotif1.Size = new System.Drawing.Size(32, 26);
-            this.iconNotif1.TabIndex = 0;
-            this.iconNotif1.TabStop = false;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_plus_50;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -317,6 +262,61 @@ namespace CapstoneProject_3
             this.add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.add.Width = 17;
+            // 
+            // panelNotif1
+            // 
+            this.panelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelNotif1.Controls.Add(this.labelNotif1);
+            this.panelNotif1.Controls.Add(this.iconNotif1);
+            this.panelNotif1.Location = new System.Drawing.Point(0, 458);
+            this.panelNotif1.Name = "panelNotif1";
+            this.panelNotif1.Size = new System.Drawing.Size(1022, 29);
+            this.panelNotif1.TabIndex = 14;
+            this.panelNotif1.Visible = false;
+            // 
+            // labelNotif1
+            // 
+            this.labelNotif1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelNotif1.AutoSize = true;
+            this.labelNotif1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotif1.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelNotif1.Location = new System.Drawing.Point(45, 6);
+            this.labelNotif1.Name = "labelNotif1";
+            this.labelNotif1.Size = new System.Drawing.Size(43, 17);
+            this.labelNotif1.TabIndex = 1;
+            this.labelNotif1.Text = "label3";
+            // 
+            // iconNotif1
+            // 
+            this.iconNotif1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.iconNotif1.ForeColor = System.Drawing.SystemColors.Info;
+            this.iconNotif1.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            this.iconNotif1.IconColor = System.Drawing.SystemColors.Info;
+            this.iconNotif1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconNotif1.IconSize = 26;
+            this.iconNotif1.Location = new System.Drawing.Point(14, 3);
+            this.iconNotif1.Name = "iconNotif1";
+            this.iconNotif1.Size = new System.Drawing.Size(32, 26);
+            this.iconNotif1.TabIndex = 0;
+            this.iconNotif1.TabStop = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_plus_50;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // frmSearchProducts
             // 

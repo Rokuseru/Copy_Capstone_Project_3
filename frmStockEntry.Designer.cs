@@ -29,11 +29,11 @@ namespace CapstoneProject_3
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,9 +41,6 @@ namespace CapstoneProject_3
             this.btnInventoryCount = new RJCodeAdvance.RJControls.RJButton();
             this.cbVendor = new System.Windows.Forms.ComboBox();
             this.btnProductList = new FontAwesome.Sharp.IconButton();
-            this.btnRefNo = new FontAwesome.Sharp.IconButton();
-            this.dtStockInDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtStockInBy = new System.Windows.Forms.TextBox();
@@ -53,7 +50,6 @@ namespace CapstoneProject_3
             this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridViewStockEntry = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +61,7 @@ namespace CapstoneProject_3
             this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockEntry)).BeginInit();
             this.SuspendLayout();
@@ -86,9 +83,6 @@ namespace CapstoneProject_3
             this.panel2.Controls.Add(this.btnInventoryCount);
             this.panel2.Controls.Add(this.cbVendor);
             this.panel2.Controls.Add(this.btnProductList);
-            this.panel2.Controls.Add(this.btnRefNo);
-            this.panel2.Controls.Add(this.dtStockInDate);
-            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtStockInBy);
@@ -108,7 +102,7 @@ namespace CapstoneProject_3
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(457, 28);
+            this.label1.Location = new System.Drawing.Point(14, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 54;
@@ -116,9 +110,9 @@ namespace CapstoneProject_3
             // 
             // txtBatchNo
             // 
-            this.txtBatchNo.Location = new System.Drawing.Point(530, 25);
+            this.txtBatchNo.Location = new System.Drawing.Point(121, 53);
             this.txtBatchNo.Name = "txtBatchNo";
-            this.txtBatchNo.Size = new System.Drawing.Size(95, 25);
+            this.txtBatchNo.Size = new System.Drawing.Size(298, 25);
             this.txtBatchNo.TabIndex = 53;
             // 
             // btnInventoryCount
@@ -145,7 +139,7 @@ namespace CapstoneProject_3
             // cbVendor
             // 
             this.cbVendor.FormattingEnabled = true;
-            this.cbVendor.Location = new System.Drawing.Point(121, 87);
+            this.cbVendor.Location = new System.Drawing.Point(121, 115);
             this.cbVendor.Name = "cbVendor";
             this.cbVendor.Size = new System.Drawing.Size(298, 25);
             this.cbVendor.TabIndex = 51;
@@ -170,43 +164,10 @@ namespace CapstoneProject_3
             this.btnProductList.UseVisualStyleBackColor = true;
             this.btnProductList.Click += new System.EventHandler(this.btnProductList_Click);
             // 
-            // btnRefNo
-            // 
-            this.btnRefNo.FlatAppearance.BorderSize = 0;
-            this.btnRefNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnRefNo.IconChar = FontAwesome.Sharp.IconChar.Random;
-            this.btnRefNo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.btnRefNo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRefNo.IconSize = 29;
-            this.btnRefNo.Location = new System.Drawing.Point(425, 28);
-            this.btnRefNo.Name = "btnRefNo";
-            this.btnRefNo.Size = new System.Drawing.Size(26, 26);
-            this.btnRefNo.TabIndex = 49;
-            this.btnRefNo.UseVisualStyleBackColor = true;
-            this.btnRefNo.Click += new System.EventHandler(this.btnRefNo_Click);
-            // 
-            // dtStockInDate
-            // 
-            this.dtStockInDate.Location = new System.Drawing.Point(121, 118);
-            this.dtStockInDate.Name = "dtStockInDate";
-            this.dtStockInDate.Size = new System.Drawing.Size(218, 25);
-            this.dtStockInDate.TabIndex = 48;
-            this.dtStockInDate.Value = new System.DateTime(2022, 6, 15, 0, 0, 0, 0);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 122);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 17);
-            this.label6.TabIndex = 47;
-            this.label6.Text = "Date";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 90);
+            this.label5.Location = new System.Drawing.Point(14, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 46;
@@ -215,7 +176,7 @@ namespace CapstoneProject_3
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 59);
+            this.label4.Location = new System.Drawing.Point(14, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 45;
@@ -223,7 +184,7 @@ namespace CapstoneProject_3
             // 
             // txtStockInBy
             // 
-            this.txtStockInBy.Location = new System.Drawing.Point(121, 56);
+            this.txtStockInBy.Location = new System.Drawing.Point(121, 84);
             this.txtStockInBy.Name = "txtStockInBy";
             this.txtStockInBy.Size = new System.Drawing.Size(298, 25);
             this.txtStockInBy.TabIndex = 44;
@@ -231,7 +192,7 @@ namespace CapstoneProject_3
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 28);
+            this.label3.Location = new System.Drawing.Point(14, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 43;
@@ -240,7 +201,7 @@ namespace CapstoneProject_3
             // txtRefNo
             // 
             this.txtRefNo.Enabled = false;
-            this.txtRefNo.Location = new System.Drawing.Point(121, 25);
+            this.txtRefNo.Location = new System.Drawing.Point(121, 22);
             this.txtRefNo.Name = "txtRefNo";
             this.txtRefNo.Size = new System.Drawing.Size(298, 25);
             this.txtRefNo.TabIndex = 42;
@@ -310,21 +271,21 @@ namespace CapstoneProject_3
             this.dataGridViewStockEntry.AllowUserToDeleteRows = false;
             this.dataGridViewStockEntry.AllowUserToResizeColumns = false;
             this.dataGridViewStockEntry.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridViewStockEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewStockEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStockEntry.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewStockEntry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewStockEntry.ColumnHeadersHeight = 40;
             this.dataGridViewStockEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewStockEntry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -339,42 +300,34 @@ namespace CapstoneProject_3
             this.cPrice,
             this.Column4,
             this.Delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewStockEntry.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewStockEntry.EnableHeadersVisualStyles = false;
             this.dataGridViewStockEntry.GridColor = System.Drawing.Color.Black;
             this.dataGridViewStockEntry.Location = new System.Drawing.Point(12, 149);
             this.dataGridViewStockEntry.Name = "dataGridViewStockEntry";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockEntry.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewStockEntry.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewStockEntry.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewStockEntry.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewStockEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStockEntry.Size = new System.Drawing.Size(917, 297);
             this.dataGridViewStockEntry.TabIndex = 38;
             this.dataGridViewStockEntry.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockEntry_CellContentClick);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // Column3
             // 
@@ -391,7 +344,7 @@ namespace CapstoneProject_3
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
-            this.Column1.Width = 42;
+            this.Column1.Width = 44;
             // 
             // pid
             // 
@@ -460,6 +413,14 @@ namespace CapstoneProject_3
             this.Delete.Name = "Delete";
             this.Delete.Width = 5;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
             // frmStockEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,9 +446,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.ComboBox cbVendor;
         private FontAwesome.Sharp.IconButton btnProductList;
-        public FontAwesome.Sharp.IconButton btnRefNo;
-        public System.Windows.Forms.DateTimePicker dtStockInDate;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtStockInBy;

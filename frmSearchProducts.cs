@@ -34,7 +34,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Barcode, Description, b.Brand, c.Category, Price FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, Price FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
@@ -45,7 +45,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString());
                         }
                     }
                 }
@@ -123,7 +123,7 @@ namespace CapstoneProject_3
                                 command.Parameters.AddWithValue("@productID", dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
                                 command.Parameters.AddWithValue("@supplierID", stockEntry.vendorID);
                                 command.Parameters.AddWithValue("@RecievedBy", stockEntry.txtStockInBy.Text);
-                                command.Parameters.AddWithValue("@date", stockEntry.dtStockInDate.Value.Date);
+                                command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                                 command.ExecuteNonQuery();
 
                                 stockEntry.loadProducts();

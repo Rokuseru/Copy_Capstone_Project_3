@@ -239,10 +239,6 @@ namespace CapstoneProject_3
             this.txtStockInBy.Text = mf.lblUser.Text;
             loadVendor();
         }
-        private void btnRefNo_Click(object sender, EventArgs e)
-        {
-            generateRefCode();
-        }
         private void btnProductList_Click(object sender, EventArgs e)
         {
             frmSearchProducts productList = new frmSearchProducts(this);
@@ -313,7 +309,6 @@ namespace CapstoneProject_3
             saveQty();
             saveToInventory();
         }
-
         private void btnInventoryCount_Click(object sender, EventArgs e)
         {
             frmInventoryCount count = new frmInventoryCount();
