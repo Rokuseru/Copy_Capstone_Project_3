@@ -31,7 +31,6 @@ namespace CapstoneProject_3
             txtRefNo.Clear();
             txtStockInBy.Clear();
             cbVendor.SelectedIndex = -1;
-            dtStockInDate.Value = DateTime.Now;
             dataGridViewStockEntry.Rows.Clear();
         }
         public void loadVendor()
@@ -141,7 +140,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             dataGridViewStockEntry.Rows.Add(i, reader["stockEntryID"].ToString(), reader["productID"].ToString(),reader["RefNumber"].ToString(), reader["Description"].ToString(), reader["RecievedBy"].ToString(),
-                           reader["Vendor"].ToString(), reader["qty"].ToString(), 0,reader["StockInDate"].ToString());
+                           reader["Vendor"].ToString(), reader["qty"].ToString(), 0,Convert.ToDateTime(reader["StockInDate"].ToString()).ToString("yyyy-MM-dd"));
                         }
                        
                     }
@@ -184,7 +183,6 @@ namespace CapstoneProject_3
                                 command.Parameters.AddWithValue("id", dataGridViewStockEntry.Rows[i].Cells[1].Value.ToString());
                                 command.ExecuteNonQuery();
                             }
-                            saveToInventory();
                         }
                         //Logs
                         log.loadUserID(mf.lblUser.Text);

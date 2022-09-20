@@ -18,11 +18,12 @@ namespace CapstoneProject_3
         showToast toast = new showToast();
         private int uid = 0;
         private string pw = " ";
-        AuditTrail trail = new AuditTrail();
-
-        public frmAccounts()
+        AuditTrail log = new AuditTrail();
+        MainForm main;
+        public frmAccounts(MainForm m)
         {
             InitializeComponent();
+            main = m;
             tab.TabPages.Remove(tabManageUsers);
         }
         private void initiatePositons()
@@ -39,7 +40,7 @@ namespace CapstoneProject_3
         }
         private void newPositions()
         {
-            txtPassword.Location = new Point(249, 236);
+            txtPassword.Location = new Point(this.txtPassword.Location.X, this.txtPassword.Location.Y);
             lblPassword.Location = new Point(125, 239);
             txtConfirmPw.Location = new Point(249, 267);
             lblCpassword.Location = new Point(125, 270);
@@ -174,24 +175,32 @@ namespace CapstoneProject_3
                 }
             }
         }
-        public void disableUser()
+        private void searchUser()
         {
             try
             {
-                using (var connection = new SqlConnection(con))
+                int i = 0;
+                dataGridView.Rows.Clear();
+
+                using (var connecion = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"UPDATE tblUsers SET status = 'Disabled' WHERE userID LIKE @uid";
-                    command.Parameters.Add("@uid", SqlDbType.Int);
-                    command.Parameters["@uid"].Value = int.Parse(dataGridView.Rows[0].Cells["userID"].Value.ToString());
-                    command.ExecuteNonQuery();
+                    connecion.Open();
+                    command.Connection = connecion;
+                    command.CommandText = @"SELECT userID, Name, email,role, status FROM tblUsers WHERE status = 'Active' AND Name LIKE '%"+txtSearch.Text+"%'";
 
-                    toast.showToastNotif(new ToastNotification("User Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabUserList);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i++;
+                            dataGridView.Rows.Add(i, reader["userID"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
+                        }
+                    }
+
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -234,7 +243,28 @@ namespace CapstoneProject_3
             {
                 if (MessageBox.Show("Disable User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 {
-                    disableUser();
+                    try
+                    {
+                        using (var connection = new SqlConnection(con))
+                        using (var command = new SqlCommand())
+                        {
+                            connection.Open();
+                            command.Connection = connection;
+                            command.CommandText = @"UPDATE tblUsers SET status = 'Disabled' WHERE userID LIKE @uid";
+                            command.Parameters.Add("@uid", SqlDbType.Int);
+                            command.Parameters["@uid"].Value = int.Parse(dataGridView.CurrentRow.Cells["userID"].Value.ToString());
+                            command.ExecuteNonQuery();
+
+                            log.loadUserID(main.lblUser.Text);
+                            log.insertAction("Deactivate User", "Deactivated User: " + this.dataGridView.CurrentRow.Cells["name"].Value.ToString(), "Account Module");
+
+                            toast.showToastNotif(new ToastNotification("User Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabUserList);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -279,6 +309,11 @@ namespace CapstoneProject_3
             tab.TabPages.Remove(tabUserList);
             tab.TabPages.Add(tabManageUsers);
             newPositions();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchUser();
         }
     }
 }

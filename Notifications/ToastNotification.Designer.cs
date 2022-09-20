@@ -46,7 +46,7 @@ namespace CapstoneProject_3.Notifications
             this.notificationIcon.IconSize = 29;
             this.notificationIcon.Location = new System.Drawing.Point(0, 0);
             this.notificationIcon.Name = "notificationIcon";
-            this.notificationIcon.Size = new System.Drawing.Size(32, 29);
+            this.notificationIcon.Size = new System.Drawing.Size(29, 29);
             this.notificationIcon.TabIndex = 0;
             this.notificationIcon.TabStop = false;
             // 
@@ -63,7 +63,7 @@ namespace CapstoneProject_3.Notifications
             // 
             // notificationTimer
             // 
-            this.notificationTimer.Interval = 2500;
+            this.notificationTimer.Interval = 5000;
             this.notificationTimer.Tick += new System.EventHandler(this.notificationTimer_Tick);
             // 
             // ToastNotification

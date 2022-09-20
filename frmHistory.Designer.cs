@@ -59,7 +59,6 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlHistory = new MetroFramework.Controls.MetroTabControl();
             this.tabSalesHistory = new MetroFramework.Controls.MetroTabPage();
-            this.btnPrintSalesHistory = new FontAwesome.Sharp.IconButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbUsers = new System.Windows.Forms.ComboBox();
@@ -68,18 +67,7 @@ namespace CapstoneProject_3
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabRefundHistory = new MetroFramework.Controls.MetroTabPage();
-            this.btnPrintRefund = new FontAwesome.Sharp.IconButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTo3 = new System.Windows.Forms.DateTimePicker();
@@ -97,7 +85,6 @@ namespace CapstoneProject_3
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPriceHistory = new MetroFramework.Controls.MetroTabPage();
-            this.btnPriceHistory = new FontAwesome.Sharp.IconButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTo2 = new System.Windows.Forms.DateTimePicker();
@@ -109,7 +96,6 @@ namespace CapstoneProject_3
             this.priceP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabStockInHistory = new MetroFramework.Controls.MetroTabPage();
-            this.btnPrintStockInHistory = new FontAwesome.Sharp.IconButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTo4 = new System.Windows.Forms.DateTimePicker();
@@ -123,7 +109,6 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabStockHistory = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.time = new System.Windows.Forms.DateTimePicker();
@@ -137,7 +122,22 @@ namespace CapstoneProject_3
             this.label2 = new System.Windows.Forms.Label();
             this.dateTo5 = new System.Windows.Forms.DateTimePicker();
             this.dateFrom5 = new System.Windows.Forms.DateTimePicker();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnPrintSalesHistory = new FontAwesome.Sharp.IconButton();
+            this.cancel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnPrintRefund = new FontAwesome.Sharp.IconButton();
+            this.btnPriceHistory = new FontAwesome.Sharp.IconButton();
+            this.btnPrintStockInHistory = new FontAwesome.Sharp.IconButton();
             this.tabControlHistory.SuspendLayout();
             this.tabSalesHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -168,10 +168,12 @@ namespace CapstoneProject_3
             this.tabControlHistory.Controls.Add(this.tabStockInHistory);
             this.tabControlHistory.Controls.Add(this.tabStockHistory);
             this.tabControlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlHistory.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControlHistory.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tabControlHistory.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlHistory.Location = new System.Drawing.Point(0, 1);
             this.tabControlHistory.Name = "tabControlHistory";
-            this.tabControlHistory.SelectedIndex = 0;
+            this.tabControlHistory.SelectedIndex = 4;
             this.tabControlHistory.Size = new System.Drawing.Size(992, 513);
             this.tabControlHistory.TabIndex = 3;
             this.tabControlHistory.UseSelectable = true;
@@ -193,62 +195,44 @@ namespace CapstoneProject_3
             this.tabSalesHistory.HorizontalScrollbarBarColor = true;
             this.tabSalesHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabSalesHistory.HorizontalScrollbarSize = 10;
-            this.tabSalesHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabSalesHistory.Location = new System.Drawing.Point(4, 44);
             this.tabSalesHistory.Name = "tabSalesHistory";
-            this.tabSalesHistory.Size = new System.Drawing.Size(984, 471);
+            this.tabSalesHistory.Size = new System.Drawing.Size(984, 465);
             this.tabSalesHistory.TabIndex = 0;
             this.tabSalesHistory.Text = "Sales History";
             this.tabSalesHistory.VerticalScrollbarBarColor = true;
             this.tabSalesHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabSalesHistory.VerticalScrollbarSize = 10;
             // 
-            // btnPrintSalesHistory
-            // 
-            this.btnPrintSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintSalesHistory.FlatAppearance.BorderSize = 0;
-            this.btnPrintSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintSalesHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintSalesHistory.ForeColor = System.Drawing.Color.White;
-            this.btnPrintSalesHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintSalesHistory.IconColor = System.Drawing.Color.White;
-            this.btnPrintSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintSalesHistory.IconSize = 25;
-            this.btnPrintSalesHistory.Location = new System.Drawing.Point(595, 1);
-            this.btnPrintSalesHistory.Name = "btnPrintSalesHistory";
-            this.btnPrintSalesHistory.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintSalesHistory.TabIndex = 43;
-            this.btnPrintSalesHistory.Text = "Print";
-            this.btnPrintSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintSalesHistory.UseVisualStyleBackColor = false;
-            this.btnPrintSalesHistory.Click += new System.EventHandler(this.btnPrintSalesHistory_Click);
-            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(422, 9);
+            this.metroLabel2.Location = new System.Drawing.Point(466, 7);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(40, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(51, 25);
             this.metroLabel2.TabIndex = 42;
             this.metroLabel2.Text = "User:";
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(0, 8);
+            this.metroLabel1.Location = new System.Drawing.Point(0, 7);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(197, 25);
             this.metroLabel1.TabIndex = 41;
             this.metroLabel1.Text = "Filter By Date(From-To):";
             // 
             // cbUsers
             // 
-            this.cbUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUsers.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsers.FormattingEnabled = true;
-            this.cbUsers.Location = new System.Drawing.Point(468, 5);
+            this.cbUsers.Location = new System.Drawing.Point(523, 6);
             this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(121, 25);
+            this.cbUsers.Size = new System.Drawing.Size(121, 28);
             this.cbUsers.TabIndex = 26;
             this.cbUsers.Text = "All Users";
             this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
@@ -271,7 +255,7 @@ namespace CapstoneProject_3
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(280, 8);
+            this.label3.Location = new System.Drawing.Point(325, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 20);
             this.label3.TabIndex = 23;
@@ -280,11 +264,11 @@ namespace CapstoneProject_3
             // dateTo
             // 
             this.dateTo.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo.Location = new System.Drawing.Point(301, 5);
+            this.dateTo.Location = new System.Drawing.Point(344, 6);
             this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(116, 25);
+            this.dateTo.Size = new System.Drawing.Size(116, 27);
             this.dateTo.TabIndex = 22;
             this.dateTo.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             this.dateTo.ValueChanged += new System.EventHandler(this.dateTo_ValueChanged);
@@ -292,11 +276,11 @@ namespace CapstoneProject_3
             // dateFrom
             // 
             this.dateFrom.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFrom.Location = new System.Drawing.Point(154, 5);
+            this.dateFrom.Location = new System.Drawing.Point(203, 8);
             this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(122, 25);
+            this.dateFrom.Size = new System.Drawing.Size(122, 27);
             this.dateFrom.TabIndex = 21;
             this.dateFrom.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             this.dateFrom.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
@@ -317,7 +301,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -345,7 +329,7 @@ namespace CapstoneProject_3
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.EnableHeadersVisualStyles = false;
-            this.dataGridView.Location = new System.Drawing.Point(3, 34);
+            this.dataGridView.Location = new System.Drawing.Point(3, 39);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -362,138 +346,39 @@ namespace CapstoneProject_3
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(978, 437);
+            this.dataGridView.Size = new System.Drawing.Size(978, 426);
             this.dataGridView.TabIndex = 19;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
-            // 
-            // cartID
-            // 
-            this.cartID.HeaderText = "id";
-            this.cartID.Name = "cartID";
-            this.cartID.ReadOnly = true;
-            this.cartID.Visible = false;
-            // 
-            // invoiceNo
-            // 
-            this.invoiceNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.invoiceNo.HeaderText = "Invoice #";
-            this.invoiceNo.Name = "invoiceNo";
-            this.invoiceNo.ReadOnly = true;
-            this.invoiceNo.Width = 79;
-            // 
-            // pcode
-            // 
-            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.pcode.HeaderText = "Product Code";
-            this.pcode.Name = "pcode";
-            this.pcode.ReadOnly = true;
-            this.pcode.Width = 104;
-            // 
-            // desc
-            // 
-            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desc.HeaderText = "Description";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // prodPrice
-            // 
-            this.prodPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.prodPrice.HeaderText = "Price";
-            this.prodPrice.Name = "prodPrice";
-            this.prodPrice.ReadOnly = true;
-            this.prodPrice.Width = 60;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.HeaderText = "Quantity";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 84;
-            // 
-            // discount
-            // 
-            this.discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.discount.HeaderText = "Discount";
-            this.discount.Name = "discount";
-            this.discount.ReadOnly = true;
-            this.discount.Width = 84;
-            // 
-            // TotalPrice
-            // 
-            this.TotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TotalPrice.HeaderText = "Total";
-            this.TotalPrice.Name = "TotalPrice";
-            this.TotalPrice.ReadOnly = true;
-            this.TotalPrice.Width = 60;
-            // 
-            // cancel
-            // 
-            this.cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cancel.HeaderText = "";
-            this.cancel.Image = global::CapstoneProject_3.Properties.Resources.icons8_cancel_50;
-            this.cancel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.cancel.Name = "cancel";
-            this.cancel.ReadOnly = true;
-            this.cancel.Width = 5;
             // 
             // tabRefundHistory
             // 
             this.tabRefundHistory.BackColor = System.Drawing.Color.White;
-            this.tabRefundHistory.Controls.Add(this.btnPrintRefund);
             this.tabRefundHistory.Controls.Add(this.metroLabel3);
             this.tabRefundHistory.Controls.Add(this.label4);
             this.tabRefundHistory.Controls.Add(this.dateTo3);
             this.tabRefundHistory.Controls.Add(this.dateFrom3);
             this.tabRefundHistory.Controls.Add(this.dataGridView3);
+            this.tabRefundHistory.Controls.Add(this.btnPrintRefund);
             this.tabRefundHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabRefundHistory.HorizontalScrollbarBarColor = true;
             this.tabRefundHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabRefundHistory.HorizontalScrollbarSize = 10;
-            this.tabRefundHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabRefundHistory.Location = new System.Drawing.Point(4, 44);
             this.tabRefundHistory.Name = "tabRefundHistory";
-            this.tabRefundHistory.Size = new System.Drawing.Size(984, 471);
+            this.tabRefundHistory.Size = new System.Drawing.Size(984, 465);
             this.tabRefundHistory.TabIndex = 2;
             this.tabRefundHistory.Text = "Refund History";
             this.tabRefundHistory.VerticalScrollbarBarColor = true;
             this.tabRefundHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabRefundHistory.VerticalScrollbarSize = 10;
             // 
-            // btnPrintRefund
-            // 
-            this.btnPrintRefund.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintRefund.FlatAppearance.BorderSize = 0;
-            this.btnPrintRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintRefund.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintRefund.ForeColor = System.Drawing.Color.White;
-            this.btnPrintRefund.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintRefund.IconColor = System.Drawing.Color.White;
-            this.btnPrintRefund.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintRefund.IconSize = 25;
-            this.btnPrintRefund.Location = new System.Drawing.Point(404, 3);
-            this.btnPrintRefund.Name = "btnPrintRefund";
-            this.btnPrintRefund.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintRefund.TabIndex = 43;
-            this.btnPrintRefund.Text = "Print";
-            this.btnPrintRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintRefund.UseVisualStyleBackColor = false;
-            this.btnPrintRefund.Click += new System.EventHandler(this.btnPrintRefund_Click);
-            // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.Location = new System.Drawing.Point(5, 8);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(197, 25);
             this.metroLabel3.TabIndex = 40;
             this.metroLabel3.Text = "Filter By Date(From-To):";
             // 
@@ -502,7 +387,7 @@ namespace CapstoneProject_3
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(273, 7);
+            this.label4.Location = new System.Drawing.Point(320, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 21);
             this.label4.TabIndex = 39;
@@ -510,21 +395,21 @@ namespace CapstoneProject_3
             // 
             // dateTo3
             // 
-            this.dateTo3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo3.Location = new System.Drawing.Point(293, 6);
+            this.dateTo3.Location = new System.Drawing.Point(342, 8);
             this.dateTo3.Name = "dateTo3";
-            this.dateTo3.Size = new System.Drawing.Size(106, 25);
+            this.dateTo3.Size = new System.Drawing.Size(106, 27);
             this.dateTo3.TabIndex = 38;
             this.dateTo3.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             // 
             // dateFrom3
             // 
-            this.dateFrom3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFrom3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFrom3.Location = new System.Drawing.Point(165, 6);
+            this.dateFrom3.Location = new System.Drawing.Point(208, 8);
             this.dateFrom3.Name = "dateFrom3";
-            this.dateFrom3.Size = new System.Drawing.Size(106, 25);
+            this.dateFrom3.Size = new System.Drawing.Size(106, 27);
             this.dateFrom3.TabIndex = 37;
             this.dateFrom3.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             // 
@@ -544,7 +429,7 @@ namespace CapstoneProject_3
             this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -573,7 +458,7 @@ namespace CapstoneProject_3
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView3.EnableHeadersVisualStyles = false;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 36);
+            this.dataGridView3.Location = new System.Drawing.Point(0, 41);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
@@ -590,7 +475,7 @@ namespace CapstoneProject_3
             this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(984, 431);
+            this.dataGridView3.Size = new System.Drawing.Size(984, 420);
             this.dataGridView3.TabIndex = 36;
             // 
             // dataGridViewTextBoxColumn18
@@ -599,7 +484,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn18.HeaderText = "#";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 39;
+            this.dataGridViewTextBoxColumn18.Width = 41;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -607,7 +492,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn2.HeaderText = "Invoice #";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 79;
+            this.dataGridViewTextBoxColumn2.Width = 92;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -615,7 +500,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn19.HeaderText = "Product Code";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 104;
+            this.dataGridViewTextBoxColumn19.Width = 122;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -630,7 +515,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn4.HeaderText = "Price";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 60;
+            this.dataGridViewTextBoxColumn4.Width = 64;
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -638,7 +523,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn20.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 84;
+            this.dataGridViewTextBoxColumn20.Width = 88;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -646,7 +531,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn5.HeaderText = "Total";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 60;
+            this.dataGridViewTextBoxColumn5.Width = 65;
             // 
             // Column11
             // 
@@ -657,7 +542,7 @@ namespace CapstoneProject_3
             this.Column11.HeaderText = "Date";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
-            this.Column11.Width = 59;
+            this.Column11.Width = 64;
             // 
             // Column12
             // 
@@ -665,7 +550,7 @@ namespace CapstoneProject_3
             this.Column12.HeaderText = "Authorized By";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 107;
+            this.Column12.Width = 125;
             // 
             // Column13
             // 
@@ -673,7 +558,7 @@ namespace CapstoneProject_3
             this.Column13.HeaderText = "Refunded By";
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 99;
+            this.Column13.Width = 116;
             // 
             // Column14
             // 
@@ -685,52 +570,33 @@ namespace CapstoneProject_3
             // tabPriceHistory
             // 
             this.tabPriceHistory.BackColor = System.Drawing.Color.White;
-            this.tabPriceHistory.Controls.Add(this.btnPriceHistory);
             this.tabPriceHistory.Controls.Add(this.metroLabel5);
             this.tabPriceHistory.Controls.Add(this.label1);
             this.tabPriceHistory.Controls.Add(this.dateTo2);
             this.tabPriceHistory.Controls.Add(this.dateFrom2);
             this.tabPriceHistory.Controls.Add(this.btnPrintPriceHistory);
+            this.tabPriceHistory.Controls.Add(this.btnPriceHistory);
             this.tabPriceHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPriceHistory.HorizontalScrollbarBarColor = true;
             this.tabPriceHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPriceHistory.HorizontalScrollbarSize = 10;
-            this.tabPriceHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabPriceHistory.Location = new System.Drawing.Point(4, 44);
             this.tabPriceHistory.Name = "tabPriceHistory";
-            this.tabPriceHistory.Size = new System.Drawing.Size(984, 471);
+            this.tabPriceHistory.Size = new System.Drawing.Size(984, 465);
             this.tabPriceHistory.TabIndex = 1;
             this.tabPriceHistory.Text = "Price History";
             this.tabPriceHistory.VerticalScrollbarBarColor = true;
             this.tabPriceHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabPriceHistory.VerticalScrollbarSize = 10;
             // 
-            // btnPriceHistory
-            // 
-            this.btnPriceHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPriceHistory.FlatAppearance.BorderSize = 0;
-            this.btnPriceHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPriceHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPriceHistory.ForeColor = System.Drawing.Color.White;
-            this.btnPriceHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPriceHistory.IconColor = System.Drawing.Color.White;
-            this.btnPriceHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPriceHistory.IconSize = 25;
-            this.btnPriceHistory.Location = new System.Drawing.Point(406, 3);
-            this.btnPriceHistory.Name = "btnPriceHistory";
-            this.btnPriceHistory.Size = new System.Drawing.Size(95, 31);
-            this.btnPriceHistory.TabIndex = 49;
-            this.btnPriceHistory.Text = "Print";
-            this.btnPriceHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPriceHistory.UseVisualStyleBackColor = false;
-            this.btnPriceHistory.Click += new System.EventHandler(this.btnPriceHistory_Click);
-            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(2, 9);
+            this.metroLabel5.Location = new System.Drawing.Point(0, 6);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(197, 25);
             this.metroLabel5.TabIndex = 48;
             this.metroLabel5.Text = "Filter By Date(From-To):";
             // 
@@ -738,32 +604,33 @@ namespace CapstoneProject_3
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(278, 9);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(319, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 17);
+            this.label1.Size = new System.Drawing.Size(15, 20);
             this.label1.TabIndex = 47;
             this.label1.Text = "-";
             // 
             // dateTo2
             // 
-            this.dateTo2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo2.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo2.Location = new System.Drawing.Point(294, 6);
+            this.dateTo2.Location = new System.Drawing.Point(336, 6);
             this.dateTo2.Name = "dateTo2";
-            this.dateTo2.Size = new System.Drawing.Size(106, 25);
+            this.dateTo2.Size = new System.Drawing.Size(110, 27);
             this.dateTo2.TabIndex = 46;
             this.dateTo2.Value = new System.DateTime(2022, 6, 15, 0, 0, 0, 0);
             this.dateTo2.ValueChanged += new System.EventHandler(this.dateTo2_ValueChanged);
             // 
             // dateFrom2
             // 
-            this.dateFrom2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom2.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFrom2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFrom2.Location = new System.Drawing.Point(162, 6);
+            this.dateFrom2.Location = new System.Drawing.Point(203, 6);
             this.dateFrom2.Name = "dateFrom2";
-            this.dateFrom2.Size = new System.Drawing.Size(110, 25);
+            this.dateFrom2.Size = new System.Drawing.Size(110, 27);
             this.dateFrom2.TabIndex = 45;
             this.dateFrom2.Value = new System.DateTime(2022, 6, 23, 0, 0, 0, 0);
             this.dateFrom2.ValueChanged += new System.EventHandler(this.dateFrom2_ValueChanged);
@@ -783,7 +650,7 @@ namespace CapstoneProject_3
             this.btnPrintPriceHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle13.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -823,7 +690,7 @@ namespace CapstoneProject_3
             this.btnPrintPriceHistory.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.btnPrintPriceHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.btnPrintPriceHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.btnPrintPriceHistory.Size = new System.Drawing.Size(981, 434);
+            this.btnPrintPriceHistory.Size = new System.Drawing.Size(981, 428);
             this.btnPrintPriceHistory.TabIndex = 44;
             // 
             // dataGridViewTextBoxColumn13
@@ -832,7 +699,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn13.HeaderText = "#";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 39;
+            this.dataGridViewTextBoxColumn13.Width = 41;
             // 
             // pricePCode
             // 
@@ -840,7 +707,7 @@ namespace CapstoneProject_3
             this.pricePCode.HeaderText = "Product Code";
             this.pricePCode.Name = "pricePCode";
             this.pricePCode.ReadOnly = true;
-            this.pricePCode.Width = 104;
+            this.pricePCode.Width = 122;
             // 
             // priceDesc
             // 
@@ -855,7 +722,7 @@ namespace CapstoneProject_3
             this.priceP.HeaderText = "Price";
             this.priceP.Name = "priceP";
             this.priceP.ReadOnly = true;
-            this.priceP.Width = 60;
+            this.priceP.Width = 64;
             // 
             // priceDate
             // 
@@ -863,57 +730,38 @@ namespace CapstoneProject_3
             this.priceDate.HeaderText = "Date";
             this.priceDate.Name = "priceDate";
             this.priceDate.ReadOnly = true;
-            this.priceDate.Width = 59;
+            this.priceDate.Width = 64;
             // 
             // tabStockInHistory
             // 
             this.tabStockInHistory.BackColor = System.Drawing.Color.White;
-            this.tabStockInHistory.Controls.Add(this.btnPrintStockInHistory);
             this.tabStockInHistory.Controls.Add(this.metroLabel4);
             this.tabStockInHistory.Controls.Add(this.label7);
             this.tabStockInHistory.Controls.Add(this.dateTo4);
             this.tabStockInHistory.Controls.Add(this.dateFrom4);
             this.tabStockInHistory.Controls.Add(this.dataGridView4);
+            this.tabStockInHistory.Controls.Add(this.btnPrintStockInHistory);
             this.tabStockInHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabStockInHistory.HorizontalScrollbarBarColor = true;
             this.tabStockInHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabStockInHistory.HorizontalScrollbarSize = 10;
-            this.tabStockInHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabStockInHistory.Location = new System.Drawing.Point(4, 44);
             this.tabStockInHistory.Name = "tabStockInHistory";
-            this.tabStockInHistory.Size = new System.Drawing.Size(984, 471);
+            this.tabStockInHistory.Size = new System.Drawing.Size(984, 465);
             this.tabStockInHistory.TabIndex = 3;
             this.tabStockInHistory.Text = "Stock-In History";
             this.tabStockInHistory.VerticalScrollbarBarColor = true;
             this.tabStockInHistory.VerticalScrollbarHighlightOnWheel = false;
             this.tabStockInHistory.VerticalScrollbarSize = 10;
             // 
-            // btnPrintStockInHistory
-            // 
-            this.btnPrintStockInHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnPrintStockInHistory.FlatAppearance.BorderSize = 0;
-            this.btnPrintStockInHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintStockInHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintStockInHistory.ForeColor = System.Drawing.Color.White;
-            this.btnPrintStockInHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.btnPrintStockInHistory.IconColor = System.Drawing.Color.White;
-            this.btnPrintStockInHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrintStockInHistory.IconSize = 25;
-            this.btnPrintStockInHistory.Location = new System.Drawing.Point(411, 2);
-            this.btnPrintStockInHistory.Name = "btnPrintStockInHistory";
-            this.btnPrintStockInHistory.Size = new System.Drawing.Size(95, 31);
-            this.btnPrintStockInHistory.TabIndex = 43;
-            this.btnPrintStockInHistory.Text = "Print";
-            this.btnPrintStockInHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrintStockInHistory.UseVisualStyleBackColor = false;
-            this.btnPrintStockInHistory.Click += new System.EventHandler(this.btnPrintStockInHistory_Click);
-            // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 9);
+            this.metroLabel4.Location = new System.Drawing.Point(3, 7);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(197, 25);
             this.metroLabel4.TabIndex = 41;
             this.metroLabel4.Text = "Filter By Date(From-To):";
             // 
@@ -921,20 +769,21 @@ namespace CapstoneProject_3
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(279, 9);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(322, 8);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 17);
+            this.label7.Size = new System.Drawing.Size(15, 20);
             this.label7.TabIndex = 35;
             this.label7.Text = "-";
             // 
             // dateTo4
             // 
             this.dateTo4.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo4.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.dateTo4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo4.Location = new System.Drawing.Point(298, 6);
+            this.dateTo4.Location = new System.Drawing.Point(343, 5);
             this.dateTo4.Name = "dateTo4";
-            this.dateTo4.Size = new System.Drawing.Size(107, 25);
+            this.dateTo4.Size = new System.Drawing.Size(107, 27);
             this.dateTo4.TabIndex = 34;
             this.dateTo4.Value = new System.DateTime(2022, 6, 15, 0, 0, 0, 0);
             this.dateTo4.ValueChanged += new System.EventHandler(this.dateTo4_ValueChanged);
@@ -942,11 +791,11 @@ namespace CapstoneProject_3
             // dateFrom4
             // 
             this.dateFrom4.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom4.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.dateFrom4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFrom4.Location = new System.Drawing.Point(163, 6);
+            this.dateFrom4.Location = new System.Drawing.Point(206, 5);
             this.dateFrom4.Name = "dateFrom4";
-            this.dateFrom4.Size = new System.Drawing.Size(110, 25);
+            this.dateFrom4.Size = new System.Drawing.Size(110, 27);
             this.dateFrom4.TabIndex = 33;
             this.dateFrom4.Value = new System.DateTime(2022, 6, 23, 0, 0, 0, 0);
             this.dateFrom4.ValueChanged += new System.EventHandler(this.dateFrom4_ValueChanged);
@@ -966,7 +815,7 @@ namespace CapstoneProject_3
             this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle18.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -1010,7 +859,7 @@ namespace CapstoneProject_3
             this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridView4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(981, 430);
+            this.dataGridView4.Size = new System.Drawing.Size(981, 424);
             this.dataGridView4.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn1
@@ -1019,7 +868,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn1.HeaderText = "#";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 39;
+            this.dataGridViewTextBoxColumn1.Width = 41;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1028,7 +877,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Visible = false;
-            this.dataGridViewTextBoxColumn6.Width = 44;
+            this.dataGridViewTextBoxColumn6.Width = 45;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1036,7 +885,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn7.HeaderText = "Reference No.";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 105;
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1051,7 +900,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn9.HeaderText = "Stock-In By";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 91;
+            this.dataGridViewTextBoxColumn9.Width = 106;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -1059,7 +908,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn10.HeaderText = "Vendor";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 74;
+            this.dataGridViewTextBoxColumn10.Width = 79;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -1067,7 +916,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn11.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 84;
+            this.dataGridViewTextBoxColumn11.Width = 88;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -1078,18 +927,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn12.HeaderText = "Stock-In Date";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 103;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Visible = false;
-            this.dataGridViewImageColumn2.Width = 5;
+            this.dataGridViewTextBoxColumn12.Width = 122;
             // 
             // tabStockHistory
             // 
@@ -1105,9 +943,9 @@ namespace CapstoneProject_3
             this.tabStockHistory.HorizontalScrollbarBarColor = true;
             this.tabStockHistory.HorizontalScrollbarHighlightOnWheel = false;
             this.tabStockHistory.HorizontalScrollbarSize = 10;
-            this.tabStockHistory.Location = new System.Drawing.Point(4, 38);
+            this.tabStockHistory.Location = new System.Drawing.Point(4, 44);
             this.tabStockHistory.Name = "tabStockHistory";
-            this.tabStockHistory.Size = new System.Drawing.Size(984, 471);
+            this.tabStockHistory.Size = new System.Drawing.Size(984, 465);
             this.tabStockHistory.TabIndex = 4;
             this.tabStockHistory.Text = "Stock History";
             this.tabStockHistory.VerticalScrollbarBarColor = true;
@@ -1117,21 +955,22 @@ namespace CapstoneProject_3
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(398, 8);
+            this.metroLabel7.Location = new System.Drawing.Point(447, 7);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(101, 19);
+            this.metroLabel7.Size = new System.Drawing.Size(131, 25);
             this.metroLabel7.TabIndex = 49;
             this.metroLabel7.Text = "Time(From-To):";
             // 
             // time
             // 
-            this.time.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.time.Location = new System.Drawing.Point(505, 6);
+            this.time.Location = new System.Drawing.Point(584, 6);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(103, 25);
+            this.time.Size = new System.Drawing.Size(103, 27);
             this.time.TabIndex = 48;
             this.time.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             this.time.ValueChanged += new System.EventHandler(this.time_ValueChanged);
@@ -1151,7 +990,7 @@ namespace CapstoneProject_3
             this.dataGridViewStockHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle24.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -1175,7 +1014,7 @@ namespace CapstoneProject_3
             this.dataGridViewStockHistory.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewStockHistory.EnableHeadersVisualStyles = false;
             this.dataGridViewStockHistory.GridColor = System.Drawing.Color.Black;
-            this.dataGridViewStockHistory.Location = new System.Drawing.Point(0, 37);
+            this.dataGridViewStockHistory.Location = new System.Drawing.Point(0, 39);
             this.dataGridViewStockHistory.Name = "dataGridViewStockHistory";
             this.dataGridViewStockHistory.ReadOnly = true;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1191,7 +1030,7 @@ namespace CapstoneProject_3
             this.dataGridViewStockHistory.RowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewStockHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewStockHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockHistory.Size = new System.Drawing.Size(981, 434);
+            this.dataGridViewStockHistory.Size = new System.Drawing.Size(981, 426);
             this.dataGridViewStockHistory.TabIndex = 46;
             // 
             // dataGridViewTextBoxColumn14
@@ -1200,7 +1039,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn14.HeaderText = "#";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 39;
+            this.dataGridViewTextBoxColumn14.Width = 41;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -1215,7 +1054,7 @@ namespace CapstoneProject_3
             this.Column1.HeaderText = "QTY";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 55;
+            this.Column1.Width = 58;
             // 
             // Column2
             // 
@@ -1223,7 +1062,7 @@ namespace CapstoneProject_3
             this.Column2.HeaderText = "Date";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 59;
+            this.Column2.Width = 64;
             // 
             // Column4
             // 
@@ -1231,15 +1070,16 @@ namespace CapstoneProject_3
             this.Column4.HeaderText = "Time";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 60;
+            this.Column4.Width = 65;
             // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 9);
+            this.metroLabel6.Location = new System.Drawing.Point(3, 6);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(154, 19);
+            this.metroLabel6.Size = new System.Drawing.Size(197, 25);
             this.metroLabel6.TabIndex = 45;
             this.metroLabel6.Text = "Filter By Date(From-To):";
             // 
@@ -1248,7 +1088,7 @@ namespace CapstoneProject_3
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(268, 8);
+            this.label2.Location = new System.Drawing.Point(317, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 20);
             this.label2.TabIndex = 44;
@@ -1257,11 +1097,11 @@ namespace CapstoneProject_3
             // dateTo5
             // 
             this.dateTo5.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTo5.Location = new System.Drawing.Point(289, 6);
+            this.dateTo5.Location = new System.Drawing.Point(338, 6);
             this.dateTo5.Name = "dateTo5";
-            this.dateTo5.Size = new System.Drawing.Size(103, 25);
+            this.dateTo5.Size = new System.Drawing.Size(103, 27);
             this.dateTo5.TabIndex = 43;
             this.dateTo5.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             this.dateTo5.ValueChanged += new System.EventHandler(this.dateTo5_ValueChanged);
@@ -1269,14 +1109,84 @@ namespace CapstoneProject_3
             // dateFrom5
             // 
             this.dateFrom5.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFrom5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFrom5.Location = new System.Drawing.Point(157, 6);
+            this.dateFrom5.Location = new System.Drawing.Point(206, 6);
             this.dateFrom5.Name = "dateFrom5";
-            this.dateFrom5.Size = new System.Drawing.Size(105, 25);
+            this.dateFrom5.Size = new System.Drawing.Size(105, 27);
             this.dateFrom5.TabIndex = 42;
             this.dateFrom5.Value = new System.DateTime(2022, 6, 24, 0, 0, 0, 0);
             this.dateFrom5.ValueChanged += new System.EventHandler(this.dateFrom5_ValueChanged);
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 41;
+            // 
+            // cartID
+            // 
+            this.cartID.HeaderText = "id";
+            this.cartID.Name = "cartID";
+            this.cartID.ReadOnly = true;
+            this.cartID.Visible = false;
+            // 
+            // invoiceNo
+            // 
+            this.invoiceNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.invoiceNo.HeaderText = "Invoice #";
+            this.invoiceNo.Name = "invoiceNo";
+            this.invoiceNo.ReadOnly = true;
+            this.invoiceNo.Width = 92;
+            // 
+            // pcode
+            // 
+            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.pcode.HeaderText = "Product Code";
+            this.pcode.Name = "pcode";
+            this.pcode.ReadOnly = true;
+            this.pcode.Width = 122;
+            // 
+            // desc
+            // 
+            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // prodPrice
+            // 
+            this.prodPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.prodPrice.HeaderText = "Price";
+            this.prodPrice.Name = "prodPrice";
+            this.prodPrice.ReadOnly = true;
+            this.prodPrice.Width = 64;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.HeaderText = "Quantity";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 88;
+            // 
+            // discount
+            // 
+            this.discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.discount.HeaderText = "Discount";
+            this.discount.Name = "discount";
+            this.discount.ReadOnly = true;
+            this.discount.Width = 90;
+            // 
+            // TotalPrice
+            // 
+            this.TotalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TotalPrice.HeaderText = "Total";
+            this.TotalPrice.Name = "TotalPrice";
+            this.TotalPrice.ReadOnly = true;
+            this.TotalPrice.Width = 65;
             // 
             // dataGridViewImageColumn1
             // 
@@ -1285,6 +1195,110 @@ namespace CapstoneProject_3
             this.dataGridViewImageColumn1.Image = global::CapstoneProject_3.Properties.Resources.icons8_cancel_50;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Visible = false;
+            this.dataGridViewImageColumn1.Width = 5;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Visible = false;
+            this.dataGridViewImageColumn2.Width = 5;
+            // 
+            // btnPrintSalesHistory
+            // 
+            this.btnPrintSalesHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintSalesHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSalesHistory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintSalesHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintSalesHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintSalesHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintSalesHistory.IconSize = 25;
+            this.btnPrintSalesHistory.Location = new System.Drawing.Point(650, 5);
+            this.btnPrintSalesHistory.Name = "btnPrintSalesHistory";
+            this.btnPrintSalesHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintSalesHistory.TabIndex = 43;
+            this.btnPrintSalesHistory.Text = "Print";
+            this.btnPrintSalesHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintSalesHistory.UseVisualStyleBackColor = false;
+            this.btnPrintSalesHistory.Click += new System.EventHandler(this.btnPrintSalesHistory_Click);
+            // 
+            // cancel
+            // 
+            this.cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cancel.HeaderText = "";
+            this.cancel.Image = global::CapstoneProject_3.Properties.Resources.icons8_cancel_50;
+            this.cancel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.cancel.Name = "cancel";
+            this.cancel.ReadOnly = true;
+            this.cancel.Visible = false;
+            this.cancel.Width = 5;
+            // 
+            // btnPrintRefund
+            // 
+            this.btnPrintRefund.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintRefund.FlatAppearance.BorderSize = 0;
+            this.btnPrintRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintRefund.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintRefund.ForeColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintRefund.IconColor = System.Drawing.Color.White;
+            this.btnPrintRefund.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintRefund.IconSize = 25;
+            this.btnPrintRefund.Location = new System.Drawing.Point(454, 7);
+            this.btnPrintRefund.Name = "btnPrintRefund";
+            this.btnPrintRefund.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintRefund.TabIndex = 43;
+            this.btnPrintRefund.Text = "Print";
+            this.btnPrintRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintRefund.UseVisualStyleBackColor = false;
+            this.btnPrintRefund.Click += new System.EventHandler(this.btnPrintRefund_Click);
+            // 
+            // btnPriceHistory
+            // 
+            this.btnPriceHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPriceHistory.FlatAppearance.BorderSize = 0;
+            this.btnPriceHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPriceHistory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPriceHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPriceHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPriceHistory.IconColor = System.Drawing.Color.White;
+            this.btnPriceHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPriceHistory.IconSize = 25;
+            this.btnPriceHistory.Location = new System.Drawing.Point(452, 5);
+            this.btnPriceHistory.Name = "btnPriceHistory";
+            this.btnPriceHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPriceHistory.TabIndex = 49;
+            this.btnPriceHistory.Text = "Print";
+            this.btnPriceHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPriceHistory.UseVisualStyleBackColor = false;
+            this.btnPriceHistory.Click += new System.EventHandler(this.btnPriceHistory_Click);
+            // 
+            // btnPrintStockInHistory
+            // 
+            this.btnPrintStockInHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnPrintStockInHistory.FlatAppearance.BorderSize = 0;
+            this.btnPrintStockInHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintStockInHistory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintStockInHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrintStockInHistory.IconColor = System.Drawing.Color.White;
+            this.btnPrintStockInHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrintStockInHistory.IconSize = 25;
+            this.btnPrintStockInHistory.Location = new System.Drawing.Point(456, 3);
+            this.btnPrintStockInHistory.Name = "btnPrintStockInHistory";
+            this.btnPrintStockInHistory.Size = new System.Drawing.Size(95, 31);
+            this.btnPrintStockInHistory.TabIndex = 43;
+            this.btnPrintStockInHistory.Text = "Print";
+            this.btnPrintStockInHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrintStockInHistory.UseVisualStyleBackColor = false;
+            this.btnPrintStockInHistory.Click += new System.EventHandler(this.btnPrintStockInHistory_Click);
             // 
             // frmHistory
             // 
@@ -1328,16 +1342,6 @@ namespace CapstoneProject_3
         public System.Windows.Forms.DateTimePicker dateTo;
         public System.Windows.Forms.DateTimePicker dateFrom;
         public System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cartID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prodPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
-        private System.Windows.Forms.DataGridViewImageColumn cancel;
         private MetroFramework.Controls.MetroTabPage tabPriceHistory;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -1402,5 +1406,15 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         public System.Windows.Forms.DateTimePicker time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prodPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
+        private System.Windows.Forms.DataGridViewImageColumn cancel;
     }
 }

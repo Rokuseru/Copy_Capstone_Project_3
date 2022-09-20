@@ -36,7 +36,6 @@ namespace CapstoneProject_3
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabCategoryList = new MetroFramework.Controls.MetroTabPage();
-            this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
             this.btnUpdate = new RJCodeAdvance.RJControls.RJButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -44,8 +43,10 @@ namespace CapstoneProject_3
             this.btnAddNew = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deactivate = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabManage = new MetroFramework.Controls.MetroTabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCategoryId = new System.Windows.Forms.TextBox();
@@ -75,6 +76,8 @@ namespace CapstoneProject_3
             this.tabControl.Controls.Add(this.tabCategoryList);
             this.tabControl.Controls.Add(this.tabManage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControl.Location = new System.Drawing.Point(0, 1);
             this.tabControl.Name = "tabControl";
@@ -86,7 +89,6 @@ namespace CapstoneProject_3
             // tabCategoryList
             // 
             this.tabCategoryList.BackColor = System.Drawing.Color.White;
-            this.tabCategoryList.Controls.Add(this.btnDelete);
             this.tabCategoryList.Controls.Add(this.btnUpdate);
             this.tabCategoryList.Controls.Add(this.btnSearch);
             this.tabCategoryList.Controls.Add(this.txtSearch);
@@ -97,35 +99,14 @@ namespace CapstoneProject_3
             this.tabCategoryList.HorizontalScrollbarBarColor = true;
             this.tabCategoryList.HorizontalScrollbarHighlightOnWheel = false;
             this.tabCategoryList.HorizontalScrollbarSize = 10;
-            this.tabCategoryList.Location = new System.Drawing.Point(4, 38);
+            this.tabCategoryList.Location = new System.Drawing.Point(4, 44);
             this.tabCategoryList.Name = "tabCategoryList";
-            this.tabCategoryList.Size = new System.Drawing.Size(792, 400);
+            this.tabCategoryList.Size = new System.Drawing.Size(792, 394);
             this.tabCategoryList.TabIndex = 0;
             this.tabCategoryList.Text = "Category List";
             this.tabCategoryList.VerticalScrollbarBarColor = true;
             this.tabCategoryList.VerticalScrollbarHighlightOnWheel = false;
             this.tabCategoryList.VerticalScrollbarSize = 10;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnDelete.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnDelete.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnDelete.BorderRadius = 5;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(644, 126);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(134, 32);
-            this.btnDelete.TabIndex = 19;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -137,7 +118,7 @@ namespace CapstoneProject_3
             this.btnUpdate.BorderSize = 0;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(644, 88);
             this.btnUpdate.Name = "btnUpdate";
@@ -153,16 +134,16 @@ namespace CapstoneProject_3
             this.btnSearch.Enabled = false;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.btnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSearch.IconSize = 25;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnSearch.Location = new System.Drawing.Point(19, 10);
+            this.btnSearch.Location = new System.Drawing.Point(23, 10);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(83, 31);
+            this.btnSearch.Size = new System.Drawing.Size(101, 31);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -173,9 +154,10 @@ namespace CapstoneProject_3
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(108, 16);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtSearch.Location = new System.Drawing.Point(126, 10);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(519, 25);
+            this.txtSearch.Size = new System.Drawing.Size(501, 29);
             this.txtSearch.TabIndex = 16;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -189,7 +171,7 @@ namespace CapstoneProject_3
             this.btnBack.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack.IconSize = 35;
-            this.btnBack.Location = new System.Drawing.Point(743, 353);
+            this.btnBack.Location = new System.Drawing.Point(743, 347);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(46, 39);
             this.btnBack.TabIndex = 15;
@@ -207,7 +189,7 @@ namespace CapstoneProject_3
             this.btnAddNew.BorderSize = 0;
             this.btnAddNew.FlatAppearance.BorderSize = 0;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnAddNew.ForeColor = System.Drawing.Color.White;
             this.btnAddNew.Location = new System.Drawing.Point(644, 50);
             this.btnAddNew.Name = "btnAddNew";
@@ -233,7 +215,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -243,8 +225,10 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
-            this.Column1,
-            this.Column2});
+            this.cid,
+            this.Column2,
+            this.Column4,
+            this.deactivate});
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(23, 50);
@@ -261,10 +245,11 @@ namespace CapstoneProject_3
             this.dataGridView.RowHeadersVisible = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(604, 332);
+            this.dataGridView.Size = new System.Drawing.Size(604, 326);
             this.dataGridView.TabIndex = 13;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // Column3
             // 
@@ -272,14 +257,14 @@ namespace CapstoneProject_3
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 39;
+            this.Column3.Width = 41;
             // 
-            // Column1
+            // cid
             // 
-            this.Column1.HeaderText = "Category ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
+            this.cid.HeaderText = "Category ID";
+            this.cid.Name = "cid";
+            this.cid.ReadOnly = true;
+            this.cid.Visible = false;
             // 
             // Column2
             // 
@@ -287,6 +272,24 @@ namespace CapstoneProject_3
             this.Column2.HeaderText = "Category Name";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Status";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 72;
+            // 
+            // deactivate
+            // 
+            this.deactivate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.deactivate.HeaderText = "";
+            this.deactivate.Image = global::CapstoneProject_3.Properties.Resources.icons8_disable_45;
+            this.deactivate.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.deactivate.Name = "deactivate";
+            this.deactivate.ReadOnly = true;
+            this.deactivate.Width = 5;
             // 
             // tabManage
             // 
@@ -302,9 +305,9 @@ namespace CapstoneProject_3
             this.tabManage.HorizontalScrollbarBarColor = true;
             this.tabManage.HorizontalScrollbarHighlightOnWheel = false;
             this.tabManage.HorizontalScrollbarSize = 10;
-            this.tabManage.Location = new System.Drawing.Point(4, 38);
+            this.tabManage.Location = new System.Drawing.Point(4, 44);
             this.tabManage.Name = "tabManage";
-            this.tabManage.Size = new System.Drawing.Size(792, 400);
+            this.tabManage.Size = new System.Drawing.Size(792, 394);
             this.tabManage.TabIndex = 1;
             this.tabManage.Text = "Manage Category";
             this.tabManage.VerticalScrollbarBarColor = true;
@@ -316,7 +319,7 @@ namespace CapstoneProject_3
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(214, 58);
+            this.label2.Location = new System.Drawing.Point(214, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 22;
@@ -328,7 +331,7 @@ namespace CapstoneProject_3
             this.txtCategoryId.Enabled = false;
             this.txtCategoryId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoryId.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtCategoryId.Location = new System.Drawing.Point(217, 92);
+            this.txtCategoryId.Location = new System.Drawing.Point(217, 89);
             this.txtCategoryId.Name = "txtCategoryId";
             this.txtCategoryId.Size = new System.Drawing.Size(379, 25);
             this.txtCategoryId.TabIndex = 21;
@@ -346,7 +349,7 @@ namespace CapstoneProject_3
             this.btnSaveUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(347, 218);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(347, 215);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(120, 32);
             this.btnSaveUpdate.TabIndex = 20;
@@ -364,7 +367,7 @@ namespace CapstoneProject_3
             this.btnBack2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.btnBack2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBack2.IconSize = 35;
-            this.btnBack2.Location = new System.Drawing.Point(743, 358);
+            this.btnBack2.Location = new System.Drawing.Point(743, 352);
             this.btnBack2.Name = "btnBack2";
             this.btnBack2.Size = new System.Drawing.Size(46, 39);
             this.btnBack2.TabIndex = 19;
@@ -384,7 +387,7 @@ namespace CapstoneProject_3
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(476, 218);
+            this.btnCancel.Location = new System.Drawing.Point(476, 215);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 32);
             this.btnCancel.TabIndex = 18;
@@ -405,7 +408,7 @@ namespace CapstoneProject_3
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(217, 218);
+            this.btnSave.Location = new System.Drawing.Point(217, 215);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 32);
             this.btnSave.TabIndex = 17;
@@ -419,7 +422,7 @@ namespace CapstoneProject_3
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(214, 131);
+            this.label1.Location = new System.Drawing.Point(214, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 16;
@@ -428,7 +431,7 @@ namespace CapstoneProject_3
             // txtCategoryName
             // 
             this.txtCategoryName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCategoryName.Location = new System.Drawing.Point(217, 165);
+            this.txtCategoryName.Location = new System.Drawing.Point(217, 162);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(379, 20);
             this.txtCategoryName.TabIndex = 15;
@@ -459,16 +462,12 @@ namespace CapstoneProject_3
         private MetroFramework.Controls.MetroTabControl tabControl;
         private MetroFramework.Controls.MetroTabPage tabCategoryList;
         private MetroFramework.Controls.MetroTabPage tabManage;
-        private RJCodeAdvance.RJControls.RJButton btnDelete;
         private RJCodeAdvance.RJControls.RJButton btnUpdate;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconButton btnBack;
         private RJCodeAdvance.RJControls.RJButton btnAddNew;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCategoryId;
         private RJCodeAdvance.RJControls.RJButton btnSaveUpdate;
@@ -477,5 +476,10 @@ namespace CapstoneProject_3
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewImageColumn deactivate;
     }
 }

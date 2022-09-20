@@ -105,7 +105,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter();
-                    SqlCommand cmd = new SqlCommand(@"SELECT YEAR(sDate) AS Yearly_Sales, ISNULL(SUM(Total), 0.00) AS Total_Sales FROM tblCart GROUP BY YEAR(sDate)", connection);
+                    SqlCommand cmd = new SqlCommand(@"SELECT YEAR(sDate) AS Yearly_Sales, ISNULL(SUM(Total), 0.00) AS Total_Sales FROM tblCart WHERE status LIKE 'Sold' GROUP BY YEAR(sDate)", connection);
                     adapter.SelectCommand = cmd;
                     DataSet ds = new DataSet();
 

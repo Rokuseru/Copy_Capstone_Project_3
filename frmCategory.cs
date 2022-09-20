@@ -41,7 +41,7 @@ namespace CapstoneProject_3
                     }
                     //Logs
                     log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Add Category", "Added New Category: "+txtCategoryName.Text, this.Text);
+                    log.insertAction("Add Category", "Added New Category: "+txtCategoryName.Text, "Category Module");
                     //Toast Notification
                     toast.showToastNotif(new ToastNotification("Category Added Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 }
@@ -74,7 +74,7 @@ namespace CapstoneProject_3
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Edit Category", "Updated the Category: " + txtCategoryName.Text, this.Text);
+                log.insertAction("Edit Category", "Updated the Category: " + txtCategoryName.Text, "Category Module");
 
                 toast.showToastNotif(new ToastNotification("Category Updated Sucessfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManage);
                 loadAllCategory();
@@ -96,7 +96,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCategory ORDER BY Category ASC";
+                    command.CommandText = @"SELECT * FROM tblCategory WHERE status = 'Active' ORDER BY Category ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -124,7 +124,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCategory WHERE Category LIKE '" + txtSearch.Text + "%' ORDER BY Category ASC";
+                    command.CommandText = @"SELECT * FROM tblCategory WHERE Category LIKE '" + txtSearch.Text + "%' AND status = 'Active' ORDER BY Category ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -140,50 +140,36 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void deleteCategory()
+        private void disableCategory()
         {
-            if (MessageBox.Show("Are You Sure to Remove This Category?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                try
+                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                using (var command = new SqlCommand(con))
+                using (var connection = new SqlConnection())
                 {
-                    var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-                    using (var connection = new SqlConnection(con))
-                    using (var command = new SqlCommand())
-                    {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandText = @"DELETE FROM tblCategory Where categoryID=@id";
-                        command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
-                        command.ExecuteReader();
-                    }
-                    //Logs
-                    log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete", "Deleted the Category: " +dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
-
-                    toast.showToastNotif(new ToastNotification("Deleted Sucessfully", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
-
-                    loadAllCategory();
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblCategory SET status = 'Disabled' WHERE categoryID = @cid";
+                    command.Parameters.AddWithValue("@cid", int.Parse(dataGridView.Rows[0].Cells["cid"].Value.ToString()));
+                    command.ExecuteReader();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
+                //Audit Trail
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Deactivate Category", "Deactivated the Category: " + this.txtCategoryName.Text, "Category Module");
+                //Toast notification
+                toast.showToastNotif(new ToastNotification("Category Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
             }
-            else
+            catch(Exception ex)
             {
-                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabManage);
-                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabCategoryList);
-                return;
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void frmCategory_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
             loadAllCategory();
         }
-
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabCategoryList);
@@ -191,7 +177,6 @@ namespace CapstoneProject_3
             txtCategoryId.Text = "This Field Is Autogenerated";
             btnSaveUpdate.Enabled = false;
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtCategoryName.Text == "")
@@ -221,8 +206,6 @@ namespace CapstoneProject_3
                         {
                             insertCategory();
                             loadAllCategory();
-                            tabControl.TabPages.Remove(tabManage);
-                            tabControl.TabPages.Add(tabCategoryList);
                             txtCategoryName.Clear();
                             btnSaveUpdate.Enabled = true;
                         }
@@ -234,7 +217,6 @@ namespace CapstoneProject_3
                 }
             }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
@@ -243,19 +225,16 @@ namespace CapstoneProject_3
             btnSaveUpdate.Enabled = true;
             loadAllCategory();
         }
-
         private void btnBack2_Click(object sender, EventArgs e)
         {
             tabControl.TabPages.Add(tabCategoryList);
             tabControl.TabPages.Remove(tabManage);
             loadAllCategory();
         }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             txtCategoryId.Text = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
@@ -264,7 +243,6 @@ namespace CapstoneProject_3
             tabControl.TabPages.Add(tabManage);
             btnSave.Enabled = false;
         }
-
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Update Category", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -281,15 +259,25 @@ namespace CapstoneProject_3
                 toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.ExclamationCircle), tabCategoryList);
             }
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchCategory();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            deleteCategory();
+            string colname = dataGridView.Columns[e.RowIndex].Name;
+            if (colname == "deactivate")
+            {
+                if (MessageBox.Show("Deactivate Category?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    disableCategory();
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
     }
 }

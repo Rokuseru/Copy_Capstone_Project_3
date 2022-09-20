@@ -524,7 +524,7 @@ namespace CapstoneProject_3
         private void btnUsers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new frmAccounts());
+            OpenChildForm(new frmAccounts(this));
         }
 
         private void btnVendor_Click(object sender, EventArgs e)

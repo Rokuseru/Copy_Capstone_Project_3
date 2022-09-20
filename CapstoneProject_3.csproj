@@ -622,6 +622,8 @@
     <None Include="Resources\icons8-lock-50.png" />
     <None Include="Resources\icons8-lock-20.png" />
     <None Include="Resources\icons8-user-minus-50.png" />
+    <None Include="Resources\icons8-disable-50.png" />
+    <None Include="Resources\icons8-disable-45.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
