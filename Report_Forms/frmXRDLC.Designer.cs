@@ -56,9 +56,9 @@ namespace CapstoneProject_3.Report_Forms
             this.label4.Location = new System.Drawing.Point(13, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.Size = new System.Drawing.Size(75, 21);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Z Report";
+            this.label4.Text = "X Report";
             // 
             // btnExit
             // 
@@ -103,6 +103,7 @@ namespace CapstoneProject_3.Report_Forms
             this.Name = "frmXRDLC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXRDLC";
+            this.Load += new System.EventHandler(this.frmXRDLC_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

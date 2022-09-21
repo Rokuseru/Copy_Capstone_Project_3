@@ -196,6 +196,7 @@ namespace CapstoneProject_3.POS_System
         private void frmQuantity_Load(object sender, EventArgs e)
         {
             loadUser();
+            this.txtQty.Focus();
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {

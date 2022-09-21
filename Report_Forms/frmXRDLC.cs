@@ -28,7 +28,7 @@ namespace CapstoneProject_3.Report_Forms
             try
             {
                 reportViewer.ProcessingMode = ProcessingMode.Local;
-                this.reportViewer.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwZReport.rdlc";
+                this.reportViewer.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\POS_System\frmXReport.cs";
                 this.reportViewer.LocalReport.DataSources.Clear();
 
                 ReportDataSource rds;
@@ -57,8 +57,8 @@ namespace CapstoneProject_3.Report_Forms
                     ReportParameter pUser = new ReportParameter("pUser", xReport.cbUsers.Text);
                     ReportParameter pOpenedOn = new ReportParameter("pOpenedOn", xReport.lblOpenedOn.Text);
                     ReportParameter pSoldProducts = new ReportParameter("pSoldProducts", xReport.lblSoldItems.Text);
-                    ReportParameter pTransactions = new ReportParameter("pTransactions", xReport.lblSoldItems.Text);
-                    ReportParameter pTotalSales = new ReportParameter("pTotalSales", xReport.lblSoldItems.Text);
+                    ReportParameter pTransactions = new ReportParameter("pTransactions", xReport.lblTransactions.Text);
+                    ReportParameter TotalSales = new ReportParameter("pTotalSales", xReport.lblTotalSales.Text);
 
                     //Set the paramters
                     reportViewer.LocalReport.SetParameters(pDate);
@@ -66,7 +66,7 @@ namespace CapstoneProject_3.Report_Forms
                     reportViewer.LocalReport.SetParameters(pOpenedOn);
                     reportViewer.LocalReport.SetParameters(pSoldProducts);
                     reportViewer.LocalReport.SetParameters(pTransactions);
-                    reportViewer.LocalReport.SetParameters(pTotalSales);
+                    reportViewer.LocalReport.SetParameters(TotalSales);
 
                     rds = new ReportDataSource("rwXReport", z.Tables["dtXReport"]);
                     reportViewer.LocalReport.DataSources.Add(rds);
@@ -87,6 +87,11 @@ namespace CapstoneProject_3.Report_Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void frmXRDLC_Load(object sender, EventArgs e)
+        {
+            this.reportViewer.RefreshReport();
         }
     }
 }

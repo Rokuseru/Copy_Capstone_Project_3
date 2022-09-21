@@ -80,20 +80,6 @@ namespace CapstoneProject_3.POS_System
 
             try
             {
-                //Table Products
-                //for (int items = 0; items < fpos.dataGridView.Rows.Count; items++)
-                //{
-                //    using (var connection = new SqlConnection(con))
-                //    using (var command = new SqlCommand())
-                //    {
-                //        connection.Open();
-                //        command.Connection = connection;
-                //        command.CommandText = @"UPDATE tblProduct SET quantity = quantity - @qty WHERE productID = @pid";
-                //        command.Parameters.AddWithValue("@qty", int.Parse(fpos.dataGridView.Rows[items].Cells["qty"].Value.ToString()));
-                //        command.Parameters.AddWithValue("@pid", int.Parse(fpos.dataGridView.Rows[items].Cells["pid"].Value.ToString()));
-                //        command.ExecuteNonQuery();
-                //    } 
-                //}
                 //Inventory Table
                 for (int items = 0; items < fpos.dataGridView.Rows.Count; items++)
                 {
@@ -105,11 +91,11 @@ namespace CapstoneProject_3.POS_System
                         command.CommandText = @"UPDATE tblInventory SET qty = qty - @quantity WHERE productID = @pid AND BatchNo = @bno";
                         command.Parameters.AddWithValue("@quantity", int.Parse(fpos.dataGridView.Rows[items].Cells["qty"].Value.ToString()));
                         command.Parameters.AddWithValue("@pid", int.Parse(fpos.dataGridView.Rows[items].Cells["pid"].Value.ToString()));
-                        command.Parameters.AddWithValue("@bno", fpos.lblProdBatch.Text);
+                        command.Parameters.AddWithValue("@bno", fpos.prodBatch);
                         command.ExecuteNonQuery();
                     }
                 }
-                //Table Cart
+                //Table Cart 
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {

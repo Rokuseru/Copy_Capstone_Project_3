@@ -261,6 +261,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // cbUsers
             // 
+            this.cbUsers.Enabled = false;
             this.cbUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Location = new System.Drawing.Point(120, 10);

@@ -21,7 +21,7 @@ namespace CapstoneProject_3.POS_System
         public double price;
         public double taxVat;
         public int uid = 0;
-        private string prodBatch;
+        public string prodBatch;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         AuditTrail log = new AuditTrail();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
@@ -37,6 +37,7 @@ namespace CapstoneProject_3.POS_System
             KeyPreview = true;
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(170, 166, 157);//Border color
+            getTransNumber();
         }
         //Form Properties
         //Drag Form
@@ -228,7 +229,7 @@ namespace CapstoneProject_3.POS_System
                         while (reader.Read())
                         {
                             qty = int.Parse(reader["quantity"].ToString());
-                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty, lblProdBatch.Text);
+                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty, prodBatch);
                             frmQty.ShowDialog();
                             frmQty.txtQty.Focus();
                         }
@@ -545,7 +546,6 @@ namespace CapstoneProject_3.POS_System
             {
                 frmAdjustQuantity adj = new frmAdjustQuantity(this);
                 adj.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells["pid"].Value.ToString()));
-                adj.txtQty.Focus();
                 adj.ShowDialog();
             }
         }
@@ -585,16 +585,6 @@ namespace CapstoneProject_3.POS_System
             loadFirstIn();
             timer1.Start();
             checkTimeIn();
-            if (dataGridView.Rows.Count == 0 || dataGridView == null)
-            {
-                btnAddDisc.Enabled = false;
-                btnSettle.Enabled = false;
-            }
-            else
-            {
-                btnAddDisc.Enabled = true;
-                btnSettle.Enabled = true;
-            }
         }
 
         private void btnDailySales_Click(object sender, EventArgs e)

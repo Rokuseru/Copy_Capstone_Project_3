@@ -50,7 +50,9 @@ namespace CapstoneProject_3.POS_System
                                             INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
-                                            WHERE i.status = 'Available'";
+                                            WHERE i.status = 'Available'
+                                            AND i.BatchNo = @bnum";
+                    command.Parameters.AddWithValue("@bnum", fpos.prodBatch);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -110,14 +112,16 @@ namespace CapstoneProject_3.POS_System
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
                                             WHERE i.status = 'Available'
+                                            AND i.BatchNo = @bnum
                                             AND Description LIKE '%" + txtSearch.Text+"%'";
+                    command.Parameters.AddWithValue("@bnum", fpos.prodBatch);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
                             dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(),
-                               reader["qty"].ToString(), reader["price"].ToString(), reader["BatchNo"].ToString(), reader["date"].ToString());
+                               reader["qty"].ToString(), reader["price"].ToString(), reader["BatchNo"].ToString(), Convert.ToDateTime(reader["date"].ToString()).ToString("yyyy-MM-dd"));
                         }
                     }
                 }
@@ -150,7 +154,7 @@ namespace CapstoneProject_3.POS_System
             if (colname == "Select")
             {
                 frmQuantity qty = new frmQuantity(fpos);
-                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells[8].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()), dataGridView.Rows[e.RowIndex].Cells["batch"].Value.ToString());
+                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()), dataGridView.Rows[e.RowIndex].Cells["batch"].Value.ToString());
                 qty.txtQty.Focus();
                 qty.ShowDialog();
             }

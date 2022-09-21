@@ -51,13 +51,15 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblProduct WHERE ProductCode LIKE @pcode";
+                    command.CommandText = @"SELECT p.ProductCode, p.ProductCode, i.qty, i.BatchNo FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID 
+                                            WHERE p.ProductCode LIKE @pcode";
                     command.Parameters.AddWithValue("@pcode", ps.dataGridView.SelectedRows[0].Cells["pcode"].Value.ToString());
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            _qty = int.Parse(reader["quantity"].ToString());
+                            _qty = int.Parse(reader["qty"].ToString());
                         }
                         Console.WriteLine(_qty);
                     }
@@ -151,6 +153,7 @@ namespace CapstoneProject_3.POS_System
         private void frmAdjustQuantity_Load(object sender, EventArgs e)
         {
             loadCurrentQty();
+            this.txtQty.Focus();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
