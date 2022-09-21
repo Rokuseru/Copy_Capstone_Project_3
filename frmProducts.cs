@@ -28,7 +28,7 @@ namespace CapstoneProject_3
 
         public void clear()
         {
-            txtPrice.Clear();
+            txtVendorPrice.Clear();
             txtProdCode.Clear();
             txtProdDesc.Clear();
             cbBrand.SelectedIndex = -1;
@@ -95,7 +95,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, Price,reorder FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category,reorder FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
@@ -106,7 +106,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["reorder"].ToString());
                         }
                     }
                 }
@@ -123,17 +123,17 @@ namespace CapstoneProject_3
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandText = @"INSERT INTO tblProduct (ProductCode, Description, BrandID, CategoryID, Price, reorder) 
-                                            VALUES (@pcode, @desc, @brandID, @catID, @price, @reorder)";
-                        command.Parameters.AddWithValue("@pcode", txtProdCode.Text);
-                        command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
-                        command.Parameters.AddWithValue("@brandID", bid);
-                        command.Parameters.AddWithValue("@catID", cid);
-                        command.Parameters.AddWithValue("@price", txtPrice.Text);
-                        command.Parameters.AddWithValue("@reorder", txtReorder.Text);
-                        command.ExecuteNonQuery();
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"INSERT INTO tblProduct (ProductCode, Description, BrandID, CategoryID, VendorPrice, reorder) 
+                                            VALUES (@pcode, @desc, @brandID, @catID, @vprice, @reorder)";
+                    command.Parameters.AddWithValue("@pcode", txtProdCode.Text);
+                    command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
+                    command.Parameters.AddWithValue("@brandID", bid);
+                    command.Parameters.AddWithValue("@catID", cid);
+                    command.Parameters.AddWithValue("@vprice", txtVendorPrice.Text);
+                    command.Parameters.AddWithValue("@reorder", txtReorder.Text);
+                    command.ExecuteNonQuery();
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
@@ -156,7 +156,7 @@ namespace CapstoneProject_3
                     command.CommandText = @"UPDATE tblProduct SET Description=@desc, Price=@price, BrandID=@bid, CategoryID=@cid, reorder=@reorder WHERE productID LIKE @pid";
                     command.Parameters.AddWithValue("@pid", dataGridView.CurrentRow.Cells[1].Value.ToString());
                     command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
-                    command.Parameters.AddWithValue("@price", txtPrice.Text);
+                    command.Parameters.AddWithValue("@price", txtVendorPrice.Text);
                     command.Parameters.AddWithValue("@bid", bid);
                     command.Parameters.AddWithValue("@cid", cid);
                     command.Parameters.AddWithValue("@reorder",txtReorder.Text);
@@ -271,7 +271,7 @@ namespace CapstoneProject_3
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtPrice.Text) || String.IsNullOrWhiteSpace(txtProdCode.Text) ||
+            if (String.IsNullOrWhiteSpace(txtVendorPrice.Text) || String.IsNullOrWhiteSpace(txtProdCode.Text) ||
                 String.IsNullOrWhiteSpace(txtProdDesc.Text))
             {
                 MessageBox.Show("A Field Is Empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -400,7 +400,7 @@ namespace CapstoneProject_3
             txtProdDesc.Text = dataGridView.SelectedRows[0].Cells[4].Value.ToString();
             cbBrand.Text = dataGridView.SelectedRows[0].Cells[5].Value.ToString();
             cbCategory.Text = dataGridView.SelectedRows[0].Cells[6].Value.ToString();
-            txtPrice.Text = dataGridView.SelectedRows[0].Cells[7].Value.ToString();
+            txtVendorPrice.Text = dataGridView.SelectedRows[0].Cells[7].Value.ToString();
             txtReorder.Text = dataGridView.SelectedRows[0].Cells[8].Value.ToString();
 
             txtProdCode.Enabled = false;

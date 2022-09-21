@@ -82,7 +82,7 @@ namespace CapstoneProject_3
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT ISNULL(SUM(quantity),0) AS Stock_On_Hand FROM tblProduct";
+                command.CommandText = @"SELECT ISNULL(SUM(qty),0) AS Stock_On_Hand FROM tblInventory";
                 stockOnHand = int.Parse(command.ExecuteScalar().ToString());
             }
         }
@@ -93,7 +93,7 @@ namespace CapstoneProject_3
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT COUNT(*) AS Critical_Stock FROM viewCriticalStock WHERE quantity < reorder";
+                command.CommandText = @"SELECT COUNT(*) AS Critical_Stock FROM viewCriticalStock WHERE qty < reorder";
                 criticalStock = int.Parse(command.ExecuteScalar().ToString());
             }
         }

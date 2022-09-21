@@ -18,7 +18,7 @@ namespace CapstoneProject_3.POS_System
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmPOS fpos;
         Notification ntf = new Notification();
-
+        private string prodBatch = "";
         //Fields
         private int borderSize = 1;
         public frmProductSearch(frmPOS pos)
@@ -67,6 +67,32 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message);
             }
         }
+        private void loadFirstIn()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT TOP 1 BatchNo FROM tblInventory
+                                            WHERE status = 'Available'";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            prodBatch = reader["BatchNo"].ToString();
+                        }
+                    }
+                    Console.WriteLine(prodBatch);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public void searchProduct()
         {
             try
@@ -101,10 +127,10 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void frmProductSearch_Load(object sender, EventArgs e)
         {
             loadProduct();
+            loadFirstIn();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -124,7 +150,7 @@ namespace CapstoneProject_3.POS_System
             if (colname == "Select")
             {
                 frmQuantity qty = new frmQuantity(fpos);
-                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells[8].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()));
+                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells[8].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()), dataGridView.Rows[e.RowIndex].Cells["batch"].Value.ToString());
                 qty.txtQty.Focus();
                 qty.ShowDialog();
             }

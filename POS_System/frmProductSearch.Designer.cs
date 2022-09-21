@@ -49,7 +49,7 @@ namespace CapstoneProject_3.POS_System
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Select = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
@@ -161,7 +161,7 @@ namespace CapstoneProject_3.POS_System
             this.Column6,
             this.qty,
             this.Column7,
-            this.Column8,
+            this.batch,
             this.Column9,
             this.Select});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -188,7 +188,7 @@ namespace CapstoneProject_3.POS_System
             this.dataGridView.RowHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(914, 428);
             this.dataGridView.TabIndex = 16;
@@ -258,13 +258,13 @@ namespace CapstoneProject_3.POS_System
             this.Column7.ReadOnly = true;
             this.Column7.Width = 64;
             // 
-            // Column8
+            // batch
             // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "Batch No.";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 96;
+            this.batch.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.batch.HeaderText = "Batch No.";
+            this.batch.Name = "batch";
+            this.batch.ReadOnly = true;
+            this.batch.Width = 96;
             // 
             // Column9
             // 
@@ -321,7 +321,7 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewImageColumn Select;
     }

@@ -135,7 +135,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM viewCriticalStock WHERE quantity <= reorder";
+                    command.CommandText = @"SELECT * FROM viewCriticalStock WHERE qty < reorder";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())

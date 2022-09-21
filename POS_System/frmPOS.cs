@@ -21,6 +21,7 @@ namespace CapstoneProject_3.POS_System
         public double price;
         public double taxVat;
         public int uid = 0;
+        private string prodBatch;
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         AuditTrail log = new AuditTrail();
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
@@ -131,7 +132,32 @@ namespace CapstoneProject_3.POS_System
         {
             AdjustForm();
         }
-
+        private void loadFirstIn()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT TOP 1 BatchNo FROM tblInventory
+                                            WHERE status = 'Available'";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            prodBatch = reader["BatchNo"].ToString();
+                        }
+                    }
+                    Console.WriteLine(prodBatch);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void AdjustForm()
         {
             switch (this.WindowState)
@@ -202,7 +228,7 @@ namespace CapstoneProject_3.POS_System
                         while (reader.Read())
                         {
                             qty = int.Parse(reader["quantity"].ToString());
-                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty);
+                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty, lblProdBatch.Text);
                             frmQty.ShowDialog();
                             frmQty.txtQty.Focus();
                         }
@@ -556,6 +582,7 @@ namespace CapstoneProject_3.POS_System
         private void frmPOS_Load(object sender, EventArgs e)
         {        
             loadSearch();
+            loadFirstIn();
             timer1.Start();
             checkTimeIn();
             if (dataGridView.Rows.Count == 0 || dataGridView == null)

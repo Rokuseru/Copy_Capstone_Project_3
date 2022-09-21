@@ -137,7 +137,7 @@ namespace CapstoneProject_3
             this.tabControlRecords.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControlRecords.Location = new System.Drawing.Point(0, 1);
             this.tabControlRecords.Name = "tabControlRecords";
-            this.tabControlRecords.SelectedIndex = 3;
+            this.tabControlRecords.SelectedIndex = 2;
             this.tabControlRecords.Size = new System.Drawing.Size(911, 491);
             this.tabControlRecords.TabIndex = 4;
             this.tabControlRecords.UseSelectable = true;
@@ -695,7 +695,7 @@ namespace CapstoneProject_3
             this.Column10.HeaderText = "Stock On Hand";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 112;
+            this.Column10.Width = 113;
             // 
             // tabInventoryCount
             // 
@@ -862,7 +862,7 @@ namespace CapstoneProject_3
             this.dataGridViewTextBoxColumn17.HeaderText = "Stock On Hand";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 112;
+            this.dataGridViewTextBoxColumn17.Width = 113;
             // 
             // frmRecords
             // 

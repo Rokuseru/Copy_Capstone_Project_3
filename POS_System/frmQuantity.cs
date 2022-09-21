@@ -21,7 +21,8 @@ namespace CapstoneProject_3.POS_System
         private int pid;
         private double price;
         private string transacno;
-        private int qty; 
+        private int qty;
+        private string batch;
         public int userID = 0;
 
         //Fields
@@ -39,12 +40,13 @@ namespace CapstoneProject_3.POS_System
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        public void productDetails(int pcode, Double price, String transacno, int qty)
+        public void productDetails(int pcode, Double price, String transacno, int qty, string prodBatch)
         {
             this.pid = pcode;
             this.price = price;
             this.transacno = transacno;
             this.qty = qty;
+            this.batch = prodBatch;
         }
         public void loadUser()
         {
