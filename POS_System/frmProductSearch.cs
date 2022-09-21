@@ -46,16 +46,18 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID, p.ProductCode, p.Barcode, p.Description, b.Brand, c.Category, p.quantity, p.Price FROM tblProduct AS p
+                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, i.qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
-                                            INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID";
+                                            INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
+                                            WHERE i.status = 'Available'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(),
-                                reader["Brand"].ToString(), reader["Category"].ToString(), reader["quantity"].ToString(), reader["Price"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), 
+                                reader["qty"].ToString(), reader["price"].ToString(), reader["BatchNo"].ToString(), reader["date"].ToString());
                         }
                     }
                 }
@@ -77,17 +79,19 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID, p.ProductCode, p.Barcode, p.Description, b.Brand, c.Category, p.quantity, p.Price FROM tblProduct AS p
+                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, i.qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
-                                            WHERE Description LIKE '%"+txtSearch.Text+"%' OR Barcode LIKE '%"+txtSearch.Text+"%'";
+                                            WHERE i.status = 'Available'
+                                            AND Description LIKE '%" + txtSearch.Text+"%'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(),
-                                reader["Brand"].ToString(), reader["Category"].ToString(), reader["quantity"].ToString(), reader["Price"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(),
+                               reader["qty"].ToString(), reader["price"].ToString(), reader["BatchNo"].ToString(), reader["date"].ToString());
                         }
                     }
                 }

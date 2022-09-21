@@ -340,9 +340,6 @@ namespace CapstoneProject_3.POS_System
         public void reset()
         {
             dataGridView.Rows.Clear();
-            btnAddDisc.Enabled = false;
-            btnSearchProd.Enabled = false;
-            btnSettle.Enabled = false;
         }
         private void checkTimeIn()
         {
@@ -738,6 +735,8 @@ namespace CapstoneProject_3.POS_System
         private void btnTimeIn_Click(object sender, EventArgs e)
         {
             timeIn();
+            toast.showToastNotifInPanel(new ToastNotification("Time-In Successfully", Color.FromArgb(16, 172, 132), IconChar.CheckCircle), panelBottom);
+
         }
 
         private void btnTimeOut_Click(object sender, EventArgs e)
@@ -745,6 +744,7 @@ namespace CapstoneProject_3.POS_System
             timeOut();
             frmXandZReports xz = new frmXandZReports(this);
             xz.ShowDialog();
+            toast.showToastNotifInPanel(new ToastNotification("Time-Out Successfully", Color.FromArgb(16, 172, 132), IconChar.CheckCircle), panelBottom);
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)

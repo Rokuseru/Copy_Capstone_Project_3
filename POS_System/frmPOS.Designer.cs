@@ -30,10 +30,10 @@ namespace CapstoneProject_3.POS_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -187,10 +187,10 @@ namespace CapstoneProject_3.POS_System
             this.panelButtons.Controls.Add(this.btnSearchProd);
             this.panelButtons.Controls.Add(this.btnNewTrans);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelButtons.Location = new System.Drawing.Point(1054, 99);
+            this.panelButtons.Location = new System.Drawing.Point(1019, 99);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.panelButtons.Size = new System.Drawing.Size(230, 650);
+            this.panelButtons.Size = new System.Drawing.Size(265, 650);
             this.panelButtons.TabIndex = 1;
             // 
             // panelBillInfo
@@ -214,7 +214,7 @@ namespace CapstoneProject_3.POS_System
             this.panelBillInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBillInfo.Location = new System.Drawing.Point(0, 353);
             this.panelBillInfo.Name = "panelBillInfo";
-            this.panelBillInfo.Size = new System.Drawing.Size(230, 297);
+            this.panelBillInfo.Size = new System.Drawing.Size(265, 297);
             this.panelBillInfo.TabIndex = 7;
             // 
             // label11
@@ -233,7 +233,7 @@ namespace CapstoneProject_3.POS_System
             this.lblTotalQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalQty.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalQty.Location = new System.Drawing.Point(103, 23);
+            this.lblTotalQty.Location = new System.Drawing.Point(138, 23);
             this.lblTotalQty.Name = "lblTotalQty";
             this.lblTotalQty.Size = new System.Drawing.Size(121, 35);
             this.lblTotalQty.TabIndex = 22;
@@ -311,7 +311,7 @@ namespace CapstoneProject_3.POS_System
             this.lblVatable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVatable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblVatable.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVatable.Location = new System.Drawing.Point(103, 175);
+            this.lblVatable.Location = new System.Drawing.Point(138, 175);
             this.lblVatable.Name = "lblVatable";
             this.lblVatable.Size = new System.Drawing.Size(121, 35);
             this.lblVatable.TabIndex = 11;
@@ -323,7 +323,7 @@ namespace CapstoneProject_3.POS_System
             this.lblCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCash.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCash.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCash.Location = new System.Drawing.Point(103, 213);
+            this.lblCash.Location = new System.Drawing.Point(138, 213);
             this.lblCash.Name = "lblCash";
             this.lblCash.Size = new System.Drawing.Size(121, 35);
             this.lblCash.TabIndex = 12;
@@ -335,7 +335,7 @@ namespace CapstoneProject_3.POS_System
             this.lblChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblChange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblChange.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.Location = new System.Drawing.Point(103, 251);
+            this.lblChange.Location = new System.Drawing.Point(138, 251);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(121, 35);
             this.lblChange.TabIndex = 13;
@@ -347,7 +347,7 @@ namespace CapstoneProject_3.POS_System
             this.lblVat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblVat.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVat.Location = new System.Drawing.Point(103, 137);
+            this.lblVat.Location = new System.Drawing.Point(138, 137);
             this.lblVat.Name = "lblVat";
             this.lblVat.Size = new System.Drawing.Size(121, 35);
             this.lblVat.TabIndex = 14;
@@ -359,7 +359,7 @@ namespace CapstoneProject_3.POS_System
             this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(103, 61);
+            this.lblDiscount.Location = new System.Drawing.Point(138, 61);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(121, 35);
             this.lblDiscount.TabIndex = 15;
@@ -371,7 +371,7 @@ namespace CapstoneProject_3.POS_System
             this.lblSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSubTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTotal.Location = new System.Drawing.Point(103, 99);
+            this.lblSubTotal.Location = new System.Drawing.Point(138, 99);
             this.lblSubTotal.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblSubTotal.Name = "lblSubTotal";
             this.lblSubTotal.Size = new System.Drawing.Size(121, 35);
@@ -385,7 +385,7 @@ namespace CapstoneProject_3.POS_System
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 19);
+            this.panel2.Size = new System.Drawing.Size(265, 19);
             this.panel2.TabIndex = 0;
             // 
             // btnLogout
@@ -394,7 +394,7 @@ namespace CapstoneProject_3.POS_System
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
             this.btnLogout.IconColor = System.Drawing.Color.White;
@@ -403,7 +403,7 @@ namespace CapstoneProject_3.POS_System
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.Location = new System.Drawing.Point(0, 303);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(230, 50);
+            this.btnLogout.Size = new System.Drawing.Size(265, 50);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "     [F10] - Logout";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -416,7 +416,7 @@ namespace CapstoneProject_3.POS_System
             this.btnDailySales.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDailySales.FlatAppearance.BorderSize = 0;
             this.btnDailySales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDailySales.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDailySales.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDailySales.ForeColor = System.Drawing.Color.White;
             this.btnDailySales.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
             this.btnDailySales.IconColor = System.Drawing.Color.White;
@@ -425,7 +425,7 @@ namespace CapstoneProject_3.POS_System
             this.btnDailySales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDailySales.Location = new System.Drawing.Point(0, 253);
             this.btnDailySales.Name = "btnDailySales";
-            this.btnDailySales.Size = new System.Drawing.Size(230, 50);
+            this.btnDailySales.Size = new System.Drawing.Size(265, 50);
             this.btnDailySales.TabIndex = 5;
             this.btnDailySales.Text = "     [F6] - Daily Sales";
             this.btnDailySales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -438,7 +438,7 @@ namespace CapstoneProject_3.POS_System
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.Ban;
             this.btnCancel.IconColor = System.Drawing.Color.White;
@@ -447,7 +447,7 @@ namespace CapstoneProject_3.POS_System
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(0, 203);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(230, 50);
+            this.btnCancel.Size = new System.Drawing.Size(265, 50);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "     [F5] - Cancel Sales";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -460,7 +460,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSettle.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSettle.FlatAppearance.BorderSize = 0;
             this.btnSettle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettle.ForeColor = System.Drawing.Color.White;
             this.btnSettle.IconChar = FontAwesome.Sharp.IconChar.MoneyBillWave;
             this.btnSettle.IconColor = System.Drawing.Color.White;
@@ -469,7 +469,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSettle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettle.Location = new System.Drawing.Point(0, 153);
             this.btnSettle.Name = "btnSettle";
-            this.btnSettle.Size = new System.Drawing.Size(230, 50);
+            this.btnSettle.Size = new System.Drawing.Size(265, 50);
             this.btnSettle.TabIndex = 3;
             this.btnSettle.Text = "     [F4] - Settle Payment";
             this.btnSettle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -482,7 +482,7 @@ namespace CapstoneProject_3.POS_System
             this.btnAddDisc.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAddDisc.FlatAppearance.BorderSize = 0;
             this.btnAddDisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDisc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDisc.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDisc.ForeColor = System.Drawing.Color.White;
             this.btnAddDisc.IconChar = FontAwesome.Sharp.IconChar.Percent;
             this.btnAddDisc.IconColor = System.Drawing.Color.White;
@@ -491,7 +491,7 @@ namespace CapstoneProject_3.POS_System
             this.btnAddDisc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDisc.Location = new System.Drawing.Point(0, 103);
             this.btnAddDisc.Name = "btnAddDisc";
-            this.btnAddDisc.Size = new System.Drawing.Size(230, 50);
+            this.btnAddDisc.Size = new System.Drawing.Size(265, 50);
             this.btnAddDisc.TabIndex = 2;
             this.btnAddDisc.Text = "     [F3] - Add Discount";
             this.btnAddDisc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -504,7 +504,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSearchProd.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSearchProd.FlatAppearance.BorderSize = 0;
             this.btnSearchProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchProd.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchProd.ForeColor = System.Drawing.Color.White;
             this.btnSearchProd.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.btnSearchProd.IconColor = System.Drawing.Color.White;
@@ -513,7 +513,7 @@ namespace CapstoneProject_3.POS_System
             this.btnSearchProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchProd.Location = new System.Drawing.Point(0, 53);
             this.btnSearchProd.Name = "btnSearchProd";
-            this.btnSearchProd.Size = new System.Drawing.Size(230, 50);
+            this.btnSearchProd.Size = new System.Drawing.Size(265, 50);
             this.btnSearchProd.TabIndex = 1;
             this.btnSearchProd.Text = "     [F2] - Search Product";
             this.btnSearchProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -526,7 +526,7 @@ namespace CapstoneProject_3.POS_System
             this.btnNewTrans.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNewTrans.FlatAppearance.BorderSize = 0;
             this.btnNewTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTrans.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewTrans.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewTrans.ForeColor = System.Drawing.Color.White;
             this.btnNewTrans.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnNewTrans.IconColor = System.Drawing.Color.White;
@@ -535,7 +535,7 @@ namespace CapstoneProject_3.POS_System
             this.btnNewTrans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewTrans.Location = new System.Drawing.Point(0, 3);
             this.btnNewTrans.Name = "btnNewTrans";
-            this.btnNewTrans.Size = new System.Drawing.Size(230, 50);
+            this.btnNewTrans.Size = new System.Drawing.Size(265, 50);
             this.btnNewTrans.TabIndex = 0;
             this.btnNewTrans.Text = "     [F1] - New Transaction";
             this.btnNewTrans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -553,14 +553,14 @@ namespace CapstoneProject_3.POS_System
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 668);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1054, 81);
+            this.panelBottom.Size = new System.Drawing.Size(1019, 81);
             this.panelBottom.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1053, 1);
+            this.panel4.Location = new System.Drawing.Point(1018, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1, 80);
             this.panel4.TabIndex = 20;
@@ -571,7 +571,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1054, 1);
+            this.panel1.Size = new System.Drawing.Size(1019, 1);
             this.panel1.TabIndex = 19;
             // 
             // lblTime
@@ -581,7 +581,7 @@ namespace CapstoneProject_3.POS_System
             this.lblTime.ForeColor = System.Drawing.Color.Black;
             this.lblTime.Location = new System.Drawing.Point(10, 27);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(71, 32);
+            this.lblTime.Size = new System.Drawing.Size(70, 32);
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "Time";
             // 
@@ -597,7 +597,7 @@ namespace CapstoneProject_3.POS_System
             this.btnTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimeIn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimeIn.ForeColor = System.Drawing.Color.White;
-            this.btnTimeIn.Location = new System.Drawing.Point(849, 6);
+            this.btnTimeIn.Location = new System.Drawing.Point(814, 6);
             this.btnTimeIn.Name = "btnTimeIn";
             this.btnTimeIn.Size = new System.Drawing.Size(96, 69);
             this.btnTimeIn.TabIndex = 17;
@@ -618,7 +618,7 @@ namespace CapstoneProject_3.POS_System
             this.btnTimeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimeOut.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimeOut.ForeColor = System.Drawing.Color.White;
-            this.btnTimeOut.Location = new System.Drawing.Point(951, 6);
+            this.btnTimeOut.Location = new System.Drawing.Point(916, 6);
             this.btnTimeOut.Name = "btnTimeOut";
             this.btnTimeOut.Size = new System.Drawing.Size(96, 69);
             this.btnTimeOut.TabIndex = 18;
@@ -641,14 +641,14 @@ namespace CapstoneProject_3.POS_System
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 99);
             this.panelDgv.Name = "panelDgv";
-            this.panelDgv.Size = new System.Drawing.Size(1054, 569);
+            this.panelDgv.Size = new System.Drawing.Size(1019, 569);
             this.panelDgv.TabIndex = 3;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1053, 0);
+            this.panel3.Location = new System.Drawing.Point(1018, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1, 569);
             this.panel3.TabIndex = 16;
@@ -656,60 +656,60 @@ namespace CapstoneProject_3.POS_System
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
-            this.label3.Location = new System.Drawing.Point(12, 55);
+            this.label3.Location = new System.Drawing.Point(12, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 25);
+            this.label3.Size = new System.Drawing.Size(75, 30);
             this.label3.TabIndex = 15;
             this.label3.Text = "Search";
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(148, 59);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(180, 70);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(448, 23);
+            this.txtSearch.Size = new System.Drawing.Size(448, 27);
             this.txtSearch.TabIndex = 14;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(145, 27);
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(175, 35);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(180, 25);
+            this.lblDate.Size = new System.Drawing.Size(209, 30);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "Today, Today, Today";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 27);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 25);
+            this.label5.Size = new System.Drawing.Size(57, 30);
             this.label5.TabIndex = 4;
             this.label5.Text = "Date";
             // 
             // lblTransNo
             // 
             this.lblTransNo.AutoSize = true;
-            this.lblTransNo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransNo.Location = new System.Drawing.Point(145, 2);
+            this.lblTransNo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransNo.Location = new System.Drawing.Point(175, 10);
             this.lblTransNo.Name = "lblTransNo";
-            this.lblTransNo.Size = new System.Drawing.Size(111, 25);
+            this.lblTransNo.Size = new System.Drawing.Size(121, 30);
             this.lblTransNo.TabIndex = 3;
             this.lblTransNo.Text = "000000000";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 2);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 25);
+            this.label2.Size = new System.Drawing.Size(157, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Transaction No.";
             // 
@@ -719,22 +719,22 @@ namespace CapstoneProject_3.POS_System
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeight = 40;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -750,25 +750,25 @@ namespace CapstoneProject_3.POS_System
             this.adjustQty,
             this.remove});
             this.dataGridView.EnableHeadersVisualStyles = false;
-            this.dataGridView.Location = new System.Drawing.Point(0, 89);
+            this.dataGridView.Location = new System.Drawing.Point(0, 103);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1054, 480);
+            this.dataGridView.Size = new System.Drawing.Size(1019, 466);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
@@ -779,7 +779,7 @@ namespace CapstoneProject_3.POS_System
             this.Column3.HeaderText = "#";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 37;
+            this.Column3.Width = 41;
             // 
             // cartID
             // 
@@ -801,7 +801,7 @@ namespace CapstoneProject_3.POS_System
             this.pcode.HeaderText = "Product Code";
             this.pcode.Name = "pcode";
             this.pcode.ReadOnly = true;
-            this.pcode.Width = 94;
+            this.pcode.Width = 122;
             // 
             // Column1
             // 
@@ -816,7 +816,7 @@ namespace CapstoneProject_3.POS_System
             this.prodPrice.HeaderText = "Price";
             this.prodPrice.Name = "prodPrice";
             this.prodPrice.ReadOnly = true;
-            this.prodPrice.Width = 56;
+            this.prodPrice.Width = 64;
             // 
             // qty
             // 
@@ -824,7 +824,7 @@ namespace CapstoneProject_3.POS_System
             this.qty.HeaderText = "Quantity";
             this.qty.Name = "qty";
             this.qty.ReadOnly = true;
-            this.qty.Width = 76;
+            this.qty.Width = 88;
             // 
             // Column4
             // 
@@ -832,7 +832,7 @@ namespace CapstoneProject_3.POS_System
             this.Column4.HeaderText = "Discount";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 77;
+            this.Column4.Width = 90;
             // 
             // TotalPrice
             // 
@@ -840,7 +840,7 @@ namespace CapstoneProject_3.POS_System
             this.TotalPrice.HeaderText = "Total";
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
-            this.TotalPrice.Width = 55;
+            this.TotalPrice.Width = 65;
             // 
             // adjustQty
             // 
