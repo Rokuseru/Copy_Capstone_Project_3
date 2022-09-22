@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapstoneProject_3.Notifications;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace CapstoneProject_3.POS_System
 {
@@ -18,7 +19,7 @@ namespace CapstoneProject_3.POS_System
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
         frmPOS fpos;
         Notification ntf = new Notification();
-        private string prodBatch = "";
+        //private int quantity = 0;
         //Fields
         private int borderSize = 1;
         public frmProductSearch(frmPOS pos)
@@ -46,20 +47,20 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, i.qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                    command.CommandText = @"SELECT i.productID, p.ProductCode, p.Description,b.Brand, c.Category, SUM(qty)AS qty,i.price FROM tblInventory AS i
                                             INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
                                             WHERE i.status = 'Available'
-                                            AND i.BatchNo = @bnum";
-                    command.Parameters.AddWithValue("@bnum", fpos.prodBatch);
+                                            GROUP BY i.productID, p.ProductCode, p.Description, b.Brand, c.Category, i.price
+                                            ORDER BY p.Description ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
                             dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), 
-                                reader["qty"].ToString(), reader["price"].ToString(), reader["BatchNo"].ToString(), reader["date"].ToString());
+                                reader["qty"].ToString(), double.Parse(reader["price"].ToString()));
                         }
                     }
                 }
@@ -67,32 +68,6 @@ namespace CapstoneProject_3.POS_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-        private void loadFirstIn()
-        {
-            try
-            {
-                using (var connection = new SqlConnection(con))
-                using (var command = new SqlCommand())
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"SELECT TOP 1 BatchNo FROM tblInventory
-                                            WHERE status = 'Available'";
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            prodBatch = reader["BatchNo"].ToString();
-                        }
-                    }
-                    Console.WriteLine(prodBatch);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void searchProduct()
@@ -107,12 +82,13 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, i.qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, SUM(i.qty) AS qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
                                             INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
                                             WHERE i.status = 'Available'
-                                            AND i.BatchNo = @bnum
+											GROUP BY p.productID, p.ProductCode, p.Description, b.Brand, c.Category, i.price, i.BatchNo, i.date
+											ORDER BY BatchNo ASC, date ASC
                                             AND Description LIKE '%" + txtSearch.Text+"%'";
                     command.Parameters.AddWithValue("@bnum", fpos.prodBatch);
                     using (var reader = command.ExecuteReader())
@@ -134,7 +110,6 @@ namespace CapstoneProject_3.POS_System
         private void frmProductSearch_Load(object sender, EventArgs e)
         {
             loadProduct();
-            loadFirstIn();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -146,7 +121,6 @@ namespace CapstoneProject_3.POS_System
         {
             searchProduct();
         }
-
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colname = dataGridView.Columns[e.ColumnIndex].Name;
@@ -154,7 +128,7 @@ namespace CapstoneProject_3.POS_System
             if (colname == "Select")
             {
                 frmQuantity qty = new frmQuantity(fpos);
-                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()), dataGridView.Rows[e.RowIndex].Cells["batch"].Value.ToString());
+                qty.productDetails(int.Parse(dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString()),double.Parse(dataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString()), fpos.lblTransNo.Text, int.Parse(dataGridView.Rows[e.RowIndex].Cells["qty"].Value.ToString()));
                 qty.txtQty.Focus();
                 qty.ShowDialog();
             }

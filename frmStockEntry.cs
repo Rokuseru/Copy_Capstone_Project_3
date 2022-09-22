@@ -101,13 +101,13 @@ namespace CapstoneProject_3
 
                     if (refid == null)
                     {
-                        txtRefNo.Text = "SE-000001";
+                        txtRefNo.Text = "BT-000001";
                     }
                     else
                     {
                         int intval = int.Parse(refid.Substring(3, 6));
                         intval++;
-                        txtRefNo.Text = String.Format("SE-{0:000000}", intval);
+                        txtRefNo.Text = String.Format("BT-{0:000000}", intval);
                     }
                 }
             }
@@ -162,25 +162,42 @@ namespace CapstoneProject_3
                         for (int i = 0; i < dataGridViewStockEntry.Rows.Count; i++)
                         {
                             //For tblProduct
+                            //using (var connection = new SqlConnection(con))
+                            //using (var command = new SqlCommand())
+                            //{
+                            //    connection.Open();
+                            //    command.Connection = connection;
+                            //    command.CommandText = @"UPDATE tblProduct SET quantity=quantity + @qty  WHERE productID LIKE @pid";
+                            //    command.Parameters.AddWithValue("@pid", int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
+                            //    command.Parameters.AddWithValue("@qty", int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()));
+                            //    command.ExecuteNonQuery();
+                            //    Console.WriteLine(int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
+                            //}
+                            //tblInventory
                             using (var connection = new SqlConnection(con))
                             using (var command = new SqlCommand())
                             {
                                 connection.Open();
                                 command.Connection = connection;
-                                command.CommandText = @"UPDATE tblProduct SET quantity=quantity + @qty  WHERE productID LIKE @pid";
+                                command.CommandText = @"INSERT INTO tblInventory (productID, BatchNo, price, qty, date)
+                                                        VALUES (@pid, @bno, @price, @qty, @date)";
                                 command.Parameters.AddWithValue("@pid", int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
+                                command.Parameters.AddWithValue("@bno", txtBatchNo.Text);
+                                command.Parameters.AddWithValue("@price", int.Parse(dataGridViewStockEntry.Rows[i].Cells["cPrice"].Value.ToString()));
                                 command.Parameters.AddWithValue("@qty", int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()));
+                                command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                                 command.ExecuteNonQuery();
-                                Console.WriteLine(int.Parse(dataGridViewStockEntry.Rows[i].Cells["pid"].Value.ToString()));
                             }
+                            
                             //for tblStockEntry
                             using (var connection = new SqlConnection(con))
                             using (var command = new SqlCommand())
                             {
                                 connection.Open();
                                 command.Connection = connection;
-                                command.CommandText = @"UPDATE tblStockEntry SET qty = "+ int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()) + ", Status='Done'WHERE stockEntryID LIKE @id";
+                                command.CommandText = @"UPDATE tblStockEntry SET qty = " + int.Parse(dataGridViewStockEntry.Rows[i].Cells["qty"].Value.ToString()) + ", BatchNo = @bno, Status='Done'WHERE stockEntryID LIKE @id";
                                 command.Parameters.AddWithValue("id", dataGridViewStockEntry.Rows[i].Cells[1].Value.ToString());
+                                command.Parameters.AddWithValue("@bno", txtBatchNo.Text);
                                 command.ExecuteNonQuery();
                             }
                         }
@@ -305,7 +322,6 @@ namespace CapstoneProject_3
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveQty();
-            saveToInventory();
         }
         private void btnInventoryCount_Click(object sender, EventArgs e)
         {

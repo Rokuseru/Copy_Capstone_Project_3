@@ -41,6 +41,14 @@ namespace CapstoneProject_3
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtQty = new System.Windows.Forms.TextBox();
@@ -60,14 +68,8 @@ namespace CapstoneProject_3
             this.cbCommand = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBatchNo = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -174,7 +176,7 @@ namespace CapstoneProject_3
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -212,6 +214,72 @@ namespace CapstoneProject_3
             this.dataGridView.TabIndex = 86;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 39;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "productID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // pcode
+            // 
+            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pcode.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pcode.HeaderText = "Product Code";
+            this.pcode.Name = "pcode";
+            this.pcode.ReadOnly = true;
+            this.pcode.Width = 104;
+            // 
+            // desc
+            // 
+            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Brand";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 67;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "Category";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 87;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.HeaderText = "Stock On-Hand";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.Width = 113;
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.select.HeaderText = "";
+            this.select.Image = global::CapstoneProject_3.Properties.Resources.icons8_chevron_right_50;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 5;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -232,6 +300,8 @@ namespace CapstoneProject_3
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.txtBatchNo);
+            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.txtQty);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtRefNo);
@@ -308,7 +378,7 @@ namespace CapstoneProject_3
             this.txtProductCode.Enabled = false;
             this.txtProductCode.Location = new System.Drawing.Point(111, 50);
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(375, 25);
+            this.txtProductCode.Size = new System.Drawing.Size(150, 25);
             this.txtProductCode.TabIndex = 70;
             // 
             // label11
@@ -422,71 +492,24 @@ namespace CapstoneProject_3
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             // 
-            // Column3
+            // label3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 41;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(267, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 17);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Batch No.";
             // 
-            // Column1
+            // txtBatchNo
             // 
-            this.Column1.HeaderText = "productID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // pcode
-            // 
-            this.pcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pcode.DefaultCellStyle = dataGridViewCellStyle3;
-            this.pcode.HeaderText = "Product Code";
-            this.pcode.Name = "pcode";
-            this.pcode.ReadOnly = true;
-            this.pcode.Width = 122;
-            // 
-            // desc
-            // 
-            this.desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desc.HeaderText = "Description";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "Brand";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 71;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Category";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 92;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.HeaderText = "Stock On-Hand";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 133;
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.select.HeaderText = "";
-            this.select.Image = global::CapstoneProject_3.Properties.Resources.icons8_chevron_right_50;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 5;
+            this.txtBatchNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBatchNo.Enabled = false;
+            this.txtBatchNo.Location = new System.Drawing.Point(340, 50);
+            this.txtBatchNo.Name = "txtBatchNo";
+            this.txtBatchNo.Size = new System.Drawing.Size(146, 25);
+            this.txtBatchNo.TabIndex = 77;
             // 
             // frmStockAdjustment
             // 
@@ -551,5 +574,7 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewImageColumn select;
+        public System.Windows.Forms.TextBox txtBatchNo;
+        private System.Windows.Forms.Label label3;
     }
 }

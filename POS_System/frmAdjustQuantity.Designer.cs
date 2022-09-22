@@ -80,15 +80,14 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(308, 40);
             this.panel1.TabIndex = 12;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // txtQty
             // 
             this.txtQty.Font = new System.Drawing.Font("Segoe UI Semibold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.Location = new System.Drawing.Point(3, 6);
+            this.txtQty.Location = new System.Drawing.Point(0, 0);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(300, 88);
+            this.txtQty.Size = new System.Drawing.Size(308, 98);
             this.txtQty.TabIndex = 13;
             this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);

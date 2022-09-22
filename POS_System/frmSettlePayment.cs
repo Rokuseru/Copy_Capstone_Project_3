@@ -22,7 +22,9 @@ namespace CapstoneProject_3.POS_System
         AuditTrail log = new AuditTrail();
         CultureInfo culture = CultureInfo.GetCultureInfo("en-PH");
         private string con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-
+        List<int> quantities = new List<int>();
+        List<int> prodId = new List<int>();
+        List<string> batchNum = new List<string>();
         //Fields
         private int borderSize = 1;
         public frmSettlePayment(frmPOS pos)
@@ -75,12 +77,110 @@ namespace CapstoneProject_3.POS_System
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void getQuantity()
+        {
+            try
+            {
+                for (int i = 0; i < fpos.dataGridView.Rows.Count; i++)
+                {
+                    using (var connection = new SqlConnection(con))
+                    using (var command = new SqlCommand())
+                    {
+                        connection.Open();
+                        command.Connection = connection;
+                        command.CommandText = @" -- The query to get the required result
+                                            select
+                                                i.*,
+                                                 case
+                                                  when
+                                                   @requiredQty - 
+                                                   isnull(
+                                                    (
+                                                    select
+                                                    sum(qty)
+                                                    from
+                                                    tblInventory i2
+                                                    where
+                                                    i2.productID = i.productID
+                                                    and i2.BatchNo < i.BatchNo
+                                                    ),
+                                                    0) < i.qty
+                                                    then
+                                                    @requiredQty - 
+                                                    isnull(
+                                                    (
+                                                    select
+                                                    sum(qty)
+                                                    from
+                                                    tblInventory i2
+                                                    where
+                                                    i2.productID = i.productID
+                                                    and i2.BatchNo < i.BatchNo
+                                                    ),
+                                                     0)
+                                                     else
+                                                     i.qty
+                                                     end as qtyToTake
+                                                     from 
+                                                     tblInventory i
+                                                     where   
+                                                     i.productID = @requiredItemCode
+                                                     and 
+                                                     case
+                                                     when
+                                                     @requiredQty - 
+                                                     isnull(
+                                                     (
+                                                     select
+                                                     sum(qty)
+                                                     from
+                                                     tblInventory i2
+                                                     where
+                                                     i2.productID = i.productID
+                                                     and i2.BatchNo < i.BatchNo
+                                                      ),
+                                                      0) < i.qty
+                                                      then
+                                                     @requiredQty - 
+                                                      isnull(
+                                                      (
+                                                      select
+                                                      sum(qty)
+                                                      from
+                                                      tblInventory i2
+                                                      where
+                                                      i2.productID = i.productID
+                                                      and i2.BatchNo < i.BatchNo
+                                                       ),
+                                                       0)
+                                                       else
+                                                       i.qty
+                                                      end > 0";
+                        command.Parameters.AddWithValue("@requiredItemCode", int.Parse(fpos.dataGridView.Rows[i].Cells["pid"].Value.ToString()));
+                        command.Parameters.AddWithValue("@requiredQty", int.Parse(fpos.dataGridView.Rows[i].Cells["qty"].Value.ToString()));
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                quantities.Add(int.Parse(reader["qty"].ToString()));
+                                prodId.Add(int.Parse(reader["productId"].ToString()));
+                                batchNum.Add(reader["BatchNo"].ToString());
+                            }
+                        }
+                    } 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void updateStockAndCart()
         {
 
             try
             {
-                //Inventory Table
+                //Table Inventory
                 for (int items = 0; items < fpos.dataGridView.Rows.Count; items++)
                 {
                     using (var connection = new SqlConnection(con))
@@ -88,14 +188,13 @@ namespace CapstoneProject_3.POS_System
                     {
                         connection.Open();
                         command.Connection = connection;
-                        command.CommandText = @"UPDATE tblInventory SET qty = qty - @quantity WHERE productID = @pid AND BatchNo = @bno";
-                        command.Parameters.AddWithValue("@quantity", int.Parse(fpos.dataGridView.Rows[items].Cells["qty"].Value.ToString()));
+                        command.CommandText = @"UPDATE tblInventory SET qty = qty - @quant WHERE productID = @pid";
+                        command.Parameters.AddWithValue("@quant", int.Parse(fpos.dataGridView.Rows[items].Cells["qty"].Value.ToString()));
                         command.Parameters.AddWithValue("@pid", int.Parse(fpos.dataGridView.Rows[items].Cells["pid"].Value.ToString()));
-                        command.Parameters.AddWithValue("@bno", fpos.prodBatch);
                         command.ExecuteNonQuery();
                     }
                 }
-                //Table Cart 
+                //Table Cart
                 using (var connection = new SqlConnection(con))
                 using (var command = new SqlCommand())
                 {
@@ -114,7 +213,7 @@ namespace CapstoneProject_3.POS_System
                 this.Dispose();
             }
             catch (Exception ex)
-            {     
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -285,6 +384,7 @@ namespace CapstoneProject_3.POS_System
 
         private void btnSettle_Click(object sender, EventArgs e)
         {
+            getQuantity();
             try
             {
                 if (Convert.ToDouble(Decimal.Parse(txtChange.Text, NumberStyles.Currency)) < 0)
@@ -305,7 +405,7 @@ namespace CapstoneProject_3.POS_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

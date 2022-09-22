@@ -90,6 +90,10 @@ namespace CapstoneProject_3.POS_System
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
+
+
+
+
             try
             {
                using (var connection = new SqlConnection(con))
@@ -111,7 +115,7 @@ namespace CapstoneProject_3.POS_System
                 double discount = Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency));
                 double price = Convert.ToDouble(Decimal.Parse(txtPrice.Text, NumberStyles.Currency));
                 log.loadUserID(fpos.lblUser.Text);
-                log.insertAction("Add Discount", "Deducted " +discount.ToString() + " from the Total Amount of " + price.ToString(), this.Text);
+                log.insertAction("Add Discount", "Deducted: " +discount.ToString() + " from the Total Amount of: " + price.ToString(), this.Text);
             }
             catch (Exception ex)
             {

@@ -28,7 +28,7 @@ namespace CapstoneProject_3.Report_Forms
             try
             {
                 reportViewer.ProcessingMode = ProcessingMode.Local;
-                this.reportViewer.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\POS_System\frmXReport.cs";
+                this.reportViewer.LocalReport.ReportPath = @"C:\Users\Roxelle\source\repos\Capstone\CapstoneProject_3\Datasets\rwXReport.rdlc";
                 this.reportViewer.LocalReport.DataSources.Clear();
 
                 ReportDataSource rds;
@@ -58,7 +58,7 @@ namespace CapstoneProject_3.Report_Forms
                     ReportParameter pOpenedOn = new ReportParameter("pOpenedOn", xReport.lblOpenedOn.Text);
                     ReportParameter pSoldProducts = new ReportParameter("pSoldProducts", xReport.lblSoldItems.Text);
                     ReportParameter pTransactions = new ReportParameter("pTransactions", xReport.lblTransactions.Text);
-                    ReportParameter TotalSales = new ReportParameter("pTotalSales", xReport.lblTotalSales.Text);
+                    ReportParameter TotalSales = new ReportParameter("TotalSales", xReport.lblTotalSales.Text);
 
                     //Set the paramters
                     reportViewer.LocalReport.SetParameters(pDate);

@@ -21,23 +21,11 @@ namespace CapstoneProject_3.POS_System
         frmPOS ps;
         private int _qty;
         private int pid;
-
-        //Fields
-        private int borderSize = 1;
         public frmAdjustQuantity(frmPOS pOS)
         {
             InitializeComponent();
             ps = pOS;
-            this.Padding = new Padding(borderSize);//Border size
-            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
-        //Form Properties
-        //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
         public void productDetails(int pcode)
         {
             this.pid = pcode;
@@ -154,12 +142,6 @@ namespace CapstoneProject_3.POS_System
         {
             loadCurrentQty();
             this.txtQty.Focus();
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

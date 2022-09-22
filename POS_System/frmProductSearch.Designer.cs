@@ -48,9 +48,7 @@ namespace CapstoneProject_3.POS_System
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Select = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -160,9 +158,7 @@ namespace CapstoneProject_3.POS_System
             this.Column5,
             this.Column6,
             this.qty,
-            this.price,
-            this.batch,
-            this.Column9,
+            this.Price,
             this.Select});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -250,29 +246,11 @@ namespace CapstoneProject_3.POS_System
             this.qty.ReadOnly = true;
             this.qty.Width = 88;
             // 
-            // price
+            // Price
             // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Width = 64;
-            // 
-            // batch
-            // 
-            this.batch.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.batch.HeaderText = "Batch No.";
-            this.batch.Name = "batch";
-            this.batch.ReadOnly = true;
-            this.batch.Width = 96;
-            // 
-            // Column9
-            // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column9.HeaderText = "Date";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 64;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // Select
             // 
@@ -320,9 +298,7 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewImageColumn Select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private new System.Windows.Forms.DataGridViewImageColumn Select;
     }
 }

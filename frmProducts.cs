@@ -414,7 +414,7 @@ namespace CapstoneProject_3
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Update Brand?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Update Product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 updateProduct();
                 clear();

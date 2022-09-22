@@ -491,6 +491,6 @@ namespace CapstoneProject_3
         private System.Windows.Forms.DataGridViewTextBoxColumn bid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewImageColumn Deactivate;
+        private new System.Windows.Forms.DataGridViewImageColumn Deactivate;
     }
 }

@@ -49,9 +49,8 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTop.Name = "panelTop";
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelTop.Size = new System.Drawing.Size(297, 41);
+            this.panelTop.Size = new System.Drawing.Size(305, 41);
             this.panelTop.TabIndex = 2;
-            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
             // btnExit
             // 
@@ -65,7 +64,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 20;
-            this.btnExit.Location = new System.Drawing.Point(250, 0);
+            this.btnExit.Location = new System.Drawing.Point(258, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 41);
@@ -92,7 +91,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // 
             this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(255, 1);
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(259, 1);
             this.txtPassword.CustomButton.Name = "";
             this.txtPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -111,7 +110,7 @@ namespace CapstoneProject_3.POS_System
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(277, 23);
+            this.txtPassword.Size = new System.Drawing.Size(281, 23);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.UseSelectable = true;
             this.txtPassword.WaterMark = "Password";
@@ -130,9 +129,9 @@ namespace CapstoneProject_3.POS_System
             this.btnGrant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrant.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrant.ForeColor = System.Drawing.Color.White;
-            this.btnGrant.Location = new System.Drawing.Point(49, 116);
+            this.btnGrant.Location = new System.Drawing.Point(45, 106);
             this.btnGrant.Name = "btnGrant";
-            this.btnGrant.Size = new System.Drawing.Size(88, 26);
+            this.btnGrant.Size = new System.Drawing.Size(95, 26);
             this.btnGrant.TabIndex = 5;
             this.btnGrant.Text = "Grant";
             this.btnGrant.TextColor = System.Drawing.Color.White;
@@ -151,9 +150,9 @@ namespace CapstoneProject_3.POS_System
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(161, 116);
+            this.btnCancel.Location = new System.Drawing.Point(164, 106);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 26);
+            this.btnCancel.Size = new System.Drawing.Size(95, 26);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextColor = System.Drawing.Color.White;
@@ -166,7 +165,7 @@ namespace CapstoneProject_3.POS_System
             // 
             // 
             this.txtUsername.CustomButton.Image = null;
-            this.txtUsername.CustomButton.Location = new System.Drawing.Point(255, 1);
+            this.txtUsername.CustomButton.Location = new System.Drawing.Point(259, 1);
             this.txtUsername.CustomButton.Name = "";
             this.txtUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -185,7 +184,7 @@ namespace CapstoneProject_3.POS_System
             this.txtUsername.SelectionLength = 0;
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
-            this.txtUsername.Size = new System.Drawing.Size(277, 23);
+            this.txtUsername.Size = new System.Drawing.Size(281, 23);
             this.txtUsername.TabIndex = 8;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.WaterMark = "Username";
@@ -196,7 +195,8 @@ namespace CapstoneProject_3.POS_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 154);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(305, 147);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPassword);

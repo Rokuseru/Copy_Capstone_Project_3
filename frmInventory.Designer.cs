@@ -60,7 +60,7 @@ namespace CapstoneProject_3
             this.dataGridViewInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -117,7 +117,7 @@ namespace CapstoneProject_3
             this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column10.HeaderText = "Product Code";
             this.Column10.Name = "Column10";
-            this.Column10.Width = 104;
+            this.Column10.Width = 102;
             // 
             // Column9
             // 
@@ -130,21 +130,21 @@ namespace CapstoneProject_3
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column6.HeaderText = "Batch No.";
             this.Column6.Name = "Column6";
-            this.Column6.Width = 83;
+            this.Column6.Width = 80;
             // 
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column7.HeaderText = "Price";
             this.Column7.Name = "Column7";
-            this.Column7.Width = 60;
+            this.Column7.Width = 59;
             // 
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column8.HeaderText = "QTY";
             this.Column8.Name = "Column8";
-            this.Column8.Width = 55;
+            this.Column8.Width = 54;
             // 
             // Delete
             // 
@@ -153,7 +153,6 @@ namespace CapstoneProject_3
             this.Delete.Image = global::CapstoneProject_3.Properties.Resources.icons8_delete_50;
             this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Delete.Name = "Delete";
-            this.Delete.Visible = false;
             this.Delete.Width = 5;
             // 
             // frmInventory

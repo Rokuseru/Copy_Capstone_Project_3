@@ -22,31 +22,19 @@ namespace CapstoneProject_3.POS_System
         private double price;
         private string transacno;
         private int qty;
-        private string batch;
         public int userID = 0;
 
-        //Fields
-        private int borderSize = 1;
         public frmQuantity(frmPOS pOS)
         {
             InitializeComponent();
             ps = pOS;
-            this.Padding = new Padding(borderSize);//Border size
-            this.BackColor = Color.FromArgb(53, 59, 72);//Border color
         }
-        //Form Properties
-        //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        public void productDetails(int pcode, Double price, String transacno, int qty, string prodBatch)
+        public void productDetails(int pcode, Double price, String transacno, int qty)
         {
             this.pid = pcode;
             this.price = price;
             this.transacno = transacno;
             this.qty = qty;
-            this.batch = prodBatch;
         }
         public void loadUser()
         {
@@ -197,11 +185,6 @@ namespace CapstoneProject_3.POS_System
         {
             loadUser();
             this.txtQty.Focus();
-        }
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

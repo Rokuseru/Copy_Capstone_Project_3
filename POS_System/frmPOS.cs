@@ -229,7 +229,7 @@ namespace CapstoneProject_3.POS_System
                         while (reader.Read())
                         {
                             qty = int.Parse(reader["quantity"].ToString());
-                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty, prodBatch);
+                            frmQty.productDetails(int.Parse(reader["productID"].ToString()), double.Parse(reader["Price"].ToString()), lblTransNo.Text, qty);
                             frmQty.ShowDialog();
                             frmQty.txtQty.Focus();
                         }
@@ -314,8 +314,6 @@ namespace CapstoneProject_3.POS_System
                     command.CommandText = @"DELETE FROM tblCart WHERE cartID LIKE @cid";
                     command.Parameters.AddWithValue("@cid", dataGridView.CurrentRow.Cells["cartID"].Value.ToString());
                     command.ExecuteNonQuery();
-
-                    toast.showToastNotifInPanel(new ToastNotification("Deleted Sucessfully", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panelBottom);
                 }
             }
             catch (Exception ex)

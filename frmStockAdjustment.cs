@@ -25,6 +25,7 @@ namespace CapstoneProject_3
         {
             InitializeComponent();
             frm = form;
+            generateRefCode();
         }
         public void clear()
         {
@@ -139,18 +140,21 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, quantity FROM tblProduct
-                                            INNER JOIN tblBrand AS b
-                                            ON tblProduct.BrandID = b.brandID
-                                            INNER JOIN tblCategory AS c
-                                            ON tblProduct.CategoryID = c.categoryID 
-                                            ORDER BY Description ASC";
+                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, SUM(qty) AS qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
+                                            INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
+                                            INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
+                                            WHERE i.status = 'Available'
+											GROUP BY p.productID, p.ProductCode, p.Description, b.Brand, c.Category, i.price, i.BatchNo, i.date
+											ORDER BY BatchNo ASC, date ASC
+
+";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["quantity"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["qty"].ToString());
                         }
                     }
                 }
