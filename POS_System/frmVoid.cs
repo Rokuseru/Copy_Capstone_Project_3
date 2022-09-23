@@ -229,7 +229,7 @@ namespace CapstoneProject_3.POS_System
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblUsers WHERE username LIKE @uname AND password LIKE @pword";
+                    command.CommandText = @"SELECT * FROM tblUsers WHERE username LIKE @uname AND password LIKE @pword AND status = 'Active'";
                     command.Parameters.AddWithValue("@uname", txtUsername.Text);
                     command.Parameters.AddWithValue("@pword", txtPassword.Text);
                     command.ExecuteNonQuery();

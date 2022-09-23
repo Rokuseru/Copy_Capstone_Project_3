@@ -359,7 +359,7 @@ namespace CapstoneProject_3.POS_System
             this.btnCancelSales.Name = "btnCancelSales";
             this.btnCancelSales.Size = new System.Drawing.Size(134, 32);
             this.btnCancelSales.TabIndex = 46;
-            this.btnCancelSales.Text = "Cancel Order";
+            this.btnCancelSales.Text = "Refund";
             this.btnCancelSales.TextColor = System.Drawing.Color.White;
             this.btnCancelSales.UseVisualStyleBackColor = false;
             this.btnCancelSales.Click += new System.EventHandler(this.btnCancelSales_Click);

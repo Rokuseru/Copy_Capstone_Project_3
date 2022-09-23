@@ -260,6 +260,12 @@
     <Compile Include="POS_System\frmAdjustQuantity.Designer.cs">
       <DependentUpon>frmAdjustQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="POS_System\frmAuthorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS_System\frmAuthorization.Designer.cs">
+      <DependentUpon>frmAuthorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="POS_System\frmRefundDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +456,9 @@
     <EmbeddedResource Include="POS_System\frmAdjustQuantity.resx">
       <DependentUpon>frmAdjustQuantity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POS_System\frmAuthorization.resx">
+      <DependentUpon>frmAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POS_System\frmRefundDetails.resx">
       <DependentUpon>frmRefundDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -624,6 +633,7 @@
     <None Include="Resources\icons8-user-minus-50.png" />
     <None Include="Resources\icons8-disable-50.png" />
     <None Include="Resources\icons8-disable-45.png" />
+    <None Include="Resources\icons8-checkmark-45.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

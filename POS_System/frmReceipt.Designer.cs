@@ -44,7 +44,7 @@ namespace CapstoneProject_3.POS_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(476, 34);
+            this.panel1.Size = new System.Drawing.Size(373, 34);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -72,7 +72,7 @@ namespace CapstoneProject_3.POS_System
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnExit.IconSize = 25;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(436, 0);
+            this.btnExit.Location = new System.Drawing.Point(333, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(40, 34);
             this.btnExit.TabIndex = 7;
@@ -87,14 +87,14 @@ namespace CapstoneProject_3.POS_System
             this.reportViewer1.Location = new System.Drawing.Point(0, 34);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(476, 552);
+            this.reportViewer1.Size = new System.Drawing.Size(373, 754);
             this.reportViewer1.TabIndex = 3;
             // 
             // frmReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 586);
+            this.ClientSize = new System.Drawing.Size(373, 788);
             this.ControlBox = false;
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);

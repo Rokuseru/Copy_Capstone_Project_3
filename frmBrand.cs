@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using CapstoneProject_3.Notifications;
+using FontAwesome.Sharp;
 
 namespace CapstoneProject_3
 {
@@ -67,14 +68,44 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblBrand WHERE Brand LIKE '" + txtSearch.Text + "%'" +
+                    command.CommandText = @"SELECT * FROM tblBrand WHERE Brand LIKE '%" + txtSearch.Text + "%'" +
                         "                   AND status = 'Active' ORDER BY Brand ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["brandID"].ToString(), reader["Brand"].ToString());
+                            dataGridView.Rows.Add(i, reader["brandID"].ToString(), reader["Brand"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void searchBrandInactive()
+        {
+            dataGridViewInactive.Rows.Clear();
+            var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            int i = 0;
+
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblBrand WHERE Brand LIKE '%" + searchInnactive.Text + "%'" +
+                        "                   AND status = 'Disabled' ORDER BY Brand ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["brandID"].ToString(), reader["Brand"].ToString(), reader["status"].ToString());
                         }
                     }
                 }
@@ -167,7 +198,7 @@ namespace CapstoneProject_3
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"UPDATE tblBrand SET status = 'Disabled' WHERE brandID = @bid";
-                    command.Parameters.AddWithValue("@bid", int.Parse(dataGridView.Rows[0].Cells["bid"].Value.ToString()));
+                    command.Parameters.AddWithValue("@bid", int.Parse(dataGridView.CurrentRow.Cells["bid"].Value.ToString()));
                     command.ExecuteNonQuery();
                 }
                 log.loadUserID(main.lblUser.Text);
@@ -181,10 +212,67 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void loadAllInactiveBrand()
+        {
+            try
+            {
+                dataGridViewInactive.Rows.Clear();
+
+                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                int i = 0;
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblBrand WHERE status = 'Disabled'
+                                            ORDER BY Brand ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["brandID"].ToString(), reader["Brand"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void activateBrand()
+        {
+            var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblBrand SET status = 'Active' WHERE brandID = @bid";
+                    command.Parameters.AddWithValue("@bid", int.Parse(dataGridViewInactive.CurrentRow.Cells["brandID"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Activate Brand", "Activated the Brand: " + this.txtBrandName.Text, "Brand Module");
+
+                toast.showToastNotif(new ToastNotification("Brand Enabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabBrandList);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmBrand_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
             loadAllBrands();
+            loadAllInactiveBrand();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -272,15 +360,37 @@ namespace CapstoneProject_3
         }
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string columnName = dataGridView.Columns[e.RowIndex].Name;
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
 
-            if (columnName == "Deactivate")
+            if (colname == "Deactivate")
             {
                 if (MessageBox.Show("Deactivate Brand?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     deactivateBrand();
+                    loadAllBrands();
+                    loadAllInactiveBrand();
                 }
             }
+        }
+
+        private void dataGridViewInactive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridViewInactive.Columns[e.ColumnIndex].Name;
+
+            if (colname == "enable")
+            {
+                if (MessageBox.Show("Deactivate Brand?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    activateBrand();
+                    loadAllInactiveBrand();
+                    loadAllBrands();
+                }
+            }
+        }
+
+        private void searchInnactive_TextChanged(object sender, EventArgs e)
+        {
+            searchBrandInactive();
         }
     }
 }

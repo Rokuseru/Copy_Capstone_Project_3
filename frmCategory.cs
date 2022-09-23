@@ -102,7 +102,7 @@ namespace CapstoneProject_3
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["categoryID"].ToString(), reader["Category"].ToString());
+                            dataGridView.Rows.Add(i, reader["categoryID"].ToString(), reader["Category"].ToString(), reader["status"].ToString());
                         }
                     }
                 }
@@ -124,7 +124,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * FROM tblCategory WHERE Category LIKE '" + txtSearch.Text + "%' AND status = 'Active' ORDER BY Category ASC";
+                    command.CommandText = @"SELECT * FROM tblCategory WHERE Category LIKE '%" + txtSearch.Text + "%' AND status = 'Active' ORDER BY Category ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -140,18 +140,46 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void searchInactiveCategory()
+        {
+            dataGridViewInactive.Rows.Clear();
+            int i = 0;
+
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblCategory WHERE Category LIKE '%" + txtSearchInnactive.Text + "%' AND status = 'Disabled' ORDER BY Category ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["categoryID"].ToString(), reader["Category"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void disableCategory()
         {
             try
             {
-                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-                using (var command = new SqlCommand(con))
-                using (var connection = new SqlConnection())
+                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;           
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
                 {
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"UPDATE tblCategory SET status = 'Disabled' WHERE categoryID = @cid";
-                    command.Parameters.AddWithValue("@cid", int.Parse(dataGridView.Rows[0].Cells["cid"].Value.ToString()));
+                    command.Parameters.AddWithValue("@cid", int.Parse(dataGridView.CurrentRow.Cells["cid"].Value.ToString()));
                     command.ExecuteReader();
                 }
                 //Audit Trail
@@ -165,10 +193,64 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void enableCategory()
+        {
+            try
+            {
+                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblCategory SET status = 'Active' WHERE categoryID = @cid";
+                    command.Parameters.AddWithValue("@cid", int.Parse(dataGridViewInactive.CurrentRow.Cells["catID"].Value.ToString()));
+                    command.ExecuteReader();
+                }
+                //Audit Trail
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Activate Category", "Enabled the Category: " + dataGridViewInactive.CurrentRow.Cells["dataGridViewTextBoxColumn3"].Value.ToString(), "Category Module");
+                //Toast notification
+                toast.showToastNotif(new ToastNotification("Category Enabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabCategoryList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void loadDisabledCategory()
+        {
+            try
+            {
+                dataGridViewInactive.Rows.Clear();
+                int i = 0;
+                var con = System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT * FROM tblCategory WHERE status = 'Disabled'";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["categoryID"].ToString(), reader["Category"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmCategory_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
             loadAllCategory();
+            loadDisabledCategory();
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
@@ -266,18 +348,39 @@ namespace CapstoneProject_3
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colname = dataGridView.Columns[e.RowIndex].Name;
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
             if (colname == "deactivate")
             {
                 if (MessageBox.Show("Deactivate Category?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     disableCategory();
+                    loadDisabledCategory();
+                    loadAllCategory();
                 }
                 else
                 {
                     return;
                 }
             }
+        }
+
+        private void dataGridViewInactive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridViewInactive.Columns[e.ColumnIndex].Name;
+            if (colname == "activate")
+            {
+                if (MessageBox.Show("Activate Category?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    enableCategory();
+                    loadDisabledCategory();
+                    loadAllCategory();
+                }
+            }
+        }
+
+        private void txtSearchInnactive_TextChanged(object sender, EventArgs e)
+        {
+            searchInactiveCategory();
         }
     }
 }

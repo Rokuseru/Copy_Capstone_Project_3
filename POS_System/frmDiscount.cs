@@ -36,6 +36,39 @@ namespace CapstoneProject_3.POS_System
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        public void addDiscount()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblCart SET discount = @disc WHERE cartID LIKE @id";
+                    command.Parameters.AddWithValue("@disc", Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency)));
+                    command.Parameters.AddWithValue("@id", int.Parse(lblID.Text));
+                    command.ExecuteNonQuery();
+
+                    fpos.loadCart();
+
+                    txtDiscount.Clear();
+                    this.Close();
+
+                }
+                //logs
+                double discount = Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency));
+                double price = Convert.ToDouble(Decimal.Parse(txtPrice.Text, NumberStyles.Currency));
+                log.loadUserID(fpos.lblUser.Text);
+                log.insertAction("Add Discount", "Deducted: " + discount.ToString() + " from the Total Amount of: " + price.ToString(), this.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Source);
+            }
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -90,43 +123,8 @@ namespace CapstoneProject_3.POS_System
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-
-
-
-
-            try
-            {
-               using (var connection = new SqlConnection(con))
-               using (var command = new SqlCommand())
-               {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = @"UPDATE tblCart SET discount = @disc WHERE cartID LIKE @id";
-                    command.Parameters.AddWithValue("@disc", Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency)));
-                    command.Parameters.AddWithValue("@id", int.Parse(lblID.Text));
-                    command.ExecuteNonQuery();
-
-                    fpos.loadCart();
-
-                    txtDiscount.Clear();
-                    this.Close();
-               }
-                //logs
-                double discount = Convert.ToDouble(Decimal.Parse(txtDiscAmount.Text, NumberStyles.Currency));
-                double price = Convert.ToDouble(Decimal.Parse(txtPrice.Text, NumberStyles.Currency));
-                log.loadUserID(fpos.lblUser.Text);
-                log.insertAction("Add Discount", "Deducted: " +discount.ToString() + " from the Total Amount of: " + price.ToString(), this.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            frmAuthorization auth = new frmAuthorization(fpos);
+            auth.ShowDialog();
         }
     }
 }

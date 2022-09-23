@@ -1,7 +1,6 @@
-﻿
-namespace CapstoneProject_3.POS_System
+﻿namespace CapstoneProject_3.POS_System
 {
-    partial class frmVoid
+    partial class frmAuthorization
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +31,10 @@ namespace CapstoneProject_3.POS_System
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.lblCurrentChildForm = new System.Windows.Forms.Label();
+            this.txtUsername = new MetroFramework.Controls.MetroTextBox();
+            this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnGrant = new RJCodeAdvance.RJControls.RJButton();
-            this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
-            this.txtUsername = new MetroFramework.Controls.MetroTextBox();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +49,7 @@ namespace CapstoneProject_3.POS_System
             this.panelTop.Name = "panelTop";
             this.panelTop.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panelTop.Size = new System.Drawing.Size(305, 41);
-            this.panelTop.TabIndex = 2;
+            this.panelTop.TabIndex = 3;
             // 
             // btnExit
             // 
@@ -85,87 +84,13 @@ namespace CapstoneProject_3.POS_System
             this.lblCurrentChildForm.TabIndex = 1;
             this.lblCurrentChildForm.Text = "Authorization";
             // 
-            // txtPassword
-            // 
-            // 
-            // 
-            // 
-            this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(259, 1);
-            this.txtPassword.CustomButton.Name = "";
-            this.txtPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPassword.CustomButton.TabIndex = 1;
-            this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPassword.CustomButton.UseSelectable = true;
-            this.txtPassword.CustomButton.Visible = false;
-            this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(12, 77);
-            this.txtPassword.MaxLength = 32767;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.PromptText = "Password";
-            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPassword.SelectedText = "";
-            this.txtPassword.SelectionLength = 0;
-            this.txtPassword.SelectionStart = 0;
-            this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(281, 23);
-            this.txtPassword.TabIndex = 6;
-            this.txtPassword.UseSelectable = true;
-            this.txtPassword.WaterMark = "Password";
-            this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // btnGrant
-            // 
-            this.btnGrant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGrant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnGrant.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnGrant.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnGrant.BorderRadius = 5;
-            this.btnGrant.BorderSize = 0;
-            this.btnGrant.FlatAppearance.BorderSize = 0;
-            this.btnGrant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrant.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrant.ForeColor = System.Drawing.Color.White;
-            this.btnGrant.Location = new System.Drawing.Point(46, 106);
-            this.btnGrant.Name = "btnGrant";
-            this.btnGrant.Size = new System.Drawing.Size(95, 26);
-            this.btnGrant.TabIndex = 5;
-            this.btnGrant.Text = "Grant";
-            this.btnGrant.TextColor = System.Drawing.Color.White;
-            this.btnGrant.UseVisualStyleBackColor = false;
-            this.btnGrant.Click += new System.EventHandler(this.btnGrant_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.btnCancel.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btnCancel.BorderRadius = 5;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(165, 106);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 26);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // txtUsername
             // 
             // 
             // 
             // 
             this.txtUsername.CustomButton.Image = null;
-            this.txtUsername.CustomButton.Location = new System.Drawing.Point(259, 1);
+            this.txtUsername.CustomButton.Location = new System.Drawing.Point(263, 1);
             this.txtUsername.CustomButton.Name = "";
             this.txtUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -184,29 +109,102 @@ namespace CapstoneProject_3.POS_System
             this.txtUsername.SelectionLength = 0;
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
-            this.txtUsername.Size = new System.Drawing.Size(281, 23);
-            this.txtUsername.TabIndex = 8;
+            this.txtUsername.Size = new System.Drawing.Size(285, 23);
+            this.txtUsername.TabIndex = 12;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.WaterMark = "Username";
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // frmVoid
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.BorderRadius = 5;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(172, 106);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(95, 26);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // txtPassword
+            // 
+            // 
+            // 
+            // 
+            this.txtPassword.CustomButton.Image = null;
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(263, 1);
+            this.txtPassword.CustomButton.Name = "";
+            this.txtPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPassword.CustomButton.TabIndex = 1;
+            this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPassword.CustomButton.UseSelectable = true;
+            this.txtPassword.CustomButton.Visible = false;
+            this.txtPassword.Lines = new string[0];
+            this.txtPassword.Location = new System.Drawing.Point(12, 77);
+            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.PromptText = "Password";
+            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
+            this.txtPassword.ShortcutsEnabled = true;
+            this.txtPassword.Size = new System.Drawing.Size(285, 23);
+            this.txtPassword.TabIndex = 10;
+            this.txtPassword.UseSelectable = true;
+            this.txtPassword.WaterMark = "Password";
+            this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnGrant
+            // 
+            this.btnGrant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGrant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnGrant.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnGrant.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnGrant.BorderRadius = 5;
+            this.btnGrant.BorderSize = 0;
+            this.btnGrant.FlatAppearance.BorderSize = 0;
+            this.btnGrant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrant.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrant.ForeColor = System.Drawing.Color.White;
+            this.btnGrant.Location = new System.Drawing.Point(53, 106);
+            this.btnGrant.Name = "btnGrant";
+            this.btnGrant.Size = new System.Drawing.Size(95, 26);
+            this.btnGrant.TabIndex = 9;
+            this.btnGrant.Text = "Grant";
+            this.btnGrant.TextColor = System.Drawing.Color.White;
+            this.btnGrant.UseVisualStyleBackColor = false;
+            this.btnGrant.Click += new System.EventHandler(this.btnGrant_Click);
+            // 
+            // frmAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(305, 147);
+            this.ControlBox = false;
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnGrant);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmVoid";
+            this.Name = "frmAuthorization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Refund Module";
-            this.Load += new System.EventHandler(this.frmVoid_Load);
+            this.Text = "frmAuthorization";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -218,9 +216,9 @@ namespace CapstoneProject_3.POS_System
         private System.Windows.Forms.Panel panelTop;
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Label lblCurrentChildForm;
+        private MetroFramework.Controls.MetroTextBox txtUsername;
+        private RJCodeAdvance.RJControls.RJButton btnCancel;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private RJCodeAdvance.RJControls.RJButton btnGrant;
-        private RJCodeAdvance.RJControls.RJButton btnCancel;
-        private MetroFramework.Controls.MetroTextBox txtUsername;
     }
 }
