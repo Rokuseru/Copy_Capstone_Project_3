@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapstoneProject_3.Notifications;
+using System.Net.NetworkInformation;
 
 namespace CapstoneProject_3
 {
@@ -20,6 +21,7 @@ namespace CapstoneProject_3
         MainForm main;
         public string bid;
         public string cid;
+        public string vid;
         public frmProducts(MainForm m)
         {
             main = m;
@@ -40,7 +42,7 @@ namespace CapstoneProject_3
         {
             try
             {
-                string cmd = "SELECT Brand, brandID FROM tblBrand";
+                string cmd = "SELECT Brand, brandID FROM tblBrand WHERE status = 'Active'";
 
                 using (SqlConnection connection = new SqlConnection(con))
                 using (SqlCommand command = new SqlCommand(cmd, connection))
@@ -62,7 +64,7 @@ namespace CapstoneProject_3
         {
             try
             {
-                string cmd = "SELECT Category, categoryID FROM tblCategory";
+                string cmd = "SELECT Category, categoryID FROM tblCategory WHERE status = 'Active'";
 
                 using (SqlConnection connection = new SqlConnection(con))
                 using (SqlCommand command = new SqlCommand(cmd, connection))
@@ -73,6 +75,29 @@ namespace CapstoneProject_3
                     while (reader.Read())
                     {
                         cbCategory.Items.Add(reader["Category"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void loadVendors()
+        {
+            try
+            {
+                string cmd = "SELECT * FROM tblVendor WHERE status = 'Active'";
+
+                using (SqlConnection connection = new SqlConnection(con))
+                using (SqlCommand command = new SqlCommand(cmd, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbVendor.Items.Add(reader["Vendor"].ToString());
                     }
                 }
             }
@@ -95,18 +120,21 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category,reorder FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, u.Vendor, reorder, tblProduct.status FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
-                                            ON tblProduct.CategoryID = c.categoryID 
+                                            ON tblProduct.CategoryID = c.categoryID
+                                            INNER JOIN tblVendor AS u ON tblProduct.vendorID = u.vendorID
+                                            WHERE tblProduct.status = 'Active'
                                             ORDER BY Description ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["reorder"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), 
+                                                reader["Vendor"].ToString(), reader["reorder"].ToString(), reader["status"].ToString());
                         }
                     }
                 }
@@ -125,24 +153,110 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"INSERT INTO tblProduct (ProductCode, Description, BrandID, CategoryID, VendorPrice, reorder) 
-                                            VALUES (@pcode, @desc, @brandID, @catID, @vprice, @reorder)";
+                    command.CommandText = @"INSERT INTO tblProduct (ProductCode, Description, BrandID, CategoryID, vendorID,VendorPrice, reorder) 
+                                            VALUES (@pcode, @desc, @brandID, @catID, @vid,@vprice, @reorder)";
                     command.Parameters.AddWithValue("@pcode", txtProdCode.Text);
                     command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
                     command.Parameters.AddWithValue("@brandID", bid);
                     command.Parameters.AddWithValue("@catID", cid);
                     command.Parameters.AddWithValue("@vprice", txtVendorPrice.Text);
                     command.Parameters.AddWithValue("@reorder", txtReorder.Text);
+                    command.Parameters.AddWithValue("@vid", vid);
                     command.ExecuteNonQuery();
                 }
                 //Logs
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Add Product", "Added New Product: " + txtProdDesc.Text + "with Product Code: " + txtProdCode.Text, this.Text);
+                log.insertAction("Add Product", "Added New Product: " + txtProdDesc.Text + "with Product Code: " + txtProdCode.Text, "Product Module");
             }
                 catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }      
+        }
+        private void enableProduct()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblProduct SET status = 'Active' WHERE productID = @pid";
+                    command.Parameters.AddWithValue("@pid", int.Parse(dataGridViewInactive.CurrentRow.Cells["pid"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                //Logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Activate Product", "Enabled the Product: " + dataGridView.CurrentRow.Cells["Column4"].Value.ToString() , "Product Module");
+                //Toast notification
+                toast.showToastNotif(new ToastNotification("Product Enabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabProductList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void disableProduct()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblProduct SET status = 'Disabled' WHERE productID = @pid";
+                    command.Parameters.AddWithValue("@pid", int.Parse(dataGridView.CurrentRow.Cells["Column1"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                //Logs
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Disable Product", "Disabled the Product: " + dataGridView.CurrentRow.Cells["Column4"].Value.ToString(), "Product Module");
+                //Toast notification
+                toast.showToastNotif(new ToastNotification("Product Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabProductList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void loadDisabledProduct()
+        {
+            try
+            {
+                dataGridView.Rows.Clear();
+
+                int i = 0;
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, u.Vendor, reorder, tblProduct.status FROM tblProduct
+                                            INNER JOIN tblBrand AS b
+                                            ON tblProduct.BrandID = b.brandID
+                                            INNER JOIN tblCategory AS c
+                                            ON tblProduct.CategoryID = c.categoryID
+                                            INNER JOIN tblVendor AS u ON tblProduct.vendorID = u.vendorID
+                                            WHERE tblProduct.status = 'Disabled'
+                                            ORDER BY Description ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(),
+                                                reader["Vendor"].ToString(), reader["reorder"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }
         public void updateProduct()
         {
@@ -153,13 +267,14 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblProduct SET Description=@desc, Price=@price, BrandID=@bid, CategoryID=@cid, reorder=@reorder WHERE productID LIKE @pid";
+                    command.CommandText = @"UPDATE tblProduct SET Description=@desc, VendorPrice = @vprice, BrandID=@bid, CategoryID=@cid, vendorID = @vid,reorder=@reorder WHERE productID LIKE @pid";
                     command.Parameters.AddWithValue("@pid", dataGridView.CurrentRow.Cells[1].Value.ToString());
                     command.Parameters.AddWithValue("@desc", txtProdDesc.Text);
-                    command.Parameters.AddWithValue("@price", txtVendorPrice.Text);
+                    command.Parameters.AddWithValue("@vprice", txtVendorPrice.Text);
                     command.Parameters.AddWithValue("@bid", bid);
                     command.Parameters.AddWithValue("@cid", cid);
                     command.Parameters.AddWithValue("@reorder",txtReorder.Text);
+                    command.Parameters.AddWithValue("@vid", vid);
                     command.ExecuteReader();
                 }
                 //Logs
@@ -186,18 +301,18 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode, Barcode, Description, b.Brand, c.Category, Price FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode Description, b.Brand, c.Category, Price FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
                                             ON tblProduct.CategoryID = c.categoryID
-                                            WHERE Description LIKE '" + txtSearch.Text + "%' OR ProductCode LIKE '" + txtSearch.Text + "%'";
+                                            WHERE Description LIKE '" + txtSearch.Text + "%' OR ProductCode LIKE '" + txtSearch.Text + "%' AND status = 'Active'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Barcode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString());
                         }
                     }
                 }
@@ -240,9 +355,11 @@ namespace CapstoneProject_3
         private void frmProducts_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
+            loadDisabledProduct();
             loadProducts();
             loadBrand();
             loadCategory();
+            loadVendors();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -265,8 +382,6 @@ namespace CapstoneProject_3
 
             btnSaveUpdate.Enabled = false;
             btnSave.Enabled = true;
-
-            txtProdCode.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -402,6 +517,7 @@ namespace CapstoneProject_3
             cbCategory.Text = dataGridView.SelectedRows[0].Cells[6].Value.ToString();
             txtVendorPrice.Text = dataGridView.SelectedRows[0].Cells[7].Value.ToString();
             txtReorder.Text = dataGridView.SelectedRows[0].Cells[8].Value.ToString();
+            cbVendor.Text = dataGridView.SelectedRows[0].Cells["Column8"].Value.ToString();
 
             txtProdCode.Enabled = false;
 
@@ -424,14 +540,12 @@ namespace CapstoneProject_3
                 clear();
                 tabControl.TabPages.Add(tabProductList);
                 tabControl.TabPages.Remove(tabManage);
-                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clear();
-            toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabProductList);
             tabControl.TabPages.Add(tabProductList);
             tabControl.TabPages.Remove(tabManage);
         }
@@ -439,6 +553,57 @@ namespace CapstoneProject_3
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchProduct();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
+
+            if(colname == "disable")
+            {
+                if (MessageBox.Show("Disable this Product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                {
+                    disableProduct();
+                    loadDisabledProduct();
+                    loadProducts();
+                }
+            }
+        }
+
+        private void dataGridViewInactive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridViewInactive.Columns[e.ColumnIndex].Name;
+
+            if (colname == "enable")
+            {
+                if (MessageBox.Show("Activate this Product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    enableProduct();
+                    loadProducts();
+                    loadDisabledProduct();
+                }
+            }
+        }
+
+        private void cbVendor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(con))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(@"SELECT vendorID FROM tblVendor WHERE Vendor = '" + cbVendor.SelectedItem + "'", connection);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        vid = dr["vendorID"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

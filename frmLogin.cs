@@ -57,7 +57,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT * from tblUsers WHERE username = @username AND password = @password";
+                    command.CommandText = @"SELECT * from tblUsers WHERE username = @username AND password = @password AND status = 'Active'";
                     command.Parameters.AddWithValue("@username", txtUsername.Text);
                     command.Parameters.AddWithValue("@password", txtPassword.Text);
                     command.ExecuteNonQuery();
