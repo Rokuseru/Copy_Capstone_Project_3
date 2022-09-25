@@ -32,7 +32,7 @@ namespace CapstoneProject_3
             txtEmail.Clear();
             txtVendor.Clear();
         }
-        public void searchVendor()
+        private void searchVendor()
         {
             dataGridView.Rows.Clear();
             int i = 0;
@@ -46,13 +46,46 @@ namespace CapstoneProject_3
                     command.Connection = connection;
                     command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
                                             FROM tblVendor
-                                            WHERE Vendor LIKE '"+txtSearch.Text+"%'";
+                                            WHERE status = 'Active'
+                                            WHERE Vendor LIKE '%"+txtSearch.Text+"%'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
                             dataGridView.Rows.Add(i, reader["vendorID"].ToString(), reader["Vendor"].ToString(), reader["Address"].ToString(),
+                                reader["ContactPerson"].ToString(), reader["contactNumber"].ToString(), reader["Email"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void searchInactiveVendor()
+        {
+            dataGridViewInactive.Rows.Clear();
+            int i = 0;
+
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
+                                            FROM tblVendor
+                                            WHERE status = 'Disabled'
+                                            WHERE Vendor LIKE '%" + txtSearchInactive.Text + "%'";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["vendorID"].ToString(), reader["Vendor"].ToString(), reader["Address"].ToString(),
                                 reader["ContactPerson"].ToString(), reader["contactNumber"].ToString(), reader["Email"].ToString());
                         }
                     }
@@ -132,6 +165,7 @@ namespace CapstoneProject_3
                     command.Connection = connection;
                     command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
                                             FROM tblVendor
+                                            WHERE status = 'active'
                                             ORDER BY Vendor ASC";
                     using (var reader = command.ExecuteReader())
                     {
@@ -149,10 +183,92 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void loadInactiveVendor()
+        {
+            try
+            {
+                dataGridViewInactive.Rows.Clear();
+                int i = 0;
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
+                                            FROM tblVendor
+                                            WHERE status = 'Disabled'
+                                            ORDER BY Vendor ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["vendorID"].ToString(), reader["Vendor"].ToString(), reader["Address"].ToString(),
+                                reader["ContactPerson"].ToString(), reader["contactNumber"].ToString(), reader["Email"].ToString());
+                        }
+                    }
+                }
+
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void enableVendor()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblVendor SET status = 'Active' WHERE userID = @uid";
+                    command.Parameters.AddWithValue("@uid", int.Parse(dataGridViewInactive.CurrentRow.Cells["vid2"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Activate Vendor", "Enabled Vendor: " + this.dataGridViewInactive.CurrentRow.Cells[2].Value.ToString(), "Account Module");
+
+                toast.showToastNotif(new ToastNotification("Vendor Enabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabVendorList);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void disableVendor()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblVendor SET status = 'Disabled' WHERE userID = @uid";
+                    command.Parameters.AddWithValue("@uid", int.Parse(dataGridView.CurrentRow.Cells["vid"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Disable Vendor", "Disabled Vendor: " + this.dataGridViewInactive.CurrentRow.Cells[2].Value.ToString(), "Account Module");
+
+                toast.showToastNotif(new ToastNotification("Vendor Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabVendorList);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmVendor_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabManage);
             loadVendor();
+            loadInactiveVendor();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -271,32 +387,40 @@ namespace CapstoneProject_3
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are You Sure to Delete this Vendor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchVendor();
+        }
+
+        private void txtSearchInactive_TextChanged(object sender, EventArgs e)
+        {
+            searchInactiveVendor();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
+
+            if (colname == "disable")
             {
-                try
-                {
-                    using (var connection = new SqlConnection(con))
-                    using (var command = new SqlCommand())
-                    {
-                        connection.Open();
-                        command.Connection = connection;
-                        command.CommandText = @"DELETE FROM tblVendor WHERE vendorID=@id";
-                        command.Parameters.AddWithValue("@id", dataGridView.CurrentRow.Cells[1].Value.ToString());
-                        command.ExecuteReader();
-                    }
-                    //logs
-                    log.loadUserID(main.lblUser.Text);
-                    log.insertAction("Delete", "Deleted Vendor: " +dataGridView.CurrentRow.Cells[2].Value.ToString(), this.Text);
-                    loadVendor();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                disableVendor();
+                loadInactiveVendor();
+                loadVendor();
             }
-            else
+        }
+
+        private void dataGridViewInactive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridViewInactive.Columns[e.ColumnIndex].Name;
+
+            if (colname == "activate")
             {
-                toast.showToastNotif(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), tabVendorList);
+                enableVendor();
+                loadInactiveVendor();
+                loadVendor();
             }
         }
     }

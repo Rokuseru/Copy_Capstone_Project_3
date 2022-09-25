@@ -239,6 +239,59 @@ namespace CapstoneProject_3
                 Console.WriteLine(ex.StackTrace, ex.Message, ex.InnerException);
             }
         }
+        private void loadRecieved()
+        {
+            try
+            {
+                int i = 0;
+                dataGridViewFinished.Rows.Clear();
+
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT referenceCode, SUM(qty) AS Total_Items, oDate, oDeliveryDate, paymentDue FROM tblPurchaseOrder
+                                            WHERE Status = 'Recieved'
+                                            GROUP BY referenceCode,oDate, oDeliveryDate, paymentDue";
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewFinished.Rows.Add(i, reader["referenceCode"].ToString(), reader["Total_Items"].ToString(), Convert.ToDateTime(reader["oDate"]).ToString("yyyy-MM-dd"), Convert.ToDateTime(reader["oDeliveryDate"]).ToString("yyyy-MM-dd"), reader["paymentDue"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.StackTrace, ex.Message, ex.InnerException);
+            }
+        }
+        private void recieveOrder()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblPurchaseOrder SET Status = 'Recieved' WHERE refereceCode = @refCode";
+                    command.Parameters.AddWithValue("@refCode", dataGridView.CurrentRow.Cells["rcode"].Value.ToString());
+                    command.ExecuteNonQuery();
+                }
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+        //Insert Save to Warehouse Method Here
         private void txtDiscPercent_TextChanged_1(object sender, EventArgs e)
         {
             calculateDiscount();
@@ -325,6 +378,18 @@ namespace CapstoneProject_3
             frmPurchaseOrderReportViewer pov = new frmPurchaseOrderReportViewer(this);
             pov.loadPurchaseOrder();
             pov.ShowDialog();
+        }
+
+        private void dataGridViewPending_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
+
+            if(colname == "recieve")
+            {
+                recieveOrder();
+                loadPendingOrders();
+                loadRecieved();
+            }
         }
     }
 }

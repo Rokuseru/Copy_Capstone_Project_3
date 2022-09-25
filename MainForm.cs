@@ -397,7 +397,28 @@ namespace CapstoneProject_3
 
         private void btnDropDownProducts_Click(object sender, EventArgs e)
         {
-            collapseDropDownHeight(btnContainer1);
+            if (btnContainer1.Height > 100)//Collapse
+            {
+                btnContainer1.Visible = false;
+                btnContainer1.Height = 43;
+
+                foreach (IconButton button in btnContainer1.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                btnContainer1.Visible = true;
+                btnContainer1.Height = 184;
+                foreach (IconButton button in btnContainer1.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
         }
 
         private void btnInventory_Click(object sender, EventArgs e)
@@ -453,7 +474,28 @@ namespace CapstoneProject_3
         }
         private void btnSuppliersAndUsers_Click(object sender, EventArgs e)
         {
-            CollapseDropDownForSU();
+            if (this.btnContainer3.Height > 50)//Collapse
+            {
+                this.btnContainer3.Visible = false;
+                this.btnContainer3.Height = 43;
+
+                foreach (IconButton button in this.btnContainer3.Controls.OfType<IconButton>())
+                {
+                    button.Visible = false;
+                }
+            }
+            else
+            {
+                this.btnContainer3.Visible = true;
+                this.btnContainer3.Height = 51;
+                foreach (IconButton button in this.btnContainer3.Controls.OfType<IconButton>())
+                {
+                    button.Visible = true;
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.TextAlign = ContentAlignment.MiddleLeft;
+                    button.Padding = new Padding(25, 0, 0, 0);
+                }
+            }
         }
         private void CollapseDropDownForRecords()
         {

@@ -133,6 +133,16 @@ namespace CapstoneProject_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_checkmark_45__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-checkmark-45 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_chevron_right_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-chevron-right-50", resourceCulture);
@@ -246,6 +256,16 @@ namespace CapstoneProject_3.Properties {
         internal static System.Drawing.Bitmap icons8_lock_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-lock-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_minus_45 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-minus-45", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

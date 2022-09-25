@@ -26,30 +26,7 @@ namespace CapstoneProject_3
             main = m;
             tab.TabPages.Remove(tabManageUsers);
         }
-        private void initiatePositons()
-        {
-            txtPassword.Location = new Point(249, 205);
-            txtConfirmPw.Location = new Point(249, 236);
-            lblPassword.Location = new Point(125, 208);
-            lblCpassword.Location = new Point(125, 239);
-            btnAddNew.Location = new Point(282, 277);
-            btnSaveUpdate.Location = new Point(403, 277);
-            btnCancel.Location = new Point(529, 277);
-            lblOldPassword.Visible = false;
-            txtOldPassword.Visible = false;
-        }
-        private void newPositions()
-        {
-            txtPassword.Location = new Point(this.txtPassword.Location.X, this.txtPassword.Location.Y);
-            lblPassword.Location = new Point(125, 239);
-            txtConfirmPw.Location = new Point(249, 267);
-            lblCpassword.Location = new Point(125, 270);
-            btnAddNew.Location = new Point(282, 308);
-            btnSaveUpdate.Location = new Point(403, 308);
-            btnCancel.Location = new Point(529, 308);
-            lblOldPassword.Visible = true;
-            txtOldPassword.Visible = true;
-        }
+        //methods
         public void clear()
         {
             txtConfirmPw.Clear();
@@ -58,6 +35,7 @@ namespace CapstoneProject_3
             txtConfirmPw.Clear();
             txtEmail.Clear();
             txtEmailPassword.Clear();
+            txtPassword.Clear();
             cbRole.SelectedIndex = -1;
         }
         public void addUser()
@@ -118,11 +96,7 @@ namespace CapstoneProject_3
         {
             try
             {
-                if (txtOldPassword.Text != pw)
-                {
-                    toast.showToastNotif(new ToastNotification("Old Password is Incorrect.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabManageUsers);
-                }
-                else if (txtPassword.Text != txtConfirmPw.Text)
+                if (txtPassword.Text != txtConfirmPw.Text)
                 {
                     toast.showToastNotif(new ToastNotification("Passwords Does Not Match.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabManageUsers);
                 }
@@ -137,14 +111,21 @@ namespace CapstoneProject_3
                     {
                         connection.Open();
                         command.Connection = connection;
-                        command.CommandText = @"UPDATE tblUsers SET password = @password WHERE userID LIKE @uid";
+                        command.CommandText = @"UPDATE tblUsers SET Name = @name, role = @role,email = @email,password = @password WHERE userID LIKE @uid";
                         command.Parameters.Add("@password", SqlDbType.VarChar);
                         command.Parameters.Add("@uid", SqlDbType.Int);
+                        command.Parameters.Add("@name", SqlDbType.VarChar);
+                        command.Parameters.Add("@email", SqlDbType.VarChar);
+                        command.Parameters.Add("@role", SqlDbType.VarChar);
+
+                        command.Parameters["@email"].Value = txtEmail.Text;
+                        command.Parameters["@role"].Value = cbRole.Text;
+                        command.Parameters["@name"].Value = txtFname.Text;
                         command.Parameters["@password"].Value = txtConfirmPw.Text;
                         command.Parameters["@uid"].Value = uid;
                         command.ExecuteNonQuery();
 
-                        toast.showToastNotif(new ToastNotification("Password Updated Successfully.", Color.FromArgb(198, 40, 40), FontAwesome.Sharp.IconChar.WindowClose), tabManageUsers);
+                        toast.showToastNotif(new ToastNotification("User Updated Successfully.", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), tabManageUsers);
                         clear();
                     }
                 }
@@ -163,16 +144,46 @@ namespace CapstoneProject_3
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT userID, Name, email,role, status FROM tblUsers WHERE status = 'Active'";
+                command.CommandText = @"SELECT userID, username, Name, email,role, status FROM tblUsers WHERE status = 'Active'";
 
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         i++;
-                        dataGridView.Rows.Add(i, reader["userID"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
+                        dataGridView.Rows.Add(i, reader["userID"].ToString(), reader["username"].ToString() ,reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
                     }
                 }
+            }
+        }
+        private void searchInnactive()
+        {
+            try
+            {
+                int i = 0;
+                dataGridViewInactive.Rows.Clear();
+
+                using (var connecion = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connecion.Open();
+                    command.Connection = connecion;
+                    command.CommandText = @"SELECT userID, Name, email,role, status FROM tblUsers WHERE status = 'Disabled' AND Name LIKE '%" + txtSearchInactive.Text + "%'";
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i++;
+                            dataGridViewInactive.Rows.Add(i, reader["userID"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void searchUser()
@@ -187,14 +198,14 @@ namespace CapstoneProject_3
                 {
                     connecion.Open();
                     command.Connection = connecion;
-                    command.CommandText = @"SELECT userID, Name, email,role, status FROM tblUsers WHERE status = 'Active' AND Name LIKE '%"+txtSearch.Text+"%'";
+                    command.CommandText = @"SELECT userID, username, Name, email,role, status, status FROM tblUsers WHERE status = 'Active' AND Name LIKE '%" + txtSearch.Text+"%'";
 
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i++;
-                            dataGridView.Rows.Add(i, reader["userID"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
+                            dataGridView.Rows.Add(i, reader["userID"].ToString(), reader["username"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
                         }
                     }
 
@@ -205,9 +216,55 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void loadInactiveusers()
+        {
+            int i = 0;
+            dataGridViewInactive.Rows.Clear();
+            using (var connection = new SqlConnection(con))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"SELECT userID, Name, email,role, status FROM tblUsers WHERE status = 'Disabled'";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        i++;
+                        dataGridViewInactive.Rows.Add(i, reader["userID"].ToString(), reader["Name"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["status"].ToString());
+                    }
+                }
+            }
+        }
+        private void activateUser()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command  = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"UPDATE tblUsers SET status = 'Active' WHERE userID = @uid";
+                    command.Parameters.AddWithValue("@uid", int.Parse(dataGridViewInactive.CurrentRow.Cells["userID"].Value.ToString()));
+                    command.ExecuteNonQuery();
+                }
+                log.loadUserID(main.lblUser.Text);
+                log.insertAction("Activate User", "Enabled User: " + this.dataGridViewInactive.CurrentRow.Cells["name"].Value.ToString(), "Account Module");
+
+                toast.showToastNotif(new ToastNotification("User Enabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabUserList);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void frmAccounts_Load(object sender, EventArgs e)
         {
             loadUsers();
+            loadInactiveusers();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -260,6 +317,8 @@ namespace CapstoneProject_3
 
                             toast.showToastNotif(new ToastNotification("User Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabUserList);
                         }
+                        loadInactiveusers();
+                        loadUsers();
                     }
                     catch (Exception ex)
                     {
@@ -287,33 +346,64 @@ namespace CapstoneProject_3
 
         private void btnAddNewUser_Click(object sender, EventArgs e)
         {
-            initiatePositons();
             tab.TabPages.Remove(tabUserList);
             tab.TabPages.Add(tabManageUsers);
+            btnUpdateUser.Enabled = false;
         }
         //Button cancel
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            initiatePositons();
+            clear();
             tab.TabPages.Remove(tabManageUsers);
             tab.TabPages.Add(tabUserList);
+            btnAddNew.Enabled = false;
         }
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
-
+            updateUser();
         }
 
         private void btnUpdateUser_Click(object sender, EventArgs e)
         {
+            txtUname.Text = dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            txtFname.Text = dataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            txtEmail.Text = dataGridView.SelectedRows[0].Cells[4].Value.ToString();
+            cbRole.Text = dataGridView.SelectedRows[0].Cells[5].Value.ToString();
+            lblUserId.Text = dataGridView.SelectedRows[0].Cells[1].Value.ToString();
             tab.TabPages.Remove(tabUserList);
             tab.TabPages.Add(tabManageUsers);
-            newPositions();
+            btnAddNew.Enabled = false;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchUser();
+        }
+
+        private void dataGridViewInactive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colname = dataGridView.Columns[e.ColumnIndex].Name;
+
+            if (colname == "enable")
+            {
+                if (MessageBox.Show("Enable this User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    activateUser();
+                    loadInactiveusers();
+                    loadUsers();
+                }
+            }
+        }
+
+        private void txtSearchInactive_TextChanged(object sender, EventArgs e)
+        {
+            searchInnactive();
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loaduserID();
         }
     }
 }

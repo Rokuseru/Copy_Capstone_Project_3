@@ -301,18 +301,21 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT productID, ProductCode Description, b.Brand, c.Category, Price FROM tblProduct
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, u.Vendor, reorder, tblProduct.status FROM tblProduct
                                             INNER JOIN tblBrand AS b
                                             ON tblProduct.BrandID = b.brandID
                                             INNER JOIN tblCategory AS c
                                             ON tblProduct.CategoryID = c.categoryID
-                                            WHERE Description LIKE '" + txtSearch.Text + "%' OR ProductCode LIKE '" + txtSearch.Text + "%' AND status = 'Active'";
+                                            INNER JOIN tblVendor AS u ON tblProduct.vendorID = u.vendorID
+                                            WHERE tblProduct.status = 'Active'
+                                            AND Description LIKE '%" + txtSearch.Text + "%' ORDER BY Description ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             i += 1;
-                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString());
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(),
+                                                reader["Vendor"].ToString(), reader["reorder"].ToString(), reader["status"].ToString());
                         }
                     }
                 }
@@ -322,6 +325,42 @@ namespace CapstoneProject_3
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+        private void searchDisabledProducts()
+        {
+            dataGridViewInactive.Rows.Clear();
+            int i = 0;
+
+            try
+            {
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT productID, ProductCode, Description, b.Brand, c.Category, u.Vendor, reorder, tblProduct.status FROM tblProduct
+                                            INNER JOIN tblBrand AS b
+                                            ON tblProduct.BrandID = b.brandID
+                                            INNER JOIN tblCategory AS c
+                                            ON tblProduct.CategoryID = c.categoryID
+                                            INNER JOIN tblVendor AS u ON tblProduct.vendorID = u.vendorID
+                                            WHERE tblProduct.status = 'Disabled'
+                                            AND Description LIKE '%" + txtSearchInactive.Text + "%'  ORDER BY Description ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridViewInactive.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(),
+                                                reader["Vendor"].ToString(), reader["reorder"].ToString(), reader["status"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void generateProductCode()
         {
@@ -604,6 +643,11 @@ namespace CapstoneProject_3
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtSearchInactive_TextChanged(object sender, EventArgs e)
+        {
+            searchDisabledProducts();
         }
     }
 }
