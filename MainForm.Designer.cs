@@ -36,7 +36,6 @@ namespace CapstoneProject_3
             this.btnReports = new FontAwesome.Sharp.IconButton();
             this.btnRecords = new FontAwesome.Sharp.IconButton();
             this.btnContainer3 = new System.Windows.Forms.Panel();
-            this.btnVendor = new FontAwesome.Sharp.IconButton();
             this.btnUsers = new FontAwesome.Sharp.IconButton();
             this.btnSuppliersAndUsers = new FontAwesome.Sharp.IconButton();
             this.btnContainer2 = new System.Windows.Forms.Panel();
@@ -46,6 +45,7 @@ namespace CapstoneProject_3
             this.btnPurchaseOrder = new FontAwesome.Sharp.IconButton();
             this.btnInventory = new FontAwesome.Sharp.IconButton();
             this.btnContainer1 = new System.Windows.Forms.Panel();
+            this.btnVendor = new FontAwesome.Sharp.IconButton();
             this.btnProduct = new FontAwesome.Sharp.IconButton();
             this.btnCategory = new FontAwesome.Sharp.IconButton();
             this.btnBrand = new FontAwesome.Sharp.IconButton();
@@ -220,32 +220,6 @@ namespace CapstoneProject_3
             this.btnContainer3.Name = "btnContainer3";
             this.btnContainer3.Size = new System.Drawing.Size(203, 51);
             this.btnContainer3.TabIndex = 43;
-            // 
-            // btnVendor
-            // 
-            this.btnVendor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnVendor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
-            this.btnVendor.FlatAppearance.BorderSize = 0;
-            this.btnVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnVendor.IconChar = FontAwesome.Sharp.IconChar.PeopleCarry;
-            this.btnVendor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
-            this.btnVendor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVendor.IconSize = 30;
-            this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.Location = new System.Drawing.Point(0, 132);
-            this.btnVendor.Name = "btnVendor";
-            this.btnVendor.Padding = new System.Windows.Forms.Padding(29, 0, 0, 0);
-            this.btnVendor.Size = new System.Drawing.Size(203, 43);
-            this.btnVendor.TabIndex = 41;
-            this.btnVendor.Tag = "     Vendor";
-            this.btnVendor.Text = "     Vendor";
-            this.btnVendor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnVendor.UseVisualStyleBackColor = false;
-            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // btnUsers
             // 
@@ -452,6 +426,32 @@ namespace CapstoneProject_3
             this.btnContainer1.Name = "btnContainer1";
             this.btnContainer1.Size = new System.Drawing.Size(203, 184);
             this.btnContainer1.TabIndex = 16;
+            // 
+            // btnVendor
+            // 
+            this.btnVendor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
+            this.btnVendor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVendor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(75)))), ((int)(((byte)(145)))));
+            this.btnVendor.FlatAppearance.BorderSize = 0;
+            this.btnVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnVendor.IconChar = FontAwesome.Sharp.IconChar.PeopleCarry;
+            this.btnVendor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(241)))), ((int)(((byte)(227)))));
+            this.btnVendor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVendor.IconSize = 30;
+            this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendor.Location = new System.Drawing.Point(0, 132);
+            this.btnVendor.Name = "btnVendor";
+            this.btnVendor.Padding = new System.Windows.Forms.Padding(29, 0, 0, 0);
+            this.btnVendor.Size = new System.Drawing.Size(203, 43);
+            this.btnVendor.TabIndex = 41;
+            this.btnVendor.Tag = "     Vendor";
+            this.btnVendor.Text = "     Vendor";
+            this.btnVendor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendor.UseVisualStyleBackColor = false;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // btnProduct
             // 

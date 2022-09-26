@@ -101,13 +101,13 @@ namespace CapstoneProject_3
 
                     if (refid == null)
                     {
-                        txtRefNo.Text = "BT-000001";
+                        txtRefNo.Text = "SE-000001";
                     }
                     else
                     {
                         int intval = int.Parse(refid.Substring(3, 6));
                         intval++;
-                        txtRefNo.Text = String.Format("BT-{0:000000}", intval);
+                        txtRefNo.Text = String.Format("SE-{0:000000}", intval);
                     }
                 }
             }
@@ -188,7 +188,7 @@ namespace CapstoneProject_3
                                 command.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                                 command.ExecuteNonQuery();
                             }
-                            
+
                             //for tblStockEntry
                             using (var connection = new SqlConnection(con))
                             using (var command = new SqlCommand())
@@ -203,14 +203,10 @@ namespace CapstoneProject_3
                         }
                         //Logs
                         log.loadUserID(mf.lblUser.Text);
-                        log.insertAction("Enter Stock", "Stock Updated with Reference Code: " + txtRefNo.Text, this.Text);
+                        log.insertAction("Stock Entry", "Stock Updated with Reference Code: " + txtRefNo.Text, "Stock Entry Module");
 
                         toast.showToastNotifInPanel(new ToastNotification("Stock In Successful", Color.FromArgb(16, 172, 132), FontAwesome.Sharp.IconChar.CheckCircle), panel2);
                         clear();
-                    }
-                    else
-                    {
-                        toast.showToastNotifInPanel(new ToastNotification("Operation Cancelled.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.Ban), panel2);
                     }
                     generateBatchNo();
                     generateRefCode();

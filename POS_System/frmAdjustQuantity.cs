@@ -42,7 +42,7 @@ namespace CapstoneProject_3.POS_System
                     command.CommandText = @"SELECT p.ProductCode, p.ProductCode, i.qty, i.BatchNo FROM tblInventory AS i
                                             INNER JOIN tblProduct AS p ON i.productID = p.productID 
                                             WHERE p.ProductCode LIKE @pcode";
-                    command.Parameters.AddWithValue("@pcode", ps.dataGridView.SelectedRows[0].Cells["pcode"].Value.ToString());
+                    command.Parameters.AddWithValue("@pcode", ps.dataGridView.CurrentRow.Cells["pcode"].Value.ToString());
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())

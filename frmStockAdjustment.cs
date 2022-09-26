@@ -146,9 +146,7 @@ namespace CapstoneProject_3
                                             INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
                                             WHERE i.status = 'Available'
 											GROUP BY p.productID, p.ProductCode, p.Description, b.Brand, c.Category, i.price, i.BatchNo, i.date
-											ORDER BY BatchNo ASC, date ASC
-
-";
+											ORDER BY BatchNo ASC, date ASC";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -335,6 +333,38 @@ namespace CapstoneProject_3
         private void btnGenerateRef_Click(object sender, EventArgs e)
         {
             generateRefNo();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView.Rows.Clear();
+            try
+            {
+                int i = 0;
+                using (var connection = new SqlConnection(con))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT p.productID,p.ProductCode, p.Description, b.Brand, c.Category, SUM(qty) AS qty, i.price, i.BatchNo, i.date FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
+                                            INNER JOIN tblBrand AS b ON p.BrandID = b.brandID
+                                            INNER JOIN tblCategory AS c ON p.CategoryID = c.categoryID
+                                            WHERE p.Description = '%" +txtSearch.Text+ "%' AND i.status = 'Available' GROUP BY p.productID, p.ProductCode, p.Description, b.Brand, c.Category, i.price, i.BatchNo, i.date ORDER BY BatchNo ASC, date ASC";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            dataGridView.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(), reader["Brand"].ToString(), reader["Category"].ToString(), reader["qty"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

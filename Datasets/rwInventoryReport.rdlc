@@ -545,7 +545,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=CDbl(Fields!quantity.Value).ToString()</Value>
+                              <Value>=CDbl(Fields!qty.Value).ToString()</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -784,6 +784,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -929,10 +930,6 @@
           <DataField>productCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Barcode">
-          <DataField>Barcode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Description">
           <DataField>Description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -953,8 +950,8 @@
           <DataField>reorder</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="quantity">
-          <DataField>quantity</DataField>
+        <Field Name="qty">
+          <DataField>qty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

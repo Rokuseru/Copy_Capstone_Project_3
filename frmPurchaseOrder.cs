@@ -280,8 +280,8 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblPurchaseOrder SET Status = 'Recieved' WHERE refereceCode = @refCode";
-                    command.Parameters.AddWithValue("@refCode", dataGridView.CurrentRow.Cells["rcode"].Value.ToString());
+                    command.CommandText = @"UPDATE tblPurchaseOrder SET Status = 'Recieved' WHERE referenceCode = @refCode";
+                    command.Parameters.AddWithValue("@refCode", dataGridViewPending.CurrentRow.Cells["rcode"].Value.ToString());
                     command.ExecuteNonQuery();
                 }
 
@@ -382,13 +382,17 @@ namespace CapstoneProject_3
 
         private void dataGridViewPending_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colname = dataGridView.Columns[e.ColumnIndex].Name;
+            string colname = dataGridViewPending.Columns[e.ColumnIndex].Name;
 
             if(colname == "recieve")
             {
-                recieveOrder();
-                loadPendingOrders();
-                loadRecieved();
+                if (MessageBox.Show("Recieve Order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    recieveOrder();
+                    loadPendingOrders();
+                    loadRecieved();
+                }
+
             }
         }
     }

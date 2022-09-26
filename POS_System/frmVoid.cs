@@ -215,7 +215,6 @@ namespace CapstoneProject_3.POS_System
         {
             this.Dispose();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();

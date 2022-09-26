@@ -60,9 +60,10 @@ namespace CapstoneProject_3.Report_Forms
                     DataSetReports invReports = new DataSetReports();
 
                     //Command
-                    SqlCommand cmd = new SqlCommand(@"SELECT p.ProductCode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
-                                                      INNER JOIN tblBrand AS b ON p.brandID = b.brandID
-                                                      INNER JOIN tblCategory AS c ON p.categoryID = c.categoryID", connection);
+                    SqlCommand cmd = new SqlCommand(@"SELECT i.productID, p.ProductCode, p.Description,  b.Brand, c.Category, i.Price, i.qty, p.reorder FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
+                                            INNER JOIN tblBrand AS b ON p.brandID = b.brandID
+                                            INNER JOIN tblCategory AS c ON p.categoryID = c.categoryID", connection);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(invReports.Tables["dtInventory"]);
@@ -173,7 +174,7 @@ namespace CapstoneProject_3.Report_Forms
                                             INNER JOIN tblProduct AS p
                                             ON p.productID = c.productID
                                             WHERE sDate BETWEEN @dFrom AND @dTo
-                                            AND STATUS LIKE 'Sold'
+                                            AND c.Status = 'Sold'
                                             GROUP BY ProductCode, Description, c.Price", connection);
                     cmd.Parameters.AddWithValue("@dFrom", rec.dateFrom2.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@dTo", rec.dateTo2.Value.ToString("yyyy-MM-dd"));
@@ -214,8 +215,8 @@ namespace CapstoneProject_3.Report_Forms
                 {
                     connection.Open();
                     DataSetReports critical = new DataSetReports();
-                    SqlCommand cmd = new SqlCommand(@"SELECT ProductCode,Description,Brand,Category,Price, quantity from viewCriticalStock
-                                                      WHERE quantity <= reorder", connection);
+                    SqlCommand cmd = new SqlCommand(@"SELECT ProductCode,Description,Brand,Category, qty from viewCriticalStock
+                                                      WHERE qty <= reorder", connection);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(critical.Tables["dtCriticalStock"]);

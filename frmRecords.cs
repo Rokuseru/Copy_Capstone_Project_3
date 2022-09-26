@@ -21,6 +21,7 @@ namespace CapstoneProject_3
         public frmRecords()
         {
             InitializeComponent();
+            tabControlRecords.SelectedTab = tabControlRecords.TabPages["tabTopSelling"];
         }
         //Methods
         //For Top Selling Tab
@@ -95,7 +96,7 @@ namespace CapstoneProject_3
                                             INNER JOIN tblProduct AS p
                                             ON p.productID = c.productID
                                             WHERE sDate BETWEEN @dFrom AND @dTo
-                                            AND STATUS LIKE 'Sold'
+                                            AND c.Status = 'Sold'
                                             GROUP BY ProductCode, Description, c.Price";
                     command.Parameters.AddWithValue("@dFrom", dateFrom2.Value.ToString("yyyy-MM-dd"));
                     command.Parameters.AddWithValue("@dTo", dateTo2.Value.ToString("yyyy-MM-dd"));
@@ -142,7 +143,7 @@ namespace CapstoneProject_3
                         {
                             i++;
                             dataGridView3.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString(),
-                                reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString(), reader["quantity"].ToString());
+                                reader["Brand"].ToString(), reader["Category"].ToString(), reader["reorder"].ToString(), reader["qty"].ToString());
                         }
                     }
                 }
@@ -166,7 +167,8 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"SELECT p.productID, p.ProductCode, p.Description, b.Brand, c.Category, p.Price, p.reorder, p.quantity FROM tblProduct AS p
+                    command.CommandText = @"SELECT i.productID, p.ProductCode, p.Description,  b.Brand, c.Category, i.Price, i.qty, p.reorder FROM tblInventory AS i
+                                            INNER JOIN tblProduct AS p ON i.productID = p.productID
                                             INNER JOIN tblBrand AS b ON p.brandID = b.brandID
                                             INNER JOIN tblCategory AS c ON p.categoryID = c.categoryID";
                     using (var reader = command.ExecuteReader())
@@ -175,7 +177,7 @@ namespace CapstoneProject_3
                         {
                             i++;
                             dataGridView4.Rows.Add(i, reader["productID"].ToString(), reader["ProductCode"].ToString(), reader["Description"].ToString()
-                                , reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString(), reader["quantity"].ToString());
+                                , reader["Brand"].ToString(), reader["Category"].ToString(), reader["Price"].ToString(), reader["reorder"].ToString(), reader["qty"].ToString());
                         }
                     }
                 }
@@ -219,10 +221,12 @@ namespace CapstoneProject_3
         {
             if(tabControlRecords.SelectedTab == tabControlRecords.TabPages["tabTopSelling"])
             {
+                dateTo.Value = DateTime.Now;
                 loadTopTen();
             }
             else if (tabControlRecords.SelectedTab == tabControlRecords.TabPages["tabSoldItems"])
             {
+                dateTo2.Value = DateTime.Now; ;
                 loadSoldItems();
             }
             else if (tabControlRecords.SelectedTab == tabControlRecords.TabPages["tabCriticalStock"])
@@ -267,7 +271,9 @@ namespace CapstoneProject_3
 
         private void frmRecords_Load(object sender, EventArgs e)
         {
-            cbSortBy.SelectedText = "Sort By Quantity";
+            cbSortBy.Text = "Sort By Quantity";
+            dateTo.Value = DateTime.Now;
+            loadTopTen();
         }
     }
 }

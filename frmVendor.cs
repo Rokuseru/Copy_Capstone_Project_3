@@ -47,7 +47,7 @@ namespace CapstoneProject_3
                     command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
                                             FROM tblVendor
                                             WHERE status = 'Active'
-                                            WHERE Vendor LIKE '%"+txtSearch.Text+"%'";
+                                            AND Vendor LIKE '%"+txtSearch.Text+"%'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -79,7 +79,7 @@ namespace CapstoneProject_3
                     command.CommandText = @"SELECT vendorID, Vendor, Address, ContactPerson, contactNumber,Email 
                                             FROM tblVendor
                                             WHERE status = 'Disabled'
-                                            WHERE Vendor LIKE '%" + txtSearchInactive.Text + "%'";
+                                            AND Vendor LIKE '%" + txtSearchInactive.Text + "%'";
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -225,7 +225,7 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblVendor SET status = 'Active' WHERE userID = @uid";
+                    command.CommandText = @"UPDATE tblVendor SET status = 'Active' WHERE vendorID = @uid";
                     command.Parameters.AddWithValue("@uid", int.Parse(dataGridViewInactive.CurrentRow.Cells["vid2"].Value.ToString()));
                     command.ExecuteNonQuery();
                 }
@@ -249,12 +249,12 @@ namespace CapstoneProject_3
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = @"UPDATE tblVendor SET status = 'Disabled' WHERE userID = @uid";
+                    command.CommandText = @"UPDATE tblVendor SET status = 'Disabled' WHERE vendorID = @uid";
                     command.Parameters.AddWithValue("@uid", int.Parse(dataGridView.CurrentRow.Cells["vid"].Value.ToString()));
                     command.ExecuteNonQuery();
                 }
                 log.loadUserID(main.lblUser.Text);
-                log.insertAction("Disable Vendor", "Disabled Vendor: " + this.dataGridViewInactive.CurrentRow.Cells[2].Value.ToString(), "Account Module");
+                log.insertAction("Disable Vendor", "Disabled Vendor: " + this.dataGridViewInactive.SelectedRows[0].Cells[2].Value.ToString(), "Account Module");
 
                 toast.showToastNotif(new ToastNotification("Vendor Disabled Successfully.", Color.FromArgb(21, 101, 192), FontAwesome.Sharp.IconChar.CheckCircle), tabVendorList);
 
